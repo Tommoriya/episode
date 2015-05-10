@@ -1,0 +1,55 @@
+%WinTpicVersion4.30a
+{\unitlength 0.1in%
+\begin{picture}( 38.7200, 22.4000)(  2.8800,-25.6800)%
+% STR 2 0 3 0 Black White
+% 4 952 2398 952 2408 4 800 0 0
+% O
+\put(9.5200,-24.0800){\makebox(0,0)[rt]{O}}%
+% STR 2 0 3 0 Black White
+% 4 928 318 928 328 4 0 0 0
+% $(S(t)-K)^+$
+\put(9.2800,-3.2800){\makebox(0,0)[rt]{$(S(t)-K)^+$}}%
+% STR 2 0 3 0 Black White
+% 4 4160 2422 4160 2432 4 0 0 0
+% $S(t)$
+\put(41.6000,-24.3200){\makebox(0,0)[rt]{$S(t)$}}%
+% VECTOR 2 0 3 0 Black White
+% 2 960 2568 960 328
+% 
+\special{pn 8}%
+\special{pa 960 2568}%
+\special{pa 960 328}%
+\special{fp}%
+\special{sh 1}%
+\special{pa 960 328}%
+\special{pa 940 395}%
+\special{pa 960 381}%
+\special{pa 980 395}%
+\special{pa 960 328}%
+\special{fp}%
+% VECTOR 2 0 3 0 Black White
+% 2 800 2400 4160 2400
+% 
+\special{pn 8}%
+\special{pa 800 2400}%
+\special{pa 4160 2400}%
+\special{fp}%
+\special{sh 1}%
+\special{pa 4160 2400}%
+\special{pa 4093 2380}%
+\special{pa 4107 2400}%
+\special{pa 4093 2420}%
+\special{pa 4160 2400}%
+\special{fp}%
+% FUNC 2 0 3 0 Black White
+% 10 800 328 4160 2568 960 2400 1120 2400 960 2240 800 328 4160 2568 50 4 0 2 1 0
+% t///t-10///10///20
+\special{pn 8}%
+\special{pa 2560 2400}%
+\special{pa 4160 800}%
+\special{fp}%
+% STR 2 0 3 0 Black White
+% 4 2560 2480 2560 2560 5 0 0 0
+% $K$
+\put(25.6000,-25.6000){\makebox(0,0){$K$}}%
+\end{picture}}%

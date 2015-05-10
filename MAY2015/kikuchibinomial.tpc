@@ -1,0 +1,48 @@
+%WinTpicVersion4.30a
+{\unitlength 0.1in%
+\begin{picture}( 12.6000, 12.6500)(  8.5000,-22.0000)%
+% STR 2 0 3 0 Black White
+% 4 1000 1700 1000 1800 5 0 0 0
+% $100$
+\put(10.0000,-18.0000){\makebox(0,0){$100$}}%
+% VECTOR 2 0 3 0 Black White
+% 4 1200 1800 2000 1400 1200 1800 2000 2200
+% 
+\special{pn 8}%
+\special{pa 1200 1800}%
+\special{pa 2000 1400}%
+\special{fp}%
+\special{sh 1}%
+\special{pa 2000 1400}%
+\special{pa 1931 1412}%
+\special{pa 1952 1424}%
+\special{pa 1949 1448}%
+\special{pa 2000 1400}%
+\special{fp}%
+\special{pa 1200 1800}%
+\special{pa 2000 2200}%
+\special{fp}%
+\special{sh 1}%
+\special{pa 2000 2200}%
+\special{pa 1949 2152}%
+\special{pa 1952 2176}%
+\special{pa 1931 2188}%
+\special{pa 2000 2200}%
+\special{fp}%
+% STR 2 0 3 0 Black White
+% 4 2200 2100 2200 2200 5 0 0 0
+% $50$
+\put(22.0000,-22.0000){\makebox(0,0){$50$}}%
+% STR 2 0 3 0 Black White
+% 4 2200 1300 2200 1400 5 0 0 0
+% 200
+\put(22.0000,-14.0000){\makebox(0,0){200}}%
+% STR 2 0 3 0 Black White
+% 4 2200 900 2200 1000 5 0 0 0
+% $t=1$
+\put(22.0000,-10.0000){\makebox(0,0){$t=1$}}%
+% STR 2 0 3 0 Black White
+% 4 1000 900 1000 1000 5 0 0 0
+% $t=0$
+\put(10.0000,-10.0000){\makebox(0,0){$t=0$}}%
+\end{picture}}%
