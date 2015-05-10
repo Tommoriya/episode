@@ -38,15 +38,15 @@ $X \xrightarrow{f} Y \xrightarrow{g} Z \xrightarrow{h} W$のとき，$h \circ (g
 %\end{defi} \proofend
 
 \begin{ex}
-集合の圏$\mathbf{Sets}$．対象は任意の集合であり，$X,Y \in \mathbf{Sets}$ に対し$\mathrm{Hom}_\mathbf{Sets}(X,Y)$はXからYへの写像全体，合成は通常の写像の合成である．
+集合の圏$\mathbf{Sets}$．対象は任意の集合であり，$X,Y \in \mathbf{Sets}$ に対し$\mathrm{Hom}_\mathbf{Sets}(X,Y)$は$X$から$Y$への写像全体，合成は通常の写像の合成である．
 \end{ex} \proofend
 
 \begin{ex}
-アーベル群の圏$\mathbf{Ab}$．対象は任意のアーベル群であり，$X,Y \in \mathbf{Ab}$ に対し$\mathrm{Hom}_\mathbf{Ab}(X,Y)$はXからYへの準同型写像全体，合成は通常の写像の合成である．
+アーベル群の圏$\mathbf{Ab}$．対象は任意のアーベル群であり，$X,Y \in \mathbf{Ab}$ に対し$\mathrm{Hom}_\mathbf{Ab}(X,Y)$は$X$から$Y$への準同型写像全体，合成は通常の写像の合成である．
 \end{ex} \proofend
 
 \begin{ex}
-位相空間の圏$\mathbf{Top}$．対象は任意の位相空間であり，$X,Y \in \mathbf{Ab}$ に対し$\mathrm{Hom}_\mathbf{Top}(X,Y)$はXからYへの連続写像全体，合成は通常の写像の合成である．
+位相空間の圏$\mathbf{Top}$．対象は任意の位相空間であり，$X,Y \in \mathbf{Ab}$ に対し$\mathrm{Hom}_\mathbf{Top}(X,Y)$は$X$から$Y$への連続写像全体，合成は通常の写像の合成である．
 \end{ex} \proofend
 
 \begin{ex}
@@ -109,7 +109,7 @@ $\mathbf{Sets}$において，空集合$\emptyset$は始対象で，任意の一
 \begin{defi}
 $\mathcal{C}$を圏，$A,B\in \mathcal{C}$とする．$A,B$の{\bf 直積}(product)とは対象$A \times B$であり，射$\pi_A : A \times B \to A , 
 \pi_B : A \times B \to B$が存在し，任意の$X \in \mathcal{C}, f_A : X \to A , f_B: X \to B$に対し $f_A = \pi_A \circ f , f_B = \pi_B \circ f$
-を満たす$f : X\ to A \times B$が一意的に存在するようなものをいう（このような性質を直積の普遍性という）．$A \prod B$とも書く．\\
+を満たす$f : X\to A \times B$が一意的に存在するようなものをいう（このような性質を直積の普遍性という）．$A \prod B$とも書く．\\
 \[
 \xymatrix{
 	& \ar[dl]_{f_A} X  \ar@{-->}[d]^{f}  \ar[dr]^{f_B}	& \\
@@ -173,7 +173,7 @@ $\mathcal{C},\mathcal{D}$を圏．$F,G$を$\mathcal{C}$から$\mathcal{D}$への
 加法圏のモデルは加法群の圏$\mathbf{Ab}$である．$\mathbf{Ab}$は実際Hom集合はアーベル群となり，ゼロ対象$0 = {e}$を持ち，
 アーベル群$G_1,G_2$に対して直積$G_1 \times G_2 $が存在するので，加法圏である．\\
 加法圏$\mathcal{A}$において，対象$X$から$0$，$0$から$X$への唯一の射を同じ記号$0_X$で表す．に対し
-$0_ : X \to Y$を$0_{XY} = 0_Y \circ 0_X$とする．$\mathcal{A}$は加法圏より,$\mathrm{Hom}_\mathcal{A}(X,Y)$はアーベル群をなすが，その単位元は$0_XY$であることが容易に確かめられる． また，$f:W \to X , g:Y\to Z$ に対し$0_{XY} \circ f = 0_{WY} ，
+$0 : X \to Y$を$0_{XY} = 0_Y \circ 0_X$とする．$\mathcal{A}$は加法圏より,$\mathrm{Hom}_\mathcal{A}(X,Y)$はアーベル群をなすが，その単位元は$0_XY$であることが容易に確かめられる． また，$f:W \to X , g:Y\to Z$ に対し$0_{XY} \circ f = 0_{WY} ，
 g \circ 0_{XY} = 0_{XZ}$ もわかる．以下，$0_{XY}$などを単に0と書く．
 \[
 \xymatrix{
@@ -197,7 +197,7 @@ $\mathrm{id}_X : X \to X, 0 :Y \to X$に対し，直積$X \times Y$の普遍性�
 X 	& \ar[l]^{\pi_X} X \times Y \ar[r]_{\pi_Y} 	& Y 
 }
 \]
-同様にして，$0: Y \to X, 0 \mathrm{id}_Y:Y \to Y$に対し，直積$X \times Y$の普遍性を用いると，
+同様にして，$0: Y \to X, \mathrm{id}_Y:Y \to Y$に対し，直積$X \times Y$の普遍性を用いると，
 \[
 \pi_X \circ \iota_Y = 0\;\;\;\;\;\pi_Y \circ \iota_Y = \mathrm{id}_Y
 \]
