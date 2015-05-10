@@ -33,7 +33,7 @@
 \contentsline {chapter}{パズルのコーナー（SP1）}{48}
 \contentsline {section}{スリザーリンク}{48}
 \contentsline {section}{カックロ}{49}
-\contentsline {chapter}{Counterexamples in Topology 傑作撰}{50}
+\contentsline {chapter}{Counterexamples in Topology 傑作撰（宮本）}{50}
 \contentsline {section}{\S 1.概説}{50}
 \contentsline {section}{\S 2.分離公理に関する反例}{50}
 \contentsline {section}{\S 3.コンパクト性に関する反例}{52}

@@ -1,7 +1,21 @@
-This is pTeX, Version 3.141592-p3.1.10 (utf8.euc) (Web2C 7.5.4) (format=platex 2011.12.20)  10 MAY 2015 16:21
+This is e-pTeX, Version 3.1415926-p3.3-110825-2.4 (utf8.euc) (TeX Live 2012) (format=platex 2012.6.30)  11 MAY 2015 02:31
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
 **main.tex
 (./main.tex
-pLaTeX2e <2006/11/10>+0 (based on LaTeX2e <2003/12/01> patch level 0)
+pLaTeX2e <2006/11/10> (based on LaTeX2e <2011/06/27> patch level 0)
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman-x-2012-05-30, ngerman-x-2012-05-30, afrikaans, ancientgreek, ibycus, arabi
+c, armenian, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danis
+h, dutch, ukenglish, usenglishmax, esperanto, estonian, ethiopic, farsi, finnis
+h, french, friulan, galician, german, ngerman, swissgerman, monogreek, greek, h
+ungarian, icelandic, assamese, bengali, gujarati, hindi, kannada, malayalam, ma
+rathi, oriya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, 
+kurmanji, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk,
+ polish, portuguese, romanian, romansh, russian, sanskrit, serbian, serbianc, s
+lovak, slovenian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, 
+welsh, loaded.
 (./kyouritu.cls
 Document Class: kyouritu 2009/12/08
 \@@tiny=\dimen118
@@ -154,34 +168,35 @@ LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
 \dmath@height=\dimen157
 \dmath@height@vshift=\dimen158
 \dmath@cunt=\count90
-) (/opt/local/share/texmf-dist/tex/latex/graphics/graphicx.sty
+) (/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/opt/local/share/texmf-dist/tex/latex/graphics/keyval.sty
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks15
 )
-(/opt/local/share/texmf/tex/latex/graphics/dvipdfmx-contrib-latex/graphics.sty
-Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(/opt/local/share/texmf-dist/tex/latex/graphics/trig.sty
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/opt/local/share/texmf-dist/tex/latex/graphics/graphics.cfg
-File: graphics.cfg 2005/02/03 v1.3 graphics configuration of teTeX/TeXLive
+(/usr/local/texlive/2012/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: dvipdfmx.def on input line 81.
+Package graphics Info: Driver file: dvipdfmx.def on input line 91.
 
-(/opt/local/share/texmf/tex/latex/graphics/dvipdfmx-contrib-latex/dvipdfmx.def
+(/usr/local/texlive/2012/texmf-dist/tex/latex/dvipdfmx-def/dvipdfmx.def
 File: dvipdfmx.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
 ))
 \Gin@req@height=\dimen159
 \Gin@req@width=\dimen160
-) (/opt/local/share/texmf-dist/tex/latex/base/makeidx.sty
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/makeidx.sty
 Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
 )
-(/opt/local/share/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2004/02/14 v1.6e multicolumn formatting (FMi)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
 \c@tracingmulticols=\count91
 \mult@box=\box41
 \multicol@leftmargin=\dimen161
@@ -226,34 +241,35 @@ Package: multicol 2004/02/14 v1.6e multicolumn formatting (FMi)
 \multicolundershoot=\dimen168
 \mult@nat@firstbox=\box65
 \colbreak@box=\box66
+\multicol@sort@counter=\count99
 )
-(/opt/local/share/texmf-dist/tex/latex/amsmath/amsmath.sty
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip45
 
 For additional information on amsmath, use the `?' option.
-(/opt/local/share/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01
 
-(/opt/local/share/texmf-dist/tex/latex/amsmath/amsgen.sty
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks16
 \ex@=\dimen169
 ))
-(/opt/local/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen170
 )
-(/opt/local/share/texmf-dist/tex/latex/amsmath/amsopn.sty
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count99
+\inf@bad=\count100
 LaTeX Info: Redefining \frac on input line 211.
-\uproot@=\count100
-\leftroot@=\count101
+\uproot@=\count101
+\leftroot@=\count102
 LaTeX Info: Redefining \overline on input line 307.
-\classnum@=\count102
-\DOTSCASE@=\count103
+\classnum@=\count103
+\DOTSCASE@=\count104
 LaTeX Info: Redefining \ldots on input line 379.
 LaTeX Info: Redefining \dots on input line 382.
 LaTeX Info: Redefining \cdots on input line 467.
@@ -262,15 +278,15 @@ LaTeX Info: Redefining \cdots on input line 467.
 \big@size=\dimen171
 LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
-\macc@depth=\count104
-\c@MaxMatrixCols=\count105
+\macc@depth=\count105
+\c@MaxMatrixCols=\count106
 \dotsspace@=\muskip10
-\c@parentequation=\count106
-\dspbrk@lvl=\count107
+\c@parentequation=\count107
+\dspbrk@lvl=\count108
 \tag@help=\toks17
-\row@=\count108
-\column@=\count109
-\maxfields@=\count110
+\row@=\count109
+\column@=\count110
+\maxfields@=\count111
 \andhelp@=\toks18
 \eqnshift@=\dimen172
 \alignsep@=\dimen173
@@ -285,18 +301,18 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
-(/opt/local/share/texmf-dist/tex/latex/amsfonts/amssymb.sty
-Package: amssymb 2002/01/22 v2.2d
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2009/06/22 v3.00
 
-(/opt/local/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-Package: amsfonts 2001/10/25 v2.2f
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 \symAMSa=\mathgroup5
 \symAMSb=\mathgroup6
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 132.
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 ))
-(/opt/local/share/texmf-dist/tex/latex/amscls/amsthm.sty
-Package: amsthm 2004/08/06 v2.20
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2009/07/02 v2.20.1
 \thm@style=\toks21
 \thm@bodyfont=\toks22
 \thm@headfont=\toks23
@@ -307,8 +323,8 @@ Package: amsthm 2004/08/06 v2.20
 \thm@headsep=\skip50
 \dth@everypar=\toks26
 )
-(/opt/local/share/texmf/ptex/platex/base/ascmac.sty
-(/opt/local/share/texmf/ptex/platex/base/tascmac.sty
+(/usr/local/texlive/2012/texmf-dist/tex/platex/base/ascmac.sty
+(/usr/local/texlive/2012/texmf-dist/tex/platex/base/tascmac.sty
 \@savetbaselineshift=\dimen178
 \@saveybaselineshift=\dimen179
 \scb@x=\box69
@@ -322,24 +338,25 @@ Package: amsthm 2004/08/06 v2.20
 \@iboxstr=\box73
 \@bwsp=\box74
 \@@bwsp=\box75
-\@bcal=\count111
+\@bcal=\count112
 \shaderule=\dimen183
 ))
-(/opt/local/share/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+(/usr/local/texlive/2012/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 \wrapoverhang=\dimen184
 \WF@size=\dimen185
-\c@WF@wrappedlines=\count112
+\c@WF@wrappedlines=\count113
 \WF@box=\box76
 \WF@everypar=\toks28
 Package: wrapfig 2003/01/31  v 3.6
 )
-(/opt/local/share/texmf-dist/tex/generic/xypic/xy.sty
-(/opt/local/share/texmf-dist/tex/generic/xypic/xy.tex Bootstrap'ing: catcodes,
-docmode, (/opt/local/share/texmf-dist/tex/generic/xypic/xyrecat.tex)
-(/opt/local/share/texmf-dist/tex/generic/xypic/xyidioms.tex)
+(/usr/local/texlive/2012/texmf-dist/tex/generic/xypic/xy.sty
+(/usr/local/texlive/2012/texmf-dist/tex/generic/xypic/xy.tex Bootstrap'ing:
+catcodes, docmode,
+(/usr/local/texlive/2012/texmf-dist/tex/generic/xypic/xyrecat.tex)
+(/usr/local/texlive/2012/texmf-dist/tex/generic/xypic/xyidioms.tex)
 
- Xy-pic version 3.7 <1999/02/16>
- Copyright (c) 1991-1998 by Kristoffer H. Rose <krisrose@ens-lyon.fr>
+ Xy-pic version 3.8.8 <2012/05/24>
+ Copyright (c) 1991-2011 by Kristoffer H. Rose <krisrose@tug.org>
  Xy-pic is free software: see the User's Guide for details.
 
 Loading kernel: messages; fonts; allocations: state,
@@ -373,14 +390,14 @@ Loading kernel: messages; fonts; allocations: state,
  direction,
 \d@X=\dimen209
 \d@Y=\dimen210
-\K@=\count113
-\KK@=\count114
-\Direction=\count115
+\K@=\count114
+\KK@=\count115
+\Direction=\count116
 \K@dXdY=\dimen211
 \K@dYdX=\dimen212
 \xyread@=\read1
 \xywrite@=\write3
-\csp@=\count116
+\csp@=\count117
 \quotPTK@=\dimen213
 
 utility macros; pictures: \xy, positions,
@@ -391,13 +408,17 @@ utility macros; pictures: \xy, positions,
  decorations;
 kernel objects: directionals, circles, text; options; algorithms: directions,
 edges, connections;  Xy-pic loaded)
-Package: xy 1999/02/16 Xy-pic version 3.7
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is not detected.
+)
+Package: xy 2012/05/24 Xy-pic version 3.8.8
 
-(/opt/local/share/texmf-dist/tex/generic/xypic/xyall.tex
- Xy-pic option: All features v.3.3
-(/opt/local/share/texmf-dist/tex/generic/xypic/xycurve.tex
- Xy-pic option: Curve and Spline extension v.3.7 curve,
-\crv@cnt@=\count117
+(/usr/local/texlive/2012/texmf-dist/tex/generic/xypic/xyall.tex
+ Xy-pic option: All features v.3.8
+(/usr/local/texlive/2012/texmf-dist/tex/generic/xypic/xycurve.tex
+ Xy-pic option: Curve and Spline extension v.3.12 curve,
+\crv@cnt@=\count118
 \crvpts@=\toks33
 \splinebox@=\box80
 \splineval@=\dimen214
@@ -407,45 +428,53 @@ Package: xy 1999/02/16 Xy-pic version 3.7
  circles,
 \L@=\dimen218
  loaded)
-(/opt/local/share/texmf-dist/tex/generic/xypic/xyframe.tex
- Xy-pic option: Frame and Bracket extension v.3.7 loaded)
-(/opt/local/share/texmf-dist/tex/generic/xypic/xycmtip.tex
- Xy-pic option: Computer Modern tip extension v.3.3
-(/opt/local/share/texmf-dist/tex/generic/xypic/xytips.tex
- Xy-pic option: More Tips extension v.3.3 loaded) loaded)
-(/opt/local/share/texmf-dist/tex/generic/xypic/xyline.tex
- Xy-pic option: Line styles extension v.3.6
+(/usr/local/texlive/2012/texmf-dist/tex/generic/xypic/xyframe.tex
+ Xy-pic option: Frame and Bracket extension v.3.14 loaded)
+(/usr/local/texlive/2012/texmf-dist/tex/generic/xypic/xycmtip.tex
+ Xy-pic option: Computer Modern tip extension v.3.7
+(/usr/local/texlive/2012/texmf-dist/tex/generic/xypic/xytips.tex
+ Xy-pic option: More Tips extension v.3.9 loaded) loaded)
+(/usr/local/texlive/2012/texmf-dist/tex/generic/xypic/xyline.tex
+ Xy-pic option: Line styles extension v.3.10
 \xylinethick@=\dimen219
  loaded)
-(/opt/local/share/texmf-dist/tex/generic/xypic/xyrotate.tex
- Xy-pic option: Rotate and Scale extension v.3.3 loaded)
-(/opt/local/share/texmf-dist/tex/generic/xypic/xycolor.tex
- Xy-pic option: Colour extension v.3.3 loaded)
-(/opt/local/share/texmf-dist/tex/generic/xypic/xymatrix.tex
- Xy-pic option: Matrix feature v.3.4
-\Row=\count118
-\Col=\count119
+(/usr/local/texlive/2012/texmf-dist/tex/generic/xypic/xyrotate.tex
+ Xy-pic option: Rotate and Scale extension v.3.8 loaded)
+(/usr/local/texlive/2012/texmf-dist/tex/generic/xypic/xycolor.tex
+ Xy-pic option: Colour extension v.3.11 loaded)
+(/usr/local/texlive/2012/texmf-dist/tex/generic/xypic/xymatrix.tex
+ Xy-pic option: Matrix feature v.3.14
+\Row=\count119
+\Col=\count120
 \queue@=\toks34
 \queue@@=\toks35
-\qcount@=\count120
-\qcount@@=\count121
-\matrixsize@=\count122
+\qcount@=\count121
+\qcount@@=\count122
+\matrixsize@=\count123
  loaded)
-(/opt/local/share/texmf-dist/tex/generic/xypic/xyarrow.tex
- Xy-pic option: Arrow and Path feature v.3.5 path, \ar, loaded)
-(/opt/local/share/texmf-dist/tex/generic/xypic/xygraph.tex
- Xy-pic option: Graph feature v.3.7 loaded) loaded))
-(/opt/local/share/texmf-dist/tex/latex/jknappen/mathrsfs.sty
+(/usr/local/texlive/2012/texmf-dist/tex/generic/xypic/xyarrow.tex
+ Xy-pic option: Arrow and Path feature v.3.9 path, \ar, loaded)
+(/usr/local/texlive/2012/texmf-dist/tex/generic/xypic/xygraph.tex
+ Xy-pic option: Graph feature v.3.11 loaded) loaded))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup7
 )
-\c@theorem=\count123
-\c@defi=\count124
-\c@defn=\count125
-\c@rem=\count126
-\c@prf=\count127
+\c@theorem=\count124
+\c@defi=\count125
+\c@defn=\count126
+\c@rem=\count127
+\c@prf=\count128
 
-(/opt/local/share/texmf-dist/tex/latex/here/here.sty) (./main.aux)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/here/here.sty)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count129
+\float@exts=\toks36
+\float@box=\box81
+\@float@everytoks=\toks37
+\@floatcapt=\box82
+) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 104.
@@ -504,23 +533,17 @@ LaTeX Font Info:    Font shape `OMS/cmsy/m/n' will be
 (Font)              scaled to size 4.88248pt on input line 106.
 LaTeX Font Info:    Try loading font information for U+msa on input line 106.
 
-(/opt/local/share/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2002/01/19 v2.2g AMS font definitions
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-
-LaTeX Font Warning: Font shape `U/msa/m/n' in size <6.47296> not available
-(Font)              size <6> substituted on input line 106.
-
 LaTeX Font Info:    Try loading font information for U+msb on input line 106.
-(/opt/local/share/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2002/01/19 v2.2g AMS font definitions
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-
-LaTeX Font Warning: Font shape `U/msb/m/n' in size <6.47296> not available
-(Font)              size <6> substituted on input line 106.
-
 LaTeX Font Info:    Try loading font information for U+rsfs on input line 106.
-(/opt/local/share/texmf-dist/tex/latex/jknappen/ursfs.fd
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 
@@ -535,23 +558,18 @@ Missing character: There is no ^^a0 in font cmr10!
 
 
 
-] (./main.toc
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 3.
-
-(/opt/local/share/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9.24713> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3.
-LaTeX Font Info:    Font shape `OMS/cmsy/m/n' will be
-(Font)              scaled to size 9.76495pt on input line 3.
- [2
-
-])
+] (./main.toc)
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [3] (./yamamoto.tex
+ [2
+
+] (./yamamoto.tex
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 11.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
 LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <14.22636> not available
 (Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 11.
 LaTeX Font Info:    Font shape `OMS/cmsy/b/n' will be
@@ -572,10 +590,16 @@ LaTeX Font Info:    Font shape `OMS/cmsy/m/n' will be
 (Font)              scaled to size 7.36124pt on input line 12.
 LaTeX Font Info:    Font shape `OMS/cmsy/m/n' will be
 (Font)              scaled to size 5.25804pt on input line 12.
-[1
+ [1
 
 
-] [2] [3] [4] [5] [6] [7] [8] [9] [10]) (./kikuchi.tex [11]
+] [2] [3]
+[4]
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9.24713> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 101.
+LaTeX Font Info:    Font shape `OMS/cmsy/m/n' will be
+(Font)              scaled to size 9.76495pt on input line 101.
+ [5] [6] [7] [8] [9] [10]) (./kikuchi.tex [11]
 LaTeX Font Info:    Font shape `JT1/mrml/m/n' will be
 (Font)              scaled to size 6.72708pt on input line 13.
 LaTeX Font Info:    Font shape `JY1/mrml/m/n' will be
@@ -612,8 +636,8 @@ LaTeX Font Info:    Font shape `JY1/mrml/bx/n' will be
 (Font)              scaled to size 9.61017pt on input line 38.
  [12
 
-]
-(./kikuchicall.tpc) (./kikuchibinomial.tpc) [13]
+] (./kikuchicall.tpc)
+(./kikuchibinomial.tpc) [13]
 Overfull \hbox (15.25499pt too wide) in paragraph at lines 119--152
  [] 
  []
@@ -647,7 +671,12 @@ LaTeX Font Info:    Font shape `JY1/mrml/bx/n' will be
 (Font)              scaled to size 7.39244pt on input line 60.
 LaTeX Font Info:    Font shape `OT1/cmr/bx/n' will be
 (Font)              scaled to size 7.5115pt on input line 60.
- [21] [22] [23] [24] [25]) (./zetamura.tex
+ [21] [22]
+LaTeX Font Info:    Font shape `OT1/cmr/bx/n' will be
+(Font)              scaled to size 6.83543pt on input line 145.
+LaTeX Font Info:    Font shape `OT1/cmr/bx/n' will be
+(Font)              scaled to size 4.88248pt on input line 145.
+ [23] [24] [25]) (./zetamura.tex
 [26]
 
 LaTeX Warning: Citation `Riemann' on page 27 undefined on input line 9.
@@ -655,8 +684,33 @@ LaTeX Warning: Citation `Riemann' on page 27 undefined on input line 9.
 [27
 
 ]
-File: zetamura1.pdf Graphic file (type eps)
- <zetamura1.pdf>
+runsystem(extractbb zetamura1.pdf)...disabled (restricted).
+
+
+
+! LaTeX Error: File `zetamura1.xbb' not found. Use -shell-escape option to gene
+rate automatically.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.47 \includegraphics[width=50mm]{zetamura1.pdf}
+                                                
+? 
+
+! LaTeX Error: Cannot determine size of graphic in zetamura1.xbb (no BoundingBo
+x).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.47 \includegraphics[width=50mm]{zetamura1.pdf}
+                                                
+? 
+File: zetamura1.pdf Graphic file (type pdf)
+<zetamura1.pdf>
 LaTeX Font Info:    Font shape `OT1/cmr/m/n' will be
 (Font)              scaled to size 10.51607pt on input line 64.
 LaTeX Font Info:    Font shape `OML/cmm/m/it' will be
@@ -671,14 +725,81 @@ LaTeX Font Info:    Font shape `OMS/cmsy/m/n' will be
 (Font)              scaled to size 10.51607pt on input line 64.
 LaTeX Font Info:    Font shape `OMS/cmsy/m/n' will be
 (Font)              scaled to size 7.5115pt on input line 64.
-File: zetamura2.pdf Graphic file (type eps)
- <zetamura2.pdf> [28]
-Overfull \hbox (8.87599pt too wide) in alignment at lines 111--115
+LaTeX Font Info:    Font shape `OT1/cmr/bx/n' will be
+(Font)              scaled to size 10.51607pt on input line 64.
+runsystem(extractbb zetamura2.pdf)...disabled (restricted).
+
+
+
+! LaTeX Error: File `zetamura2.xbb' not found. Use -shell-escape option to gene
+rate automatically.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.85 \includegraphics[width=50mm]{zetamura2.pdf}
+                                                
+? 
+
+! LaTeX Error: Cannot determine size of graphic in zetamura2.xbb (no BoundingBo
+x).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.85 \includegraphics[width=50mm]{zetamura2.pdf}
+                                                
+? 
+File: zetamura2.pdf Graphic file (type pdf)
+<zetamura2.pdf> [28]
+Overfull \hbox (10.47047pt too wide) in alignment at lines 111--115
  [][][] []
  []
 
-File: zetamura3.pdf Graphic file (type eps)
-<zetamura3.pdf> [29] [30]
+
+LaTeX Warning: Reference `eq:1' on page 29 undefined on input line 116.
+
+runsystem(extractbb zetamura3.pdf)...disabled (restricted).
+
+
+! LaTeX Error: File `zetamura3.xbb' not found. Use -shell-escape option to gene
+rate automatically.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.134 \includegraphics[width=50mm]{zetamura3.pdf}
+                                                 
+? 
+
+! LaTeX Error: Cannot determine size of graphic in zetamura3.xbb (no BoundingBo
+x).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.134 \includegraphics[width=50mm]{zetamura3.pdf}
+                                                 
+? 
+File: zetamura3.pdf Graphic file (type pdf)
+<zetamura3.pdf> [29]
+
+LaTeX Warning: Reference `eq:3' on page 30 undefined on input line 137.
+
+
+LaTeX Warning: Reference `eq:3' on page 30 undefined on input line 152.
+
+
+LaTeX Warning: Reference `eq:2' on page 30 undefined on input line 156.
+
+
+LaTeX Warning: Reference `eq:4' on page 30 undefined on input line 170.
+
+[30]
 
 LaTeX Font Warning: Font shape `JT1/mrml/m/it' undefined
 (Font)              using `JT1/mrml/m/n' instead on input line 207.
@@ -693,24 +814,15 @@ LaTeX Font Info:    Font shape `JT1/mrml/m/it' will be
 (Font)              scaled to size 9.61017pt on input line 207.
 LaTeX Font Info:    Font shape `JY1/mrml/m/it' will be
 (Font)              scaled to size 9.61017pt on input line 207.
-) (./abelian_cat.tex [31]
-Overfull \hbox (0.24294pt too wide) in paragraph at lines 14--18
-[]\JY1/mrml/m/it/9.24713 任意の対象 $\OML/cmm/m/it/9.24713 X; Y$ \JY1/mrml/m/it
-/9.24713 に対し $\OML/cmm/m/it/9.24713 X$ \JY1/mrml/bx/n/9.24713 から $\OML/cmm
-/m/it/9.24713 Y$ \JY1/mrml/bx/n/9.24713 への射 \OT1/cmr/m/n/9.24713 (ar-row, mo
-r-phism) \JY1/mrml/m/it/9.24713 の集合が存在する ． $[][]\OT1/cmr/m/n/9.24713 (
-\OML/cmm/m/it/9.24713 X; Y\OT1/cmr/m/n/9.24713 )$
- []
+) (./abelian_cat.tex [31] [32
 
-[32
-
-] [33] <xymatrix 3x2 231> <xymatrix 3x2 231> [34] <xymatrix 2x2 182>
-<xymatrix 4x2 249> <xymatrix 3x2 231> [35] <xymatrix 3x2 231> <xymatrix 3x2
-245> <xymatrix 3x2 227> [36] <xymatrix 3x2 182> <xymatrix 3x2 190> [37]
-<xymatrix 4x2 218> <xymatrix 3x2 145> <xymatrix 4x3 202> <xymatrix 2x2 223>
-[38] <xymatrix 3x3 358> <xymatrix 3x2 145> <xymatrix 3x3 229> <xymatrix 3x2
-272> [39] <xymatrix 3x2 145>
-Overfull \hbox (22.44798pt too wide) in paragraph at lines 401--404
+] [33] <xymatrix 3x2 231> <xymatrix 3x2 231>
+[34] <xymatrix 2x2 182> <xymatrix 4x2 249> <xymatrix 3x2 231> [35] <xymatrix
+3x2 231> <xymatrix 3x2 245> <xymatrix 3x2 227> [36] <xymatrix 3x2 182>
+<xymatrix 3x2 190> [37] <xymatrix 4x2 218> <xymatrix 3x2 145> <xymatrix 4x3
+202> <xymatrix 2x2 223> [38] <xymatrix 3x3 358> <xymatrix 3x2 145> <xymatrix
+3x3 229> <xymatrix 3x2 272> [39] <xymatrix 3x2 145>
+Overfull \hbox (4.61165pt too wide) in paragraph at lines 401--404
 $[]\OML/cmm/m/it/9.24713 ; []$ \JY1/mrml/m/it/9.24713 による分解によ って得られ
 た \OT1/cmr/m/n/9.24713 epi \JY1/mrml/m/it/9.24713 射 ， \OT1/cmr/m/n/9.24713 m
 ono \JY1/mrml/m/it/9.24713 射をそれぞれ $\OML/cmm/m/it/9.24713 e; m$ \JY1/mrml/
@@ -731,39 +843,43 @@ cal al-ge-bra",Cambridge Uni-ver-sity Press,1994
  []
 
 ) (./sp1.tex [47]
-File: sp1slitherlink1.png Graphic file (type bmp)
- <sp1slitherlink1.png>
-LaTeX Font Info:    Font shape `JT1/mgbm/m/n' will be
-(Font)              scaled to size 8.87093pt on input line 8.
-LaTeX Font Info:    Font shape `JY1/mgbm/m/n' will be
-(Font)              scaled to size 8.87093pt on input line 8.
-LaTeX Font Info:    Font shape `JT1/mgbm/bx/n' will be
-(Font)              scaled to size 8.87093pt on input line 8.
-LaTeX Font Info:    Font shape `JY1/mgbm/bx/n' will be
-(Font)              scaled to size 8.87093pt on input line 8.
 LaTeX Font Info:    Font shape `OT1/cmr/bx/n' will be
-(Font)              scaled to size 9.01381pt on input line 8.
+(Font)              scaled to size 8.26265pt on input line 3.
+LaTeX Font Info:    Font shape `OT1/cmr/bx/n' will be
+(Font)              scaled to size 7.43634pt on input line 3.
+LaTeX Font Info:    Font shape `OT1/cmr/bx/n' will be
+(Font)              scaled to size 7.0233pt on input line 3.
+
+
+LaTeX Warning: File `sp1slitherlink1.png' not found on input line 7.
+
+File: sp1slitherlink1.png Graphic file (type bmp)
+<sp1slitherlink1.png>
+LaTeX Font Info:    Font shape `OT1/cmr/bx/n' will be
+(Font)              scaled to size 7.36124pt on input line 9.
+LaTeX Font Info:    Font shape `OT1/cmr/bx/n' will be
+(Font)              scaled to size 5.25804pt on input line 9.
  [48
 
 ]
+
+LaTeX Warning: File `sp1kakkuro1.png' not found on input line 20.
+
 File: sp1kakkuro1.png Graphic file (type bmp)
- <sp1kakkuro1.png>) (./miyamoto.tex [49] [50
+<sp1kakkuro1.png>) (./miyamoto.tex [49] [50
 
 ] [51]
 LaTeX Font Info:    Try loading font information for U+euf on input line 57.
- (/opt/local/share/texmf-dist/tex/latex/amsfonts/ueuf.fd
-File: ueuf.fd 2002/01/19 v2.2g AMS font definitions
-)
 
-LaTeX Font Warning: Font shape `U/euf/m/n' in size <6.47296> not available
-(Font)              size <6> substituted on input line 57.
-
-[52]
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2009/06/22 v3.00 Euler Fraktur
+) [52]
 LaTeX Font Info:    Font shape `JT1/mrml/m/n' will be
 (Font)              scaled to size 4.80508pt on input line 81.
 LaTeX Font Info:    Font shape `JY1/mrml/m/n' will be
 (Font)              scaled to size 4.80508pt on input line 81.
- [53]) [54] (./atogaki.tex
+ [53])
+[54] (./atogaki.tex
 LaTeX Font Info:    Font shape `JT1/mrml/bx/n' will be
 (Font)              scaled to size 11.08867pt on input line 27.
 LaTeX Font Info:    Font shape `JY1/mrml/bx/n' will be
@@ -784,18 +900,10 @@ LaTeX Font Info:    Font shape `OMS/cmsy/m/n' will be
 (Font)              scaled to size 7.88704pt on input line 27.
 LaTeX Font Info:    Font shape `OMS/cmsy/m/n' will be
 (Font)              scaled to size 5.63364pt on input line 27.
-
-
-LaTeX Font Warning: Font shape `U/msa/m/n' in size <7.4688> not available
-(Font)              size <7> substituted on input line 27.
-
-
-LaTeX Font Warning: Font shape `U/msb/m/n' in size <7.4688> not available
-(Font)              size <7> substituted on input line 27.
-
-
-LaTeX Font Warning: Font shape `U/euf/m/n' in size <7.4688> not available
-(Font)              size <7> substituted on input line 27.
+LaTeX Font Info:    Font shape `OT1/cmr/bx/n' will be
+(Font)              scaled to size 7.88704pt on input line 27.
+LaTeX Font Info:    Font shape `OT1/cmr/bx/n' will be
+(Font)              scaled to size 5.63364pt on input line 27.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <7.4688> not available
@@ -818,14 +926,17 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 4800 strings out of 94682
- 59678 string characters out of 1177970
- 225130 words of memory out of 1500000
- 7952 multiletter control sequences out of 10000+50000
- 44809 words of font info for 192 fonts, out of 1200000 for 2000
- 566 hyphenation exceptions out of 8191
- 31i,17n,26p,917b,1000s stack positions out of 5000i,500n,6000p,200000b,5000s
+ 4889 strings out of 494059
+ 61673 string characters out of 3156205
+ 253293 words of memory out of 3000000
+ 8180 multiletter control sequences out of 15000+200000
+ 55795 words of font info for 235 fonts, out of 3000000 for 9000
+ 745 hyphenation exceptions out of 8191
+ 31i,17n,26p,917b,851s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on main.dvi (58 pages, 356592 bytes).
+Output written on main.dvi (57 pages, 333356 bytes).
