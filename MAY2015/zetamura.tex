@@ -63,7 +63,7 @@ $f(z)$が$D$内に1位の極$z=a_n\,(n=1,2,\ldots)$をもち, $\displaystyle{\li
 
 \Section{\S 2.$\zeta(s)$の解析接続}
 リーマンは$\zeta(s)$について,1以外の全ての複素数sについて成り立つ式を求めた.\\
-それは$Re(s)>1$をはみ出した領域での値を求めることであり
+それは$\operatorname{Re} s>1$をはみ出した領域での値を求めることであり
 \[
 \Pi(s-1)=\int_0^\infty e^{-x}x^{s-1}dx
 \]
@@ -125,7 +125,7 @@ $x$を$nx$に置き換えると
 \begin{align}
 \zeta(s)=-\frac{\Pi(-s)}{2\pi i}\int_{\infty}^{\infty} \frac{(-z)^{s-1}dz}{e^z-1}\label{eq:3}
 \end{align}
-となる.この式は複素平面上における$s=1$を除いて解析的な関数$\zeta(s)$を定義し, $Re(s)>1$において$\sum n^{-s}$と一致する.\\
+となる.この式は複素平面上における$s=1$を除いて解析的な関数$\zeta(s)$を定義し, $\operatorname{Re} s>1$において$\sum n^{-s}$と一致する.\\
 
 \Section{\S 3.関数等式}
 \begin{wrapfigure}[8]{r}{50mm}
@@ -185,7 +185,7 @@ $s=-n\,(n\in\mathbb{N})$のとき,式(\ref{eq:3})より
 
 \Section{\S 5.解析接続の意味}
 ゼータ関数を解析接続することで通常の和の意味では発散してしまう値を求めたわけでだが,これはどういう意味をもつのであろうか.\\
-実は,例えば$Re s>-3$なるすべての複素数に対して
+実は,例えば$\operatorname{Re} s>-3$なるすべての複素数に対して
 \[
 \zeta(s)=\lim_{N\to\infty}\left\{\sum_{n=1}^N n^{-s}-\left(\frac{1}{1-s}N^{1-s}+\frac{1}{2}N^{-s}-\frac{s}{12}N^{-s-1}\right)\right\}
 \]
