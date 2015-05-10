@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.1415926-p3.3-110825-2.4 (utf8.euc) (TeX Live 2012) (format=platex 2012.6.30)  11 MAY 2015 02:37
+This is e-pTeX, Version 3.1415926-p3.3-110825-2.4 (utf8.euc) (TeX Live 2012) (format=platex 2012.6.30)  11 MAY 2015 02:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -697,12 +697,6 @@ Type  H <return>  for immediate help.
                                                   
 l.47 \includegraphics[width=50mm]{zetamura1.pdf}
                                                 
-? ^^[[A
-Type <return> to proceed, S to scroll future error messages,
-R to run without stopping, Q to run quietly,
-I to insert something, E to edit your file,
-1 or ... or 9 to ignore the next 1 to 9 tokens of input,
-H for help, X to quit.
 ? 
 
 ! LaTeX Error: Cannot determine size of graphic in zetamura1.xbb (no BoundingBo
@@ -839,12 +833,8 @@ LaTeX Font Info:    Font shape `OT1/cmr/bx/n' will be
 (Font)              scaled to size 7.43634pt on input line 3.
 LaTeX Font Info:    Font shape `OT1/cmr/bx/n' will be
 (Font)              scaled to size 7.0233pt on input line 3.
-
-
-LaTeX Warning: File `sp1slitherlink1.png' not found on input line 7.
-
 File: sp1slitherlink1.png Graphic file (type bmp)
-<sp1slitherlink1.png>
+ <sp1slitherlink1.png>
 LaTeX Font Info:    Font shape `OT1/cmr/bx/n' will be
 (Font)              scaled to size 7.36124pt on input line 9.
 LaTeX Font Info:    Font shape `OT1/cmr/bx/n' will be
@@ -852,24 +842,19 @@ LaTeX Font Info:    Font shape `OT1/cmr/bx/n' will be
  [48
 
 ]
-
-LaTeX Warning: File `sp1kakkuro1.png' not found on input line 20.
-
 File: sp1kakkuro1.png Graphic file (type bmp)
-<sp1kakkuro1.png>) (./miyamoto.tex [49] [50
+ <sp1kakkuro1.png>) (./miyamoto.tex [49] [50
 
 ] [51]
 LaTeX Font Info:    Try loading font information for U+euf on input line 57.
-
-(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/ueuf.fd
+ (/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2009/06/22 v3.00 Euler Fraktur
 ) [52]
 LaTeX Font Info:    Font shape `JT1/mrml/m/n' will be
 (Font)              scaled to size 4.80508pt on input line 81.
 LaTeX Font Info:    Font shape `JY1/mrml/m/n' will be
 (Font)              scaled to size 4.80508pt on input line 81.
- [53])
-[54] (./atogaki.tex
+ [53]) [54] (./atogaki.tex
 LaTeX Font Info:    Font shape `JT1/mrml/bx/n' will be
 (Font)              scaled to size 11.08867pt on input line 27.
 LaTeX Font Info:    Font shape `JY1/mrml/bx/n' will be
