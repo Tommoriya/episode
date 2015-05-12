@@ -1,6 +1,6 @@
 \Chapter{ゼータ関数（田村）}
 %\Section{ゼータ関数（田村）}
-\Section{\S 0.はじめに}
+\Section{\S 0. はじめに}
 ますらぼには数学が好きな高校生も来るということで,なるべく高校生にもわかるよう書いてみた.正則性など細かい条件をごまかしているが,多項式や$e^x$などの高校で出てきた関数の組み合わせなら大体成り立つと思っておけばいい.興味のある人は複素解析の本を読んでみるといいと思う.\\
 さて,タイトルのゼータ関数とは
 \[
@@ -21,7 +21,7 @@
 \end{eqnarray*}
 中辺は明らかに発散する無限和である.それが有限の値になるというのは理解し難い.少しずつその謎を紐解いていこうと思う.
 
-\Section{\S 1.予備知識}
+\Section{\S 1. 予備知識}
 \Subsubsection{初等関数の複素数での値}
 オイラーの公式$e^{iz}=\cos z+i\sin z$を用いると
 \[
@@ -61,7 +61,7 @@ $f(z)$が$D$内に1位の極$z=a_n\,(n=1,2,\ldots)$をもち, $\displaystyle{\li
 \frac{1}{2\pi i}\int_{\partial D} f(z)dz = \sum_n b_n
 \end{eqnarray*}
 
-\Section{\S 2.$\zeta(s)$の解析接続}
+\Section{\S 2. $\zeta(s)$の解析接続}
 リーマンは$\zeta(s)$について,1以外の全ての複素数sについて成り立つ式を求めた.\\
 それは$\operatorname{Re} s>1$をはみ出した領域での値を求めることであり
 \[
@@ -89,7 +89,7 @@ $x$を$nx$に置き換えると
 \[
 \int_{\infty}^{\infty} \frac{(-z)^{s-1}dz}{e^z-1}
 \]
-積分経路は,実軸よりわずかに上を通って$\infty$から0へと向かい, 0の周りを回ったのち,実軸のわずかに下を通って0から$\infty$へと向かう.\\
+積分経路は,実軸よりわずかに上を通って$\infty$から0へと向かい, 0の周りを回ったのち,実軸のわずかに下を通って0から$\infty$へと向かうものとする.\\
 ただし, $(-z)^{s-1}=e^{(s-1)\log(-z)}$とし, $\log z$は主枝を選ぶ.\\
 
 この積分を
@@ -111,15 +111,15 @@ $x$を$nx$に置き換えると
 \begin{eqnarray*}
 \lim_{\epsilon \to 0}\left(\int_{\infty}^\epsilon \frac{(-z)^{s-1}dz}{e^z-1}+\int_\epsilon^{\infty} \frac{(-z)^{s-1}dz}{e^z-1}\right) &=& \lim_{\epsilon \to 0}\left(\int_{\infty}^\epsilon \frac{e^{(s-1)(\log z-i\pi)}dz}{e^z-1}+\int_\epsilon^{\infty} \frac{e^{(s-1)(\log z+i\pi)}dz}{e^z-1}\right)\\
 &=& (e^{-\pi si}-e^{\pi si}) \int_0^\infty \frac{z^{s-1}dz}{e^z-1}\\
-&=& -2i\sin{\pi s}\int_0^\infty \frac{z^{s-1}dz}{e^z-1}
+&=& -2i\sin{(\pi s)}\int_0^\infty \frac{z^{s-1}dz}{e^z-1}
 \end{eqnarray*}
 これを式(\ref{eq:1})と合わせれば次を得る.
 \[
--2i\sin{\pi s}\,\Pi(s-1)\zeta(s)=\int_\infty^\infty \frac{(-z)^{s-1}dz}{e^z-1}
+-2i\sin{(\pi s)}\,\Pi(s-1)\zeta(s)=\int_\infty^\infty \frac{(-z)^{s-1}dz}{e^z-1}
 \]
 右辺の積分は全てのsに対して収束し,正則である.\\
 \[
-\Pi(s-1)\Pi(-s)=\frac{\pi}{\sin{\pi s}}
+\Pi(s-1)\Pi(-s)=\frac{\pi}{\sin{(\pi s)}}
 \]
 を用いれば
 \begin{align}
@@ -127,7 +127,7 @@ $x$を$nx$に置き換えると
 \end{align}
 となる.この式は複素平面上における$s=1$を除いて解析的な関数$\zeta(s)$を定義し, $\operatorname{Re} s>1$において$\sum n^{-s}$と一致する.\\
 
-\Section{\S 3.関数等式}
+\Section{\S 3. 関数等式}
 \begin{wrapfigure}[8]{r}{50mm}
 \vspace{-2\baselineskip}
 \begin{center}
@@ -147,7 +147,7 @@ $x$を$nx$に置き換えると
 \end{eqnarray}
 が得られる.
 
-\Section{\S 4.$\zeta(s)$の値}
+\Section{\S 4. $\zeta(s)$の値}
 さて, $\zeta(s)$の値をいくつか求めてみよう.\\
 $s=-n\,(n\in\mathbb{N})$のとき,式(\ref{eq:3})より
 \[
@@ -183,7 +183,7 @@ $s=-n\,(n\in\mathbb{N})$のとき,式(\ref{eq:3})より
 \end{eqnarray*}
 等が求まるのである.
 
-\Section{\S 5.解析接続の意味}
+\Section{\S 5. 解析接続の意味}
 ゼータ関数を解析接続することで通常の和の意味では発散してしまう値を求めたわけでだが,これはどういう意味をもつのであろうか.\\
 実は,例えば$\operatorname{Re} s>-3$なるすべての複素数に対して
 \[
