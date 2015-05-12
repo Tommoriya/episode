@@ -88,7 +88,12 @@
 \usepackage{wrapfig}
 
 %sp1
-\usepackage{here}%Section等先頭を大文字にすると番号付けしない．
+\usepackage{here}%satoken
+\newtheorem{sprop}{命題}
+\newtheorem{slem}{補題}
+\newtheorem{sthm}{定理}
+
+%Section等先頭を大文字にすると番号付けしない．
 \newcommand{\Chapter}[1]{\chapter*{{\Huge #1}}
 \markboth{#1}{#1}
 \addcontentsline{toc}{chapter}{#1}}
@@ -112,6 +117,7 @@
 \input{zetamura}
 \input{abelian_cat}
 \input{sp1}
+\input{satoken}
 \input{miyamoto}
 
 
