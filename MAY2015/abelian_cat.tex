@@ -27,7 +27,7 @@ $X \xrightarrow{f} Y \xrightarrow{g} Z \xrightarrow{h} W$のとき，$h \circ (g
 \item
 任意の対象$X$に対し{\bf 恒等射}(identity morphism) $\mathrm{id}_X \in \mathrm{Hom}_\mathcal{C}(X,X)$が存在し，任意の$f:X \to Y , g:Z \to X$に対し
 \[
-	f \circ \mathrm{id}_X = f, 	\mathrm{id}_X \circ g = g,
+	f \circ \mathrm{id}_X = f, 	\mathrm{id}_X \circ g = g
 \]
 が成り立つ．
 \end{itemize}
@@ -50,30 +50,31 @@ $X \xrightarrow{f} Y \xrightarrow{g} Z \xrightarrow{h} W$のとき，$h \circ (g
 \end{ex} \proofend
 
 \begin{ex}
-任意の半順序集合$C$は以下のようにすると圏$\mathcal(C)$とみなせる．
+任意の半順序集合$C$は以下のようにすると圏$\mathcal{C}$とみなせる．
 
-$\mathrm{Ob}(\mathcal{C}) = C$とし，$x, y \in C$に対し $x \leq y$のとき$\mathrm{Hom}_\mathcal{C}$は一元集合，$x \nleq y$のときは
-$\mathrm{Hom}_\mathcal{C} = \emptyset$とする．このとき合成は推移律により定義でき，恒等射は反射律により存在する．
+$\mathrm{Ob}(\mathcal{C}) = C$とし，$x, y \in C$に対し $x \leq y$のとき$\mathrm{Hom}_\mathcal{C}(x,y)$は一元集合，$x \nleq y$のときは
+$\mathrm{Hom}_\mathcal{C}(x,y) = \emptyset$とする．このとき合成は推移律により定義でき，恒等射は反射律により存在する．
 
-逆に，圏$\mathcal{C}$，$\mathrm{Ob}(\mathcal{C})$が集合であり，$X,Y \in \mathcal{C}$ に対し $\mathrm{Hom}_\mathcal{C}(X,Y)$が1元以上持たないならば，$\mathrm{Ob}(\mathcal{C})$は$X \leq Y \stackrel{\mathrm{def.}}{\Leftrightarrow} \mathrm{Hom}_\mathcal{C} \neq\emptyset$ と定めることにより半順序集合となる．
+逆に，圏$\mathcal{C}$，$\mathrm{Ob}(\mathcal{C})$が集合であり，$X,Y \in \mathcal{C}$ に対し $\mathrm{Hom}_\mathcal{C}(X,Y)$が1元以上持たないならば，$\mathrm{Ob}(\mathcal{C})$は$X \leq Y \stackrel{\mathrm{def.}}{\Leftrightarrow} \mathrm{Hom}_\mathcal{C}(X,Y) \neq\emptyset$ と定めることにより前順序集合となる．
+これに加え，任意の対象はそれと同型な対象が自分自身しかないとき，半順序集合となる．
 \end{ex} \proofend
 
 \begin{ex}
 任意のモノイド$M$は，1つのみの対象$e$を持つ圏$\mathcal{C}$と見ることができる．
 実際$\mathrm{Ob}(\mathcal{C}) = {e},\mathrm{Hom}_{\mathcal{C}}(e,e) = M$とすると，$\mathcal{C}$は二項演算を合成として圏をなす．逆に1つのみの対象を持つ圏$\mathcal{C}$について，$\mathcal{C} = \{e\}$とすると$\mathrm{Hom}_{\mathcal{C}}(e,e)$は合成を二項演算としてモノイドになる．\\
-特に群$G$は上のようにしてモノイドとみなせる．
+特に群$G$はモノイドなので，上のようにして1元のみの圏とみなせる．
 \end{ex} \proofend
 
 \begin{defi}
 $\mathcal{C}，\mathcal{C'}$を圏とする．$\mathcal{C'}が\mathcal{C}$の{\bf 部分圏}(subcategory)であるとは，
 \begin{itemize}
 \item $\mathrm{Ob}(\mathcal{C'}) \subset \mathrm{Ob}(\mathcal{C})$
-\item 任意の$X,Y \in \mathcal{C'}$に対し $ \mathrm{Hom}(\mathcal{C'}) \subset \mathrm{Hom}(\mathcal{C})$
+\item 任意の$X,Y \in \mathcal{C'}$に対し $ \mathrm{Hom}(\mathcal{C'})(X,Y) \subset \mathrm{Hom}(\mathcal{C})(X,Y)$
 \item 任意の$X,Y, Z \in \mathcal{C'}, f:X \to Y , g:Y \to Z$ に対し，$g \circ f$が$\mathcal{C'}$と$\mathcal{C}$で一致する．
 \item 任意の$X \in \mathcal{C'}$に対し$X$の恒等射が$\mathcal{C'}$と$\mathcal{C}$で一致する．
 \end{itemize}
 をみたすことである．\\
-さらに$ \mathrm{Hom}(\mathcal{C'}) = \mathrm{Hom}(\mathcal{C})$を満たすとき，$\mathcal{C'}$は$\mathcal{C}$の{\bf 充満部分圏}(full subcategory)という．
+さらに$ \mathrm{Hom}(\mathcal{C'})(X,Y) = \mathrm{Hom}(\mathcal{C})(X,Y)$を満たすとき，$\mathcal{C'}$は$\mathcal{C}$の{\bf 充満部分圏}(full subcategory)という．
 \end{defi} \proofend
 
 大雑把に，圏とは「ある構造を持つモノ（対象）とその間の写像など（射）を全体で考えよう」というものです．対象と射は，集合と写像のようなものですが，対象に関しては一般の圏では何らかの集合とは限らず，ただのラベルに過ぎません．射に関しても同じで，射は一般には集合から集合への写像とは限らず，ドメインとコドメインが指定されているだけです．ここで，一般の圏において写像の全射，単射に相当する概念を定義しよう．
@@ -88,7 +89,7 @@ $e:X \to Y$が{\bf epi}とは任意の$f,g:Y \to Z$に対し，
 \end{defi} \proofend
 
 \begin{prop}
-$f:X \to Y , g:Y \to Z$において,$g \circ f$がmonoならば$f$はmono，$g \circ f$がepiならば$f$はepiである．
+$f:X \to Y , g:Y \to Z$において,$g \circ f$がmonoならば$f$はmono，$g \circ f$がepiならば$g$はepiである．
 \end{prop}
 (証明)\;略\proofend
 
@@ -96,12 +97,12 @@ $\mathbf{Sets}$では$f$が単射であることとmonoであること，全射�
 
 \begin{defi}
 $f: X \to Y , g: Y \to X$を圏$\mathcal{C}$の射とする．% $g \circ f = \mathrm{id}_X$であるとき,$f$は$g$の{\bf 右逆射}，$g$は$f$の{\bf 左逆射}と呼ぶ．$f$に対し右逆射$g_r :Y \to X$と左逆射$g_l: Y \to X$が存在するとき，$g_l = g_l \circ \mathrm{id}_Y = g_l \circ (f \circ g_r) = (g_l \circ f )\circ g_r =\mathrm{id}_X \circ g_r$ より$g_r$と$g_l$は一致する．このとき$f$を{\bf 同型射}という．
-$g \circ f = \mathrm{id}_X , f \circ g = \mathrm{id}_Y$が成り立つ時，$f,g$を{\bf 同型射}(isomorphism)という．このとき，XとYは{\bf 同型}(isomorphic)であるといい，$X \sim Y$で表す．
+$g \circ f = \mathrm{id}_X , f \circ g = \mathrm{id}_Y$が成り立つ時，$f,g$を{\bf 同型射}(isomorphism)という．このとき，$X$と$Y$は{\bf 同型}(isomorphic)であるといい，$X \sim Y$で表す．
 \end{defi} \proofend
-$\mathbf{Sets}$ではmonoかつepiなら同型射ですが，一般には成り立たない．例えば$\mathbf{Top}$で，$X=\{0,1\}$に離散位相，密着位相を入れたものをそれぞれ$(X,\mathscr{O}_0),(X,\mathscr{O}_1)$とする．$\mathrm{id}_X : (X,\mathscr{O}_0) \to (X,\mathscr{O}_1)$はmonoかつepiだが，その逆写像は連続ではない．
+$\mathbf{Sets}$ではmonoかつepiなら同型射だが，一般には成り立たない．例えば$\mathbf{Top}$で，$X=\{0,1\}$に離散位相，密着位相を入れたものをそれぞれ$(X,\mathscr{O}_0),(X,\mathscr{O}_1)$とする．$\mathrm{id}_X : (X,\mathscr{O}_0) \to (X,\mathscr{O}_1)$はmonoかつepiだが，その逆写像は連続ではない．
 
 \begin{defi}
-$\mathcal{C}$を圏とする．$\mathcal{C}$の{\bf 始対象}(initial object)とは，対象$I \in \mathcal{C}$であり，任意の対象$X \in \mathcal{C}$に対し$I$から$X$へ唯一の射が存在するものである．$\mathcal{C}$の{\bf 終対象}(terminal object)とは，対象$T \in \mathcal{C}$であり，任意の対象$X \in \mathcal{C}$に対し$X$から$T$へ唯一の射が存在するものである．始対象かつ終対象である対象を{\bf ゼロ対象}と言う．
+$\mathcal{C}$を圏とする．$\mathcal{C}$の{\bf 始対象}(initial object)とは，対象$I \in \mathcal{C}$であり，任意の対象$X \in \mathcal{C}$に対し$I$から$X$へ唯一の射が存在するものである．$\mathcal{C}$の{\bf 終対象}(terminal object)とは，対象$T \in \mathcal{C}$であり，任意の対象$X \in \mathcal{C}$に対し$X$から$T$へ唯一の射が存在するものである．始対象かつ終対象である対象を{\bf ゼロ対象}(zero object)と言う．
 \end{defi} \proofend
 始対象，終対象，ゼロ対象は存在すれば同型を除いて一意である．\\
 $\mathbf{Sets}$において，空集合$\emptyset$は始対象で，任意の一元集合は終対象となる．$\mathbf{Sets}$にはゼロ対象は存在しない．$\mathbf{Ab}$において，自明な群$0 = \{e\}$は始対象かつ終対象，すなわちゼロ対象となる．
@@ -168,11 +169,20 @@ $\mathcal{C},\mathcal{D}$を圏．$F,G$を$\mathcal{C}$から$\mathcal{D}$への
 
 \Section{\S 2アーベル圏について}
 \begin{defi}
-圏$\mathcal{A}$が{\bf 加法圏}(additive category)であるとは，任意の$X,Y \in \mathcal{A}$に対し，$\mathrm{Hom}_\mathcal{A}(X,Y)$がアーベル群となり，かつ$\mathcal{A}$がゼロ対象$0$と，直積$X \times Y$(任意の$X,Y \in \mathcal{A}$) を持つことである．
+圏$\mathcal{A}$が{\bf 加法圏}(additive category)であるとは，以下を満たすことである．
+\begin{itemize}
+\item 任意の$X,Y \in \mathcal{A}$に対し，$\mathrm{Hom}_\mathcal{A}(X,Y)$がアーベル群となる．
+\item $\mathcal{A}$がゼロ対象$0$と，直積$X \times Y$(任意の$X,Y \in \mathcal{A}$) を持つ．
+\item 射の加法と合成が可換である．すなわち，任意の$X,Y,Z,W \in \mathcal{A},f:X \to Y, g_1,g_2:Y \to Z, h:Z \to W$に対し
+\[
+h\circ(g_1 + g_2) \circ f = h \circ g_1 \circ f + h \circ g_2 \circ f
+\]
+が成り立つ．
+\end{itemize}
 \end{defi} \proofend
 加法圏のモデルは加法群の圏$\mathbf{Ab}$である．$\mathbf{Ab}$は実際Hom集合はアーベル群となり，ゼロ対象$0 = {e}$を持ち，
 アーベル群$G_1,G_2$に対して直積$G_1 \times G_2 $が存在するので，加法圏である．\\
-加法圏$\mathcal{A}$において，対象$X$から$0$，$0$から$X$への唯一の射を同じ記号$0_X$で表す．に対し
+加法圏$\mathcal{A}$において，対象$X$から$0$，$0$から$X$への唯一の射を同じ記号$0_X$で表す．対象$X,Y$に対し
 $0 : X \to Y$を$0_{XY} = 0_Y \circ 0_X$とする．$\mathcal{A}$は加法圏より,$\mathrm{Hom}_\mathcal{A}(X,Y)$はアーベル群をなすが，その単位元は$0_XY$であることが容易に確かめられる． また，$f:W \to X , g:Y\to Z$ に対し$0_{XY} \circ f = 0_{WY} ，
 g \circ 0_{XY} = 0_{XZ}$ もわかる．以下，$0_{XY}$などを単に0と書く．
 \[
@@ -212,7 +222,7 @@ X 	& \ar[l]^{\pi_X} X \times Y \ar[r]_{\pi_Y} 	& Y
 さて，次の図式は上の$\iota,\pi$の式より可換である．
 \[
 \xymatrix{
-	& \ar@/_/[dl]_0 X \times Y  \ar[d] | {\iota_X \circ \pi_X + \iota_Y \circ \pi_Y}  \ar@/^/[dr]^{\mathrm{id}_Y}	& \\
+	& \ar@/_/[dl]_{\pi_X} X \times Y  \ar[d] | {\iota_X \circ \pi_X + \iota_Y \circ \pi_Y}  \ar@/^/[dr]^{\pi_Y}	& \\
 X 	& \ar[l]^{\pi_X} X \times Y \ar[r]_{\pi_Y} 	& Y 
 }
 \]
@@ -224,7 +234,7 @@ X 	& \ar[l]^{\pi_X} X \times Y \ar[r]_{\pi_Y} 	& Y
 \]
 が成り立つ．
 この$\iota_X,\iota_Y$が直和の普遍性を満たすことを示そう．\\
-$Z\in \mathcal{A},f:X \to Z, g:Y \to Z$とする．$h : X \times Y \ o Z $を$h = f \circ \pi_X + g \circ \pi_Y$とすると，このhは下図を可換にする．
+$Z\in \mathcal{A},f:X \to Z, g:Y \to Z$とする．$h : X \times Y \to Z $を$h = f \circ \pi_X + g \circ \pi_Y$とすると，この$h$は下図を可換にする．
 \[
 \xymatrix{
 & \ar@{<-}[dl]_f Z  \ar@{<-}[d]^{h}  \ar@{<-}[dr]^{g}  \\
@@ -255,7 +265,7 @@ h_2 \circ \iota_X = f \;\;\;\;\; h_2 \circ \iota_Y = g
 
 \begin{defi}
 加法圏$\mathcal{A}$の射$f:X \to Y$の{\bf 核}とは，射$\mathrm{ker}(f): \mathrm{Ker}(f) \to X$で，$f \circ \mathrm{ker}(f) = 0$をみたし，次の普遍性を満たすものである． \\
-{\rm(核の普遍性)}\;$k \circ f = 0$をみたす任意の$k:K \to X$に対し，下図を可換にする一意的な射$i:K \to \mathrm{Ker}(f)$が存在する．
+{\rm(核の普遍性)}\;$f \circ k = 0$をみたす任意の$k:K \to X$に対し，下図を可換にする一意的な射$i:K \to \mathrm{Ker}(f)$が存在する．
 \[
 \xymatrix{
 \mathrm{Ker}(f) \ar[r]^{\mathrm{ker}(f)} & X \ar[r]^f &Y  \\
@@ -264,7 +274,7 @@ K \ar[ur]_{k}  \ar@{.>}[u]^i
 \]\\
 
 また，加法圏$\mathcal{A}$の射$f:X \to Y$の{\bf 余核}とは，射$\mathrm{cok}(f): Y \to \mathrm{Cok}(f)$で，$\mathrm{cok}(f) \circ f = 0$をみたし，次の普遍性を満たすものである． \\
-{\rm(余核の普遍性)}\;$f \circ c = 0$をみたす任意の$c:Y \to C'$に対し，下図を可換にする一意的な射$p:\mathrm{Cok}(f) \to C$が存在する．
+{\rm(余核の普遍性)}\;$c \circ f = 0$をみたす任意の$c:Y \to C'$に対し，下図を可換にする一意的な射$p:\mathrm{Cok}(f) \to C$が存在する．
 \[
 \xymatrix{
 X \ar[r]^f 	& Y \ar[r]^{\mathrm{cok}(f)} &\mathrm{Cok}(f) \ar@{.>}[d]^p \\
@@ -293,7 +303,7 @@ $\mathbf{Ab}$の準同型$f:G_1 \to G_2$において包含写像$i:\mathrm{Ker}(
 (証明)\;略\proofend
 
 \begin{defi}
-圏$\mathcal{A}$が{\bf アーベル圏}であるとは，$\mathcal{A}$が加法圏であり，任意の射$f$について
+圏$\mathcal{A}$が{\bf アーベル圏}(abelian category)であるとは，$\mathcal{A}$が加法圏であり，任意の射$f$について
 \begin{itemize}
 \item 任意の射は核と余核をもつ．
 \item 任意のmono射$m$はその余核の核である．つまり$m = \mathrm{ker}(\mathrm{cok(m)})$
@@ -308,7 +318,7 @@ $\mathbf{Ab}$の準同型$f:G_1 \to G_2$において包含写像$i:\mathrm{Ker}(
 \end{prop}
 (証明) $f$はmonoより$ f = \mathrm{ker}(\mathrm{cok}(f))$．$\mathrm{cok}(f) \circ f = 0 = 0 \circ f$．
 $f$はepiなので$\mathrm{cok}(f) = 0$これより，$\mathrm{id}_Y:Y \to Y$は$0 = \mathrm{cok}(f)$の核になることがわかる．
-核のコドメインは同型より，$f$は同型射となる．
+核のドメインは同型より，$f$は同型射となる．
 \[
 \xymatrix{
 X \ar[rr]^{\mathrm{ker}(\mathrm{cok}(f))}_{f} | = && Y\ar[r]_{0}^{\mathrm{cok}(f)} | = & C  \\
@@ -429,7 +439,7 @@ P \ar[r]^{q} \ar[d]^{p} 	& Y \ar[d]^g\\
 X \ar[r]^{f}			& Z
 }
 \]
-普遍性．$p' : P' \to Y, q': P' \to X$で$f \circ p' = g\circ q'$を満たすような$p',q'$に対し一意的な射$t:P' \to P$が存在し，下図を可換にする．
+普遍性．$p' : P' \to X, q': P' \to Y$で$f \circ p' = g\circ q'$を満たすような$p',q'$に対し一意的な射$t:P' \to P$が存在し，下図を可換にする．
 \[
 \xymatrix
 {
@@ -471,14 +481,14 @@ P \ar[d]^{p} \ar[r]^{q} 	& Y \ar[d]^g\\
 X \ar[r]^{f}			& Z
 }
 \]
-を引き戻しとする．このとき，$f$がmonoならば$p$もmonoである．
+を引き戻しとする．このとき，$f$がmonoならば$q$もmonoである．
 \end{prop}
-(証明)$f$はmonoであるとする．$r,s:W \to P$を射とし，$pr=ps$であるとする．このとき$fpr = gqr = gqs = fps$．$f$はmonoなので$pr=qr$．これより引き戻しの普遍性から$r=s$がわかる．
+(証明)$f$はmonoであるとする．$r,s:W \to P$を射とし，$qr=qs$であるとする．このとき$fpr = gqr = gqs = fps$．$f$はmonoなので$pr=ps$．これより引き戻しの普遍性から$r=s$がわかる．
 
 \[
 \xymatrix
 {
-W \ar@/^/@<1ex>[rrd]^{pr=ps} \ar@/_/@<-0.5ex>[rdd]_{qr=qs}  \ar@<0.5ex>[rd]^r\ar@<-1ex>[rd]_s\\
+W \ar@/^/@<1ex>[rrd]^{qr=qs} \ar@/_/@<-0.5ex>[rdd]_{pr=ps}  \ar@<0.5ex>[rd]^r\ar@<-1ex>[rd]_s\\
 &	P \ar[d]^{p} \ar[r]^{q} 	& Y \ar[d]^g\\
 &	X \ar[r]^{f}			& Z
 }
@@ -494,7 +504,7 @@ P \ar[r]^{q} \ar[d]^{p} 	& Y \ar[d]^g\\
 X \ar[r]^{f}			& Z
 }
 \]
-を引き戻しとする．このとき，$f$がepiならば$p$もepiである．
+を引き戻しとする．このとき，$f$がepiならば$q$もepiである．
 \end{prop}
 (証明)
 $f$はepiとする．直積$X \times Y$からZへの射$ f \pi_X - g  \pi_Y$の核を$m:P \to X \times Y$とすると，下図は引き戻しになる．
@@ -573,7 +583,7 @@ K \ar@/^/@<1ex>[rrd]^{0} \ar@/_/@<-0.5ex>[rdd]_{ku'=pu}  \ar@<0.5ex>[rd]^{k'u'}\
 \begin{defi}
 アーベル圏$\mathcal{A}$の対象$X\in \mathcal{A}$をコドメインに持つ射$f$をXの{\bf メンバ}と呼び，$f \in {}_mX$で表す．
 \end{defi} \proofend
-$\mathcal{A}$をアーベル圏，$X\in \mathcal{A}$とする．Xのメンバ$f,g$について，あるepi射$u.v$が存在して$fu=gv$をみたすとき，
+$\mathcal{A}$をアーベル圏，$X\in \mathcal{A}$とする．Xのメンバ$f,g$について，あるepi射$u,v$が存在して$fu=gv$をみたすとき，
 $f \equiv g$と定義する．明らかにこれは反射律，対称律をみたす． 推移律を確かめる．
 \[
 \xymatrix
@@ -585,7 +595,7 @@ $f \equiv g$と定義する．明らかにこれは反射律，対称律をみ�
 \]
 
 $f \equiv g,g \equiv h$とすると，epi射$r,u,v,w$
-が存在して$fu=gv,gw=hr$をみたす．下図において，$v,w$の引き戻しを考える．$v,w$epiなので命題29より$v',w'$もepi．よって$f \equiv z$である．
+が存在して$fu=gv,gw=hr$をみたす．下図において，$v,w$の引き戻しを考える．$v,w$はepiなので命題30より$v',w'$もepi．よって$f \equiv z$である．
 アーベル圏の任意の対象$X$について，$0 \in _mX$であり，$f \in _mX$なら$-f \in _mX$である．\\
 $f:X \to Y$をアーベル圏の射とする．$p \in _mX$に対し$fp \in _mY$となる．$p,q \in _mX,p \equiv q$とすると$fp \equiv fq$となる．これより射$f$は，あたかも写像のようにXのメンバをYのメンバにうつす．
 \begin{thm}
@@ -593,7 +603,7 @@ $f:X \to Y$をアーベル圏の射とする．$p \in _mX$に対し$fp \in _mY$�
 \begin{enumerate}
 \item $f:X \to Y $がmono $\Leftrightarrow$ 任意の$x \in _mX$に対し$fx \equiv 0$ならば$x\equiv0$
 \item $f:X \to Y $がmono $\Leftrightarrow$ 任意の$x ,x' \in _mX$に対し$fx \equiv fx'$ならば$x\equiv x'$
-\item $f:X \to Y $がepi $\Leftrightarrow$  任意の$y \in _mY$に対し$x \in _mX$が存在し$gx \equiv x$
+\item $f:X \to Y $がepi $\Leftrightarrow$  任意の$y \in _mY$に対し$x \in _mX$が存在し$gx \equiv y$
 \item $f:X \to Y $がゼロ射 $\Leftrightarrow$  任意の$x \in _mX$に対し$fx \equiv 0$
 \item $\xymatrix@1{ X \ar[r]^f & Y \ar[r]^g & Z } $が$Y$で完全 $\Leftrightarrow$ $gf = 0$かつ$gy \equiv 0$を満たす$y \in _mY$に対し
 $x \in _mX$が存在して$y \equiv fx$となる．
@@ -623,7 +633,7 @@ X \ar[r]^e & \mathrm{Ker}(g) \ar[r]^m & Y
 }
 \]
 核の普遍性から上を可換にする$p$が唯一存在する．$e,p$の引き戻しを上の図のように考えると$ye' = mex = fx$．
-$e$はepiなので$e'$もepi．よって$x \in {}_mX$が存在して$y \equiv fx$となる．\\
+$e$はepiなので$e'$もepi．よって$y \equiv fx$となる．\\
 逆に$gf = 0$かつ$gy \equiv 0$を満たす$y \in _mY$に対し$x \in _mX$が存在して$y \equiv fx$となるとする．$k = \mathrm{ker}(g)$は
 $gk \equiv 0$を満たすので$x \in _mX$が存在して$k \equiv fx$．よって$ \mathrm{cok}(f) k \equiv \mathrm{cok}(f) fx \equiv 0 $なので
 $ \mathrm{cok}(f) k = 0$．よって$\mathrm{Im}(f)$の普遍性から下図を可換にする射$p$が存在する．
@@ -659,8 +669,8 @@ Y_1 \ar[r]^{h_1} & Y_1 \ar[r]^{h_2} & Y_3 \ar[r]^{h_3} & Y_4 \ar[r]^{h_4} & Y_5
 \end{lem}
 (証明)
 $f_3$がmonoを示せば，双対的にepiも示されるので，$f_3$がmonoを示せば十分である．$x \in {}_mX$で$f_3x \equiv 0$とする．
-これと図の可換から$f_4g_3x = h_4f_3x \equiv 0$．$f_4$はmonoなので$g_3x \equiv 0$．
-完全性を用いて定理33の5.より$x_2 \in {}_mX$が存在して$x \equiv g_2x$．$h_2f_2x_2 \equiv f_3x \equiv 0 $．これより再び定理33の5.を用いると$y_1 \in {}_mY$が存在して$f_2x_2 \equiv h_1y_1$．$f_1$epiなので定理33の3.より$x_1\in {}_mX$が存在して$y_1 \equiv f_1x_1$．
+これと図の可換から$f_4g_3x = h_3f_3x \equiv 0$．$f_4$はmonoなので$g_3x \equiv 0$．
+完全性を用いて定理33の5.より$x_2 \in {}_mX$が存在して$x \equiv g_2x_2$．$h_2f_2x_2 \equiv f_3x \equiv 0 $．これより再び定理33の5.を用いると$y_1 \in {}_mY$が存在して$f_2x_2 \equiv h_1y_1$．$f_1$はepiなので定理33の3.より$x_1\in {}_mX$が存在して$y_1 \equiv f_1x_1$．
 $f_2g_1x_1 \equiv f_2x_2$と$f$:monoより$x_2 \equiv g_1x_1$．よって$x \equiv g_2g_1x_1 \equiv 0$．
 \[
 \xymatrix{
@@ -735,7 +745,7 @@ $z \in {}_mX'$が存在して$gy \equiv m'z$．$z_1 = cz$とする．このと�
 \]
 これより
 \[
-v\delta x \  v \delta ux_0 =\delta_0 x_0 = c'gy \equiv vz_1
+v\delta x = v \delta ux_0 =\delta_0 x_0 = c'gy \equiv vz_1
 \]
 $v$はmonoより$\delta x \equiv z_1$となる．この式により，$z_1$の同値類は図式の追跡の際の
 メンバの選び方に依存しないこともわかる．この追跡により，$\mathrm{Ker}(h),\mathrm{Cok}(f)$の完全性が示される．
