@@ -1,0 +1,125 @@
+\documentclass[notombow,a4,openany]{kyouritu}
+\usepackage{makeidx,multicol}
+\usepackage{amsmath ,amssymb ,amsthm}
+%プリアンブル
+\topmargin -0.5in
+\headheight 0.2in
+\headsep 0.3in  
+%\evensidemargin -0.03in
+%\oddsidemargin -0.4in
+%\textwidth 5.6in
+%\textheight 8.4in
+\makeatletter
+\renewcommand{\thetable}{%
+\arabic{table}}
+\makeatother
+
+%圏点
+\def\kenten#1{%
+\ifvmode\leavevmode\else\hskip\kanjiskip\fi
+\setbox1=\hbox to \z@{・\hss}%
+\ht1=.63zw
+\@kenten#1\end}
+\def\@kenten#1{%
+\ifx#1\end \let\next=\relax \else
+\raise.63zw\copy1\nobreak #1\hskip\kanjiskip\relax
+\let\next=\@kenten
+\fi\next}
+%菊地のプリアンブル
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{ascmac}
+\usepackage[dvipdfmx]{graphicx}
+
+
+%定理環境とceoを導入
+\usepackage{wrapfig}
+\usepackage{multicol}
+\setlength{\columnseprule}{0.4pt}
+%\usepackage{okumacro}
+\usepackage[all]{xy}
+%\usepackage{theorem}
+%\usepackage{ceo,nyushi}
+
+%定理環境
+%菊地
+\newcommand{\kikuthm}{\underline{\bf 定理}}
+\newcommand{\kikuprop}{\underline{\bf 命題}}
+\newcommand{\kikueg}{\underline{\bf 例}}
+\newcommand{\D}{\partial}
+
+%鯖白
+\usepackage{mathrsfs}
+\usepackage[all]{xy}
+\newcommand{\proofend}{\begin{flushright} $\blacksquare$ \end{flushright}}
+%\renewcommand{\labelenumi}{(\roman{enumi})}
+\newcommand{\nkgr}{・}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{定理}
+\renewcommand{\thetheorem}{}
+\newtheorem{defi}{定義}
+\newtheorem{thm}[defi]{定理}
+\newtheorem{lem}[defi]{補題}
+\newtheorem{cor}[defi]{系}
+\newtheorem{prop}[defi]{命題}
+\newtheorem{ex}[defi]{例}
+
+\newtheorem{defm}{定義}
+\newtheorem{thmm}[defm]{定理}
+\newtheorem{lemm}[defm]{補題}
+\newtheorem{corm}[defm]{系}
+\newtheorem{propm}[defm]{命題}
+\newtheorem{exm}[defm]{例}
+%
+\theoremstyle{definition}
+\newtheorem{defn}{定義}[section]
+%
+\theoremstyle{remark}
+\newtheorem{rem}{注意}
+\newtheorem{prf}{証明}
+
+%山本
+\usepackage{ascmac}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%笠浦
+
+%田村
+\usepackage{wrapfig}
+
+%sp1
+\usepackage{here}
+
+%satoken
+\newtheorem{sprop}{命題}
+\newtheorem{slem}{補題}
+\newtheorem{sthm}{定理}
+
+\newcommand{\Image}{\mathop{\mathrm{Im}}\nolimits}
+\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+\newcommand{\Z}{\mathbb{Z}}
+
+%Section等先頭を大文字にすると番号付けしない．
+\newcommand{\Chapter}[1]{\chapter*{{\Huge #1}}
+\markboth{#1}{#1}
+\addcontentsline{toc}{chapter}{#1}}
+\newcommand{\Section}[1]{\section*{{\huge #1}}
+\addcontentsline{toc}{section}{#1}}
+\newcommand{\Subsection}[1]{\subsection*{\underline{#1}}}
+\newcommand{\Subsubsection}[1]{\subsubsection*{#1}}
+\setcounter{tocdepth}{0} %Chapterのみ表示する
+%インタビュー
+%本文
+\begin{document}
+\mainmatter
+
+\input{diagram}
+
+
+%\Chapter{編集後記}
+%\input{atogaki}
+
+\backmatter
+\end{document}
