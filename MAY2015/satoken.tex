@@ -23,10 +23,10 @@ $S$を半群とする．$S$の元$e$が任意の$x\in S$について$ex=x\:(xe=x
 \newline
  $S$の元$a$が$a^2=a$を満たすとき，$a$を{\bf 巾等元}という．
 \Subsubsection{1-添加，0-添加}
-$S$をマグマとし，$S^1=S\cup\{1\}$上の演算$*$を，$x,y\in S$なら$x*y=xy, x*1=1*x=x, 1*1=1$と定めると，$(S^1,*)$は半群となる．これを$S$の{\bf 1-添加}といい，この操作により単位元が存在しない半群に単位元を持つように出来る．なお，$S$がもともと単位元を持っていた場合，この操作により$S$の単位元は$S^1$では単位元とならない．
+$S$を半群とし，$S^1=S\cup\{1\}$上の演算$*$を，$x,y\in S$なら$x*y=xy, x*1=1*x=x, 1*1=1$と定めると，$(S^1,*)$は半群となる．これを$S$の{\bf 1-添加}といい，この操作により単位元が存在しない半群に単位元を持つように出来る．なお，$S$がもともと単位元を持っていた場合，この操作により$S$の単位元は$S^1$では単位元とならない．
 同様に$S^0=S\cup\{0\}$上の演算$*$を，$x,y\in S$なら$x*y=xy, x*0=0*x=0, 0*0=0$と定めると，$(S^0,*)$は零元を持つ半群となる．これを$S$の{\bf 0-添加}という．
 \Subsubsection{生成系}
-マグマ$S$の任意の元がSの部分集合$K$の元の有限個の積で表されるとき，$K$を生成系という．$S$の生成系のうち，包含関係に関して極小のものを{\bf 基底(極小生成系)}という．$B$がSの基底であるということは，Bが$S$を生成し，かつ$B$のいかなる元もそれ以外の$B$の元の積で表されないということと同値である．$S$が有限ならば基底は必ず存在する．$S$の生成系$K$のいかなる元も，それ以外の$S$の元の積で表されないとき，$K$を{\bf 既約生成系}という．明らかに既約生成系は基底である．
+マグマ$S$の任意の元が$S$の部分集合$K$の元の有限個の積で表されるとき，$K$を生成系という．$S$の生成系のうち，包含関係に関して極小のものを{\bf 基底(極小生成系)}という．$B$が$S$の基底であるということは，Bが$S$を生成し，かつ$B$のいかなる元もそれ以外の$B$の元の積で表されないということと同値である．$S$が有限ならば基底は必ず存在する．$S$の生成系$K$のいかなる元も，それ以外の$S$の元の積で表されないとき，$K$を{\bf 既約生成系}という．明らかに既約生成系は基底である．
 \Subsubsection{イデアル}
 半群$S$の部分集合$I(\neq\emptyset)$が，$SI\subset I\:(IS\subset I)$を満たすとき，$I$を$S$の{\bf 左(右)イデアル}という．左イデアルかつ右イデアルであるものを{\bf イデアル}という．$S$の元$a$について，明らかに$Sa\cup\{a\}=S^1a$は$S(Sa)\cup Sa=(SS)a\cup Sa\subset Sa\cup\{a\}$より左イデアルとなる．これを$a$で生成する{\bf 主左イデアル}という．同様に{\bf 主右イデアル}も定義される．また，$S^1aS^1=\{a\}\cup aS\cup Sa\cup SaS$はイデアルとなる．これを{\bf 主イデアル}という．半群$S$が$S$以外にイデアルを持たないとき，{\bf 単純}であるといい，$0$が存在する半群で$0\subsetneq I\subsetneq S$なるイデアル$I$が存在しないとき，{\bf 0-単純}であるという．
 \Subsubsection{準同型}
@@ -44,14 +44,14 @@ $c$&$c$&$c$&$b$
 \caption{群$G=\{b,c\}$の1-添加$G^1$のCayley table}
 \end{center}
 \end{table}
-\newline
+%\newline ページを見やすくするために1行削った
 \Subsection{簡単な例}
 \Subsubsection{一元半群}
 一元からなる集合$\{e\}$において，$ee=e$で演算を定めれば，これは一つの元からなる半群であり,{\bf 自明な半群(一元半群)}と呼ばれる．
 \Subsubsection{数半群}
 自然数の集合$\mathbb N$,正整数の集合$\mathbb Z^+$,有理数の集合$\mathbb Q$,実数の集合$\mathbb R$,複素数の集合$\mathbb C$は，いずれも加法と乗法に関して半群である．
 \Subsubsection{変換半群}
-集合$E$が与えられたとき，写像$\varphi:S\rightarrow S$全体の集合${\mathfrak T}(E)$は写像の合成に関して半群をなす．これを集合$E$上の{\bf 変換半群}という．例えば$E=\{1,2\}$上の変換半群は次のようになる．$${\mathfrak T}(E)=\{\alpha, \beta,\gamma,\delta\}$$
+集合$E$が与えられたとき，写像$\varphi:E\rightarrow E$全体の集合${\mathfrak T}(E)$は写像の合成に関して半群をなす．これを集合$E$上の{\bf 変換半群}という．例えば$E=\{1,2\}$上の変換半群は次のようになる．$${\mathfrak T}(E)=\{\alpha, \beta,\gamma,\delta\}$$
 ただし
 $$
 \alpha=
@@ -93,8 +93,9 @@ $0$を$S$の特定の元として，任意の$x,y\in S$について$xy=0$を満�
 全ての$x\in S$が巾等元となる半群を{\bf 帯(巾等半群)}と呼ぶ．特に可換な帯は{\bf 半束}と呼ばれる．
 \Subsection{結合律の検証}
 \Subsubsection{正則表現}
-$S$をマグマ，$S$の元$a$を1つ固定し，写像$\varphi_a, \psi_a:S\rightarrow S$を，$x\in S$に対して，$x\varphi_a=xa,x\psi_a=ax$で定める．$\Phi:S\rightarrow{\mathfrak T}(S);a\mapsto \varphi_a$，$\Psi:S\rightarrow{\mathfrak T};a\mapsto \psi_a(S)$を考えることができ，それらの像を$R=\Phi(S), L=\Psi(S)$とおく．$S$が半群の場合は$\varphi_a\varphi_b=\varphi_{ab},\:\psi_a\psi_b=\psi_{ba}$より，$\Phi,\Psi$はそれぞれ準同型，反準同型となる．それぞれ，{\bf 右正則表現，左正則表現}という．これらの正則表現が単射となる場合，{\bf 忠実}であるという．例えば群の場合は右正則表現と左正則表現はいずれも正則となる．ただし一般の場合は必ずしもそうとは言えない．たとえば，零半群$S$では，任意の$a\in S$について，$\varphi_a,\psi_a$は零写像となる．($x\varphi_a=xa=0, x\psi_a=ax=0$よりわかる．)\par
-このように$\Phi,\Psi$が忠実でない場合は，$S$の1-添加$S^1$上の変換${\mathfrak T}(S^1)$を考えると，$a\in S$に対して$1\varphi_a=1\cdot a=a$から$a\neq b\Rightarrow x\varphi_a\neq x\varphi_b$より，$\Phi^1:S\rightarrow{\mathfrak T}(S^1)$は単射となる．同様に$\Psi^1$も考えることができ，単射となる．このとき，$R^1=\Phi^1(S), L^1=\Psi^1(S)$とおく．($R^1,L^1$は任意のマグマについて考えることが出来る．)\par
+$S$をマグマ，$S$の元$a$を1つ固定し，写像$\varphi_a, \psi_a:S\rightarrow S$を，$x\in S$に対して，$x\varphi_a=xa,x\psi_a=ax$で定める．$\Phi:S\rightarrow{\mathfrak T}(S);a\mapsto \varphi_a$，$\Psi:S\rightarrow{\mathfrak T}(S);a\mapsto \psi_a$を考えることができ，それらの像を$R=\Phi(S), L=\Psi(S)$とおく．$S$が半群の場合は$\varphi_a\varphi_b=\varphi_{ab},\:\psi_a\psi_b=\psi_{ba}$より，$\Phi,\Psi$はそれぞれ準同型，反準同型となる．それぞれ，{\bf 右正則表現，左正則表現}という．これらの正則表現が単射となる場合，{\bf 忠実}であるという．例えば群の場合は右正則表現と左正則表現はいずれも正則となる．ただし一般の場合は必ずしもそうとは言えない．たとえば，零半群$S$では，任意の$a\in S$について，$\varphi_a,\psi_a$は零写像となる．($x\varphi_a=xa=0, x\psi_a=ax=0$よりわかる．)\par
+このように$\Phi,\Psi$が忠実でない場合は，$S$の1-添加$S^1$上の変換${\mathfrak T}(S^1)$を考えると，$a\in S$に対して$1\varphi_a=1\cdot a=a$から$a\neq b\Rightarrow \varphi_a\neq \varphi_b$より，$\Phi^1:S\rightarrow{\mathfrak T}(S^1)$は単射となる．同様に$\Psi^1$も考えることができ，単射となる．このとき，$R^1=\Phi^1(S), L^1=\Psi^1(S)$とおく．($R^1,L^1$は任意のマグマについて考えることが出来る．)\par
+\leavevmode \\
 次の命題はほとんど結合法則のいいかえである．
 \begin{sprop}
 次の3条件は同等である．\\
@@ -115,6 +116,7 @@ $S$を半群とすると，任意の$a,b\in S$について$\varphi_a\varphi_b=\v
 $a,b,c\in G$とする．このとき，$(ab)c=a\varphi_b\varphi_c$である．$R^1$は写像の合成について閉じているから，ある$x\in G$が存在して，$\varphi_b\varphi_c=\varphi_x$を満たす．このとき，$1\in S^1$について$1\varphi_b\varphi_c=1\varphi_x$より$bc=x$が成り立つので，$(ab)c=a\varphi_b\varphi_c=a\varphi_{bc}=a(bc)$となるので，$G$は半群．(iii)$\Rightarrow$(i)も同様．
 \begin{flushright}(証明終)\end{flushright}
 (注意)$R$または$L$が${\mathfrak T}(S)$の部分半群であっても$S$は半群とはなるとは限らない．たとえば表3の例を参照せよ．
+また次の命題も証明は簡単だが，結合法則が成り立つか判定するのによくもちいられる．
 \begin{table}[htb]
 \begin{center}
 \begin{tabular}{c|ccc}
@@ -123,19 +125,18 @@ $a$&$a$&$a$&$a$ \\
 $b$&$a$&$b$&$b$ \\
 $c$&$a$&$a$&$a$
 \end{tabular}
-\caption{$R=\{\varphi_a,\varphi_b=\varphi_c\}$および$L=\{\psi_a=\psi_c,\psi_b\}$}はいずれも${\mathfrak T}(S)$の部分群だが，$(bc)b=b\neq a=b(cb)$
+\caption{$R=\{\varphi_a,\varphi_b=\varphi_c\}$および$L=\{\psi_a=\psi_c,\psi_b\}$}はいずれも${\mathfrak T}(S)$の部分半群だが，$(bc)b=b\neq a=b(cb)$
 \end{center}
 \end{table}
-また次の命題も証明は簡単だが，結合法則が成り立つか判定するのによくもちいられる．
 \begin{sprop}
-マグマ$S$が半群であるための必要十分条件は，すべての$a,b\in S$について$\varphi_a\psi_b=\psi_a\varphi_a$が成り立つことである．
+マグマ$S$が半群であるための必要十分条件は，すべての$a,b\in S$について$\varphi_a\psi_b=\psi_b\varphi_a$が成り立つことである．
 \end{sprop}
 \Subsubsection{Lightの方法}
 $S$をマグマ，$a\in S$を一つとる．$S$上の二項演算$_{a}*,*_{a}$を次のように定める．
 $$
 x_{a}*y=(xa)y, x*_{a}y=x(ay)
 $$
-任意の$a,x,y\in S$について$x_{a}*y=x*_{a}y$が成り立つことが，$S$が半群である必要十分条件である．さて，$K$を$S$の生成系，すなわち$S$の任意の元は$K$の有限個の積であるとし，任意の$a\in K$について$x_{a}*y=x*_{a}y$が成立するとする．このとき，$b,c\in K$について，任意の$x,y\in S$について$(xb)y=x(by), (xc)y=x(cy)$が成立するから，$(x(bc))y=((xb)c)y=(xb)(cy)=x(b(cy))=x((bc)y)$となるから，$x_{bc}*y=x*_{bc}y$が成立する．よって，$K$の任意の元について$x_{a}*y=x*_{a}y$が成り立つことを調べれば十分である．このことを使うと有限マグマについて結合法則を調べる手間が減る.
+任意の$a,x,y\in S$について$x_{a}*y=x*_{a}y$が成り立つことが，$S$が半群である必要十分条件である．さて，$K$を$S$の生成系，すなわち$S$の任意の元は$K$の元の有限個の積であるとし，任意の$a\in K$について$x_{a}*y=x*_{a}y$が成立するとする．このとき，$b,c\in K$について，任意の$x,y\in S$について$(xb)y=x(by), (xc)y=x(cy)$が成立するから，$(x(bc))y=((xb)c)y=(xb)(cy)=x(b(cy))=x((bc)y)$となるから，$x_{bc}*y=x*_{bc}y$が成立する．よって，$K$の任意の元について$x_{a}*y=x*_{a}y$が成り立つことを調べれば十分である．このことを使うと有限マグマについて結合法則を調べる手間が減る.
 \par
 例えば$S=\{a,b,c,d\}$として，次のCayley tableで与えられる半群を考える．
 \begin{table}[htb]
@@ -150,7 +151,7 @@ $d$&$c$&$d$&$a$&$a$
 \caption{もとのCayley table}
 \end{center}
 \end{table}
-$bb=b,db=d,bd=c,dd=a$より$\{b,d\}$が$S$の生成系となる．$_{d}*$のCayley tableは，$x$行に$xd$行を移すことで得られる．同様に$*_{d}$のCayley tableは$x$列に$dx$列に移すことで得られる(表5と表6を参照せよ)．これを$b$に関しても確認すると，$S$は半群であることがわかる．
+$bb=b,db=d,bd=c,dd=a$より$\{b,d\}$が$S$の生成系となる．$_{d}*$のCayley tableは，$x$行に$xd$行を移すことで得られる．同様に$*_{d}$のCayley tableは$x$列に$dx$列を移すことで得られる(表5と表6を参照せよ)．これを$b$に関しても確認すると，$S$は半群であることがわかる．
 \begin{table}[htbp]
 \begin{center}
 \begin{tabular}{cc}
@@ -206,7 +207,7 @@ $e$&$a$&$b$&$c$&$a$&$a$
 \end{center}
 \end{table}
 \begin{sthm}
-$S$が既約生成系をもつとき，$I=S-S^2$であり，逆に$S-S^2$が$S$の生成系であるとき，$S-S^2$は既約生成系である．
+$S$が既約生成系$I$をもつとき，$I=S-S^2$であり，逆に$S-S^2$が$S$の生成系であるとき，$S-S^2$は既約生成系である．
 \end{sthm}
 (証明)　\\
 補題1を用いると，$S-S^2\subset I$となる．また，$a\in I$とすれば，$a$は他の$S$の元の積で表されないから$a\notin S^2$．よって$I\subset S-S^2$から$I=S-S^2$．逆に，$S-S^2$が$S$の生成系であるとき，$I=S-S^2$とおくと，$I$は他の$S$の元の積で表されないから，既約である．
@@ -283,7 +284,7 @@ $i=1,2,\dots,n$について全射準同型$\psi_i:S\rightarrow S_i$が存在し�
 \item{(6)} 任意の$a,b,c\in G$に対し，$ab=ac\Rightarrow b=c$が成り立つ．(左消約的)
 \item{(7)} 任意の$a,b,c\in G$に対し，$ba=ca\Rightarrow b=c$が成り立つ．(右消約的)
 \end{description}
-ここで，(4)の条件は任意の$a\in G$について$aG=G$であることと同値．$G$の右イデアルを$I$とすると，$G=aG\subset IG\subset I\subset G$より$I=G$．よって$G$は右単純である．逆に$G$が右単純であるとすると，任意の$a\in G$について，$aG$は右イデアルとなるから$aG=G$．よって左可約的である．同様に$(5)\Longleftrightarrow$左単純が成り立つ．まとめると次のようになる．
+ここで，(4)の条件は任意の$a\in G$について$aG=G$であることと同値．$G$の右イデアルを$I$とすると，$I \neq \emptyset より \exists a \in I$， $G=aG\subset IG\subset I\subset G$より$I=G$．よって$G$は右単純である．逆に$G$が右単純であるとすると，任意の$a\in G$について，$aG$は右イデアルとなるから$aG=G$．よって左可約的である．同様に$(5)\Longleftrightarrow$左単純が成り立つ．まとめると次のようになる．
 \begin{sprop}
 半群$S$について，左(右)可約的$\Longleftrightarrow$右(左)単純
 \end{sprop}
@@ -292,7 +293,7 @@ $i=1,2,\dots,n$について全射準同型$\psi_i:S\rightarrow S_i$が存在し�
 (1),(4),(5)を満たすとき，$G$は群である．
 \end{sthm}
 (証明)\\
-$S\neq\emptyset$よりある元$a\in S$が存在する．$S$の左可約性より，$ae=a$なる$e\in S$が存在する．$b\in S$とする．$S$の左可約性より$be'=b$なる$e'\in S'$が存在する．また$S$の右可約性より$a'a=e'$を満たす$a'\in S$が存在する．このとき，$be=(be')e=(b(a'a))e=(ba')(ae)=b(a'a)=be'=b$より$e$は左単位元となる．同様にして右単位元の存在も言えるので両側単位元$e$がただ一つ存在する．このとき可約性から逆元の存在が言えるので，$S$は群となる．
+$S\neq\emptyset$よりある元$a\in S$が存在する．$S$の左可約性より，$ae=a$なる$e\in S$が存在する．$b\in S$とする．$S$の左可約性より$be'=b$なる$e'\in S'$が存在する．また$S$の右可約性より$a'a=e'$を満たす$a'\in S$が存在する．このとき，$be=(be')e=(b(a'a))e=(ba')(ae)=b(a'a)=be'=b$より$e$は右単位元となる．同様にして左単位元の存在も言えるので両側単位元$e$がただ一つ存在する．このとき可約性から逆元の存在が言えるので，$S$は群となる．
 \begin{flushright}
 (証明終)
 \end{flushright}
@@ -313,7 +314,7 @@ $S\neq\emptyset$よりある元$a\in S$が存在する．$S$は有限だから�
 $S_1,S_2$を右群とすると，直積半群$S_1\times S_2$は右群となる．
 \end{sprop}
 (証明)\\
-$S_1,S_2$が右群であることから左単位元$e_1\in S_1,e_2\in S_2$が存在する．このとき$(e_1,e_2)\in S_1\times S_2$は$(e_1,e_2)\cdot(x_1,x_2)=(e_1x_1,e_2x_2)=(x_1,x_2)$となるので左単位元であるから$S_1\times S_2$は(2)を満たす．．また任意の$a_1\in S_1,a_2\in S_2$について$a_1x_1=e_1,a_2x_2=e_2$を満たす$x_1\in S_1,x_2\in S_2$が存在するので，このとき，$(a_1,a_2)(x_1,x_2)=(a_1x_1,a_2x_2)=(e_1,e_2)$となる．よって$S_1\times S_2$は(3)を満たす．
+$S_1,S_2$が右群であることから左単位元$e_1\in S_1,e_2\in S_2$が存在する．このとき$(e_1,e_2)\in S_1\times S_2$は$(e_1,e_2)\cdot(x_1,x_2)=(e_1x_1,e_2x_2)=(x_1,x_2)$となるので左単位元であるから$S_1\times S_2$は(2)を満たす．また任意の$a_1\in S_1,a_2\in S_2$について$a_1x_1=e_1,a_2x_2=e_2$を満たす$x_1\in S_1,x_2\in S_2$が存在するので，このとき，$(a_1,a_2)(x_1,x_2)=(a_1x_1,a_2x_2)=(e_1,e_2)$となる．よって$S_1\times S_2$は(3’)を満たす．
 \begin{flushright}
 (証明終)
 \end{flushright}
@@ -338,7 +339,7 @@ $S$が右群である必要十分条件は，ある群$G$，右零半群$R$が�
 (I)$\Rightarrow$(II)は右逆元が存在することから明らか．\\
 (II)$\Rightarrow$(III)任意の$a\in S$に対して，$ac=e$を満たす$c\in S$と左単位元$e$が存在する．このとき$caca=c(ac)a=c(ea)=ca$より$ca$は巾等元．$ca=d$とおくと，$dx=f$を満たす$x\in S$と左単位元$f\in S$が存在する．$df=d(dx)=d^2x=dx=f$となるので，任意の$y\in S$について$dy=d(fy)=(df)y=fy=y$を満たすため，$d$は左単位元となる．よって(III)が成り立つ．\\
 (III)$\Rightarrow$(II)任意の$a\in S$に対して，$ca=e$を満たす$c\in S$と左単位元$e$が存在する．このとき$acac=a(ca)c=a(ec)=ac$より$ac$は巾等元．$ac=d$とおくと，$xd=f$を満たす$x\in S$と左単位元$f\in S$が存在する．$fd=(xd)d=xd^2=xd=f$となるので，任意の$y\in S$について$dy=f(dy)=(fd)y=fy=y$を満たすため，$d$は左単位元となる．よって(II)が成り立つ．\\
-(II)かつ(III)$\Rightarrow$(IV) $a,b\in G$とする．(II)より$ax=e$なる$x\in S$と左単位元$e$が存在するので，$a(xb)=(ax)b=eb=b$となって，$ac=b$を満たす$c\in S$が存在する．次に一意性を示す．$ac=ac'=b$とする．(III)より$xa=f$を満たす$x\in S$および左単位元$f$が存在するから，$xac=xac'$より$c=fc=fc'=c'$．よって$ac=b$を満たす$c\in S$は一意的である．\\
+(II)かつ(III)$\Rightarrow$(IV) $a,b\in G$とする．(II)より$ax=e$なる$x\in S$と左単位元$e$が存在するので，$a(xb)=(ax)b=eb=b$となって，$ac=b$を満たす$c\in S$が存在する．次に一意性を示す．$ac=ac'=b$とする．(III)より$ya=f$を満たす$y\in S$および左単位元$f$が存在するから，$yac=yac'$より$c=fc=fc'=c'$．よって$ac=b$を満たす$c\in S$は一意的である．\\
 (IV)$\Rightarrow$(V)公理(4')は公理(4)よりも強いので，公理(4)が成り立つ．また$ax=ay=b$とすれば，$ac=b$を満たす$c$は一意的であることから$x=y$．よって左消約的である．(公理(6)が成り立つ．)\\
 (V)$\Rightarrow$(VII)$S\neq\emptyset$よりある$a\in S$が存在する．(V)より$ac=a$を満たす$c\in S$が存在する．このとき，$x\in S$に対して$a(cx)=(ac)x=ax$と左消約的であることより$cx=x$．よって$c\in S$は左単位元．\\
 (VII)$\Rightarrow$(VI)左単位元は巾等元だから成り立つ．\\
@@ -349,7 +350,7 @@ $S$が右群である必要十分条件は，ある群$G$，右零半群$R$が�
 \end{flushright}
 それでは定理の証明に入る．補題より右群には左単位元$e_0$が存在する．このとき，$Se_0$を考えると，$ae_0,be_0\in Se_0$について$(ae_0)(be_0)=(ae_0b)e_0\in Se_0$から$Se_0$は部分半群であり，$(ae_0)e_0=ae_0^2=ae_0$から$e_0$は$Se_0$の右単位元，したがって$Se_0$の単位元である．$S$が左可約であることから$(ae_0)c=e_0$を満たす$c\in S$が存在するから，このとき，$ce_0\in Se_0$は$(ae_0)(ce_0)=(ae_0c)e_0=e_0^2=e_0$となり，$Se_0$における右逆元となる．よって$Se_0$は公理(2')(3')を満たすので群である．$G=Se_0$とおく．写像$\psi_1:S\rightarrow G;x\mapsto xe_0$を考える．$\psi_1$は明らかに全射．また$(xy)\psi_1=xye_0=(xe_0)(ye_0)=(x\psi_1)(y\psi_1)$より$\psi_1$は準同型写像．$\psi_1$による分解を$\Delta_1:S=\displaystyle\bigcup_{p\in G}S_p$とおく．ただし，$S_p=\{x\in S\:|\:xe_0=p\}$とする．\\
 次に，右群の左可約性より$x\in S$にたいして，$xe_x=x$を満たす$e_x$がただ一つ存在する．このとき，任意の$y\in S$について$(xe_x)y=xy$と左消約的であることから$e_xy=y$．よって$e_x$は左単位元である．左単位元の集合$R$を考えると，$e,f\in R$について$ef=f$より$R$は右零半群．写像$\psi_2:S\rightarrow R;x\mapsto e_x$を考えると，$e\in R$に対して，$ee=e$より$e\psi_2=e$となるから$\psi_2$は全射であり，かつ$x,y\in S$に対して$(xy)e_y=x(ye_y)=xy$より$e_{xy}=e_{y}$だから，$(xy)\psi_2=e_y=y\psi_2=(x\psi_2)(y\psi_2)$より$\psi_2$は準同型．(最後の等式は$R$が右零半群であることを用いた．)$\psi_2$による$S$の分解を$\Delta_2:S=\displaystyle\bigcup_{e\in R}T_e$とする．ここで$T_e=\{x\in S\:|\:xe=x\}$である．\\
-このとき$\Delta_1,\Delta_2$から一つずつ類を選び$S_p,T_e$とする．$pe\in S$を考えると，$e$が左単位元であることと$p\in G$であることから$(pe)\psi_1=p(ee_0)=pe_0=p$．最後の等式は$e_0$が$G$の単位元であることを用いた．よって，$pe\in S_p$となる．また，$(pe)e=pe^2=pe$より$pe\in Te$．したがって，$pe\in S_p\cap T_e$である．逆に，$y\in S_p\cap T_e$とすると，$ye_0=p$かつ$ye=y$であるから，最初の等式に$e$を右から掛けると，$pe=ye_0e=ye=y$となるので，結局$\Delta_1,\Delta_2$は直交する．定理3より，$S\cong G\times R$となる．
+このとき$\Delta_1,\Delta_2$から一つずつ類を選び$S_p,T_e$とする．$pe\in S$を考えると，$e$が左単位元であることと$p\in G$であることから$(pe)\psi_1=p(ee_0)=pe_0=p$．最後の等式は$e_0$が$G$の単位元であることを用いた．よって，$pe\in S_p$となる．また，$(pe)e=pe^2=pe$より$pe\in T_e$．したがって，$pe\in S_p\cap T_e$である．逆に，$y\in S_p\cap T_e$とすると，$ye_0=p$かつ$ye=y$であるから，最初の等式に$e$を右から掛けると，$pe=ye_0e=ye=y$となるので，結局$\Delta_1,\Delta_2$は直交する．定理3より，$S\cong G\times R$となる．
 \begin{flushright}
 (証明終)
 \end{flushright}
@@ -361,7 +362,7 @@ $S$が右群である必要十分条件は，ある群$G$，右零半群$R$が�
 {\bf 定義}　半群$S$の元$a,b\in S$について，$aba=a,bab=b$なる関係があるとき，$a$は$b$の逆元であるという．\\
 もし$S$が群ならば，$b=a^{-1}$が導かれるので，従来の逆元の概念と一致する．
 \begin{sprop}
-(Thierrin)　半群$S$の元$a$が逆元をもつための必要十分条件は，$axa=a$を満たす$x\in S$が少なくとも一つ存在することである．このとき逆元は$xax$である．
+(Thierrin)　半群$S$の元$a$が逆元をもつための必要十分条件は，$axa=a$を満たす$x\in S$が少なくとも一つ存在することである．このとき逆元は$a$の$xax$である．
 \end{sprop}
 (証明)\\
 必要条件であることは明らか．$axa=a$を満たす$x\in S$が存在するとする．このとき$b=xax$と置くと，$aba=a(xax)a=(axa)xa=axa=a, bab=(xax)a(xax)=x(axa)(xax)=xa(xax)=x(axa)x=xax=b$より$b$は$a$の逆元となる．
@@ -381,7 +382,7 @@ $S$が右群である必要十分条件は，ある群$G$，右零半群$R$が�
 \begin{flushright}
 (証明終)
 \end{flushright}
-群はもちろん逆半群であり，そのほか半束(可換な帯)も逆半群を満たしている．他に有限な逆半群の例として次のCayley　tableで演算を定義したものを考える．
+群はもちろん逆半群であり，そのほか半束(可換な帯)も逆半群となる条件を満たしている．他に有限な逆半群の例として次のCayley　tableで演算を定義したものを考える．
 \begin{table}[htbp]
 \begin{center}
 \begin{tabular}{cc}
@@ -393,7 +394,7 @@ $e$&$e$&$a$&$b$&$e$&$e$ \\
 $a$&$a$&$b$&$e$&$a$&$a$ \\
 $b$&$b$&$e$&$a$&$b$&$b$ \\
 $f$&$e$&$a$&$b$&$f$&$c$ \\
-$c$&$e$&$a$&$b$&$f$&$a$
+$c$&$e$&$a$&$b$&$c$&$f$
 \end{tabular}
 \caption{$S=\{e,a,b,f,c\}$は2つの群$S_1=\{e,a,b\},S_2=\{f,c\}$の和集合であり，巾等元$e,f$は可換}
 \end{center}
@@ -462,7 +463,7 @@ $(ab)(b^{-1}a^{-1})(ab)=a(bb^{-1})(a^{-1}a)b=a(a^{-1}a)(bb^{-1})b=(aa^{-1}a)(bb^
 \end{sthm}
 また巾等元の生成する主左イデアルと主右イデアルについて次の関係がある．
 \begin{sprop}
-$e,f\in S$を巾等元とするとき，$Se\cap Sf=Sef, eS\cap fS=efS$が成り立つ．
+$S$を逆半群，$e,f\in S$を巾等元とするとき，$Se\cap Sf=Sef, eS\cap fS=efS$が成り立つ．
 \end{sprop}
 (証明)\\
 $ef=fe\in Se\cap Sf$だから，$Sef\subset S(Se)\cap S(Sf)\subset Se\cap Sf$となる．一方，$x\in Se \cap Sf$とすれば，$a,b\in S$が存在して$x=ae=bf$となる．このとき，$xe=ae^2=ae=x,xf=bf^2=bf=x$だから，$xef=xf=x$．よって$x\in Sef$となるから$Se\cap Sf\subset Sef$．以上より$Sef=Se\cap Sf$．$eS\cap fS=efS$も同様．
@@ -517,7 +518,7 @@ $S$を逆半群，全射準同型$\varphi:S\rightarrow S'$が存在するとす�
 \end{sthm}
 (証明)\\
 正則半群の方から示す．$a\in S$とする．$a\in I$ならば$I$が正則なので$a$は正則である．$a\notin I$とし，標準全射$\pi:S\rightarrow S/I$による$a$の像を$a'$とする，$S/I$は正則だから，ある元$x'\in S/I$が存在して$a'x'a'=a'$となる．$\pi$が全射であることから，ある$x\in x'\pi^{-1}$が取れる．このとき，$(axa)\pi=a'x'a'=a'=a\pi$である．$\pi$の$S-I$上の制限は単射で，$a\in S-I$だから，$axa=a$．よって命題6より$a$は正則である．よって$S$のすべての元が正則なので，$S$は正則である．\\
-次に逆半群の方を示す．$S$が正則であることはすでに示されている．逆元の一意性を示せばよい．$a\in S$，$a$の2つの逆元を$x,y$とする．$a\in I$ならば$x=xax\in I,y=yay\in I$より$x,y\in I$であり，$I$は逆半群であることから逆元の一意性が成り立ち，$x=y$．一方$a\notin I$とする．ここで$a'=a\pi$とおくと，$S/I$が逆半群であることから$a'=a'z'a', z'=z'a'z'$を満たす$z'$はただ一つ．ここで，$x'=x\pi,y'=y\pi$は$a'=a'x'a', x'=x'a'x', a'=a'y'a', y'=y'a'zy'$を満たすから$x\pi=x'=y'=y\pi$．ここで，$x\in I$とすると$a=axa\in I$より不適だから$x\in S-I$．同様に$y\in S-I$が成り立つ．$\pi$の$S-I$上の制限は単射で，$a\in S-I$だから$x=y$．よっていずれの場合も逆元の一意性が成り立つ．
+次に逆半群の方を示す．$S$が正則であることはすでに示されている．逆元の一意性を示せばよい．$a\in S$，$a$の2つの逆元を$x,y$とする．$a\in I$ならば$x=xax\in I,y=yay\in I$より$x,y\in I$であり，$I$は逆半群であることから逆元の一意性が成り立ち，$x=y$．一方$a\notin I$とする．ここで$a'=a\pi$とおくと，$S/I$が逆半群であることから$a'=a'z'a', z'=z'a'z'$を満たす$z'$はただ一つ．ここで，$x'=x\pi,y'=y\pi$は$a'=a'x'a', x'=x'a'x', a'=a'y'a', y'=y'a'y'$を満たすから$x\pi=x'=y'=y\pi$．ここで，$x\in I$とすると$a=axa\in I$より不適だから$x\in S-I$．同様に$y\in S-I$が成り立つ．$\pi$の$S-I$上の制限は単射で，$a\in S-I$だから$x=y$．よっていずれの場合も逆元の一意性が成り立つ．
 \begin{flushright}
 (証明終)
 \end{flushright}
@@ -534,8 +535,8 @@ $\alpha,\beta,\gamma\in{\mathscr T}(X)$に対して，$(\alpha\beta)\gamma=\alph
 任意の逆半群はある対称逆半群の部分逆半群と同型である．
 \end{sthm}
 (証明)\\
-$S$を逆半群とし，${\mathscr T}(S)$を$S$上の対称逆半群とする．$a\in S$に対して，写像$f_a:Sa^{-1}\rightarrow Sa;\:x\mapsto xa$を考える．$Sa^{-1}\subset S$より$Sa^{-1}f_a=Sa^{-1}a\subset Sa$であり，かつ$xa\in Sa$について$xa=((xa)a^{-1})a\in Sa^{-1}a=Sa^{-1}f_a$より$f_a$は全射．また$xa^{-1},ya^{-1}\in Sa^{-1}$について$xa^{-1}f_a=ya^{-1}f_a$とすると，$xa^{-1}a=ya^{-1}a$．右から$a^{-1}$をかけて$xa^{-1}=ya^{-1}$．よって$f_a$は全単射となるから，$f_a\in{\mathscr T}(S)$．さらに$f_a^{-1}:S_a\rightarrow S_a^{-1}$を考えると，$f_{a^{-1}}$と定義域が等しく，また$x\in Sa$について$xa=(xaa^{-1})a\mapsto xaa^{-1}$となるから，$xf_a^{-1}=xf_{a^{-1}}$．よって$f_a^{-1}=f_{a^{-1}}$．\\
-写像$\varphi:S\rightarrow{\mathscr T}(S);\:x\mapsto f_a$を考える．$a,b\in S$について$f_af_b$の定義域は$D_1=Sa^{-1}\cap (Sb^{-1})f_a^{-1}$，また$f_{ab}$の定義域は$D_2=S(ab)^{-1}(ab)$．このとき，$D_1=D_2$を示す．一般に$Sx=Sx^{-1}x,Sx^{-1}=Sxx^{-1}$が成り立つことから，$D_1=Sa^{-1}\cap (Sb^{-1})f_a^{-1}=(Sa^{-1}a\cap Sbb^{-1})f_a^{-1}=(Sa^{-1}a\cap Sbb^{-1})a^{-1}$．$a^{-1}a$および$bb^{-1}$が巾等元であることから，命題9を用いると，$D_1=(Sa^{-1}abb^{-1})a^{-1}=(Sa^{-1}a)bb^{-1}a^{-1}=(Sa)bb^{-1}a^{-1}=S(ab)(ab)^{-1}=D_2$となるので，$f_{ab},f_af_b$の定義域は一致する．また，$x\in D_1=D_2$について，
+$S$を逆半群とし，${\mathscr T}(S)$を$S$上の対称逆半群とする．$a\in S$に対して，写像$f_a:Sa^{-1}\rightarrow Sa;\:a\mapsto xa$を考える．$Sa^{-1}\subset S$より$Sa^{-1}f_a=Sa^{-1}a\subset Sa$であり，かつ$xa\in Sa$について$xa=((xa)a^{-1})a\in Sa^{-1}a=Sa^{-1}f_a$より$f_a$は全射．また$xa^{-1},ya^{-1}\in Sa^{-1}$について$xa^{-1}f_a=ya^{-1}f_a$とすると，$xa^{-1}a=ya^{-1}a$．右から$a^{-1}$をかけて$xa^{-1}=ya^{-1}$．よって$f_a$は全単射となるから，$f_a\in{\mathscr T}(S)$．さらに$f_a^{-1}:S_a\rightarrow S_a^{-1}$を考えると，$f_{a^{-1}}$と定義域が等しく，また$x\in Sa$について$xa=(xaa^{-1})a\mapsto xaa^{-1}$となるから，$xf_a^{-1}=xf_{a^{-1}}$．よって$f_a^{-1}=f_{a^{-1}}$．\\
+写像$\varphi:S\rightarrow{\mathscr T}(S);\:x\mapsto f_a$を考える．$a,b\in S$について$f_af_b$の定義域は$D_1=Sa^{-1}\cap (Sb^{-1})f_a^{-1}$，また$f_{ab}$の定義域は$D_2=S(ab)^{-1}$．このとき，$D_1=D_2$を示す．一般に$Sx=Sx^{-1}x,Sx^{-1}=Sxx^{-1}$が成り立つことから，$D_1=Sa^{-1}\cap (Sb^{-1})f_a^{-1}=(Sa^{-1}a\cap Sbb^{-1})f_a^{-1}=(Sa^{-1}a\cap Sbb^{-1})a^{-1}$．$a^{-1}a$および$bb^{-1}$が巾等元であることから，命題9を用いると，$D_1=(Sa^{-1}abb^{-1})a^{-1}=(Sa^{-1}a)bb^{-1}a^{-1}=(Sa)bb^{-1}a^{-1}=S(ab)(ab)^{-1}=D_2$となるので，$f_{ab},f_af_b$の定義域は一致する．また，$x\in D_1=D_2$について，
 $xf_af_b=(xa)f_b=xab=xf_{ab}$となる．よって$f_af_b=f_{ab}$が成り立つから，$(ab)\varphi=(a\varphi)(b\varphi)$となるので$\varphi$は準同型である．また，$f_a=f_b$とすれば，定義域が等しいことから$Sa^{-1}=Sb^{-1}$で，$Sxx^{-1}=Sx^{-1}$を用いると$Saa^{-1}=Sbb^{-1}$．$aa^{-1},bb^{-1}$が巾等元であることと，定理8から$aa^{-1}=bb^{-1}$．このとき，$aa^{-1}\in Sa^{-1}$から，$aa^{-1}f_a$を考えることができ，$aa^{-1}f_a=bb^{-1}f_b$より$a=aa^{-1}a=bb^{-1}b=b$が成り立つ．よって$\varphi$は単射．よって$\varphi$は中への同型となるから，$S\varphi\cong S$は${\mathscr T}(S)$の部分逆半群となる．
 \begin{flushright}
 (証明終)

@@ -668,6 +668,22 @@ b5var/12Q=判型をB5変形にします．
 	\DeclareFontSizeBaseline{tabfont}{12Q}{14H}
 	\DeclarePaperFormat{a5}{148mm}{210mm}{34}{31}
 }
+
+\DeclareOption{episode}{%
+	\DeclareFontSizeBaseline{tiny}{7Q}{9H}
+	\DeclareFontSizeBaseline{scriptsize}{10Q}{12H}
+	\DeclareFontSizeBaseline{footnotesize}{11Q}{14H}
+	\DeclareFontSizeBaseline{small}{12Q}{16H}
+	\DeclareFontSizeBaseline{normalsize}{13Q}{20H}
+	\DeclareFontSizeBaseline{large}{14Q}{20H}
+	\DeclareFontSizeBaseline{Large}{15Q}{21H}
+	\DeclareFontSizeBaseline{LARGE}{16Q}{24H}
+	\DeclareFontSizeBaseline{huge}{20Q}{29H}
+	\DeclareFontSizeBaseline{Huge}{25Q}{31H}
+	\DeclareFontSizeBaseline{HUGE}{45Q}{61H}
+	\DeclareFontSizeBaseline{tabfont}{12Q}{14H}
+	\DeclarePaperFormat{a4}{210mm}{297mm}{52}{50}
+}
 \DeclareOption{oneside}{\@twosidefalse}
 \DeclareOption{twoside}{\@twosidetrue}
 \DeclareOption{onecolumn}{\@twocolumnfalse}

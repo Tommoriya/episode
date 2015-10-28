@@ -8,16 +8,12 @@
 \headsep 0.3in  
 \evensidemargin -0.03in
 \oddsidemargin -0.4in
-\textwidth 5.6in
-\textheight 8.4in
-%インタビュー
-\newcommand{\washa}[1]{\noindent{\bf #1 \,\,}}
-\newcommand{\intsub}[1]{\subsubsection*{#1}}
+%\textwidth 5.6in
+%\textheight 8.4in
 \makeatletter
-\renewcommand\intsub{\@startsection{subsubsection}{3}{\z@}%
-	{0ex}{0.7ex}{\reset@font\bfseries\flushright}}
-\makeatother 
-
+\renewcommand{\thetable}{%
+\arabic{table}}
+\makeatother
 
 %圏点
 \def\kenten#1{%
@@ -110,7 +106,7 @@
 \addcontentsline{toc}{section}{#1}}
 \newcommand{\Subsection}[1]{\subsection*{\underline{#1}}}
 \newcommand{\Subsubsection}[1]{\subsubsection*{#1}}
-
+\setcounter{tocdepth}{0} %Chapterのみ表示する
 %インタビュー
 %本文
 \begin{document}
@@ -119,19 +115,27 @@
 \input{maegaki}
 \tableofcontents
 \mainmatter
-\Chapter{積分の歩み（山本）}
+
 \input{yamamoto}
+\setcounter{footnote}{0}
 \input{kikuchi}
+\setcounter{footnote}{0}
 \input{kasaura}
+\setcounter{footnote}{0}
 \input{zetamura}
+\setcounter{footnote}{0}
 \input{abelian_cat}
+\setcounter{footnote}{0}
 \input{sp1}
+\setcounter{footnote}{0}
+\setcounter{table}{0}
 \input{satoken}
+\setcounter{footnote}{0}
 \input{miyamoto}
 
 
-\Chapter{編集後記}
-\input{atogaki}
+%\Chapter{編集後記}
+%\input{atogaki}
 
 \backmatter
 \end{document}
