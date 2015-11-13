@@ -1,1 +1,162 @@
+%\usepackage{amssymb}
+%\usepackage{amsmath}
+%\usepackage{mathrsfs}
+%\usepackage{bm}
+%\newtheorem{theo}{定理}[section]
+%\newtheorem{lemm}[theo]{補題}
+%\newtheorem{prop}[theo]{命題}
 
+\Chapter{非可換幾何の呼び声（TN）}
+\Section{はじめに}
+いきなりで申し訳ないのですが,本稿で非可換幾何学の理論を展開することはありません.タイトル詐欺もいいところですが,幾何と作用素環の間の対応を見て,そこから非可換幾何への着想を紹介いたします.
+今回の$e^{\pi i}sode$のテーマは「わたしのえぴそーど」です.より数学に興味のある一般の方に向けたものということで,そういった社会人の方,中学生,高校生の方にも雰囲気だけでも感じていただきつつ,私自身の興味のある事柄についてお話させていただきます.\\
+　数学において,調べたい対象を別の何かと対応付け,対応付けたものを調べることで元の調べたい対象の性質がわかるようになる,ということはしばしばあります.例えば,それなりに良い性質を持つ幾何的な対象である局所コンパクトハウスドルフ空間というものを考えます.例えば,我々の住む空間である(と思われる)3次元実空間$\mathbb{R}^3$などがその例です.数直線や2次元平面も(通常の位相を考えれば)局所コンパクトハウスドルフ空間とみなせます.さて,この局所コンパクトハウスドルフ空間の上で連続関数を定義することができます.そのような連続関数すべてを集めてくると,その集合には関数の和と積,それから複素数倍を考えることができ,数学で「多元環」,「代数」などという構造が入ります.これを連続関数環といいますが,この代数的な「環」（正確には多元環）を調べることにより,元の空間の性質がよくわかる,ということが知られています.\\
+　この連続関数環は実は$C^*$-環というものの１つです.$C^*$-環はHilbert空間上の有界線型作用素のなす多元環ですが,その中でも可換（積の順序が交換可能）なもので,実は可換な$C^*$-環はある局所コンパクト空間上の連続関数環になります.従って一方を調べることはもう一方を調べることになります.\\
+　このような対応がありますが,$C^*$-環は可換なものだけでなく非可換なものがたくさん（それはもうたくさんです）あります.では,その非可換な$C^*$-環が対応しているであろう「非可換」な「空間」はどういったものなのでしょうか？\\
+　今回の記事ではこのようなお話について紹介させていただきます.なお,話題の紹介を優先したため,また紙面と執筆者の気力の都合もあり証明は省略しました.（興味を持っていただけた方は参考文献を参照してください）
+\Section{$C^*$-環}
+　以下では少々式を用いて作用素環論の基礎を述べる.よくわからないという方は流し読みで雰囲気だけでも感じてもらえると幸いである.
+\Subsection{Banach空間,Hilbert空間}
+　線形空間$A$にノルム$\parallel x\parallel$（まぁ,絶対値みたいなものです）が定義されていて,そのノルムに関して完備である,すなわち
+\begin{center}
+Cauchy列$\{ x_n\}_{n \in \mathbb{N}},\lim_{m,n \rightarrow \infty}\parallel x_m-x_n\parallel =0$に対し\\
+その極限が存在する:$\lim_{n\rightarrow \infty}\parallel x_n-x\parallel=0$
+\end{center}
+をみたすとき,$A$を$\textgt{Banach空間}$という.\\
+　同様に線形空間に内積が定義され(pre-Hilbert空間,計量線形空間などという）,内積について完備であるとき,Hilbert空間という.
+ $ex)$ 2次元実ベクトル全体の空間
+\begin{center}
+$\Biggl\{ \left(
+\begin{array}{c}
+a \\
+b \\
+\end{array}
+\right)\Biggl|a.b\in \mathbb{R}\Biggr\}$
+\end{center}
+に和と実数倍を通常のベクトルの和と実数倍で定め,ノルムを通常のベクトルの長さで定めると,これはBanach空間である.\\
+\Subsection{$C^*$-環の定義}
+　$A$をBanach空間とする.Aに積$A \times A \ni \left(x,y\right) \mapsto xy \in A$,写像$A\ni a \mapsto a^*\in A$が定義され,以下の条件を満たすとき,$A$を\textgt{$C^*$-環}という.
+\begin{itemize}
+\item $A$は和と積について$\mathbb C$上の多元環である.つまり,積について結合法則と分配法則が成り立つ.
+\item $\parallel xy\parallel \leq \parallel x\parallel \parallel y\parallel$
+\item $\left(x^*\right)^*=x$
+\item $\left(x+y\right)=x^*+y^*$
+\item $\left(xy\right)^*=y^*a^*$
+\item $\left(\alpha x\right)^*=\overline{\alpha} x^*$
+\item $\parallel x^*\parallel=\parallel x\parallel$
+\item $\parallel xx^*\parallel=\parallel x\parallel \parallel x^*\parallel$
+\end{itemize}
+写像$*:a \mapsto a^*$を\textgt{対合}という.$C^*$-環$A$の積が可換であるとき,$A$は\textgt{可換}であるという.また,$A$が積について単位元をもつとき,$A$は\textgt{unital}であるという.
+\Subsection{*-準同型写像}
+　$A,B$を$C^*$-環とする.写像$\pi:A \rightarrow B$が
+\begin{center}
+$\pi \left( x+y\right)=\pi \left( x\right)+\pi \left( y\right),　\pi \left( xy\right)=\pi \left( x\right)\pi \left( y\right)$
+$\pi \left( \lambda x\right)=\lambda \pi \left( x\right)　\lambda \in \mathbb{C}$
+$\pi \left(x^*\right)=\pi \left(x\right)^*$
+\end{center}
+をみたすとき,$\pi$は\textgt{*-準同型}であるという.$\pi $が全単射*-準同型であるとき,$\pi$は同型であるという.$C^*$-環$A,B$の間に同型$\pi$が存在するとき,$A,B$は\textgt{同型}であるといい,$A\simeq B$と表す.
+\Subsection{$C^*$-環の直和}
+$\{A_{\lambda}\}_{\lambda \in \Lambda}$を$C^*$-環の族とする.これに対し,集合$A$を
+\begin{center}
+$A=\{ \left( x_{\lambda}\right)_{\lambda \in \Lambda}|\forall x_{\lambda}\in \Lambda ,
+\sup_{\lambda \in \Lambda}<\infty \}$
+\end{center}
+で定める.$A$に和と積,スカラー倍,及びノルムを
+\begin{itemize}
+\item $\left( x_{\lambda}\right)_{\lambda \in \Lambda}+\left( y_{\lambda}\right)_{\lambda \in \Lambda}
+=\left( x_{\lambda}+y_{\lambda}\right)_{\lambda \in \Lambda}$
+\item $\left( x_{\lambda}\right)_{\lambda \in \Lambda}\left( y_{\lambda}\right)_{\lambda \in \Lambda}
+=\left( x_{\lambda}y_{\lambda}\right)_{\lambda \in \Lambda}$
+\item $\alpha \left( x_{\lambda}\right)_{\lambda \in \Lambda}=\left( \alpha x_{\lambda}\right)_{\lambda \in \Lambda}$
+\item $\parallel \left( x_{\lambda}\right)_{\lambda \in \Lambda}\parallel=\sup_{\lambda \in \Lambda}\parallel x_{\lambda}\parallel$
+\end{itemize}
+で定めると,これは$C^:$-環である.$A$を$\{A_{\lambda}\}_{\lambda \in \Lambda}$の\textgt{直和}といい,
+\begin{center}
+$A=\sum_{\lambda \in \Lambda} \oplus A_{\lambda}$
+\end{center}
+と表す.
+\Subsection{重要な$C^*$-環の例}
+　$\Omega$を局所コンパクト空間とする.$C_{\infty}\left( \Omega\right)$を無限遠で消える$\Omega$上の連続関数全体の集合とする.これに和・スカラー倍と積,対合,ノルムを
+\begin{itemize}
+\item $\left(\lambda x+\mu y\right)\left(\omega\right)=\lambda x\left(\omega\right)+\mu y\left(\omega\right)$
+\item $\left(xy\right)\left(\omega\right)=x\left(\omega\right)y\left(\omega\right)$
+\item $x^*\left(\omega\right)=\overline{x\left(\omega\right)}$
+\item $\parallel x\parallel=\sup\{|x\left(\omega\right)||\omega \in \Omega\}$
+\end{itemize}
+で定めると,$C_{\infty}\left( \Omega\right)$は可換$C^*$-環である.$\Omega$がコンパクトであるとき,かつその時に限り$C_{\infty}\left( \Omega\right)$はunitalである.\\
+\\
+　※局所コンパクト空間$\Omega$上の連続関数$x$が\textgt{無限遠で消える}（\textgt{vanishing at infinity}）:任意の正数$\epsilon >0$に対し,あるコンパクト集合$K\subset \Omega$が存在して,
+\begin{center}
+$\forall \omega \in \Omega\setminus K,\parallel x\left( \omega\right)\parallel<\epsilon$
+\end{center}
+が成り立つ.
+\Section{Gelfand表現}
+\Subsection{指標}
+　$A$を可換$C^*$-環とする.写像$\pi:A\rightarrow\mathbb{C}$が0写像でなく,$A$から$\mathbb{C}$への*-準同型であるとき,$\pi$を$A$の\textgt{指標}といい,$A$の指標全体を$\Omega\left(A\right)$で表し,\textgt{指標空間}という.
+　$\Omega\left(A\right)$に弱*位相,すなわち,$A$を$A^{**}$の部分空間として考えた時に,各$x\in A$を連続にする$\Omega\left(A\right)$上の位相であって,和,積,スカラー倍を連続にするようなもののうち最弱なものとする.すると,この位相に関し,$\Omega\left(A\right)$は局所コンパクトHausdorff空間になる.さらに,$A$がunitalならば$\Omega\left(A\right)$はコンパクトである.
+\Subsection{Gelfand表現}
+　写像$\mathscr{F}:A \rightarrow C_{\infty}\left(\Omega\left(A\right)\right)$を
+\begin{center}
+$\mathscr{F}\left(x\right)\left(\pi\right)=\pi\left(x\right)$
+\end{center}
+で定める.$\mathscr{F}$を$A$の\textgt{Gelfand表現}という.
+\Subsection{Gelfand-Naimarkの定理その1}
+\begin{theo}
+$A$を可換$C^*$-環とする.$A$の{\rm Gelfand}表現$\mathscr{F}$は$A$から$C_{\infty}\left(\Omega\left(A\right)\right)$への等距離*-同型である.
+\end{theo}
+　このGelfand-Naimarkの定理により,任意の可換$C^*$-環に対し,ある局所コンパクトハウスドルフ空間上の連続関数環が対応することがわかった.実は局所コンパクトハウスドルフ空間上の連続関数環から元の位相空間を復元することができるので,この定理は可換$C^*$-環と局所コンパクトハウスドルフ空間が対応していることを示している.すなわち\textgt{,可換$C^*$-環の理論は局所コンパクト（ハウスドルフ）空間の理論と等価}とみなしてよいということである.（余談ではあるが,圏論の言葉を用いれば,局所コンパクトハウスドルフ空間の圏と可換$C^*$-環の圏が圏同値である,ということである）\\
+　かくして可換$C^*$-環と局所コンパクト空間という幾何学的な概念が繋がった.この定理はGrothendieckのスキーム論にも影響を与えたと言われている.\\
+　では,可換ではない$C^*$-環は何か幾何学的なものに対応しているとすると,それはどんなものであろうか.おそらく$C^*$-環の非可換性を反映した,何らかの変形を施された,いわば「非可換」な「空間」に対応しているのではないだろうか,と推察される.可換な場合に元の幾何学的な空間の情報を引き出す手段を非可換な場合に適用することで仮想的な「非可換空間」の幾何学的な情報を引き出すことができると言われている.そこで,もう少し一般の可換とは限らない$C^*$-環について調べていく.
+\Section{GNS表現}
+\Subsection{$C^*$-環の表現}
+　$A$を（可換とは限らない）$C^*$-環,$\mathfrak{H}$をHilbert空間とする.*-準同型$\pi:A\rightarrow \mathcal{B}\left(\mathfrak{H}\right)$に対し,対$\left(\pi,\mathfrak{H}\right)$をAの\textgt{表現}という.$\pi$が単射であるとき,表現$\left(\pi,\mathfrak{H}\right)$は\textgt{忠実}であるという.
+\Subsection{表現の直和}
+　$C^*$-環$A$の表現の族$\left(\pi_{\lambda},\mathfrak{H}_{\lambda}\right)_{\lambda \in \Lambda}$を考える.$\mathfrak{H}_{\lambda}$の直和Hilbert空間を,$\mathfrak{H}$;
+\begin{center}
+$H:=\bigoplus_{\lambda \in \Lambda}\mathfrak{H}_{\lambda}$
+\end{center}
+とする.これに対し,表現の\textgt{直和}$\left(\pi,\mathfrak{H}\right)$を
+\begin{center}
+$\pi\left(x\right)\left(\left(\xi_{\lambda}\right)_{\lambda \in \Lambda}\right):=
+\left(\pi_{\lambda}\left(x\right)\xi_{\lambda}\right)_{\lambda \in \Lambda}$
+\end{center}
+で定める.
+\Subsection{状態}
+　$A$を（可換とは限らない）$C^*$-環とする.$A$の線型汎函数$\omega:A\rightarrow \mathbb{C}$が
+\begin{center}
+$\forall x\in A,\omega \left(x^*x \right)\geq0$
+\end{center}
+をみたすとき,$\omega$を\textgt{正線型汎函数}という.正線型汎函数は有界線型作用素である.$\parallel\omega\parallel$=1をみたす正線型汎函数を\textgt{状態}という.
+\Subsection{GNS表現の構成}
+　$A$を（可換とは限らない）$C^*$-環とする.$A$の正線型汎函数$\omega:A\rightarrow \mathbb{C}$が与えられたとき,これを用いて$A$の表現を構成する.
+\begin{center}
+$N_{\omega}:=\{x\in A|\omega\left(x^*x\right)=0 \}$
+\end{center}
+とすると,これは$A$の左イデアルであり,かつ閉集合である.$N_{\omega}$を$\omega$の左核という.\\
+　$x\in A$に対し,$\eta_{\omega}\left(x\right)$で商空間$A/N_{\omega}$の剰余類$x+N_{\omega}$を表すこととする.複素線形空間$A/N_{\omega}$に内積を
+\begin{center}
+$\left(\eta_{\omega}\left(x\right)|\eta_{\omega}\left(y\right)\right)=\omega\left(y^*x\right)$
+\end{center}
+で定める.この内積に関して$A/N_{\omega}$を完備化して得られるHilbert空間を$\mathfrak{H}_{\omega}$とする.\\
+　各$a\in A$に対し線型作用素:$A/N_{\omega}\ni \eta_{\omega}\left(x\right)\mapsto \eta_{\omega}\left(ax\right)\in A/N_{\omega}$を考えると,これはHilbert空間$\mathfrak{H}_{\omega}$上の有界作用素$\pi_{\omega}\left(a\right)$に拡張できる.そこで写像$\pi_{\omega}:A\ni a\mapsto \pi_{\omega}\left(a\right)\in \mathcal{B}\left(\mathfrak{H}_{\omega}\right)$
+を考えると,対$\left(\pi_{\omega},\mathfrak{H}_{\omega}\right)$はAの表現である.この表現を$\omega$による\textgt{Gelfand-Naimark-Segal表現},略して\textgt{GNS表現}という.この表現の構成法を\textgt{GNS構成法}という.
+\Subsection{普遍表現}
+　$A$を（可換とは限らない）$C^*$-環とする.$A$上の状態$\omega$全てについての表現の族$\left(\pi_{\omega},\mathfrak{H}_{\omega}\right)$の直和を,$A$の\textgt{普遍表現}という.
+\Subsection{Gelfand-Naimarkの定理その2}
+\begin{theo}
+任意の$C^*$-環$A$の普遍表現は忠実である.特に,$A$の忠実な表現が存在する.したがって,任意の$C^*$-環$A$はある{\rm Hilbert}空間$\mathfrak{H}$上の有界線型作用素のなす$C^*$-環$\mathcal{B}\left(\mathfrak{H}\right)$と等距離*-同型である.
+\end{theo}
+　これで可換とは限らない任意の$C^*$-環があるHilbert空間上の有界線型作用素のなす$C^*$-環と対応付けられることがわかった.実はHilbert空間は量子力学が展開される空間であり,有界線型作用素は量子力学における物理量を表す役割を果たしている.作用素の積は一般に非可換であり,その非可換性が実際に物理学の中で大きな役割を果たしている.したがって,そのような意味で非可換な$C^*$-環は非可換な量子力学的空間と対応しているとみなせる.なお,状態という言葉は量子力学に由来する.\\
+　その他の例として,局所コンパクト空間上の力学系を考えると,図形の空間的な情報と力学系による時間発展の情報の両方を持つ非可換なC*-環が得られる.\\
+　このように非可換な$C^*$-環は非可換な空間の情報を持ったものであり,それを調べることにより,「非可換な空間」を得ることができる.
+\section{あとがき}
+　あまり「非可換幾何学」及びその入り口に具体的に触れる,ということはできませんでしたが,作用素環の基礎からはじめて非可換幾何学の着想の元となる定理までを紹介いたしました.少しでもその雰囲気を味わっていただけたなら幸いです.
+
+
+\Subsubsection{参考文献}
+\begin{description}
+\item{[1]}Masamichi Takesaki「Theory of Operator Algebras」,Springer
+\item{[2]}Shoichiro Sakai「$C^★$-Algebras and $W^★$-Algebras」,Springer
+\item{[3]}梅垣壽春,大矢雅則,日合文雄「復刊 作用素代数入門」,共立出版株式会社
+\item{[4]}生西明夫,中神祥臣「作用素環入門I　函数解析とフォン・ノイマン環」,岩波書店
+\end{description}
