@@ -217,7 +217,7 @@ $f:\R^n \to \R$を関数,$\phi:I\to\R^n$を滑らかな曲線として,この曲
 \]
 ただし,ここでの$\Delta$とは区間$I$の分割$t_0 < t_1 < \cdots < t_{N-1} < t_N$を考えており$d(\Delta)$はその分割の最も大きい幅です.
 \defe
-これは$Riemann$積分の考え方を使った積分の定義であり,詳しくは$e\pi sode\ vol.3$の"積分の歩み"を参照していただきたいのですが,
+これはリーマン積分の考え方を使った積分の定義であり,詳しくは$e\pi isode\ vol.3$の"積分の歩み"を参照していただきたいのですが,
 基本的には高校でならった区分求積法の考え方と同じで,区分求積法はある区間を同じ幅で分割していましたが,それを好きな幅で分割して良いようにしたという話です.またこの積分は収束して以下のようにも表されます.
 \prop
 $f,\phi,C$を上の定義と同様とし,$I=[a,b]$となるときに次が成り立つ.
@@ -492,4 +492,197 @@ $f:\C \to \C$を多項式が定める写像とすると,\\
 よって,$\C$は連結空間で$f(\C)\subset\C$は開かつ閉であり,空集合でないので$f(\C)=\C$がいえます.\\
 つまり,この多項式には$0$点が存在します.
 \proofx
+%ここまで書いた
 
+\Section{大学3年生}
+\Subsection{多様体}
+\defb[多様体]
+$M$:が$n$次元多様体であるとは$M$がハウスドルフ空間であり,次のような開近傍$U_i$と同相写像$\phi_i : U_i \to \phi_i(U_i) \subset \R^n$が存在することである.\\
+\[ \bigcup_i U_i = M \]
+$U_i \cap U_j \neq \emptyset$のとき,
+\[
+\phi_i \circ \phi_j^{-1} | _{\phi_j(U_i\cap U_j)} :\phi_j(U_i\cap U_j) \to \phi_i(U_i\cap U_j)
+\]
+が$C^\infty$級である.
+\defx
+\defb
+多様体 $M_1, M_2$ を考える．写像 $F : M_1 \to M_2$ が $C^\infty$級であるとは、$F(x) \in M_2$ のまわりの座標近傍 $(V,\psi), F^{-1}(V)$ に含まれる$x\in M_1$ のまわりの座標近傍 $(U, \phi)$ に対して、
+$\psi \circ F \circ \phi^{-1} : \phi(U) \to \psi(V )$が $C^\infty$ 級となることである。
+\defx
+ユークリッド空間内の多様体のみを考えて$f:M\to N$,$M\subset\R^k,N\subset\R^l$の微分を考える.\\
+\[
+df_x = (\frac{\partial f_i}{\partial x_j}):\R^k\to\R^l
+\]
+という行列で定める.\\
+\defb
+$x\in M$が正則点 $\iff df_x$が全射.\\
+$x\in M$が特異点 $\iff df_x$が全射でない.\\
+$y\in N$が正則値 $\iff f^{-1}(y)$が全て正則点.\\
+$y\in N$が臨界値 $\iff f^{-1}(y)$が特異点を元として含む.\\
+\defx
+
+\proof[多様体論を用いた代数学の基本定理の証明]
+\leavevmode\\
+この証明はJohn Willard Milnor "Topology from the Differentiable Viewpoint"に載っている証明です.
+証明のポイント\\
+$(1)\ p(z):\C\to\C$を今までどおりの多項式とする.\\
+$(2)\ h:S^2\to\C$というステレオグラフィック射影によって,\\
+$(3)\ h^{-1}\circ p \circ h : S^2 \to S^2$を定める.\\
+$(4)\ f$が$C^\infty$級写像であることを示す.\\
+$(5)\ f$は有限個の臨界点しか持たない.\\
+$(6)\ f$の球から正則値の集合は有限を除いたものなので連結.\\
+$(7)\ \# f^{-1}(y)$は開近傍上で定数であるので常に0でない.\\
+\proofx
+\Subsection{群論}
+\defb
+集合$G$が群であるとは,$G$上の二項演算が$x,y,z\in G$に対して以下を満たすことである.\\
+$\rm (i)$ $(xy)z=x(yz)$\\
+$\rm (ii)$ $\exists e \in  G \ s.t. \ xe=ex=x$\\
+$\rm (iii)$ $\forall x\in G \ \exists x^{-1} \in G \ s.t. \ x x^{-1} = x^{-1} x= e$\\
+さらに,$xy=yx$を満たすとき$G$をAbel群という.\\
+\defe
+
+\defb
+部分集合$H\subset G$が\\
+$\forall x,y \in H: \ xy\in H$,\ \ $\forall x\in H:\ x^{-1} \in H$,\ \ $e\in H$\\
+を満たすとき$H$を$G$の部分群という.
+\defe
+
+
+\defb
+$N\subset G:$部分が正規部分群である\\
+$\iff \ \forall g\in G : \ gNg^{-1} \subset N$
+\defe
+
+\defb
+群$G$,$G'$があったとして,$f:G\to G' \  \forall x,y \in G \ f(xy)=f(x)f(y)$をみたす$f$を群準同型写像という.\\
+特に$f$が準同型で全単射であるとき,同型写像であるという.
+\defe
+\defb
+$G:$有限群,$p$:素数とする.$G$が$p$群$\iff\ |G|$が$p$のべき乗個.\\
+$G$の部分群でかつ$p$群であるものを$p$部分群.\\
+$|G|=p^e m, m,p$は互いに素なとき,\\
+元の個数が$p^e$個の部分群をSylow $p$部分群という.
+\defe
+
+\thm[Sylowの定理]
+$G:$有限群,$p$:素数とする.\\
+$\rm (I)$$p$\ Sylow部分群が存在する.\\
+$\rm (II)$$(p\ $Sylow部分群の個数$)\equiv\ 1 \bmod p$\\
+$\rm (III)$$\forall P:p$Sylow群,$\forall Q:p$部分群,$\exists x\in G\  s.t. \ Q\subset xPx^{-1}$
+\thmx
+
+
+\Subsection{ガロア理論}
+ガロア論とは,体$L,K$の拡大を考える理論.
+\defb
+$K \subset L$が部分体であるとき,$L$は$K$の拡大であるという.
+\defx
+\defb
+$L$の同型で,かつ$K$上では恒等写像なもの全体を$\Aut_K(L)$とかく.
+$\# \Aut_K(L)=[L:K]$のとき$L$は$K$のガロア拡大であるといい,$\Aut_K(L)$をガロア群という.
+\defx
+\ex
+\[
+[\C:\R]=2,\Aut_\R(\C) = \{\sigma_1,\sigma_2\}
+\]
+ただし,$\sigma_1$は恒等写像,$\sigma_2$は複素共役写像である.
+\exx
+\thm
+$L/K$ を有限次ガロア拡大，$G$ をそのガロア群とする．
+$(1)L/K$ の中間体 $M$ と $G$ の部分群 $H$の間に次の一対一対応がある：
+\[
+M \rightarrow G(L/M) , F(H) \leftarrow H
+\]
+$(2) M$ と $H $が対応するとき，$L/M$ はガロア拡大で $H$はそのガロア群である．
+そして
+\[
+[L : M] = |H|, [M : K] = |G : H|
+\]
+$(3) M$ と $H$ が対応するとき，$M/K$がガロア拡大であることと$H$ が$G$ の正
+規部分群であることは同値である．さらにこのとき
+\[
+G(M/K) \cong G/H. 
+\]
+\thmx
+
+\proof[Galois理論による証明のポイント]
+\leavevmode\\
+雪江明彦「代数学2　環と体とガロア理論」に同様の証明が載っています.\\
+$(1)\ K/\C$を有限次拡大とする.(背理法)\\
+$(2)\ K/\R$は正規拡大であるとして一般性を失わない.\\
+$(3)\ K/\R$はGalois拡大になる.\\
+$(4)\ G:=Gal(K/R)$とする,$H\subset G$を2-Sylow群とすると,これに対応する拡大は奇数次拡大で,$\R$そのものしかない.\\
+$(5)\ [K:\C]>1$で$2^n$であるとすると,$Gal(K/\C)$が2-群になって,$\C$が二次拡大をもつことになる.\\
+\proofx
+\Subsection{代数トポロジー}
+\defb
+$X_n:$加群,$\partial_n:X_n\to X_{n-1}$の組が複体である.
+$\iff\ \partial_{n-1} \circ \partial_{n} = 0$
+\defe
+\defb
+ここで,$\Ker \partial_n =\{x\in X_n| \partial_n x = 0 \} $,\ $\Image \partial_{n+1} = \{ x_n \in X_n | \exists x_{n+1} \in X_{n+1} \ s.t. \ x_n = \partial_{n+1} x_{n+1}\}$\\
+とおくと,$\Image \partial_{n+1} \subset \Ker \partial_{n}$は部分加群であり,$\Ho_n(X) = \Ker \partial_{n}/ \Image \partial_{n+1} $をホモロジー群という.
+\defe
+\defb
+$\{X_n.\partial_n\},\{X_n'.\partial_n'\}:$複体とする.写像$f_n :X_n \to X_n'$が鎖準同型である.
+$\iff\ f_{n-1}\circ\partial_n = \partial_n'\circ f_n$
+\defe
+\thm
+$S^n=\{x\in\R^{n+1} | |x|=1\}$とすると,$\Ho_k S^n = \Z\  (k=0,n)$,$\Ho_k S^n = 0\  (k\neq 0,n)$
+\thmx
+\thm
+$f:S^n \to S^n$を写像とすると,これは$f_*:\Ho_n(S^n)\to \Ho_n(S^n)$を引き起こす.\\
+これは$\Z$間の準同型であるので,$f_*(x) = kx$とおけて,この$k$を$\deg(f)$と置いて,写像度という.
+\thmx
+\prop
+$\rm (i)$$\deg(id)=1$\\
+$\rm (ii)$$\deg(f\circ g) = \deg(f)*\deg(g)$\\
+$\rm (iii)$$f \simeq g \Rightarrow \deg(f) = \deg(g)$\\
+\propx
+
+
+\proof[代数トポロジー的な代数学の基本定理の証明]
+\leavevmode\\
+この証明は,Albrecht Dold「Lectures on Algebraic Topology」に載っている証明です.
+証明のポイント\\
+$(1) \ \hat{p}:S^1\to S^1 ; z \to \frac{p(z)}{|p(z)|}$により定める.\\
+$(2)\ |z|\le 1$ で 零点を持たないならば$\deg \hat{p} = 0$をしめす\\
+$(3)\ p_t(z) =  \frac{p(tz)}{|p(tz)|}$による.\\
+$(4)\ |z|\ge 1$ で 零点を持たないならば$\deg \hat{p} = n$.\\
+$(5)\ p_t(z) =  \frac{t^kp(z/t)}{|t^kp(z/t)|}$による\\
+\proofx
+\Subsection{微分幾何学}
+\defb
+$\{g_p\}_{p\in M}$がRiemann計量である.\\
+$\iff \ (1)g_p : T_p M \times T_p M \to \R $は内積.\\
+$(2)s_1,s_2:U\to TM:$切断とすると,$g_p(s_1(p),s_2(p))$は$C^\infty$級･
+\defe
+\thm
+$M$:境界つきコンパクトRiemann多様体. $K$を$M$のガウス曲率. $k_g:\partial M$の測地曲率.
+\[
+\int_M K\;dA+\int_{\partial M}k_g\;ds=2\pi\chi(M)
+\]
+\thmx
+\proof[微分幾何学による代数学の基本定理の証明]
+\leavevmode\\
+この証明はhttp://arxiv.org/pdf/1106.0924.pdfに載っている証明です.
+証明のポイント\\
+$p(z)$が零点を持たないと仮定する.\\
+$p^{*}(z) = z_np(1/z) = a_0z_n + a_1z{n-1} + \cdots + a_n$として, $f(z)=p(z)p^*(z)$とする.\\
+$f(\tfrac{1}{w}) = p(\tfrac{1}{w})p^*(\tfrac{1}{w}) = w^{-2n}p^*(w)p(w) = w^{-2n}f(w)$\\
+$w\in \C :\ g=\frac{1}{|f(w)|^{\frac{2}{n}}}\,|dw|^2$\\
+$w\in \hat{\C} \setminus \{0\}:\  g=\frac{1}{|f(1/w)|^{\frac{2}{n}}}\,|d(1/w)|^2$ とする\\
+$\frac{1}{|f(w)|^{\frac{1}{n}}}\,K_g=\frac{1}{n}\Delta \log|f(w)|=\frac{1}{n}\Delta \text{Re}(\log f(w))=0$
+$\int_{\mathbf{S}^2}K_g=4\pi$により矛盾.
+\proofx
+\Subsection{確率論}
+\proof[確率論による代数学の基本定理の証明]
+この証明はL. C. G. Rogers , David Williams「Diffusions, Markov Processes, and Martingales: Volume 1, Foundations」に載っている証明です.
+証明のポイントは.
+$(1)\ (B_t:t \ge 0)$をブラウン運動とする.\\
+$(2)\ f(z) = 1/p(z)$とおくと,これは正則で,$z\to\infty$で$0$に収束する.\\
+$(3)\ \alpha < \beta$として$\{\Real f \le \alpha\}$と$\{\Real f \ge \beta\}$は開集合を含む.\\
+$(4)\ f(B_t)$はマルチンゲールの収束から,$f(B_t)\to f(B_\infty)$に$L^1$収束する\\
+$(5)\ $一方でこれはブラウン運動の再帰性に矛盾する.\\
+\proofx
