@@ -36,6 +36,20 @@
 \newcommand{\Subsection}[1]{\subsection*{\underline{#1}}}
 \newcommand{\Subsubsection}[1]{\subsubsection*{#1}}
 \setcounter{tocdepth}{0} %Chapterのみ表示する
+%あさか
+
+\usepackage{wrapfig}
+\usepackage{type1cm}
+\usepackage{comment}
+\usepackage{tikz}
+\newtheorem{athm}{Theorem}
+\newtheorem{aprop}[athm]{Proposition}
+\newtheorem{adefi}[athm]{Definition}
+\newtheorem{aex}{Example}
+\newtheorem{arem}{Remark}
+\renewcommand{\theaex}{}
+\renewcommand{\thearem}{}
+
 %TN.tex
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -111,6 +125,7 @@
 \tableofcontents
 \mainmatter
 %\input{example}
+\input{asaka}
 \input{TaroNakamura(TN)}
 \input{ito}
 %\Chapter{編集後記}
