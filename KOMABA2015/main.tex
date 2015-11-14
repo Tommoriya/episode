@@ -36,7 +36,73 @@
 \newcommand{\Subsection}[1]{\subsection*{\underline{#1}}}
 \newcommand{\Subsubsection}[1]{\subsubsection*{#1}}
 \setcounter{tocdepth}{0} %Chapterのみ表示する
-%インタビュー
+%TN.tex
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\newtheorem{theo}{定理}
+\renewcommand{\thetheo}{}
+\newtheorem{lemm}[theo]{補題}
+\newtheorem{prop}[theo]{命題}
+
+%ito.tex
+%これは他とぶつかったら変える予定です.
+\newtheorem{Thm}{定理}
+\renewcommand{\theThm}{}
+\newtheorem{Lemma}{補題}
+\renewcommand{\theLemma}{}
+\newtheorem{Def}{定義}
+\renewcommand{\theDef}{}
+\newtheorem{Prop}{命題}
+\renewcommand{\theProp}{}
+\newtheorem{Ex}{例}
+\renewcommand{\theEx}{}
+\newtheorem{Prob}{問題}
+\renewcommand{\theProb}{}
+\newtheorem{Rem}{注意}
+\renewcommand{\theRem}{}
+\def\qedsymbol{$\square$}
+\def\proofname{\gt{証明}\;}
+\newenvironment{Proof}{\par\noindent{\it\proofname}}{{\unskip\nobreak\hfill{\it\qedsymbol}}\par\vskip 9pt}
+\newenvironment{Proof*}{\par\noindent}{{\unskip\nobreak\hfill{\it\qedsymbol}}\par\vskip 9pt}
+\ifx\undefined\bysame \newcommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\,}\fi
+\def\C{\mathbb C}
+\def\N{\mathbb N}
+\def\R{\mathbb R}
+\def\Q{\mathbb Q}
+\def\Z{\mathbb Z}
+\newcommand{\Real}{\mathop{\mathrm{Re}}\nolimits}
+\def\thm{\begin{Thm}}
+\def\thmx{\end{Thm}}
+\def\prop{\begin{Prop}}
+\def\propx{\end{Prop}}
+\def\defb{\begin{Def}}
+\def\defe{\end{Def}}
+\def\defx{\end{Def}}
+\def\rem{\begin{Rem}}
+\def\remx{\end{Rem}}
+\def\prob{\begin{Prob}}
+\def\probx{\end{Prob}}
+\def\lem{\begin{Lemma}}
+\def\lemx{\end{Lemma}}
+\def\ex{\begin{Ex}}
+\def\exx{\end{Ex}}
+\def\cor{\begin{Cor}}
+\def\corx{\end{Cor}}
+\def\proof{\begin{Proof}}
+\def\proofx{\end{Proof}}
+\def\a{\alpha}
+\newcommand{\Image}{\mathop{\mathrm{Im}}\nolimits}
+\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+\newcommand{\Coker}{\mathop{\mathrm{Coker}}\nolimits}
+\newcommand{\Aut}{\mathop{\mathrm{Aut}}\nolimits}
+\newcommand{\Ho}{\mathop{\mathrm{H}}\nolimits}
+\newcommand{\Res}{\mathop{\mathrm{Res}}\nolimits}
+
+\def\TO{\Rightarrow}
+\def\OT{\Leftarrow}
+
 %本文
 \begin{document}
 \frontmatter
@@ -44,8 +110,9 @@
 \input{maegaki}
 \tableofcontents
 \mainmatter
-\input{example}
-
+%\input{example}
+\input{TaroNakamura(TN)}
+\input{ito}
 %\Chapter{編集後記}
 %\input{atogaki}
 
