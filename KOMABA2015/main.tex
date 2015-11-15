@@ -57,37 +57,27 @@
 \newtheorem{athm}{Theorem}
 \newtheorem{aprop}[athm]{Proposition}
 \newtheorem{adefi}[athm]{Definition}
-\newtheorem{aex}{Example}
-\newtheorem{arem}{Remark}
-\renewcommand{\theaex}{}
-\renewcommand{\thearem}{}
+\newtheorem*{aex}{Example}
+\newtheorem*{arem}{Remark}
 
 %TN.tex
 \usepackage{mathrsfs}
 \usepackage{bm}
-\newtheorem{theo}{定理}
-\renewcommand{\thetheo}{}
-\newtheorem{lemm}[theo]{補題}
-\newtheorem{prop}[theo]{命題}
+\newtheorem*{theo}{定理}
+\newtheorem*{lemm}{補題}
+\newtheorem*{prop}{命題}
 
 %ito.tex
 %これは他とぶつかったら変える予定です.
 \usepackage{ascmac}
 
-\newtheorem{Thm}{定理}
-\renewcommand{\theThm}{}
-\newtheorem{Lemma}{補題}
-\renewcommand{\theLemma}{}
-\newtheorem{Def}{定義}
-\renewcommand{\theDef}{}
-\newtheorem{Prop}{命題}
-\renewcommand{\theProp}{}
-\newtheorem{Ex}{例}
-\renewcommand{\theEx}{}
-\newtheorem{Prob}{問題}
-\renewcommand{\theProb}{}
-\newtheorem{Rem}{注意}
-\renewcommand{\theRem}{}
+\newtheorem*{Thm}{定理}
+\newtheorem*{Lemma}{補題}
+\newtheorem*{Def}{定義}
+\newtheorem*{Prop}{命題}
+\newtheorem*{Ex}{例}
+\newtheorem*{Prob}{問題}
+\newtheorem*{Rem}{注意}
 \def\qedsymbol{$\square$}
 \def\proofname{\gt{証明}\;}
 \newenvironment{Proof}{\par\noindent{\it\proofname}}{{\unskip\nobreak\hfill{\it\qedsymbol}}\par\vskip 9pt}
