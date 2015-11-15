@@ -8,10 +8,10 @@
 \Section{$C^*$-環}
 　以下では少々式を用いて作用素環論の基礎を述べる.よくわからないという方は流し読みで雰囲気だけでも感じてもらえると幸いである.
 \Subsection{Banach空間,Hilbert空間}
-　線形空間$A$にノルム$\parallel x\parallel$（まぁ,絶対値みたいなものです）が定義されていて,そのノルムに関して完備である,すなわち
+　線形空間$A$にノルム$\lVert x\rVert$（まぁ,絶対値みたいなものです）が定義されていて,そのノルムに関して完備である,すなわち
 \begin{center}
-Cauchy列$\{ x_n\}_{n \in \mathbb{N}},\lim_{m,n \rightarrow \infty}\parallel x_m-x_n\parallel =0$に対し\\
-その極限が存在する:$\lim_{n\rightarrow \infty}\parallel x_n-x\parallel=0$
+Cauchy列$\{ x_n\}_{n \in \mathbb{N}},\lim_{m,n \rightarrow \infty}\lVert x_m-x_n\rVert =0$に対し\\
+その極限が存在する:$\lim_{n\rightarrow \infty}\lVert x_n-x\rVert=0$
 \end{center}
 をみたすとき,$A$を$\textgt{Banach空間}$という.\\
 　同様に線形空間に内積が定義され(pre-Hilbert空間,計量線形空間などという）,内積について完備であるとき,Hilbert空間という.
@@ -29,13 +29,13 @@ b \\
 　$A$をBanach空間とする.Aに積$A \times A \ni \left(x,y\right) \mapsto xy \in A$,写像$A\ni a \mapsto a^*\in A$が定義され,以下の条件を満たすとき,$A$を\textgt{$C^*$-環}という.
 \begin{itemize}
 \item $A$は和と積について$\mathbb C$上の多元環である.つまり,積について結合法則と分配法則が成り立つ.
-\item $\parallel xy\parallel \leq \parallel x\parallel \parallel y\parallel$
+\item $\lVert xy\rVert \leq \lVert x\rVert \lVert y\rVert$
 \item $\left(x^*\right)^*=x$
 \item $\left(x+y\right)=x^*+y^*$
 \item $\left(xy\right)^*=y^*a^*$
 \item $\left(\alpha x\right)^*=\overline{\alpha} x^*$
-\item $\parallel x^*\parallel=\parallel x\parallel$
-\item $\parallel xx^*\parallel=\parallel x\parallel \parallel x^*\parallel$
+\item $\lVert x^*\rVert=\lVert x\rVert$
+\item $\lVert xx^*\rVert=\lVert x\rVert \lVert x^*\rVert$
 \end{itemize}
 写像$*:a \mapsto a^*$を\textgt{対合}という.$C^*$-環$A$の積が順序によらないとき,すなわち任意の$a,b\in A$に対し,$ab=ba$であるとき,$A$は\textgt{可換}であるという.また,$A$が積について単位元をもつとき,$A$は\textgt{unital}であるという.
 \Subsection{*-準同型写像}
@@ -59,7 +59,7 @@ $A=\{ \left( x_{\lambda}\right)_{\lambda \in \Lambda}|\forall x_{\lambda}\in \La
 \item $\left( x_{\lambda}\right)_{\lambda \in \Lambda}\left( y_{\lambda}\right)_{\lambda \in \Lambda}
 =\left( x_{\lambda}y_{\lambda}\right)_{\lambda \in \Lambda}$
 \item $\alpha \left( x_{\lambda}\right)_{\lambda \in \Lambda}=\left( \alpha x_{\lambda}\right)_{\lambda \in \Lambda}$
-\item $\parallel \left( x_{\lambda}\right)_{\lambda \in \Lambda}\parallel=\sup_{\lambda \in \Lambda}\parallel x_{\lambda}\parallel$
+\item $\lVert \left( x_{\lambda}\right)_{\lambda \in \Lambda}\rVert=\sup_{\lambda \in \Lambda}\lVert x_{\lambda}\rVert$
 \end{itemize}
 で定めると,これは$C^:$-環である.$A$を$\{A_{\lambda}\}_{\lambda \in \Lambda}$の\textgt{直和}といい,
 \begin{center}
@@ -72,13 +72,13 @@ $A=\sum_{\lambda \in \Lambda} \oplus A_{\lambda}$
 \item $\left(\lambda x+\mu y\right)\left(\omega\right)=\lambda x\left(\omega\right)+\mu y\left(\omega\right)$
 \item $\left(xy\right)\left(\omega\right)=x\left(\omega\right)y\left(\omega\right)$
 \item $x^*\left(\omega\right)=\overline{x\left(\omega\right)}$
-\item $\parallel x\parallel=\sup\{|x\left(\omega\right)||\omega \in \Omega\}$
+\item $\lVert x\rVert=\sup\{|x\left(\omega\right)||\omega \in \Omega\}$
 \end{itemize}
 で定めると,$C_{\infty}\left( \Omega\right)$は可換$C^*$-環である.$\Omega$がコンパクトであるとき,かつその時に限り$C_{\infty}\left( \Omega\right)$はunitalである.\\
 \\
 　※局所コンパクト空間$\Omega$上の連続関数$x$が\textgt{無限遠で消える}（\textgt{vanishing at infinity}）:任意の正数$\epsilon >0$に対し,あるコンパクト集合$K\subset \Omega$が存在して,
 \begin{center}
-$\forall \omega \in \Omega\setminus K,\parallel x\left( \omega\right)\parallel<\epsilon$
+$\forall \omega \in \Omega\setminus K,\lVert x\left( \omega\right)\rVert<\epsilon$
 \end{center}
 が成り立つ.
 \Section{Gelfand表現}
@@ -117,7 +117,7 @@ $\pi\left(x\right)\left(\left(\xi_{\lambda}\right)_{\lambda \in \Lambda}\right):
 \begin{center}
 $\forall x\in A,\omega \left(x^*x \right)\geq0$
 \end{center}
-をみたすとき,$\omega$を\textgt{正線型汎函数}という.正線型汎函数は有界線型作用素である.$\parallel\omega\parallel$=1をみたす正線型汎函数を\textgt{状態}という.
+をみたすとき,$\omega$を\textgt{正線型汎函数}という.正線型汎函数は有界線型作用素である.$\lVert\omega\rVert$=1をみたす正線型汎函数を\textgt{状態}という.
 \Subsection{GNS表現の構成}
 　$A$を（可換とは限らない）$C^*$-環とする.$A$の正線型汎函数$\omega:A\rightarrow \mathbb{C}$が与えられたとき,これを用いて$A$の表現を構成する.
 \begin{center}
