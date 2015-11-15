@@ -1,9 +1,11 @@
-\documentclass[notombow,a5,openany]{kyouritu}
-\usepackage{color} 
-\RequirePackage[dvipdfmx]{graphicx}
+\documentclass[notombow,a5,openany,dvipdfmx]{kyouritu}
+\usepackage{graphicx,color}
 \usepackage{tikz}
 \usepackage{makeidx,multicol}
-\usepackage{amsmath ,amssymb ,amsthm}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{standalone}
+\usepackage{hyperref}
+\usepackage{pxjahyper}
 %プリアンブル
 \topmargin -0.5in
 \headheight 0.2in
@@ -12,12 +14,11 @@
 \oddsidemargin -0.4in
 %\textwidth 5.6in
 %\textheight 8.4in
-\makeatletter
 \renewcommand{\thetable}{%
 \arabic{table}}
-\makeatother
 
 %圏点
+\makeatletter
 \def\kenten#1{%
 \ifvmode\leavevmode\else\hskip\kanjiskip\fi
 \setbox1=\hbox to \z@{・\hss}%
@@ -28,6 +29,7 @@
 \raise.63zw\copy1\nobreak #1\hskip\kanjiskip\relax
 \let\next=\@kenten
 \fi\next}
+\makeatother
 
 %Section等先頭を大文字にすると番号付けしない．
 \newcommand{\Chapter}[1]{\chapter*{{\Huge #1}}
@@ -38,6 +40,15 @@
 \newcommand{\Subsection}[1]{\subsection*{\underline{#1}}}
 \newcommand{\Subsubsection}[1]{\subsubsection*{#1}}
 \setcounter{tocdepth}{0} %Chapterのみ表示する
+
+
+\usetikzlibrary{%
+  arrows.meta,%
+  %decorations.pathreplacing,%
+  decorations.markings,%
+  shapes.misc%
+}
+
 %あさか
 
 \usepackage{wrapfig}
@@ -52,8 +63,6 @@
 \renewcommand{\thearem}{}
 
 %TN.tex
-\usepackage{amssymb}
-\usepackage{amsmath}
 \usepackage{mathrsfs}
 \usepackage{bm}
 \newtheorem{theo}{定理}
