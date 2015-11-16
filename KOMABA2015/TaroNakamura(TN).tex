@@ -16,14 +16,12 @@ Cauchy列$\{ x_n\}_{n \in \mathbb{N}},\lim_{m,n \rightarrow \infty}\lVert x_m-x_
 をみたすとき,$A$を$\textgt{Banach空間}$という.\\
 　同様に線形空間に内積が定義され(pre-Hilbert空間,計量線形空間などという）,内積について完備であるとき,Hilbert空間という.
  $ex)$ 2次元実ベクトル全体の空間
-\begin{center}
-$\Biggl\{ \left(
+\[\Biggl\{ \left(
 \begin{array}{c}
 a \\
 b \\
 \end{array}
-\right)\Biggl|a.b\in \mathbb{R}\Biggr\}$
-\end{center}
+\right)\Biggl|a.b\in \mathbb{R}\Biggr\}\]
 に和と実数倍を通常のベクトルの和と実数倍で定め,ノルムを通常のベクトルの長さで定めると,これはBanach空間である.\\
 \Subsection{$C^*$-環の定義}
 　$A$をBanach空間とする.Aに積$A \times A \ni \left(x,y\right) \mapsto xy \in A$,写像$A\ni a \mapsto a^*\in A$が定義され,以下の条件を満たすとき,$A$を\textgt{$C^*$-環}という.
@@ -40,18 +38,16 @@ b \\
 写像$*:a \mapsto a^*$を\textgt{対合}という.$C^*$-環$A$の積が順序によらないとき,すなわち任意の$a,b\in A$に対し,$ab=ba$であるとき,$A$は\textgt{可換}であるという.また,$A$が積について単位元をもつとき,$A$は\textgt{unital}であるという.
 \Subsection{*-準同型写像}
 　$A,B$を$C^*$-環とする.写像$\pi:A \rightarrow B$が
-\begin{center}
-$\pi \left( x+y\right)=\pi \left( x\right)+\pi \left( y\right),　\pi \left( xy\right)=\pi \left( x\right)\pi \left( y\right)$
-$\pi \left( \lambda x\right)=\lambda \pi \left( x\right)　\lambda \in \mathbb{C}$
-$\pi \left(x^*\right)=\pi \left(x\right)^*$
-\end{center}
+\begin{gather*}
+\pi \left( x+y\right)=\pi \left( x\right)+\pi \left( y\right),　\pi \left( xy\right)=\pi \left( x\right)\pi \left( y\right) \\
+\pi \left( \lambda x\right)=\lambda \pi \left( x\right)　\lambda \in \mathbb{C} \\
+\pi \left(x^*\right)=\pi \left(x\right)^*
+\end{gather*}
 をみたすとき,$\pi$は\textgt{*-準同型}であるという.$\pi $が全単射*-準同型であるとき,$\pi$は同型であるという.$C^*$-環$A,B$の間に同型$\pi$が存在するとき,$A,B$は\textgt{同型}であるといい,$A\simeq B$と表す.
 \Subsection{$C^*$-環の直和}
 $\{A_{\lambda}\}_{\lambda \in \Lambda}$を$C^*$-環の族とする.これに対し,集合$A$を
-\begin{center}
-$A=\{ \left( x_{\lambda}\right)_{\lambda \in \Lambda}|\forall x_{\lambda}\in \Lambda ,
-\sup_{\lambda \in \Lambda}<\infty \}$
-\end{center}
+\[A=\{ \left( x_{\lambda}\right)_{\lambda \in \Lambda}|\forall x_{\lambda}\in \Lambda ,
+\sup_{\lambda \in \Lambda}<\infty \}\]
 で定める.$A$に和と積,スカラー倍,及びノルムを
 \begin{itemize}
 \item $\left( x_{\lambda}\right)_{\lambda \in \Lambda}+\left( y_{\lambda}\right)_{\lambda \in \Lambda}
@@ -61,10 +57,8 @@ $A=\{ \left( x_{\lambda}\right)_{\lambda \in \Lambda}|\forall x_{\lambda}\in \La
 \item $\alpha \left( x_{\lambda}\right)_{\lambda \in \Lambda}=\left( \alpha x_{\lambda}\right)_{\lambda \in \Lambda}$
 \item $\lVert \left( x_{\lambda}\right)_{\lambda \in \Lambda}\rVert=\sup_{\lambda \in \Lambda}\lVert x_{\lambda}\rVert$
 \end{itemize}
-で定めると,これは$C^:$-環である.$A$を$\{A_{\lambda}\}_{\lambda \in \Lambda}$の\textgt{直和}といい,
-\begin{center}
-$A=\sum_{\lambda \in \Lambda} \oplus A_{\lambda}$
-\end{center}
+で定めると,これは$C^*$-環である.$A$を$\{A_{\lambda}\}_{\lambda \in \Lambda}$の\textgt{直和}といい,
+\[A=\sum_{\lambda \in \Lambda} \oplus A_{\lambda}\]
 と表す.
 \Subsection{重要な$C^*$-環の例}
 　$\Omega$を局所コンパクト空間とする.$C_{\infty}\left( \Omega\right)$を無限遠で消える$\Omega$上の連続関数全体の集合とする.これに和・スカラー倍と積,対合,ノルムを
@@ -77,9 +71,7 @@ $A=\sum_{\lambda \in \Lambda} \oplus A_{\lambda}$
 で定めると,$C_{\infty}\left( \Omega\right)$は可換$C^*$-環である.$\Omega$がコンパクトであるとき,かつその時に限り$C_{\infty}\left( \Omega\right)$はunitalである.\\
 \\
 　※局所コンパクト空間$\Omega$上の連続関数$x$が\textgt{無限遠で消える}（\textgt{vanishing at infinity}）:任意の正数$\epsilon >0$に対し,あるコンパクト集合$K\subset \Omega$が存在して,
-\begin{center}
-$\forall \omega \in \Omega\setminus K,\lVert x\left( \omega\right)\rVert<\epsilon$
-\end{center}
+\[\forall \omega \in \Omega\setminus K,\lVert x\left( \omega\right)\rVert<\epsilon\]
 が成り立つ.
 \Section{Gelfand表現}
 \Subsection{指標}
@@ -87,9 +79,7 @@ $\forall \omega \in \Omega\setminus K,\lVert x\left( \omega\right)\rVert<\epsilo
 　$\Omega\left(A\right)$に弱*位相,すなわち,$A$を$A^{**}$の部分空間として考えた時に,各$x\in A$を連続にする$\Omega\left(A\right)$上の位相であって,和,積,スカラー倍を連続にするようなもののうち最弱なものとする.すると,この位相に関し,$\Omega\left(A\right)$は局所コンパクトHausdorff空間になる.さらに,$A$がunitalならば$\Omega\left(A\right)$はコンパクトである.
 \Subsection{Gelfand表現}
 　写像$\mathscr{F}:A \rightarrow C_{\infty}\left(\Omega\left(A\right)\right)$を
-\begin{center}
-$\mathscr{F}\left(x\right)\left(\pi\right)=\pi\left(x\right)$
-\end{center}
+\[\mathscr{F}\left(x\right)\left(\pi\right)=\pi\left(x\right)\]
 で定める.$\mathscr{F}$を$A$の\textgt{Gelfand表現}という.
 \Subsection{Gelfand-Naimarkの定理その1}
 \begin{theo}
@@ -103,31 +93,21 @@ $A$を可換$C^*$-環とする.$A$の{\rm Gelfand}表現$\mathscr{F}$は$A$か�
 　$A$を（可換とは限らない）$C^*$-環,$\mathfrak{H}$をHilbert空間とする.*-準同型$\pi:A\rightarrow \mathcal{B}\left(\mathfrak{H}\right)$に対し,対$\left(\pi,\mathfrak{H}\right)$をAの\textgt{表現}という.$\pi$が単射であるとき,表現$\left(\pi,\mathfrak{H}\right)$は\textgt{忠実}であるという.
 \Subsection{表現の直和}
 　$C^*$-環$A$の表現の族$\left(\pi_{\lambda},\mathfrak{H}_{\lambda}\right)_{\lambda \in \Lambda}$を考える.$\mathfrak{H}_{\lambda}$の直和Hilbert空間を,$\mathfrak{H}$;
-\begin{center}
-$H:=\bigoplus_{\lambda \in \Lambda}\mathfrak{H}_{\lambda}$
-\end{center}
+\[H:=\bigoplus_{\lambda \in \Lambda}\mathfrak{H}_{\lambda}\]
 とする.これに対し,表現の\textgt{直和}$\left(\pi,\mathfrak{H}\right)$を
-\begin{center}
-$\pi\left(x\right)\left(\left(\xi_{\lambda}\right)_{\lambda \in \Lambda}\right):=
-\left(\pi_{\lambda}\left(x\right)\xi_{\lambda}\right)_{\lambda \in \Lambda}$
-\end{center}
+\[\pi\left(x\right)\left(\left(\xi_{\lambda}\right)_{\lambda \in \Lambda}\right):=
+\left(\pi_{\lambda}\left(x\right)\xi_{\lambda}\right)_{\lambda \in \Lambda}\]
 で定める.
 \Subsection{状態}
 　$A$を（可換とは限らない）$C^*$-環とする.$A$の線型汎函数$\omega:A\rightarrow \mathbb{C}$が
-\begin{center}
-$\forall x\in A,\omega \left(x^*x \right)\geq0$
-\end{center}
+\[\forall x\in A,\omega \left(x^*x \right)\geq0\]
 をみたすとき,$\omega$を\textgt{正線型汎函数}という.正線型汎函数は有界線型作用素である.$\lVert\omega\rVert$=1をみたす正線型汎函数を\textgt{状態}という.
 \Subsection{GNS表現の構成}
 　$A$を（可換とは限らない）$C^*$-環とする.$A$の正線型汎函数$\omega:A\rightarrow \mathbb{C}$が与えられたとき,これを用いて$A$の表現を構成する.
-\begin{center}
-$N_{\omega}:=\{x\in A|\omega\left(x^*x\right)=0 \}$
-\end{center}
+\[N_{\omega}:=\{x\in A|\omega\left(x^*x\right)=0 \}\]
 とすると,これは$A$の左イデアルであり,かつ閉集合である.$N_{\omega}$を$\omega$の左核という.\\
 　$x\in A$に対し,$\eta_{\omega}\left(x\right)$で商空間$A/N_{\omega}$の剰余類$x+N_{\omega}$を表すこととする.複素線形空間$A/N_{\omega}$に内積を
-\begin{center}
-$\left(\eta_{\omega}\left(x\right)|\eta_{\omega}\left(y\right)\right)=\omega\left(y^*x\right)$
-\end{center}
+\[\left(\eta_{\omega}\left(x\right)|\eta_{\omega}\left(y\right)\right)=\omega\left(y^*x\right)\]
 で定める.この内積に関して$A/N_{\omega}$を完備化して得られるHilbert空間を$\mathfrak{H}_{\omega}$とする.\\
 　各$a\in A$に対し線型作用素:$A/N_{\omega}\ni \eta_{\omega}\left(x\right)\mapsto \eta_{\omega}\left(ax\right)\in A/N_{\omega}$を考えると,これはHilbert空間$\mathfrak{H}_{\omega}$上の有界作用素$\pi_{\omega}\left(a\right)$に拡張できる.そこで写像$\pi_{\omega}:A\ni a\mapsto \pi_{\omega}\left(a\right)\in \mathcal{B}\left(\mathfrak{H}_{\omega}\right)$
 を考えると,対$\left(\pi_{\omega},\mathfrak{H}_{\omega}\right)$はAの表現である.この表現を$\omega$による\textgt{Gelfand-Naimark-Segal表現},略して\textgt{GNS表現}という.この表現の構成法を\textgt{GNS構成法}という.
@@ -149,7 +129,7 @@ $\left(\eta_{\omega}\left(x\right)|\eta_{\omega}\left(y\right)\right)=\omega\lef
 \[e_{ji}^*=e_{ij},　e_{kj}e_{ji}=e_{ki}\]
 となる.これは $n$ 次の行列単位（$\left(i,j\right)$-成分のみが1で他の成分はすべて0であるような $n$ 次正方行列）に他ならない.こうした $n$ 次行列単位全てを含むような$\mathbb{C}$上の最小の体系は複素数を成分とする $n$ 次正方行列の全体$M\left(n;\mathbb{C}\right)$である.従って,このような $n$ 個の点からなる空間での点から点への運動の体系を記述する情報は$M\left(n;\mathbb{C}\right)$内に記録されているはずであろう.そして,これより小さなものでは情報すべてを記録できない.この$M\left(n;\mathbb{C}\right)$は行列の和と積,複素数倍によりBanach環であり,対合として随伴行列,つまり$A\in M\left(n;\mathbb{C}\right)$の対合$A^*$を複素共役の転置行列$A^*={}^{t}\overline{A}$と定めると,$M\left(n;\mathbb{C}\right)$は非可換な$C^*$-環である.$M\left(n;\mathbb{C}\right)$はHilbert空間$\mathbb{C}^n$上の有界線型作用素のなす$C^*$-環である（Gelfand-Naimarkの定理その2.まぁ,使うまでもなくご存知の結果かもしれませんが…）.
 \Subsection{2点空間上の関数}
-　では,このn点空間の非可換性を見ていきたい.ここでは簡単のために$n=2$として2点空間$\{a,b\}$を考える.この空間の上で定義された関数を考えよう.とはいえ,2点しかない空間なのでa,bそれぞれに対して関数の値を決めればいい.2点空間$\{a,b\}$上の関数$f$を
+　では,このn点空間の非可換性を見ていきたい.ここでは簡単のために$n=2$として2点空間$\{a,b\}$を考える.この空間の上で定義された関数を考えよう.とはいえ,2点しかない空間なので $a,b$ それぞれに対して関数の値を決めればいい.2点空間$\{a,b\}$上の関数$f$を
 \[f\left(a\right)=\alpha,　f\left(b\right)=\beta\]
 で定める.ここで定数関数${\bf 1}:a,b\mapsto 1$と,$a$で$1$,$b$で$0$という値を取る関数$e$を考えれば,2点空間上の任意の関数は
 \[f=\alpha e+\beta \left({\bf 1}-e\right)\]
