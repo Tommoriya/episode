@@ -56,6 +56,21 @@
 \DeclareMathOperator{\supp}{supp}
 \DeclareMathOperator{\inter}{int}
 
+%Yuki
+\usepackage{mathrsfs}
+\usepackage[all]{xy}
+\newcommand{\proofend}{\begin{flushright} $\blacksquare$ \end{flushright}}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\newcommand{\nkgr}{・}
+\theoremstyle{definition}
+\newtheorem{ytheorem}{定理}
+\renewcommand{\theytheorem}{}
+\newtheorem{ydefi}{定義}
+\newtheorem{ythm}[ydefi]{定理}
+\newtheorem{ylem}[ydefi]{補題}
+\newtheorem{ycor}[ydefi]{系}
+\newtheorem{yprop}[ydefi]{命題}
+\newtheorem{yex}[ydefi]{例}
 %あさか
 
 \usepackage{wrapfig}
@@ -148,12 +163,13 @@
 %\input{example}
 \input{asaka}
 \input{kobaken1.tex}
-\input{TaroNakamura(TN)}
-\input{kobaken2.tex}
-\input{ito}
-\input{kobaken3.tex}
 \input{arata}
+\input{kobaken2.tex}
+\input{TaroNakamura(TN)}
+\input{kobaken3.tex}
+\input{YukiYamamoto.tex}
 \input{kobaken4.tex}
+\input{ito}
 %\Chapter{編集後記}
 %\input{atogaki}
 

@@ -10,12 +10,12 @@
 %\theoremstyle{definition}
 %\newtheorem{theorem}{定理}
 %\renewcommand{\thetheorem}{}
-%\newtheorem{defi}{定義}
-%\newtheorem{thm}[defi]{定理}
-%\newtheorem{lem}[defi]{補題}
-%\newtheorem{cor}[defi]{系}
-%\newtheorem{prop}[defi]{命題}
-%\newtheorem{ex}[defi]{例}
+%\newtheorem{ydefi}{定義}
+%\newtheorem{ythm}[defi]{定理}
+%\newtheorem{ylem}[defi]{補題}
+%\newtheorem{ycor}[defi]{系}
+%\newtheorem{yprop}[defi]{命題}
+%\newtheorem{yex}[defi]{例}
 
 \Chapter{Haar測度をつくろう(山本)}
 \Section{\S 0. はじめに}
@@ -24,7 +24,7 @@
 有限群の表現論では，群$G$の元$s$を動かした際の総和を取って関数や内積を「平均化する」という手法があります．これをより一般の無限群でやろうとするわけですが，その際の「総和を取る」という操作は「積分」という形に置き換えればよさそうだということになります．積分を定めるためにはまず$G$上に測度を入れる必要がありますが，そのときに入れると便利な測度が，今回構成する「Haar測度」です．
 
 Haar測度はそもそもとしてどのような測度なのかというと，数学的には次で定義されます．
-\begin{defi}[Haar測度]\label{1}
+\begin{ydefi}[Haar測度]\label{1}
 局所コンパクト位相群$G$のBorel集合族$\mathscr{B}(G)$上の測度$\mu$が左不変Haar測度であるとは，次を満たすこと：
 \begin{itemize}
  \item $G$のコンパクト集合$K$に対し，$\mu(K) < \infty$
@@ -34,7 +34,7 @@ Haar測度はそもそもとしてどのような測度なのかというと，�
 \end{itemize}
 $\mu$が右不変Haar測度であるとは，最後の条件を$\mu (B) = \mu (Bs)$に変えたものを満たすこと．
 両側不変Haar測度とは，左かつ右不変Haar測度であること．
-\end{defi}
+\end{ydefi}
 Haar測度の良い点としては次の二つです：
 \begin{itemize}
  \item $\mu$の定義域がBorel集合族$\mathscr{B}(G)$であるので，$G$の位相構造に対する振る舞いが良い．(正則性)
@@ -51,9 +51,9 @@ Haar測度の例としては，
 
 というわけで，今回示したいのは次の命題です．
 
-\begin{prop}[Haar測度の存在と一意性]\label{2}
+\begin{yprop}[Haar測度の存在と一意性]\label{2}
 局所コンパクト群$G$上には，左不変Haar測度が正の定数倍を除いて一意的に存在する．
-\end{prop}
+\end{yprop}
 この命題はFactとして用いられることが多いのですが，折角なので証明を追ってみようというのが本稿の目的です．今回の証明は，基本的にアンドレ・ヴェイユのつけた証明(参考文献[1])に依っています．
 
 \Section{\S 2.色々な準備}
@@ -62,37 +62,37 @@ Haar測度の例としては，
 \Subsection{局所コンパクトHausdorff空間論からの準備}
 まず，一般のコンパクト空間に関する主張です．
 
-\begin{thm}[Tychonoffの定理]\label{3}
+\begin{ythm}[Tychonoffの定理]\label{3}
 $\{ K_i \} _{i \in I}$をコンパクト集合の族とするとき，$\prod_{i \in I} K_i$はコンパクト．
-\end{thm}
+\end{ythm}
 この証明は長いため省略します．例えば，参考文献[2]を参照してください．
 
-\begin{lem}\label{4}
+\begin{ylem}\label{4}
 $J$をコンパクト集合，$\{ F_i \}_{i \in I}$を$J$の閉集合の族とし，$\bigcap_{i \in I}F_i = \emptyset$とする．このとき，有限個の$F_{i_1}, \ldots , F_{i_n}$を選んで，$\bigcap_{j=1}^{n}F_{i_j} = \emptyset$とできる．
-\end{lem}
+\end{ylem}
 \begin{Proof}
 $\bigcap_{i \in I}F_i = \emptyset$の両辺の補集合を取ると，$\bigcup_{i \in I}(F_i)^{c} = J$ すなわち，${(F_i)^{c}}_{i \in I}$は$J$の開被覆になります．$J$のコンパクト性から，有限個の$i_1, \ldots , i_n \in I$を選んで$\bigcup_{j=1}^{n}(F_{i_j})^{c} = J$とできます．再び両辺の補集合を取れば，$\bigcap_{j=1}^{n}F_{i_j} = \emptyset$となります．
 \end{Proof}
 続いて，局所コンパクトHausdorff空間について次のような主張があります．これらの証明も長いため，参考文献[3]に譲ります．
-\begin{thm}\label{5}
+\begin{ythm}\label{5}
 $X$を局所コンパクトHausdorff空間，$U \subset X \colon open$，$K \subset U$をコンパクト集合とする．このとき，$V \subset X :compact$であって，$K \subset \inter(V) \subset V \subset U$となるものが存在する．ただし，$\inter(V)$は$V$の$X$における内部とする．
-\end{thm}
-\begin{thm}[Urysohnの補題]\label{6}
+\end{ythm}
+\begin{ythm}[Urysohnの補題]\label{6}
 $X$を局所コンパクトHausdorff空間，$U \subset X \colon open$，$K \subset U \colon compact$とする．このとき，次を満たす関数$f \colon X \to [0, 1]$が存在する：
 \begin{itemize}
  \item $K$上$f \equiv 1$
  \item $X \setminus V$上$f \equiv 0$
 \end{itemize}
-\end{thm}
-\begin{thm}[1の分割]\label{7}
+\end{ythm}
+\begin{ythm}[1の分割]\label{7}
 $X$を局所コンパクトHausdorff空間，$K \subset X \colon compact$，$\{ U_i \}_{i=1, \ldots , n}$を$K$の開被覆とする．このとき，次を満たす関数$f_i \colon X \to [0,1] (i=1, \ldots , n)$が存在する：
 \begin{itemize}
  \item $K$上$\sum_{i=1}^{n}h_i \equiv 1$
  \item 各$i=1, \ldots n$に対し，$\supp f_i \subset U_i$
 \end{itemize}
-\end{thm}
+\end{ythm}
 続いて，今回の構成で決定的な役割をするRieszの表現定理について触れます．
-\begin{defi}\label{8}
+\begin{ydefi}\label{8}
 局所コンパクトHausdorff空間Xに対し， \\
  (1)$L_{+}(X)= \{ f \colon X \to \mathbb{R} | f \ge 0, \supp f \in X \colon compact\}$ と定める． \\
  (2)$I \colon L_{+}(X) \to \mathbb{R}$が$L_{+}(X)$上の正の線形汎関数であるとは，次を満たすこと；
@@ -101,8 +101,8 @@ $X$を局所コンパクトHausdorff空間，$K \subset X \colon compact$，$\{ 
  \item すべての$f,g \in L_{+}(X)$に対して，$I(f+g)=I(f)+I(g)$
  \item すべての$f \in L_{+}(X), c \ge 0$に対して，$I(cf)=cI(f)$
 \end{itemize}
-\end{defi}
-\begin{thm}[Rieszの表現定理]\label{9}
+\end{ydefi}
+\begin{ythm}[Rieszの表現定理]\label{9}
 $X$を局所コンパクトHausdorff空間，$I \colon X \to \mathbb{R}$を$L_{+}(X)$上の正の線形汎関数とする．このとき，$X$のBorel集合族$\mathscr{B}(X)$上の測度$\mu$であって，次を満たすものが存在する：
 \begin{itemize}
  \item[(a)]すべての$f \in L_{+}(X)$に対して，$I(f)=\int_{X}fd\mu$
@@ -110,25 +110,25 @@ $X$を局所コンパクトHausdorff空間，$I \colon X \to \mathbb{R}$を$L_{+
  \item[(c)]すべての$B \in \mathscr{B}(X)$に対して，$\mu(B)=\inf \{ \mu(O) | O \subset X \colon open \}$
  \item[(d)]すべての$O \in X \colon open$に対して，$\mu(O)=\sup \{ \mu(K) | K \subset O \colon compact \}$
 \end{itemize}
-\end{thm}
+\end{ythm}
 すなわち，$L_{+}(X)$上の正の線形汎関数に対して，$\mathscr{B}(X)$を定義域とする，いくつかの良い性質を持った測度が作れるということです．特に(b)(c)(d)を見ると，先の定義\ref{1}に出ていた性質そのものです．このことから，位相群$G$上のHaar測度を構成するためには，$L_{+}(X)$上の正の線形汎関数$I$であって，「左不変なもの」を構成してしまえばよさそうだということになります．実際，次のセクションからはその方向でHaar測度を構成していきます．
 
 その際，「左不変性」を実際に証明するために必要な命題があります．
 
-\begin{lem}\label{10}
+\begin{ylem}\label{10}
 定理\ref{9}の状況で，$K$を$X$のコンパクト部分集合，$\chi_{K}$を$K$の特性関数とし，また$\varepsilon >0$とする．このとき，ある$g \in L_{+}(G)$が存在して，次を満たす：
 \begin{itemize}
  \item $\mu ( \{ x \in X | \chi_{K}(x) \neq g(x) \} ) < \varepsilon $
  \item $g \le 1$
  \item $K$上$g \equiv 1$
 \end{itemize}
-\end{lem}
+\end{ylem}
 \begin{Proof}
 定理\ref{5}の$K$を$K$，$U$を$X$として適用すれば，$K \subset \inter(V) \subset V \subset X$となる$X$のコンパクト部分集合$V$が存在します．このとき，定理\ref{9}(c)を用いると，$n=1,2,\ldots$に対し，$K \subset V_n \subset V$なる$V_n \subset X \colon open$で，$\mu(V_n) < \mu(K) + 2^{-n}\varepsilon$となるものが存在します．定理\ref{9}(b)から$\mu(K)<\infty$だったので，$\mu(V_n \setminus K) < 2^{-n}\varepsilon$となります．定理\ref{6}から，$f_n \colon X \to [0,1]$で，$f_n(X) \subset [0,1]$，$K$上$f_n \equiv 1$，$X \setminus V_n$上$f_n \equiv 0$なる$f_n$が存在します．$X \setminus V_{n}$上で$f_{n} \equiv 0$ですから，$\supp f_{n} \subset V$となり，$f_{n} \in L_{+}(G)$です．ここで，$g(x)=\sum_{n=1}^{\infty}2^{-n}f_n(x)$とおくと，$f_{n}(X) \subset [0,1]$からこの級数は一様収束なので，$g$は連続です．また，$\supp f_{n} \subset V$だったことから，$\supp g \subset V$も分かり，$g \in L_{+}(G)$となります．$f_n$は$K$上1なので，$g$も$K$上常に1です．$f_n \le 1$より$g \le 1$も分かります．最後に，$f_n$は$K$および$(V_n)^{c}$上では$\chi_{K}$と一致しているので，$\{ x \in X | \chi_{K}(x) \neq g(x) \} \subset \bigcup_{n=1}^{\infty}V_n \setminus K$です．したがって，$\mu( \{ x \in X | \chi_{K}(x) \neq g(x) \} ) \le \sum_{n=1}^{\infty} \mu(V_n \setminus K) < \sum_{n=1}^{\infty}2^{-n}\varepsilon=\varepsilon$となります．
 \end{Proof}
-\begin{prop}\label{11}
+\begin{yprop}\label{11}
 定理\ref{9}の状況で，$\mu(K)= \inf \{ I(f) | f \in L_{+}(X), f|_{K} \equiv 1 \}$
-\end{prop}
+\end{yprop}
 \begin{Proof}
 $K$上$f \equiv 1$なる$f \in L_{+}(G)$に対し，$ \mu(K)=\int_{X}\chi_K d\mu \le \int_{X}f d\mu=I(f)$より，$\mu(K) \le \inf \{ I(f) | f \in L_{+}(X), f|_{K} \equiv 1 \}$となります．逆の不等号を示すため，$\varepsilon>0$とします．補題10で，$\varepsilon$を$\varepsilon /2$として得られる$g$について，$U=\{ x \in X | \chi_{K}(x) \neq g(x) \}$とおくと$\| \chi_{K}-g\| _{L^1(X)} = \int_{X}|\chi_K-g|d\mu = \int_{U}(\chi_K-g)d\mu \le \int_{U}2 \cdot d\mu=2\mu(U)<2 \cdot \varepsilon / 2=\varepsilon$です．ゆえに$\| g\|  _{L^1(X)} < \| \chi_{K} \| _{L^1(X)} $ですが，これは$\chi_K, g \ge 0$から結局 $\int_{X}gd\mu < \int_{X}\chi_{K}d\mu +\varepsilon$，すなわち$I(g)<\mu (K)+\varepsilon$となります．$g$は$K$上で1でしたから，$\inf \{ I(f) | f \in L_{+}(X), f|_{K} \equiv 1 \} \le I(g) <\mu (K)+\varepsilon$となり，ここで$\varepsilon>0$は任意だったので，$\varepsilon \to 0$として $\inf \{ I(f) | f \in L_{+}(X), f|_{K} \equiv 1 \} \le \mu (K)$となります．
 \end{Proof}
@@ -136,17 +136,17 @@ $K$上$f \equiv 1$なる$f \in L_{+}(G)$に対し，$ \mu(K)=\int_{X}\chi_K d\mu
 
 続いて，今回Haar測度を構成する舞台となる，位相群に関する準備です．
 
-\begin{defi}[位相群]\label{12}
+\begin{ydefi}[位相群]\label{12}
 群演算の入ったHausdorff空間$G$が位相群であるとは，群の積演算：$G \times G \to G$および逆元を取る操作：$G \to G$がGの位相およびその積位相に関して連続であること．
-\end{defi}
+\end{ydefi}
 位相群の性質をいくつか見ておきます．
-\begin{prop}[位相群の性質]\label{13}
+\begin{yprop}[位相群の性質]\label{13}
 $G$を位相群とする．
 \begin{itemize}
  \item[(1)]$G$の元$s$に関して，$s$を左(右)から掛ける操作：$G \to G$は同相写像である．
  \item[(2)]$G$の単位元$e$の近傍$U$に対し，ある$e$の近傍$V$が存在して，$VV \subset U$となる．ただし，$V,W \subset G$に対し，$VW= \{ vw | v \in V, w \in W \}$である．
 \end{itemize}
-\end{prop}
+\end{yprop}
 \begin{Proof}
 (1)同様なので，左から掛ける操作のときのみ示します．$s \in G$とすると，命題の写像は$G \to G \times G \to G ; g \mapsto (s,g) \mapsto sg$と，連続写像の合成として書けるので連続です．また，これには左から$s^{-1}$を掛けるという逆写像も存在し，これも連続なので結局与えられた写像は同相写像です．
 
@@ -154,31 +154,31 @@ $G$を位相群とする．
 \end{Proof}
 後々の証明に必要なものを補題としていくつか作っておきます．
 
-\begin{lem}\label{14}
+\begin{ylem}\label{14}
 $G$のコンパクト部分集合$K$に対し，$K$上$f \equiv 1$となる$f \in L_{+}(G)$が取れる．
-\end{lem}
+\end{ylem}
 \begin{Proof}
 定理\ref{5}の$K$を$K$，$U$を$G$として適用すれば，$K \subset \inter(V) \subset V \subset G$ となる$G$のコンパクト部分集合$V$が存在します．このとき，定理\ref{6}の$K$を$K$，$V$を$\inter(V)$として適用すれば，$K$上$f \equiv 1$および，$X \setminus \inter(V)$上$f \equiv 0$となる$f \colon X \to [0, 1]$が存在します．この$f$に対し，$x \in G$が$f(x)>0$を満たすなら$x \in \inter(V) \subset V$となりますから，$\supp f \subset V \colon compact$となり，$f \in L_{+}(G)$となります．
 \end{Proof}
-\begin{lem}\label{15}
+\begin{ylem}\label{15}
 $V$を$G$の単位元$e$の近傍とするとき，次を満たす$g \in L_{+}(G)$が取れる：
 \begin{itemize}
  \item $g(e)>0$
  \item $G \setminus V$上$g(x)=0$
  \item すべての$x \in G$に対して，$g(x)=g(x^{-1})$
 \end{itemize}
-\end{lem}
+\end{ylem}
 \begin{Proof}
 逆元を取る操作の連続性から，$V^{-1}=\{ x^{-1} | x \in V \}$も$e$の近傍です．ゆえに$V \cap V^{-1}$も$e$の近傍です．定理\ref{5}の$K$を$\{e\}$に，$U$を$\inter(V \cap V^{-1})$として適用すると，$\{e\} \subset \inter(F) \subset F \subset V \cap V^{-1}$となる$G$のコンパクト部分集合$F$が存在します．このとき，$F^{-1}$も$e$のコンパクト近傍なので，$F \cap F^{-1}$も$e$のコンパクト近傍になります．定理\ref{6}を適用すると，$f(e)=1$，$\supp f \subset F \cap F^{-1}$となる$f \in L_{+}(G)$が存在します．$g(x)=f(x)+f(x^{-1})$なる$f' \in L_{+}(G)$を考えると，$g(e)=1+1=2>0$．また，すべての$x \in G$に対して，$g(x)=f(x)+f(x^{-1})=g(x^{-1})$です．そして，$\supp g \subset F \cap F^{-1} \subset V \cap V^{-1} \subset V$となるので，$G \setminus V$上$g(x)=0$となります．　
 \end{Proof}
 
-\begin{prop}\label{16}
+\begin{yprop}\label{16}
 $G$：局所コンパクト位相群とするとき，$L_{+}(G)$の元は一様連続である．すなわち，任意の$\varepsilon>0$および$f \in L_{+}(G)$に対し，
 \begin{itemize}
  \item $e$の近傍$V$であって，$xy^{-1} \in V_1$なる$x, y \in G$に対し，$|f(x)-f(y)|<\varepsilon$となるようなものが取れる．
  \item $e$の近傍$W$であって，$x^{-1}y \in V_1$なる$x, y \in G$に対し，$|f(x)-f(y)|<\varepsilon$となるようなものが取れる．
 \end{itemize}
-\end{prop}
+\end{yprop}
 \begin{Proof}
 同様なので，1つ目の場合のみ示します．$\varepsilon>0$とし，また$\supp f=K \colon compact$とおきます．
 
@@ -194,13 +194,13 @@ $G$：局所コンパクト位相群とするとき，$L_{+}(G)$の元は一様�
 \Section{\S 3.Haar測度の存在}
 以降，$G$を局所コンパクト位相群とします．まず，構成だけでなく一意性の証明にも必要な道具を用意します．
 
-\begin{defi}\label{17}
+\begin{ydefi}\label{17}
 \leavevmode \\
 (1)$s \in G, f \in L_{+}(G)$に対し，$Sf(x)=f(s^{-1}x)$として$Sf \in L_{+}(G)$を定める．\\
 (2)$(\cdot \colon \cdot ) \colon L_{+}(G) \times L_{+}(G) \to [0, \infty) \cap \{ \infty \}$を次で定める：$f, g \in L_{+}(G)$とする．$G$の有限個の元$s_i$と，0以上の数$c_i$の組であって，すべての$x \in G$に対し$f(x) \le \sum_{i}c_{i} g(s_{i}^{-1}x)$となるものを考える．そのような組が存在するとき，$\sum_{i}c_i$の下限を$(f \colon g)$と定める．そのような組が存在しないとき，$(f \colon g)=\infty$と定める．
-\end{defi}
+\end{ydefi}
 今定義した写像の基本的な性質を見ておきます．
-\begin{prop}\label{18}
+\begin{yprop}\label{18}
 $f, g, h \in L_{+}(G)$とする．\\
 (1)すべての$s \in G$に対し，$(Sf \colon g)=(f \colon g)$\\
 (2)すべての$c \ge 0$に対し，$(cf \colon g)=c(f \colon g)$\\
@@ -209,7 +209,7 @@ $f, g, h \in L_{+}(G)$とする．\\
 (5)$f \ne 0$なら，$( f \colon g ) > 0$\\
 (6)$g \ne 0$なら，$( f \colon g ) < \infty $\\
 (7)$h \ne 0$なら，$( f \colon g ) \le (f \colon g ) (g \colon h )$
-\end{prop}
+\end{yprop}
 \begin{Proof}
 (1)〜(4)は定義に戻って考えれば分かります．
 
@@ -222,13 +222,13 @@ $f, g, h \in L_{+}(G)$とする．\\
 
 ここから，$L_{+}(G)$上の線形汎関数$I$を構成しにかかります．まず，値の「基準」となる$f_{0} \in L_{+}(G) \setminus \{ 0 \}$を一つ固定します．$G$の単位元$e$の近傍$V$全体を$\mathscr{V}$とおき，各$V \in \mathscr{V}$に対し，$G_{V}=\{ g \in L_{+}(G) | g(e)>0 かつ，全ての x \not\in V に対してg(x)=0 \}$と定めます．各$G_V$は補題\ref{15}により空ではありません．
 
-\begin{prop}\label{19}
+\begin{yprop}\label{19}
 $V \in \mathscr{V}, f \in L_{+}(G), g \in G_{V}$なら，
 \[
 0 \le \frac{1}{( f_0 \colon f )} \le \frac{( f \colon g )}{( f_0 \colon g )} \le ( f \colon f_0 ) < \infty
 \]
 である．ただし，$f=0$のとき$1/( f_0 \colon f ) = 0$と考える．
-\end{prop}
+\end{yprop}
 \begin{Proof}
 $f=0$のとき，$( f \colon g ) = ( f \colon f_0 ) = 0$となるので特に命題は成り立ちます．
 $f \ne 0$のとき，$g \neq 0$および命題\ref{18}の(7)から$(f_0 \colon g) \le (f_0 \colon f) (f \colon g )$，$ (f \colon g) \le (f \colon f_0 ) (f_0 \colon g )$が成り立ちます．$f, f_0 \neq 0$より，$(f_0 \colon g), (f_0 \colon f) \in (0, \infty)$が分かりますので，この不等式から主張が従います．　
@@ -241,43 +241,43 @@ $f \ne 0$のとき，$g \neq 0$および命題\ref{18}の(7)から$(f_0 \colon g
 A(g)=\left( \frac{( f \colon g )}{( f_0 \colon g )} \right)_{f \in L_{+}(G)} \in J
 \]
 により定めます．$A$による$G_V$の像$A(G_V)$の$J$における閉包を$F_V$とおきます．
-\begin{prop}\label{20}
+\begin{yprop}\label{20}
 $\bigcap_{V \in \mathscr{V}}F_V \neq \emptyset$．
-\end{prop}
+\end{yprop}
 \begin{Proof}
 背理法によります．左辺が空であるとすると，$J$がコンパクトだったので，補題4から$V_1, \ldots , V_n \in \mathscr{V}$で$\bigcap_{i=1}^{n}F_{V_i}=\emptyset$なるものが存在します．$V_0=\bigcap_{i=1}^{n}V_i$とおくと，これは$e$の近傍であり，$F_{V_0} \neq \emptyset$です．この元を1つとって$g$とおくと，$i=1, \ldots , n$に対し$g \in V_i$となるので，$A(g) \in \bigcap_{i=1}^{n}F_{V_i}=\emptyset$となり矛盾します．　
 \end{Proof}
 
 ゆえに，$I \in \bigcap_{V \in \mathscr{V}}F_V$なる$I$をとることができます．各$f \in L_{+}(G)$に対し，$I$の$J_f$成分を対応させる写像を$I \colon L_{+}(G) \to \mathbb{R}$と定めます．以降，これが線形汎関数となっていることを示しにいきます．
-\begin{prop}\label{21}
+\begin{yprop}\label{21}
 すべての$V \in \mathscr{V}$および有限個の$f_1, \ldots , f_n \in L_{+}(G)$，そして任意の$\varepsilon > 0$に対し，ある$g \in G_V$であって，$i=1, \ldots , n$に対し
 \[
 \lvert \frac{(f_i \colon g )}{( f_0 \colon g )} -I(f_i) \lvert < \varepsilon
 \]
 となるものが存在する．
-\end{prop}
+\end{yprop}
 \begin{Proof}
 $i=1, \ldots , n$に対し，$U_i=J_{f_i} \cap ( I(f_i)- \varepsilon, I(f_i)+\varepsilon )$とおくと，$U_i$は$J_{f_i}$で開です．$J$の積位相を考えれば，$\prod_{f \neq f_1, \ldots , f_n}J_f \times U_1 \times \cdots \times U_n$は$J$で開です．この集合を$U$とおきます．$I(f_i) \in U_i$より，$I \in U$です．$I$は$F_V$，すなわち$A(G_V)$の閉包の元ですから，$A(G_V) \cap U \neq \emptyset$となります．$I' \in A(G_V) \cap U$を一つ取ると，ある$g \in G_V$が存在して，$I'=A(g)$です．このとき，$I' \in U$の$J_{f_i}$成分を見ると，$(f_i \colon g ) / ( f_0 \colon g ) \in U_i = ( I(f_i)- \varepsilon, I(f_i)+\varepsilon )$となります．よって$|(f_i \colon g ) / ( f_0 \colon g ) -I(f_i) | < \varepsilon$が成り立ちます．
 \end{Proof}
 命題\ref{21}を，より使いやすい形にしておきます．
 
-\begin{cor}\label{22}
+\begin{ycor}\label{22}
 $V_m \in \mathscr{V}(m \in \mathbb{N})$および有限個の$f_1, \ldots , f_n \in L_{+}(G)$に対し，$L_{+}(G)$の元の列$(g_m)_{m \in \mathbb{N}}$であって，各$m$に対して$g_m \in G_{V_m}$かつ，各$i=1, \ldots , n$に対して 
 \[
 \lim_{m \to \infty} \frac{(f_i \colon g_m )}{( f_0 \colon g_m )} =I(f_i)
 \]
 となるものが存在する．
-\end{cor}
+\end{ycor}
 \begin{Proof}
 $m=1,2, \ldots$に対し，$g_m$を命題\ref{21}で$\varepsilon = 1/m$としたときの$g$として取ると，$|(f_i \colon g_m ) / ( f_0 \colon g_m ) -I(f_i) | < 1/m$となります．両辺の$m \to \infty$による極限を取れば， $\lim_{m \to \infty} (f_i \colon g_m ) / ( f_0 \colon g_m ) =I(f_i)$となります．　
 \end{Proof}
 
-\begin{prop}\label{23}
+\begin{yprop}\label{23}
 $I$は$L_{+}(G)$上の正の線形汎関数である．すなわち，次が成り立つ． \\
 (1)すべての$f \in L_{+}(X)$に対して，$I(f) \ge 0$\\
 (2)すべての$f,g \in L_{+}(X)$に対して，$I(f+g)=I(f)+I(g)$\\
 (3)すべての$f \in L_{+}(X), c \ge 0$に対して，$I(cf)=cI(f)$
-\end{prop}
+\end{yprop}
 \begin{Proof}
 (1)は$I$の定義の仕方から明らかです．
 
@@ -286,9 +286,9 @@ $I$は$L_{+}(G)$上の正の線形汎関数である．すなわち，次が成�
 (2)$V$を$e$の適当な近傍とし，系22において，$m=1,2,\ldots$に対し$V_m=V$，$n=3$，$f_3=f_1+f_2$としたときの$(g_m)_{m \in \mathbb{N}}$をとります．命題\ref{18}(4)より$(f_{1}+f_{2} \colon g_m ) \le (f_1 \colon g_m )+(f_1 \colon g_m)$となります．両辺を$(f_0 \colon g_m)$で割って$m \to \infty$の極限をとれば，$I(f_1+f_2) \le I(f_1)+I(f_2)$となります．
 逆の不等号を示すため，次の補題を用意します．
 
-\begin{lem}\label{24}
+\begin{ylem}\label{24}
 $f, h, h'\in L_{+}(G)$とし，さらにすべての$x \in G$に対して$h(x)+h'(x) \le 1$とする．このとき，$I(fh)+I(fh') \le I(f)$．
-\end{lem}
+\end{ylem}
 \begin{Proof}
 $m$を自然数とします．$h,h'$は命題\ref{16}により一様連続なので，ある$V_m \in \mathscr{V}$で，$s^{-1}x \in V_{m} \Rightarrow |h(x)-h(s)|, |h'(x)-h'(s)| \le 1/m$となるものが取れます．$V_m$をこの通りとし，$n=3, f_1=fh, f_2=fh', f_3=f$として系22のような$(g_m)_{m \in \mathbb{N}}$をとります．一旦$m$を一つに固定することとして，$f \le \sum_{i}c_i S_{i}g_m$となるような$c_i>0, s_i \in G$を考えます．$x \in G$に対し，$s_{i}^{-1}x \not\in V_m$なら$S_{i}g_{m}(x)=g_{m}(s_{i}^{-1}x)=0$です．ゆえに，$f(x) \le \sum_{s_{i}^{-1}x \in V_m} c_{i}S_{i}g_{m}(x)$です．$s_{i}^{-1}x \in V_m$であるとき，$|h(x)-h(s_i)| \le 1/m$より，$h(x) \le h(s_i)+(1/m)$で，
 \begin{align*}
@@ -327,9 +327,9 @@ I(f_1)+I(f_2) = I(hF_{\varepsilon})+I(h'F_{\varepsilon}) & \le I(F_{\varepsilon}
 
 命題\ref{23}により，$I$が正の線形汎関数であることが分かりました．したがって定理\ref{9}により，$I$に対応する測度$\mu$ができます．残すは左不変性のみとなりました．
 
-\begin{prop}\label{25}
+\begin{yprop}\label{25}
 すべての$B \in \mathscr{B}(G), s \in G$に対し，$sB \in \mathscr{B}(G)$であって，$\mu(sB)=\mu(B)$である．すなわち，$\mu$は$G$上のHaar測度である．
-\end{prop}
+\end{yprop}
 \begin{Proof}
 まず，命題\ref{18}(1)を用いれば，命題\ref{23}(3)と同じ方法により$I(f)=I(Sf)$が従います．これを踏まえ，3つのステップに分けて証明を行います．
 
@@ -365,13 +365,13 @@ $\mathscr{M}=\{A \in \mathscr{B}(G) | \forall s \in G , sB \in \mathscr{B}(G) \}
 \Section{\S 4.Haar測度の一意性}
 先のセクションで，(左不変)Haar測度の存在が示されました．このセクションではさらに，Haar測度の一意性を示していきます．
 
-\begin{prop}\label{26}
+\begin{yprop}\label{26}
 $G$を局所コンパクト位相群とし，$\mu_1, \mu_2$を$G$上の左不変Haar測度とする．このとき，ある$c>0$が存在して，すべての$B \in \mathscr{B}(G)$に対して，$\mu_1(B)=c\mu_2(B)$が成り立つ．すなわち，左不変Haar測度は正の定数倍を除いて一意である．
-\end{prop}
+\end{yprop}
 この命題を示すためには，次の命題を示せば十分です．
-\begin{prop}\label{27}
+\begin{yprop}\label{27}
 $\mu$を局所コンパクト位相群$G$上の左不変Haar測度とし，$I \colon L_{+}(G) \to \mathbb{R}$を，$I(f)=\int_{G}f d\mu$により定める．$f_0 \in L_{+}(G)$を固定すると，$I(f)/I(f_0)$の値は左不変Haar測度の値によらない．
-\end{prop}
+\end{yprop}
 まず，命題\ref{27}が示されたとして，命題\ref{26}が成立することを示します．
 \begin{Proof}(命題\ref{27}$\Rightarrow$命題\ref{26}) $\mu_1, \mu_2$を$G$の左不変Haar測度とし，対応する積分を$I_1, I_2$とおくと，命題\ref{27}から，すべての$f \in L_{+}(G)$に対して$I_{1}(f)/I_{1}(f_0)=I_{2}(f)/I_{2}(f_0)$となるので，$I_{1}(f)= \left( I_{1}(f_0)/I_{2}(f_{0}) \right) I_{2}(f)$が成り立ちます．そこで$c=\left( I_{1}(f_0)/I_{2}(f_{0}) \right)(>0)$とおくと，すべての$f \in L_{+}(G)$に対して$I_{1}(f)= c I_{2}(f)$が成り立ちます．あとは命題25と同じようにやれば命題\ref{26}が従います．
 \end{Proof}
