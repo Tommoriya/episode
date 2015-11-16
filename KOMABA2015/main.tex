@@ -1,0 +1,149 @@
+\documentclass[notombow,a5,openany,dvipdfmx]{kyouritu}
+\usepackage{graphicx,color}
+\usepackage{tikz}
+\usepackage{makeidx,multicol}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{standalone}
+\usepackage{hyperref}
+\usepackage{pxjahyper}
+%プリアンブル
+\topmargin -0.5in
+\headheight 0.2in
+\headsep 0.3in  
+\evensidemargin -0.03in
+\oddsidemargin -0.4in
+%\textwidth 5.6in
+%\textheight 8.4in
+\renewcommand{\thetable}{%
+\arabic{table}}
+
+%圏点
+\makeatletter
+\def\kenten#1{%
+\ifvmode\leavevmode\else\hskip\kanjiskip\fi
+\setbox1=\hbox to \z@{・\hss}%
+\ht1=.63zw
+\@kenten#1\end}
+\def\@kenten#1{%
+\ifx#1\end \let\next=\relax \else
+\raise.63zw\copy1\nobreak #1\hskip\kanjiskip\relax
+\let\next=\@kenten
+\fi\next}
+\makeatother
+
+%Section等先頭を大文字にすると番号付けしない．
+\newcommand{\Chapter}[1]{\chapter*{{\Huge #1}}
+\markboth{#1}{#1}
+\addcontentsline{toc}{chapter}{#1}}
+\newcommand{\Section}[1]{\section*{{\huge #1}}
+\addcontentsline{toc}{section}{#1}}
+\newcommand{\Subsection}[1]{\subsection*{\underline{#1}}}
+\newcommand{\Subsubsection}[1]{\subsubsection*{#1}}
+\setcounter{tocdepth}{0} %Chapterのみ表示する
+
+
+\usetikzlibrary{%
+  arrows.meta,%
+  %decorations.pathreplacing,%
+  decorations.markings,%
+  shapes.misc%
+}
+
+%あさか
+
+\usepackage{wrapfig}
+\usepackage{type1cm}
+\usepackage{comment}
+\newtheorem{athm}{Theorem}
+\newtheorem{aprop}[athm]{Proposition}
+\newtheorem{adefi}[athm]{Definition}
+\newtheorem*{aex}{Example}
+\newtheorem*{arem}{Remark}
+
+%TN.tex
+\usepackage{mathrsfs}
+\usepackage{bm}
+\newtheorem*{theo}{定理}
+\newtheorem*{lemm}{補題}
+\newtheorem*{prop}{命題}
+
+%ito.tex
+%これは他とぶつかったら変える予定です.
+\usepackage{ascmac}
+
+\newtheorem*{Thm}{定理}
+\newtheorem*{Lemma}{補題}
+\newtheorem*{Def}{定義}
+\newtheorem*{Prop}{命題}
+\newtheorem*{Ex}{例}
+\newtheorem*{Prob}{問題}
+\newtheorem*{Rem}{注意}
+\def\qedsymbol{$\square$}
+\def\proofname{\gt{証明}\;}
+\newenvironment{Proof}{\par\noindent{\it\proofname}}{{\unskip\nobreak\hfill{\it\qedsymbol}}\par\vskip 9pt}
+\newenvironment{Proof*}{\par\noindent}{{\unskip\nobreak\hfill{\it\qedsymbol}}\par\vskip 9pt}
+\ifx\undefined\bysame \newcommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\,}\fi
+\def\C{\mathbb C}
+\def\N{\mathbb N}
+\def\R{\mathbb R}
+\def\Q{\mathbb Q}
+\def\Z{\mathbb Z}
+\newcommand{\Real}{\mathop{\mathrm{Re}}\nolimits}
+\def\thm{\begin{Thm}}
+\def\thmx{\end{Thm}}
+\def\prop{\begin{Prop}}
+\def\propx{\end{Prop}}
+\def\defb{\begin{Def}}
+\def\defe{\end{Def}}
+\def\defx{\end{Def}}
+\def\rem{\begin{Rem}}
+\def\remx{\end{Rem}}
+\def\prob{\begin{Prob}}
+\def\probx{\end{Prob}}
+\def\lem{\begin{Lemma}}
+\def\lemx{\end{Lemma}}
+\def\ex{\begin{Ex}}
+\def\exx{\end{Ex}}
+\def\cor{\begin{Cor}}
+\def\corx{\end{Cor}}
+\def\proof{\begin{Proof}}
+\def\proofx{\end{Proof}}
+\def\a{\alpha}
+\newcommand{\Image}{\mathop{\mathrm{Im}}\nolimits}
+\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
+\newcommand{\Coker}{\mathop{\mathrm{Coker}}\nolimits}
+\newcommand{\Aut}{\mathop{\mathrm{Aut}}\nolimits}
+\newcommand{\Ho}{\mathop{\mathrm{H}}\nolimits}
+\newcommand{\Res}{\mathop{\mathrm{Res}}\nolimits}
+
+\def\TO{\Rightarrow}
+\def\OT{\Leftarrow}
+
+% arata.tex
+\newcommand{\Complex}{\mathbf{C}}
+\newcommand{\ImagI}{i}%{\sqrt{-1}}%{\mathbf{i}}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\DeclareMathOperator{\RealPart}{Re}
+\theoremstyle{definition}
+\newtheorem{theorem}{定理}
+\theoremstyle{remark}
+\newtheorem{example}{例}
+
+
+%本文
+\begin{document}
+\frontmatter
+\Chapter{まえがき}
+\input{maegaki}
+\tableofcontents
+\mainmatter
+%\input{example}
+\input{asaka}
+\input{TaroNakamura(TN)}
+\input{ito}
+\input{arata}
+%\Chapter{編集後記}
+%\input{atogaki}
+
+\backmatter
+\end{document}
