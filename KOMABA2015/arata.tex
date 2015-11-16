@@ -9,7 +9,7 @@
 \title{たのしい複素積分}
 \author{荒田 実樹}
 
-\usetikzlibrary{arrows.meta,decorations.pathreplacing,decorations.markings,shapes.misc}
+\usetikzlibrary{arrows.meta,decorations.pathreplacing,decorations.markings,shapes.misc,patterns}
 
 \newcommand{\Natural}{\mathbf{N}}
 \newcommand{\Integer}{\mathbf{Z}}
@@ -43,6 +43,7 @@
 \newtheorem*{claim*}{Claim}
 \newtheorem{example}{例}
 \newtheorem*{example*}{Example}
+\newtheorem{exercise}[example]{問題}
 
 \begin{document}
 %\maketitle
@@ -246,7 +247,7 @@ $\gamma(t) \ (0\le t\le 1)$
     \end{tikzpicture}
   \end{center}
 
-  壱（上半平面を通る）：
+  壱（$z=0$ の上側を通る）：
   $\gamma(t)=e^{\pi i t}$
   \[
   \int_\gamma \frac{dz}{z}
@@ -255,7 +256,7 @@ $\gamma(t) \ (0\le t\le 1)$
   =\pi i
   \]
 
-  弐（下半平面を通る）：
+  弐（$z=0$ の下側を通る）：
   $\gamma(t)=e^{-\pi i t}$
   \[
   \int_\gamma \frac{dz}{z}
@@ -264,14 +265,11 @@ $\gamma(t) \ (0\le t\le 1)$
   =-\pi i
   \]
 
-  始点と終点が同じでも，積分路の違いによって積分の値が変わるのが分かります．
+  始点と終点が同じでも，積分路の違い（$z=0$ の上側を通るか下側を通るか）によって積分の値が変わるのが分かります．
 \end{example}
 
-積分路 $\gamma$ が半径 $r$ の円周 $\gamma(t)=re^{2\pi\ImagI t}$ の場合は，$\int_\gamma f(z)dz$ のことを
-\[\int_{\abs{z}=r} f(z)dz\]
-と書くことも多いです．向きは，特に断らない限り反時計回り（「正の向き」）に取ります．
-
-\begin{center}
+\begin{wrapfigure}{r}{3cm}
+  \vspace*{-\intextsep}
   \begin{tikzpicture}
     \draw [-{Stealth}] (-1.5,0) -- (1.5,0);
     \draw [-{Stealth}] (0,-1.5) -- (0,1.5);
@@ -285,7 +283,11 @@ $\gamma(t) \ (0\le t\le 1)$
     },thick]
       (1,0) arc [start angle=0, end angle=360, radius=1];
   \end{tikzpicture}
-\end{center}
+\end{wrapfigure}
+
+積分路 $\gamma$ が半径 $r$ の円周 $\gamma(t)=re^{2\pi\ImagI t}$ の場合は，$\int_\gamma f(z)dz$ のことを
+\[\int_{\abs{z}=r} f(z)dz\]
+と書くことも多いです．向きは，特に断らない限り反時計回り（「正の向き」）に取ります．
 
 
 \begin{example} \label{example:integrate-z^k}
@@ -314,6 +316,32 @@ $\gamma(t) \ (0\le t\le 1)$
 %複素平面や円板は単連結ですが，そこからいくつか点を取り除くと単連結ではなくなります．
 
 この定理を使うと，例えば，複素平面全体で正則な関数は，始点と終点を決めてやればあとは積分路によらず積分値が定まることがわかります．
+また，ある領域上での正則関数なら，その領域を逸脱しない範囲で積分路を多少変形させてもよいことがわかります（下図の領域内で正則な関数なら，積分路を $\gamma$ としても $\gamma'$ としても積分の値は同じ）．
+
+\begin{center}
+\pgfdeclarepatternformonly{custom north east lines}{\pgfqpoint{-1pt}{-1pt}}{\pgfqpoint{8pt}{8pt}}{\pgfqpoint{7pt}{7pt}}%
+{
+  \pgfsetlinewidth{0.2pt}
+  \pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+  \pgfpathlineto{\pgfqpoint{7.1pt}{7.1pt}}
+  \pgfusepath{stroke}
+}
+  \begin{tikzpicture}
+    \draw [-{Stealth}] (-2,0) -- (2,0);
+    \draw [-{Stealth}] (0,-1.8) -- (0,2);
+    \draw [fill,pattern=custom north east lines] plot [smooth cycle, tension=1] coordinates {(-1.5,-0.9) (-0.3,-1) (1,-1.2) (1.6,0.3) (1.2,1.3) (0.1,1.1) (-1.1,1.2) (-1.5,0.3) (-1.5,-0.2)};
+    \fill (-1,0) circle (2pt) node [above] {始点};
+    \fill (1,0.2) circle (2pt) node [below=3pt] {終点};
+    \draw [postaction={decorate},decoration={markings,mark=at position .58 with {\arrow{Stealth}}},thick]
+      (-1,0) .. controls (0,-0.7) and (0.1,1.2) .. (1,0.2)
+      node [midway,above left] {$\gamma$}
+      ;
+    \draw [postaction={decorate},decoration={markings,mark=at position .58 with {\arrow{Stealth}}},thick]
+      (-1,0) .. controls (-0.4,-1.4) and (0.3,0.5) .. (1,0.2)
+      node [midway,below right] {$\gamma'$}
+      ;
+  \end{tikzpicture}
+\end{center}
 
 \Section{留数}
 関数 $f$ が $z=z_0$ を除いた領域で正則な時， $f$ は
@@ -381,12 +409,12 @@ $\gamma(t) \ (0\le t\le 1)$
 \end{example}
 
 
-\Section{正則でない関数}
+\Section{正則でない関数の例}
 
 今までは「正則関数」，つまり複素数での意味の微分ができる関数を考えてきましたが，実数の意味での微分ができても複素数の意味での微分ができない関数というのも考えられます．
-このような関数にはコーシーの定理は使えないので，複素積分をすると積分路の選び方によって積分の値が変わってしまいます．
+このような関数ではコーシーの定理は成り立たないので，複素積分をすると積分路の選び方によって積分の値が変わってしまいます．
 
-\begin{example}
+\begin{example} \label{example:conjugate-integral}
   複素数にその共役を対応させる関数 $f(z)=\bar{z}$ を考えます．
   いくつかの積分路について，点 $0$ から点 $a+ib$ へ積分してみましょう．
 
@@ -426,6 +454,9 @@ $\gamma(t) \ (0\le t\le 1)$
     \end{tikzpicture}
   \end{center}
 
+  なお，積分路が途中で折れ曲がっている場合は，積分路を適当に分割して足し合わせます．
+  ここの例だと，弐と参はそれぞれ2つの線分に分割できるので，線分ごとにパラメーターをとって計算します．
+
   壱：
   $\gamma(t)=(a+ib)t$
   \[
@@ -454,6 +485,33 @@ $\gamma(t) \ (0\le t\le 1)$
 
   このように，3つの積分路で積分したものがどれも積分の値が異なっています．
 \end{example}
+
+\begin{exercise}
+  \autoref{example:conjugate-integral} と同じ $f(z)=\bar{z}$ を，以下の閉じた積分路でそれぞれ積分せよ．
+
+  \begin{enumerate}
+  \item 長方形．
+    \begin{center}
+      \begin{tikzpicture}
+        \draw [-{Stealth}] (-0.7,0) -- (2,0);
+        \draw [-{Stealth}] (0,-0.7) -- (0,1.5);
+        \fill (0,0) circle (2pt) node [above left] {$0$};
+        \fill (1.3,1) circle (2pt) node [above right] {$a+ib$};
+        \begin{scope}[thick,
+            decoration={markings,mark=at position .57 with {\arrow{Stealth}}},
+            postaction={decorate}
+          ]
+          \draw [postaction={decorate}] (0,0) -- (1.3,0);
+          \draw [postaction={decorate}] (1.3,0) -- (1.3,1);
+          \draw [postaction={decorate}] (1.3,1) -- (0,1);
+          \draw [postaction={decorate}] (0,1) -- (0,0);
+        \end{scope}
+      \end{tikzpicture}
+    \end{center}
+
+  \item 半径 $r$ の円．
+  \end{enumerate}
+\end{exercise}
 
 \section*{おまけ}
 
