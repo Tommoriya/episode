@@ -7,17 +7,18 @@
 
 \Section{トーラス}
 複素平面からトーラスを作る．複素平面とは,実数だけだと数が足りないために$1$乗して$-1$になる数$i$を加え,実数を拡張したものである．
-\begin{wrapfigure}{r}{3cm} 
-\begin{tikzpicture}[domain=-3:3, samples=64, scale=0.8]
-\footnotesize
-    \draw [<->,thick] (0,2) node (yaxis) [above] {Im}
-        |- (3,0) node (xaxis) [right] {Re};
-	\draw (2,1) coordinate (c);
-	\coordinate [label=right:{$2+i$}] (2+i) at (2,1);
-	\draw[dashed] (yaxis |- c) node[left] {$1$} -| (xaxis -| c) node[below] {$2$};
 
-\end{tikzpicture}
-\end{wrapfigure}
+%\begin{wrapfigure}{r}{3cm} 
+%\begin{tikzpicture}[domain=-3:3, samples=64, scale=0.8]
+%\footnotesize
+%    \draw [<->,thick] (0,2) node (yaxis) [above] {Im}
+%        |- (3,0) node (xaxis) [right] {Re};
+%	\draw (2,1) coordinate (c);
+%	\coordinate [label=right:{$2+i$}] (2+i) at (2,1);
+%	\draw[dashed] (yaxis |- c) node[left] {$1$} -| (xaxis -| c) node[below] {$2$};
+
+%\end{tikzpicture}
+%\end{wrapfigure}
 \begin{gather*}
 (a+bi)+(c+di)=(a+c)+(b+d)i \\
 (a+bi)(c+di)=(ac-bd)+(b+d)i \\
