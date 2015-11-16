@@ -2166,9 +2166,7 @@ JFM=min10.tfm^^J%
 \setlength\bibindent{1.5em}
 \newcommand{\newblock}{\hskip .11em\@plus.33em\@minus.07em}
 \newenvironment{thebibliography}[1]
-{\chapter*{\bibname}
-\@mkboth{\bibname}{\bibname}
-\addcontentsline{toc}{chapter}{\bibname}
+{\section*{\huge\bibname}
    \list{\@biblabel{\@arabic\c@enumiv}}%
         {\settowidth\labelwidth{\@biblabel{#1}}%
          \leftmargin\labelwidth
