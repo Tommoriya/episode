@@ -10,10 +10,10 @@
 \begin{wrapfigure}{r}{3cm} 
 \begin{tikzpicture}[domain=-3:3, samples=64, scale=0.8]
 \footnotesize
-    \draw [<->,thick] (0,2) node (yaxis) [above] {$Im$}
-        |- (3,0) node (xaxis) [right] {$Re$};
+    \draw [<->,thick] (0,2) node (yaxis) [above] {Im}
+        |- (3,0) node (xaxis) [right] {Re};
 	\draw (2,1) coordinate (c);
-	\coordinate [label=right:{2+i}] (2+i) at (2,1);
+	\coordinate [label=right:{$2+i$}] (2+i) at (2,1);
 	\draw[dashed] (yaxis |- c) node[left] {$1$} -| (xaxis -| c) node[below] {$2$};
 
 \end{tikzpicture}
@@ -25,8 +25,8 @@ $(a+bi)(c+di)=(ac-bd)+(b+d)i$\\
 複素平面から何か平行四辺形を切り抜こう．例えば\\
 \begin{tikzpicture}
 \draw (0,0) rectangle (2,1);
-\coordinate [label=left:{0}] (0) at (0,0);
-\coordinate [label=right:{2+i}] (2+i) at (2,1);
+\coordinate [label=left:{$0$}] (0) at (0,0);
+\coordinate [label=right:{$2+i$}] (2+i) at (2,1);
 \end{tikzpicture}
 
 を切り抜くことにする．そして,対辺をそれぞれ貼り合わせると
@@ -49,20 +49,20 @@ $(a+bi)(c+di)=(ac-bd)+(b+d)i$\\
 \begin{figure}[h]
 \begin{minipage}{0.5\hsize}
 \begin{tikzpicture}
-\coordinate [label=left:{0}] (A) at (0,0);
-\coordinate [label=right:{1}](B) at (1,0);
-\coordinate [label=left:{1+i}](C) at (1,1);
-\coordinate [label=right:{2+i}](D) at (2,1);
-\coordinate [label=right:{A}](E) at (0.5,-0.5);
+\coordinate [label=left:{$0$}] (A) at (0,0);
+\coordinate [label=right:{$1$}](B) at (1,0);
+\coordinate [label=left:{$1+i$}](C) at (1,1);
+\coordinate [label=right:{$2+i$}](D) at (2,1);
+\coordinate [label=right:{$A$}](E) at (0.5,-0.5);
 \draw (A) -- (B) -- (D) -- (C) -- cycle;
 \end{tikzpicture}
 \end{minipage}
 \begin{minipage}{0.5\hsize}
 \begin{tikzpicture}
-\coordinate [label=left:{1}] (A) at (0,0);
-\coordinate [label=right:{3}](B) at (2,0);
-\coordinate [label=left:{3+2i}](C) at (2,2);
-\coordinate [label=right:{5+2i}](D) at (4,2);
+\coordinate [label=left:{$1$}] (A) at (0,0);
+\coordinate [label=right:{$3$}](B) at (2,0);
+\coordinate [label=left:{$3+2i$}](C) at (2,2);
+\coordinate [label=right:{$5+2i$}](D) at (4,2);
 \coordinate [label=right:{B}](E) at (1,-0.5);
 
 \draw (A) -- (B) -- (D) -- (C) -- cycle;
@@ -74,10 +74,10 @@ $(a+bi)(c+di)=(ac-bd)+(b+d)i$\\
 \exx
 このことから,$t$は複素平面上の実軸より上の領域（上半平面と名付ける）を自由に動くとして,以下の平行四辺形\\
 \begin{tikzpicture}
-\coordinate [label=left:{0}] (A) at (0,0);
-\coordinate [label=right:{1}](B) at (1,0);
-\coordinate [label=left:{t}](C) at (0.8,2);
-\coordinate [label=right:{1+t}](D) at (1.8,2);
+\coordinate [label=left:{$0$}] (A) at (0,0);
+\coordinate [label=right:{$1$}](B) at (1,0);
+\coordinate [label=left:{$t$}](C) at (0.8,2);
+\coordinate [label=right:{$1+t$}](D) at (1.8,2);
 \draw (A) -- (B) -- (D) -- (C) -- cycle;
 \end{tikzpicture}
 \\
@@ -88,20 +88,20 @@ $(a+bi)(c+di)=(ac-bd)+(b+d)i$\\
 \begin{figure}[h]
 \begin{minipage}{0.5\hsize}
 \begin{tikzpicture}
-\coordinate [label=left:{0}] (A) at (0,0);
-\coordinate [label=right:{1}](B) at (1,0);
-\coordinate [label=left:{t}](C) at (0.8,2);
-\coordinate [label=right:{1+t}](D) at (1.8,2);
+\coordinate [label=left:{$0$}] (A) at (0,0);
+\coordinate [label=right:{$1$}](B) at (1,0);
+\coordinate [label=left:{$t$}](C) at (0.8,2);
+\coordinate [label=right:{$1+t$}](D) at (1.8,2);
 \coordinate [label=right:{X}](E) at (0.5,-0.5);
 \draw (A) -- (B) -- (D) -- (C) -- cycle;
 \end{tikzpicture}
 \end{minipage}
 \begin{minipage}{0.5\hsize}
 \begin{tikzpicture}
-\coordinate [label=left:{0}] (A) at (0,0);
-\coordinate [label=right:{1}](B) at (1,0);
-\coordinate [label=left:{s}](C) at (0.9,2);
-\coordinate [label=right:{1+s}](D) at (1.9,2);
+\coordinate [label=left:{$0$}] (A) at (0,0);
+\coordinate [label=right:{$1$}](B) at (1,0);
+\coordinate [label=left:{$s$}](C) at (0.9,2);
+\coordinate [label=right:{$1+s$}](D) at (1.9,2);
 \coordinate [label=right:{Y}](E) at (0.5,-0.5);
 \draw (A) -- (B) -- (D) -- (C) -- cycle;
 \end{tikzpicture}
@@ -120,18 +120,18 @@ $\Leftrightarrow \ s=\dfrac {at+b} {ct+d}$をみたす整数$a$,$b$,$c$,$d$が�
 \begin{figure}[h]
 \begin{minipage}{0.5\hsize}
 \begin{tikzpicture}
-\coordinate [label=left:{0}] (A) at (0,0);
-\coordinate [label=right:{1}](B) at (1,0);
-\coordinate [label=left:{i}](C) at (0,1);
-\coordinate [label=right:{1+i}](D) at (1,1);
+\coordinate [label=left:{$0$}] (A) at (0,0);
+\coordinate [label=right:{$1$}](B) at (1,0);
+\coordinate [label=left:{$i$}](C) at (0,1);
+\coordinate [label=right:{$1+i$}](D) at (1,1);
 \coordinate [label=right:{A}](E) at (0.5,-0.5);
 \draw (A) -- (B) -- (D) -- (C) -- cycle;
 \end{tikzpicture}
 \end{minipage}
 \begin{minipage}{0.5\hsize}
 \begin{tikzpicture}
-\coordinate [label=left:{0}] (A) at (0,0);
-\coordinate [label=right:{1}](B) at (1,0);
+\coordinate [label=left:{$0$}] (A) at (0,0);
+\coordinate [label=right:{$1$}](B) at (1,0);
 \coordinate [label=left:{$\frac{32+i}{42}$}](C) at (0.9,1.1);
 \coordinate [label=right:{$1+\frac{32+i}{42}$}](D) at (1.9,1.1);
 \coordinate [label=right:{B}](E) at (0.5,-0.5);
@@ -198,20 +198,20 @@ $\Leftrightarrow $ $t=s$
 \begin{figure}[h]
 \begin{minipage}{0.5\hsize}
 \begin{tikzpicture}
-\coordinate [label=left:{0}] (A) at (0,0);
-\coordinate [label=right:{1}](B) at (1,0);
-\coordinate [label=left:{t}](C) at (0.8,2);
-\coordinate [label=right:{1+t}](D) at (1.8,2);
+\coordinate [label=left:{$0$}] (A) at (0,0);
+\coordinate [label=right:{$1$}](B) at (1,0);
+\coordinate [label=left:{$t$}](C) at (0.8,2);
+\coordinate [label=right:{$1+t$}](D) at (1.8,2);
 \coordinate [label=right:{X}](E) at (0.5,-0.5);
 \draw (A) -- (B) -- (D) -- (C) -- cycle;
 \end{tikzpicture}
 \end{minipage}
 \begin{minipage}{0.5\hsize}
 \begin{tikzpicture}
-\coordinate [label=left:{0}] (A) at (0,0);
-\coordinate [label=right:{1}](B) at (1,0);
-\coordinate [label=left:{s}](C) at (0.9,2);
-\coordinate [label=right:{1+s}](D) at (1.9,2);
+\coordinate [label=left:{$0$}] (A) at (0,0);
+\coordinate [label=right:{$1$}](B) at (1,0);
+\coordinate [label=left:{$s$}](C) at (0.9,2);
+\coordinate [label=right:{$1+s$}](D) at (1.9,2);
 \coordinate [label=right:{Y}](E) at (0.5,-0.5);
 \draw (A) -- (B) -- (D) -- (C) -- cycle;
 \end{tikzpicture}
