@@ -22,15 +22,15 @@ Cauchy列 $\{ x_n\}_{n \in \mathbb{N}},\lim_{m,n \rightarrow \infty}\lVert x_m-x
 同様に線形空間に内積が定義され(pre-Hilbert空間，計量線形空間などという），内積について完備であるとき，Hilbert空間という．
 
 $ex)$ 2次元実ベクトル全体の空間
-\[\Biggl\{ \left(
+\[\left\{ \left(
 \begin{array}{c}
 a \\
 b \\
 \end{array}
-\right)\Biggl|a.b\in \mathbb{R}\Biggr\}\]
+\right)\mathrel{}\middle|\mathrel{}a,b\in \mathbb{R}\right\}\]
 に和と実数倍を通常のベクトルの和と実数倍で定め，ノルムを通常のベクトルの長さで定めると，これはBanach空間である．
 \Subsection{$C^*$-環の定義}
-$A$をBanach空間とする．Aに積$A \times A \ni \left(x,y\right) \mapsto xy \in A$,写像$A\ni a \mapsto a^*\in A$が定義され，以下の条件を満たすとき，$A$を\textgt{$C^*$-環}という．
+$A$をBanach空間とする．$A$に積$A \times A \ni \left(x,y\right) \mapsto xy \in A$,写像$A\ni a \mapsto a^*\in A$が定義され，以下の条件を満たすとき，$A$を\textgt{$C^*$-環}という．
 \begin{itemize}
 \item $A$は和と積について$\mathbb C$上の多元環である．つまり，積について結合法則と分配法則が成り立つ．
 \item $\lVert xy\rVert \leq \lVert x\rVert \lVert y\rVert$
@@ -45,11 +45,11 @@ $A$をBanach空間とする．Aに積$A \times A \ni \left(x,y\right) \mapsto xy
 \Subsection{*-準同型写像}
 $A,B$を$C^*$-環とする．写像$\pi:A \rightarrow B$が
 \begin{gather*}
-\pi \left( x+y\right)=\pi \left( x\right)+\pi \left( y\right),　\pi \left( xy\right)=\pi \left( x\right)\pi \left( y\right) \\
-\pi \left( \lambda x\right)=\lambda \pi \left( x\right)　\lambda \in \mathbb{C} \\
-\pi \left(x^*\right)=\pi \left(x\right)^*
+\pi(x+y)=\pi(x)+\pi(y),　\pi(xy)=\pi(x)\pi(y) \\
+\pi(\lambda x)=\lambda \pi(x)　\lambda \in \mathbb{C} \\
+\pi(x^*)=\pi(x)^*
 \end{gather*}
-をみたすとき，$\pi$は\textgt{*-準同型}であるという．$\pi $が全単射*-準同型であるとき，$\pi$は同型であるという．$C^*$-環$A,B$の間に同型$\pi$が存在するとき，$A,B$は\textgt{同型}であるといい，$A\simeq B$と表す．
+をみたすとき，$\pi$は \textgt{*-準同型}であるという．$\pi $が全単射 *-準同型であるとき，$\pi$は同型であるという．$C^*$-環 $A$, $B$ の間に同型$\pi$が存在するとき，$A$, $B$ は\textgt{同型}であるといい，$A\simeq B$と表す．
 \Subsection{$C^*$-環の直和}
 $\{A_{\lambda}\}_{\lambda \in \Lambda}$を$C^*$-環の族とする．これに対し，集合$A$を
 \[A=\{ \left( x_{\lambda}\right)_{\lambda \in \Lambda}|\forall x_{\lambda}\in \Lambda ,
@@ -74,23 +74,23 @@ $\Omega$を局所コンパクト空間とする．$C_{\infty}\left( \Omega\right
 \item $x^*\left(\omega\right)=\overline{x\left(\omega\right)}$
 \item $\lVert x\rVert=\sup\{|x\left(\omega\right)||\omega \in \Omega\}$
 \end{itemize}
-で定めると，$C_{\infty}\left( \Omega\right)$は可換$C^*$-環である．$\Omega$がコンパクトであるとき，かつその時に限り$C_{\infty}\left( \Omega\right)$はunitalである．
+で定めると，$C_{\infty}(\Omega)$は可換$C^*$-環である．$\Omega$がコンパクトであるとき，かつその時に限り$C_{\infty}(\Omega)$はunitalである．
 
-※局所コンパクト空間$\Omega$上の連続関数$x$が\textgt{無限遠で消える}（\textgt{vanishing at infinity}）:任意の正数$\epsilon >0$に対し，あるコンパクト集合$K\subset \Omega$が存在して，
-\[\forall \omega \in \Omega\setminus K,\lVert x\left( \omega\right)\rVert<\epsilon\]
+※局所コンパクト空間$\Omega$上の連続関数$x$が\textgt{無限遠で消える}（\textgt{vanishing at infinity}）：任意の正数$\epsilon >0$に対し，あるコンパクト集合$K\subset \Omega$が存在して，
+\[\forall \omega \in \Omega\setminus K,\lVert x(\omega)\rVert<\epsilon\]
 が成り立つ．
 \Section{Gelfand表現}
 \Subsection{指標}
-$A$を可換$C^*$-環とする．写像$\pi:A\rightarrow\mathbb{C}$が0写像でなく，$A$から$\mathbb{C}$への*-準同型であるとき，$\pi$を$A$の\textgt{指標}といい，$A$の指標全体を$\Omega\left(A\right)$で表し，\textgt{指標空間}という．
+$A$を可換$C^*$-環とする．写像$\pi:A\rightarrow\mathbb{C}$が0写像でなく，$A$から$\mathbb{C}$への *-準同型であるとき，$\pi$を$A$の\textgt{指標}といい，$A$の指標全体を$\Omega\left(A\right)$で表し，\textgt{指標空間}という．
 
-$\Omega\left(A\right)$に弱*位相，すなわち，$A$を$A^{**}$の部分空間として考えた時に，各$x\in A$を連続にする$\Omega\left(A\right)$上の位相であって，和，積，スカラー倍を連続にするようなもののうち最弱なものとする．すると，この位相に関し，$\Omega\left(A\right)$は局所コンパクトHausdorff空間になる．さらに，$A$がunitalならば$\Omega\left(A\right)$はコンパクトである．
+$\Omega(A)$に弱 * 位相，すなわち，$A$を$A^{**}$の部分空間として考えた時に，各$x\in A$を連続にする$\Omega(A)$上の位相であって，和，積，スカラー倍を連続にするようなもののうち最弱なものとする．すると，この位相に関し，$\Omega(A)$は局所コンパクトHausdorff空間になる．さらに，$A$がunitalならば$\Omega(A)$はコンパクトである．
 \Subsection{Gelfand表現}
-写像$\mathscr{F}:A \rightarrow C_{\infty}\left(\Omega\left(A\right)\right)$を
-\[\mathscr{F}\left(x\right)\left(\pi\right)=\pi\left(x\right)\]
+写像$\mathscr{F}:A \rightarrow C_{\infty}(\Omega(A))$を
+\[\mathscr{F}(x)(\pi)=\pi(x)\]
 で定める．$\mathscr{F}$を$A$の\textgt{Gelfand表現}という．
 \Subsection{Gelfand-Naimarkの定理その1}
 \begin{theo}
-$A$を可換$C^*$-環とする．$A$の{\rm Gelfand}表現$\mathscr{F}$は$A$から$C_{\infty}\left(\Omega\left(A\right)\right)$への等距離*-同型である．
+$A$を可換$C^*$-環とする．$A$の{\rm Gelfand}表現$\mathscr{F}$は$A$から$C_{\infty}(\Omega(A))$への等距離 *-同型である．
 \end{theo}
 このGelfand-Naimarkの定理により，任意の可換$C^*$-環に対し，ある局所コンパクトハウスドルフ空間上の連続関数環が対応することがわかった．実は局所コンパクトハウスドルフ空間上の連続関数環から元の位相空間を復元することができるので，この定理は可換$C^*$-環から局所コンパクトハウスドルフ空間を構成できることを示している（その逆も然り）．すなわち，\textgt{可換$C^*$-環の理論は局所コンパクト（ハウスドルフ）空間の理論と等価}とみなしてよいということである．（余談ではあるが，圏論の言葉を用いれば，局所コンパクトハウスドルフ空間の圏と可換$C^*$-環の圏が圏同値である，ということである）
 
@@ -109,19 +109,19 @@ $C^*$-環$A$の表現の族$\left(\pi_{\lambda},\mathfrak{H}_{\lambda}\right)_{\
 で定める．
 \Subsection{状態}
 $A$を（可換とは限らない）$C^*$-環とする．$A$の線型汎函数$\omega:A\rightarrow \mathbb{C}$が
-\[\forall x\in A,\omega \left(x^*x \right)\geq0\]
+\[\forall x\in A,\omega(x^*x)\geq0\]
 をみたすとき，$\omega$を\textgt{正線型汎函数}という．正線型汎函数は有界線型作用素である．$\lVert\omega\rVert$=1をみたす正線型汎函数を\textgt{状態}という．
 \Subsection{GNS表現の構成}
 $A$を（可換とは限らない）$C^*$-環とする．$A$の正線型汎函数$\omega:A\rightarrow \mathbb{C}$が与えられたとき，これを用いて$A$の表現を構成する．
-\[N_{\omega}:=\{x\in A|\omega\left(x^*x\right)=0 \}\]
+\[N_{\omega}:=\{x\in A\mid\omega(x^*x)=0 \}\]
 とすると，これは$A$の左イデアルであり，かつ閉集合である．$N_{\omega}$を$\omega$の左核という．
 
 $x\in A$に対し，$\eta_{\omega}\left(x\right)$で商空間$A/N_{\omega}$の剰余類$x+N_{\omega}$を表すこととする．複素線形空間$A/N_{\omega}$に内積を
-\[\left(\eta_{\omega}\left(x\right)|\eta_{\omega}\left(y\right)\right)=\omega\left(y^*x\right)\]
+\[\left(\eta_{\omega}(x)|\eta_{\omega}(y)\right)=\omega(y^*x)\]
 で定める．この内積に関して$A/N_{\omega}$を完備化して得られるHilbert空間を$\mathfrak{H}_{\omega}$とする．
 
-各$a\in A$に対し線型作用素:$A/N_{\omega}\ni \eta_{\omega}\left(x\right)\mapsto \eta_{\omega}\left(ax\right)\in A/N_{\omega}$を考えると，これはHilbert空間$\mathfrak{H}_{\omega}$上の有界作用素$\pi_{\omega}\left(a\right)$に拡張できる．そこで写像$\pi_{\omega}:A\ni a\mapsto \pi_{\omega}\left(a\right)\in \mathcal{B}\left(\mathfrak{H}_{\omega}\right)$
-を考えると，対$\left(\pi_{\omega},\mathfrak{H}_{\omega}\right)$はAの表現である．この表現を$\omega$による\textgt{Gelfand-Naimark-Segal表現}，略して\textgt{GNS表現}という．この表現の構成法を\textgt{GNS構成法}という．
+各$a\in A$に対し線型作用素: $A/N_{\omega}\ni \eta_{\omega}\left(x\right)\mapsto \eta_{\omega}\left(ax\right)\in A/N_{\omega}$を考えると，これはHilbert空間$\mathfrak{H}_{\omega}$上の有界作用素$\pi_{\omega}\left(a\right)$に拡張できる．そこで写像$\pi_{\omega}:A\ni a\mapsto \pi_{\omega}\left(a\right)\in \mathcal{B}\left(\mathfrak{H}_{\omega}\right)$
+を考えると，対$\left(\pi_{\omega},\mathfrak{H}_{\omega}\right)$は $A$ の表現である．この表現を$\omega$による\textgt{Gelfand-Naimark-Segal表現}，略して\textgt{GNS表現}という．この表現の構成法を\textgt{GNS構成法}という．
 \Subsection{普遍表現}
 $A$を（可換とは限らない）$C^*$-環とする．$A$上の状態$\omega$全てについての表現の族$\left(\pi_{\omega},\mathfrak{H}_{\omega}\right)$の直和を，$A$の\textgt{普遍表現}という．
 \Subsection{Gelfand-Naimarkの定理その2}
@@ -143,7 +143,7 @@ $A$を（可換とは限らない）$C^*$-環とする．$A$上の状態$\omega$
 となる．これは $n$ 次の行列単位（$\left(i,j\right)$-成分のみが1で他の成分はすべて0であるような $n$ 次正方行列）に他ならない．こうした $n$ 次行列単位全てを含むような$\mathbb{C}$上の最小の体系は複素数を成分とする $n$ 次正方行列の全体$M\left(n;\mathbb{C}\right)$である．従って，このような $n$ 個の点からなる空間での点から点への運動の体系を記述する情報は$M\left(n;\mathbb{C}\right)$内に記録されているはずであろう．そして，これより小さなものでは情報すべてを記録できない．この$M\left(n;\mathbb{C}\right)$は行列の和と積，複素数倍によりBanach環であり，対合として随伴行列，つまり$A\in M\left(n;\mathbb{C}\right)$の対合$A^*$を複素共役の転置行列$A^*={}^{t}\overline{A}$と定めると，$M\left(n;\mathbb{C}\right)$は非可換な$C^*$-環である．$M\left(n;\mathbb{C}\right)$はHilbert空間$\mathbb{C}^n$上の有界線型作用素のなす$C^*$-環である（Gelfand-Naimarkの定理その2．まぁ，使うまでもなくご存知の結果かもしれませんが…）．
 \Subsection{2点空間上の関数}
 では，この $n$ 点空間の非可換性を見ていきたい．ここでは簡単のために$n=2$として2点空間$\{a,b\}$を考える．この空間の上で定義された関数を考えよう．とはいえ，2点しかない空間なので $a,b$ それぞれに対して関数の値を決めればいい．2点空間$\{a,b\}$上の関数$f$を
-\[f\left(a\right)=\alpha,　f\left(b\right)=\beta\]
+\[f(a)=\alpha,　f(b)=\beta\]
 で定める．ここで定数関数${\bf 1}:a,b\mapsto 1$と,$a$で$1$,$b$で$0$という値を取る関数$e$を考えれば，2点空間上の任意の関数は
 \[f=\alpha e+\beta \left({\bf 1}-e\right)\]
 と表せる．このまま積を考えても所詮は2点空間なので可換であるが，仮に「微分」を定義できたとすると，2点空間は非可換になってしまう．
@@ -151,7 +151,7 @@ $A$を（可換とは限らない）$C^*$-環とする．$A$上の状態$\omega$
 2点空間上の関数に「微分」$D$が定義できたとしよう．「微分」$D$は微分であるから，次の規則を満たさなければならないだろう．
 \begin{itemize}
 \item$D{\bf 1}={\bf 0}$
-\item$D\left(fg\right)=\left(Df\right)g+f\left(Dg\right)$
+\item$D(fg)=\left(Df\right)g+f\left(Dg\right)$
 \end{itemize}
 このような規則をみたす「微分」が定義できると，上で定めた関数$f=\alpha e+\beta \left({\bf 1}-e\right)$の「微分」は
 \[df=\left(\alpha-\beta\right)de\]
@@ -172,7 +172,7 @@ $C^*$-環がGelfand-Naimarkの定理その2により対応するHilbert空間を
 先の2点空間上の関数$f=\alpha e+\beta \left({\bf 1}-e\right)$は$M\left(2;\mathbb{C}\right)$の元の中の対角成分が$\alpha,\beta$である2次対角行列に対応している．これに対して適当に対角行列でない行列をとり，それを$D$とすれば， $df$ は先の定義で確かに微分になる（興味のある方は計算してみてください）．
 \Subsection{非可換トーラス}
 先の $n$ 点空間は微分を考えれば非可換になったが，関数の積自体は可換で，点も具体的に考えられた（$C^*$-環から構成せずに直接空間を定義したので当然ではあるが…）そこでもう少し複雑な例を見ることにしよう．通常のトーラスをもとにした非可換トーラスを考えることができる．簡単のため2次元での「お話」のみを紹介する．トーラス上の関数は周期関数であるから，2次元トーラス上の関数は座標を$\left(x,y\right)$として
-\[f\left(x,y\right)=\sum_{k,l} a_{kl}e^{ikx}e^{ily}\]
+\[f(x,y)=\sum_{k,l} a_{kl}e^{ikx}e^{ily}\]
 と書くことができる．この$e^{ix},e^{iy}$に対し，非可換積を
 \[e^{ix}*e^{iy}=e^{i\theta}e^{iy}*e^{ix}\]
 などで定めて，$e^{ix},e^{iy}$により生成される代数は非可換である．これに対応する非可換空間を非可換トーラスと定める．
