@@ -7,7 +7,7 @@
 
 \Section{トーラス}
 複素平面からトーラスを作る．複素平面とは，実数だけだと数が足りないために$1$乗して$-1$になる数$i$を加え，実数を拡張したものである．
-
+%
 %\begin{wrapfigure}{r}{3cm} 
 %\begin{tikzpicture}[domain=-3:3, samples=64, scale=0.8]
 %\footnotesize
@@ -16,27 +16,27 @@
 %	\draw (2,1) coordinate (c);
 %	\coordinate [label=right:{$2+i$}] (2+i) at (2,1);
 %	\draw[dashed] (yaxis |- c) node[left] {$1$} -| (xaxis -| c) node[below] {$2$};
-
+%
 %\end{tikzpicture}
 %\end{wrapfigure}
 \begin{gather*}
 (a+bi)+(c+di)=(a+c)+(b+d)i \\
 (a+bi)(c+di)=(ac-bd)+(b+d)i \\
-\text{($a$,$b$,$c$,$d$は実数)}
+\text{($a$, $b$, $c$, $d$ は実数)}
 \end{gather*}
 と足し算，かけ算が定義され，引き算，割り算もそれから導かれる．
-複素平面から何か平行四辺形を切り抜こう．例えば\\
+複素平面から何か平行四辺形を切り抜こう．例えば
+\begin{center}
 \begin{tikzpicture}
 \draw (0,0) rectangle (2,1);
 \coordinate [label=left:{$0$}] (0) at (0,0);
 \coordinate [label=right:{$2+i$}] (2+i) at (2,1);
 \end{tikzpicture}
-
+\end{center}
 を切り抜くことにする．そして，対辺をそれぞれ貼り合わせると
-\\
-\begin{figure}[h]
+\begin{center}
 \includegraphics[width=8cm]{asaka3.png}
-\end{figure}
+\end{center}
 とドーナツの表面となった．これがトーラスである．
 
 実は切り抜くという操作はあまり良くない．なぜなら数学において境界は大事なのに，切り抜くと境界での構造がぐしゃぐしゃしてしまうからである．余裕のある人はもう少し良いイメージで考えてほしいのだが，それはトイレットペーパーである．切り抜いてしまわずに，複素平面全体をくるくると巻いていく．今回の例で行くと，$0$ と $2$ を結ぶ線分と $i$ と $2+i$ を結ぶ線分がぴたりと一致するように縦に巻き，以降同じ周期でくるくる巻くことにする．複素平面に厚さはないものと考えれば，このように巻ける．複素平面において $0$ と $2$ を結ぶ線分より下にある部分もすでに同じように巻かれていたとする．すると無限に重なった巻物が得られ，さらに $0$ と $i$ を結ぶ線分と $2$ と $2+i$ を結ぶ線分が重なるように横にも周期的に巻いていく．現実の紙だと紙が交差してできないが，この複素平面は自分を通り抜けられると考えれば巻いていける．これによって，平行四辺形が無限個重なったドーナツの表面がえられる．これがトーラスである．
@@ -52,8 +52,7 @@
 \thm
 複素平面上に２つの平行四辺形 $A,B$ があったとする．$A$ を縦横比を保ったまま拡大か縮小をして，平行移動と回転移動をすることで $B$ と重なるとき，$A$ からつくられるトーラスと $B$ からつくられるトーラスは双正則同値である
 \thmx
-\ex 
-\begin{figure}[h]
+\ex
 \begin{minipage}{0.5\hsize}
 \begin{tikzpicture}
 \coordinate [label=left:{$0$}] (A) at (0,0);
@@ -70,16 +69,15 @@
 \coordinate [label=right:{$3$}](B) at (2,0);
 \coordinate [label=left:{$3+2i$}](C) at (2,2);
 \coordinate [label=right:{$5+2i$}](D) at (4,2);
-\coordinate [label=right:{B}](E) at (1,-0.5);
+\coordinate [label=right:{$B$}](E) at (1,-0.5);
 
 \draw (A) -- (B) -- (D) -- (C) -- cycle;
 \end{tikzpicture}
-\end{minipage}
-\end{figure}
-\
+\end{minipage} \\
 のとき，$A$からつくられるトーラスと$B$からつくられるトーラスは同じものである．
 \exx
-このことから，$t$は複素平面上の実軸より上の領域（上半平面と名付ける）を自由に動くとして，以下の平行四辺形\\
+このことから，$t$は複素平面上の実軸より上の領域（上半平面と名付ける）を自由に動くとして，以下の平行四辺形
+\begin{center}
 \begin{tikzpicture}
 \coordinate [label=left:{$0$}] (A) at (0,0);
 \coordinate [label=right:{$1$}](B) at (1,0);
@@ -87,20 +85,18 @@
 \coordinate [label=right:{$1+t$}](D) at (1.8,2);
 \draw (A) -- (B) -- (D) -- (C) -- cycle;
 \end{tikzpicture}
-\\
-
+\end{center}
 を考えれば，他のある位置にある平行四辺形からトーラスをつくったとしても，それに応じて$t$をうまく定めれば， 双正則同値なトーラスをつくれる．すなわち，$t$を動かして，$0$と$1$を結ぶ線分と$0$と$t$を結ぶ線分でできる平行四辺形全体を考えれば，すべてのトーラスは考えつくされる．
 
 このことを踏まえ，さらに次の双正則同値と同値な条件がある．
 \thm
-\begin{figure}[h]
 \begin{minipage}{0.5\hsize}
 \begin{tikzpicture}
 \coordinate [label=left:{$0$}] (A) at (0,0);
 \coordinate [label=right:{$1$}](B) at (1,0);
 \coordinate [label=left:{$t$}](C) at (0.8,2);
 \coordinate [label=right:{$1+t$}](D) at (1.8,2);
-\coordinate [label=right:{X}](E) at (0.5,-0.5);
+\coordinate [label=right:{$X$}](E) at (0.5,-0.5);
 \draw (A) -- (B) -- (D) -- (C) -- cycle;
 \end{tikzpicture}
 \end{minipage}
@@ -110,16 +106,15 @@
 \coordinate [label=right:{$1$}](B) at (1,0);
 \coordinate [label=left:{$s$}](C) at (0.9,2);
 \coordinate [label=right:{$1+s$}](D) at (1.9,2);
-\coordinate [label=right:{Y}](E) at (0.5,-0.5);
+\coordinate [label=right:{$Y$}](E) at (0.5,-0.5);
 \draw (A) -- (B) -- (D) -- (C) -- cycle;
 \end{tikzpicture}
 \end{minipage}
-\end{figure}
 $X$と$Y$からつくられるトーラスが双正則同値\\
-$\Leftrightarrow \ s=\dfrac {at+b} {ct+d}$をみたす整数$a$,$b$,$c$,$d$が存在して，$ad-bc=1$となる
+$\Leftrightarrow \ s=\dfrac {at+b} {ct+d}$をみたす整数 $a$, $b$, $c$, $d$ が存在して，$ad-bc=1$となる
 \thmx
 \ex
-下図の$A$,$B$によってできるトーラスは双正則同値となる．
+下図の $A$, $B$ によってできるトーラスは双正則同値となる．
 実際，\[
 \frac{3i-4}{4i-5} = \frac{32+i}{42}
 \]
@@ -132,7 +127,7 @@ $\Leftrightarrow \ s=\dfrac {at+b} {ct+d}$をみたす整数$a$,$b$,$c$,$d$が�
 \coordinate [label=right:{$1$}](B) at (1,0);
 \coordinate [label=left:{$i$}](C) at (0,1);
 \coordinate [label=right:{$1+i$}](D) at (1,1);
-\coordinate [label=right:{A}](E) at (0.5,-0.5);
+\coordinate [label=right:{$A$}](E) at (0.5,-0.5);
 \draw (A) -- (B) -- (D) -- (C) -- cycle;
 \end{tikzpicture}
 \end{minipage}
@@ -140,69 +135,69 @@ $\Leftrightarrow \ s=\dfrac {at+b} {ct+d}$をみたす整数$a$,$b$,$c$,$d$が�
 \begin{tikzpicture}
 \coordinate [label=left:{$0$}] (A) at (0,0);
 \coordinate [label=right:{$1$}](B) at (1,0);
-\coordinate [label=left:{$\frac{32+i}{42}$}](C) at (0.9,1.1);
-\coordinate [label=right:{$1+\frac{32+i}{42}$}](D) at (1.9,1.1);
-\coordinate [label=right:{B}](E) at (0.5,-0.5);
+\coordinate [label=above left:{$\frac{32+i}{42}$}](C) at (0.9,1.1);
+\coordinate [label=above right:{$1+\frac{32+i}{42}$}](D) at (1.9,1.1);
+\coordinate [label=right:{$B$}](E) at (0.5,-0.5);
 \draw (A) -- (B) -- (D) -- (C) -- cycle;
 \end{tikzpicture}
 \end{minipage}
 \end{figure}
-\newpage
-この関係で互いに等しくならない$t$全体を挙げてみれば，分かったような気になる．これがトーラスのモデュライ空間呼ばれるもので
-以下の様なものである．この灰色部分から点$t$をとり，そこから平行四辺形をつくれば，この型を元にトーラスがつくれる．\\
 
-\begin{figure}[h]
+この関係で互いに等しくならない$t$全体を挙げてみれば，分かったような気になる．これがトーラスのモデュライ空間呼ばれるもので
+以下の様なものである．この灰色部分から点$t$をとり，そこから平行四辺形をつくれば，この型を元にトーラスがつくれる．
+
 \begin{minipage}{0.5\hsize}
 \includegraphics[width=4cm]{asaka8.png}
 \end{minipage}
 \begin{minipage}{0.5\hsize}
 \includegraphics[width=4cm]{asaka9.jpg}
 \end{minipage}
-\end{figure}
 
 つまり，この斜線部上の一点一点がトーラスに対応していて，トーラス全体というものを目の当たりにした．
 
 \Section {トーラスのタイヒミュラー空間}
-トーラス上に向きのある輪をおくと\\
-\begin{figure}[h]
+トーラス上に向きのある輪をおくと
+\\
 \begin{minipage}{0.5\hsize}
-\includegraphics[width=5cm]{asaka10.png}\\
+\includegraphics[width=5cm]{asaka10.png}
 \end{minipage}
 \begin{minipage}{0.5\hsize}
-\includegraphics[width=5cm]{asaka101.png}\\
+\includegraphics[width=5cm]{asaka101.png}
 \end{minipage}
-\end{figure}
+\\
 この2つの輪はトーラスから離れてしまわないようにどう伸び縮みさせても一点につぶせない．\\
 \includegraphics[width=5cm]{asaka11.png}
 
 このような輪はトーラス上で縮めていけば一点につぶせる．
 
-そのような一点につぶせない輪のかけ方はいくらでもある．ただし，トーラス上を移動して，重ねられるような輪のかけ方は同じとみなす．\\
-\begin{figure}[h]
+そのような一点につぶせない輪のかけ方はいくらでもある．ただし，トーラス上を移動して，重ねられるような輪のかけ方は同じとみなす．
+\\
 \begin{minipage}{0.5\hsize}
 \includegraphics[width=5cm]{asaka12.png}\\
 \end{minipage}
 \begin{minipage}{0.5\hsize}
 \includegraphics[width=5cm]{asaka121.png}\\
 \end{minipage}
-\end{figure}
+\\
 この一点につぶせない輪のかけ方は，実は最初の$2$つを組み合わせてすべてつくれる．組み合わせるという言い方はあいまいだが，なんとなくわかって欲しい．
-\newpage
+
 実は最初の$2$つとは別のものからでもあらゆる輪のかけ方を作れる．たとえば\\
-\includegraphics[width=5cm]{asaka14.png}
+\includegraphics[width=5cm]{asaka14.png}\\
 でもよい．この輪のかけ方を生み出す元のものを``基本群の標準生成系''と呼ぶことにする．トーラスを一つ選び，さらにその``基本群の標準生成系''をひとつ選ぶことにする．このトーラスと``基本群の標準生成系''のペアを考える．トーラス全体はどのようなものか，前の章で見た．このトーラス一つ一つに標準生成系とのペアを考えることで種類を増やす．トーラスに標準生成系つけた印をマーキングと呼ぶ．
 
-もう一度tの動く範囲を上半平面として考える．上半平面上のそれぞれ別の場所に$t,s$がいても，前の章で言った条件「$s=\dfrac {at+b} {ct+d}$をみたす整数$a$,$b$,$c$,$d$が存在して，$ad-bc=1$となる」を満たせばそこからつくられるトーラスは双正則同値になるのだった．ここで$0$と$1$を結ぶ線分（直線でもよい），$1$と$t$を結ぶ線分（直線でもよい）に注目すると，これらの線分（直線）はトーラス上で，``基本群の標準生成系''となっている．$s$のトーラスについても同じことを考えると``基本群の標準生成系''が得られる．この$2$つのトーラスは「$s=\dfrac {at+b} {ct+d}$をみたす整数$a$,$b$,$c$,$d$が存在して，$ad-bc=1$となる」を満たせば，双正則同値になるのだった．つまり，双正則な変換によって$t$のトーラスは$s$のトーラスに変形する．しかし``基本群の標準生成系''はどうかというと，証明は省くが，同じになる（$t$のトーラスを$s$のトーラスでうつす変換によって$t$の``基本群の標準生成系''をうつしたものが，トーラス上を動かすことで$s$の``基本群の標準生成系''に一致させられる）とは限らないのだ．今回は，双正則同値になるだけでなく``基本群の生成元''も含めて一致するものを同じとみなす厳しい見方を採用する．\\
-\begin{figure}[h]
+もう一度tの動く範囲を上半平面として考える．上半平面上のそれぞれ別の場所に $t$, $s$ がいても，前の章で言った条件「$s=\dfrac {at+b} {ct+d}$をみたす整数 $a$, $b$, $c$, $d$ が存在して，$ad-bc=1$となる」を満たせばそこからつくられるトーラスは双正則同値になるのだった．ここで$0$と$1$を結ぶ線分（直線でもよい），$1$と$t$を結ぶ線分（直線でもよい）に注目すると，これらの線分（直線）はトーラス上で，``基本群の標準生成系''となっている．$s$のトーラスについても同じことを考えると``基本群の標準生成系''が得られる．この$2$つのトーラスは「$s=\dfrac {at+b} {ct+d}$をみたす整数 $a$, $b$, $c$, $d$ が存在して，$ad-bc=1$となる」を満たせば，双正則同値になるのだった．つまり，双正則な変換によって$t$のトーラスは$s$のトーラスに変形する．しかし``基本群の標準生成系''はどうかというと，証明は省くが，同じになる（$t$のトーラスを$s$のトーラスでうつす変換によって$t$の``基本群の標準生成系''をうつしたものが，トーラス上を動かすことで$s$の``基本群の標準生成系''に一致させられる）とは限らないのだ．今回は，双正則同値になるだけでなく``基本群の生成元''も含めて一致するものを同じとみなす厳しい見方を採用する．\\
+%\begin{figure}[h]
 \begin{minipage}{0.5\hsize}
 \includegraphics[width=5cm]{asaka12.png}\\
 \end{minipage}
 \begin{minipage}{0.5\hsize}
 \includegraphics[width=5cm]{asaka14.png}\\
 \end{minipage}
-\end{figure}
+%\end{figure}
+
 例えば形は双正則同値でも，次のように左の基本群の生成元が右の基本群の生成元に写ってしまうような写像はだめなのである．
-\newpage
+%\newpage
+
 次の事実がある．
 \thm
 $X$と$Y$からつくられるマーキングされたトーラスが同じになる\\
@@ -215,7 +210,7 @@ $\Leftrightarrow $ $t=s$
 \coordinate [label=right:{$1$}](B) at (1,0);
 \coordinate [label=left:{$t$}](C) at (0.8,2);
 \coordinate [label=right:{$1+t$}](D) at (1.8,2);
-\coordinate [label=right:{X}](E) at (0.5,-0.5);
+\coordinate [label=right:{$X$}](E) at (0.5,-0.5);
 \draw (A) -- (B) -- (D) -- (C) -- cycle;
 \end{tikzpicture}
 \end{minipage}
@@ -225,7 +220,7 @@ $\Leftrightarrow $ $t=s$
 \coordinate [label=right:{$1$}](B) at (1,0);
 \coordinate [label=left:{$s$}](C) at (0.9,2);
 \coordinate [label=right:{$1+s$}](D) at (1.9,2);
-\coordinate [label=right:{Y}](E) at (0.5,-0.5);
+\coordinate [label=right:{$Y$}](E) at (0.5,-0.5);
 \draw (A) -- (B) -- (D) -- (C) -- cycle;
 \end{tikzpicture}
 \end{minipage}
