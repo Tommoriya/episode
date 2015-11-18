@@ -5,6 +5,7 @@
 \usepackage{makeidx,multicol}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{standalone}
+\usepackage{tocloft}
 \usepackage{hyperref}
 \usepackage{pxjahyper}
 
@@ -158,6 +159,7 @@
 \frontmatter
 \Chapter{まえがき}
 \input{maegaki}
+\clearpage % tocloft パッケージを使う場合は自分で \clearpage しないといけない
 \tableofcontents
 \mainmatter
 %\input{example}
@@ -171,6 +173,8 @@
 \input{YukiYamamoto.tex}
 \input{kobaken4b5.tex}
 \input{ito}
+
+\cftaddtitleline{toc}{chapter}{圏論が分かる4コマ漫画}{章間}
 
 \backmatter
 %\Chapter{編集後記}
