@@ -33,10 +33,10 @@ b \\
 $A$をBanach空間とする．$A$に積$A \times A \ni \left(x,y\right) \mapsto xy \in A$,写像$A\ni a \mapsto a^*\in A$が定義され，以下の条件を満たすとき，$A$を\textgt{$C^*$-環}という．
 \begin{itemize}
 \item $A$は和と積について$\mathbb C$上の多元環である．つまり，積について結合法則と分配法則が成り立つ．
-\item $\lVert xy\rVert \leq \lVert x\rVert \lVert y\rVert$
+\item $\lVert xy\rVert \leq \lVert x\rVert \lVert y\rVert$ %AとCの元入り混じっているのでx,y,\alphaはどこの元か書いたほうがいいのでは...?
 \item $\left(x^*\right)^*=x$
-\item $\left(x+y\right)=x^*+y^*$
-\item $\left(xy\right)^*=y^*a^*$
+\item $\left(x+y\right)=x^*+y^*$ %おかしい*ついてない
+\item $\left(xy\right)^*=y^*a^*$ %おかしい
 \item $\left(\alpha x\right)^*=\overline{\alpha} x^*$
 \item $\lVert x^*\rVert=\lVert x\rVert$
 \item $\lVert xx^*\rVert=\lVert x\rVert \lVert x^*\rVert$
@@ -53,7 +53,7 @@ $A,B$を$C^*$-環とする．写像$\pi:A \rightarrow B$が
 \Subsection{$C^*$-環の直和}
 $\{A_{\lambda}\}_{\lambda \in \Lambda}$を$C^*$-環の族とする．これに対し，集合$A$を
 \[A=\{ \left( x_{\lambda}\right)_{\lambda \in \Lambda}|\forall x_{\lambda}\in \Lambda ,
-\sup_{\lambda \in \Lambda}<\infty \}\] %おかしい
+\sup_{\lambda \in \Lambda}<\infty  \}\] %おかしい
 で定める．$A$に和と積，スカラー倍，及びノルムを
 \begin{itemize}
 \item $\left( x_{\lambda}\right)_{\lambda \in \Lambda}+\left( y_{\lambda}\right)_{\lambda \in \Lambda}
