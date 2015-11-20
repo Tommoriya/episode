@@ -13,15 +13,14 @@
 
 $\sin 2x,\sin 3x,\dotsc$ を考えると，これはだんだん周期が短くなります． $2\sin x,3\sin x,\dotsc$ を考えると，振動の振幅がだんだん大きくなります．
 これらの関数について微分・積分を考えることが出来ます．また，これらの関数を掛け合わせて積分したものについて，以下の関係式が成り立ちます．
-\[
-\int_{-\pi}^\pi \sin mx \sin nx dx = 0
-\]
-($m$, $n$ は整数，$m \neq n$)
-\[
-  \int_{-\pi}^\pi \sin mx \sin nx dx = \pi
-\]
-($m$, $n$ は整数，$m = n$)\\
-
+\begin{alignat*}{2}
+  \int_{-\pi}^\pi \sin mx \sin nx dx &= 0
+  & \qquad &
+\text{($m$, $n$ は整数，$m \neq n$)} \\
+\int_{-\pi}^\pi \sin mx \sin nx dx &= \pi
+& &
+\text{($m$, $n$ は整数，$m = n$)}
+\end{alignat*}
 
 つまり，$\sin x$の関数の周期のなかで，振動の回数が違う二つのサイン関数を掛け合わせて積分すると0になり，同じ振動数の関数どうしを掛け合わせると$\pi$になります．この積分は，加法定理から導かれる
 $\sin x \sin y = \frac{1}{2} (\cos(x-y)-\cos(x+y))$
