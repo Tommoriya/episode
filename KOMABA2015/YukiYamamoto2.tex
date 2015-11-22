@@ -1,3 +1,13 @@
+\documentclass[b5paper,dvipdfmx]{jsarticle}
+\usepackage{graphicx,color}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathrsfs}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\inter}{int}
+\pagestyle{empty}
+\addtolength{\topmargin}{-2zw}
+\addtolength{\oddsidemargin}{-1zw}
+
 %まず最初に使ったプリアンブルをここに書いてください.
 %ただしコンパイルの都合上コメントアウトしてください.
 %実際に確認する際は,各自の環境でmain.texにこのプリアンブルを追加してください.
@@ -16,8 +26,12 @@
 %\newtheorem{ycor}[defi]{系}
 %\newtheorem{yprop}[defi]{命題}
 %\newtheorem{yex}[defi]{例}
-
-\Chapter{『Haar測度をつくろう』正誤表(誤植の鬼)}
+\title{『Haar測度をつくろう』正誤表(誤植の鬼)}
+%\author{\vspace{-5ex}}
+%\date{\vspace{-8ex}}
+\date{}
+\begin{document}
+\maketitle
 
 この度は「数学科展示ますらぼ」に足をお運びいただき，そして冊子「$e^{\pi i}sode$」vol.3.5を手にとっていただき，誠にありがとうございます．
 
@@ -51,3 +65,5 @@
 \item 命題27証明中，(3)式直後「$\left( \sum_{i}c_{i}S_{i}g(x) : g_{m} \right) \le \sum_{i}c_{i}=I(f)/I(g)$」$\rightarrow$「$\left( \sum_{i}c_{i}S_{i}g(x) : g_{m} \right) \le \sum_{i}c_{i}=I(f)/I(g_{m})$」
 \item 命題27証明中，(5)(6)式「$\left( f' : f \right) \left( f : g_{m} \right)$」，「$\left( f' : f_0 \right) \left( f_0 : g_{m} \right)$」$\rightarrow$「$\left( f' : g_{m} \right)$」
 \end{itemize}
+
+\end{document}
