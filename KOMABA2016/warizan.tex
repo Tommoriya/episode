@@ -54,7 +54,7 @@
 
 
 例をいくつかあげてみましょう．
-\begin{ex}
+\begin{Ex}
  自然数の集合$\mathbb{N}$において，元の関係$\sim$を
  \[
   n\sim m\Leftrightarrow n-mは2で割り切れる
@@ -64,10 +64,10 @@
  が$2$で割り切れるなら$n-l$も2で割り切れます．今は「$2$」で割り切れると
  しましたが，他の自然数でも上のように定めれば同値関係になることは同様に
  示せます．
-\end{ex}
+\end{Ex}
 
 
-\begin{ex}
+\begin{Ex}
  実数の集合$\mathbb{R}$において，$\leq(<または=)$で定められる元の関係
  \[
   x\sim y\Leftrightarrow x\leq y
@@ -75,7 +75,7 @@
  は同値関係ではありません.どんな実数$x$に対しても$x\leq x$です
  し，$x\leq y$かつ$y \leq z$ならば$x\leq z$ですから，反射律と推移律は満たしますが，対称律を満たしま
  せん．実際，$x\leq y$だからと言って，$y\leq x$とは限らないからです．
-\end{ex}
+\end{Ex}
 
 同値関係があるとき，同じチームに属している奴らを集めてきたものを，同値類と言います．例
 えば，$x\in X$と同値関係にある$X$の元全体($x$が入っているチーム)を，$[x]$で書くことにします．
@@ -99,7 +99,7 @@
 
 例で感覚を掴みましょう．
 
- \begin{ex}{\ } \\
+ \begin{Ex}{\ } \\
   $X=\{0,1,2,3,4,5,6\}$とします．このとき，$X$に，同値関係$\sim$を，
  \[
   n\sim m\Leftrightarrow n-mが2で割り切れる
@@ -114,7 +114,7 @@
   はチームの代表メンバーであり，数学用語でも「完全代表系」と言います．しかし，
   わり算とはいえ，必ずしも1つ1つのチーム
   の元の数は一致しないことには注意しましょう．
- \end{ex}
+ \end{Ex}
 
  \Section{様々な商集合の例}
 \Subsection{合同式}
@@ -409,7 +409,7 @@ SL(2,\mathbb{R})&\rightarrow & {\rm Diff}(H)\hspace{1cm}\left(\begin{matrix}a&b\
 
 このように，Lie群が推移的に作用している多様体は，必ずLie群の商の形で書くことができます．このような多様体を等質空間と言います．
 
-\begin{ex}球面\\
+\begin{Ex}球面\\
  $SO(n+1)$の作用による球面$S^n$上のある1点$(0,0,0,\cdots,0,1)$の固定部分群は，
  \[
 \left\{
@@ -423,9 +423,9 @@ SL(2,\mathbb{R})&\rightarrow & {\rm Diff}(H)\hspace{1cm}\left(\begin{matrix}a&b\
 \right) \middle|\ A\in SO(n) \right\}\simeq SO(n)
  \]
 よって，$S^n\simeq SO(n+1)/SO(n)$となります．
-\end{ex}
+\end{Ex}
 
-\begin{ex}上半平面\\
+\begin{Ex}上半平面\\
 $SL(2)$の作用による上半平面$H$上のある1点$i(=\sqrt{-1})$の固定部分群は，
  \[
   \frac{ai+b}{ci+d}=i\Leftrightarrow a=d,\ b=-c
@@ -437,18 +437,18 @@ $SL(2)$の作用による上半平面$H$上のある1点$i(=\sqrt{-1})$の固定
   \end{matrix}\right)\in SL(2,\mathbb{R})\ \middle|\  a=d,b=-c\right\}\simeq SO(2)
  \]
 よって，$H\simeq SL(2,\mathbb{R})/SO(2)$となります．$H$は複素多様体ですが，実Lie群の商でかけます．
-\end{ex}
+\end{Ex}
 
 この表示の一つのメリットは，ある1点に定めた幾何構造を全体に写すことにあります．
 $G/H$の形で書いた場合，当然，原点の同値類$[e]$があります．
 これについて
-\begin{lem}\label{l4}
+\begin{Lemma}\label{l4}
   $G/H$を等質空間とする．集合として，次の同型がある．
  \[
   (\bigotimes^rT_{[e]}M\otimes\bigotimes^sT^*_{[e]}M)^H\simeq (\Gamma(M,\bigotimes^rTM\otimes\bigotimes^sT^*M))^G
  \]
  ただし，左は，$Ad(H)$不変なテンソルの元，右辺は$M$からベクトル束への左作用の微分${L_{G}}_*$不変な切断である．
- \end{lem}
+ \end{Lemma}
 表示は仰々しいですが，例えば，$r=1,s=0$とすれば，$H$不変な接空間のベクトルと，$G$不変なベクトル場が1対1に対応していることがわかりますし，$r=0,s=2$とすれば，$H$不変な接空間上の内積と，$G$不変な計量，$H$不変な複素構造と$G$不変な概複素構造が1対1に対応することがわかります．\\
 他にも，等質空間上では測地線をLie代数からLie群への指数写像でかけたり，曲率テンソルが，Lie括弧でかなりシンプルにかけたりなど，計算できる具体例を豊富に提供してくれます．
 
