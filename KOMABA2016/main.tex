@@ -1,11 +1,11 @@
 \documentclass[notombow,episode,openright,dvipdfmx]{kyouritu}
-\def\pdffilemoddate{\relax}
 \usepackage{graphicx,color}
 \usepackage{tikz}
 \usepackage{makeidx,multicol}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{standalone}
 \usepackage{tocloft}
+\usepackage{aliascnt}
 \usepackage{hyperref}
 \usepackage{pxjahyper}
 %\usepackage{natbib} 
@@ -121,15 +121,7 @@
 }
 
 % arata.tex
-\newcommand{\Complex}{\mathbf{C}}
-\newcommand{\ImagI}{i}%{\sqrt{-1}}%{\mathbf{i}}
-\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
 \DeclareMathOperator{\RealPart}{Re}
-\theoremstyle{definition}
-\newtheorem{theorem}{定理}
-\theoremstyle{remark}
-\newtheorem{example}{例}
-\newtheorem{exercise}[example]{問題}
 
 
 %本文
@@ -144,6 +136,7 @@
 
 {\itomacro\input{ito}}
 \input{warizan}
+\input{arata}
 \cftaddtitleline{toc}{chapter}{圏論が分かる4コマ漫画(小林)}{章間}
 
 \backmatter

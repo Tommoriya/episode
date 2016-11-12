@@ -1,0 +1,499 @@
+%\documentclass{ltjsarticle}
+%\usepackage{luatexja-ruby}
+%\usepackage{amsmath,amssymb,amsthm}
+%\usepackage[unicode]{hyperref}
+{
+\newcommand{\Natural}{\mathbf{N}}
+\newcommand{\Rational}{\mathbf{Q}}
+\newcommand{\Complex}{\mathbf{C}}
+
+\renewcommand{\equationautorefname}{式}
+\newtheorem{theorem}{定理}
+\renewcommand{\theoremautorefname}{定理}
+\newtheorem*{example*}{例}
+
+\newaliascnt{remark}{theorem}
+\newtheorem{remark}[remark]{注意}
+\aliascntresetthe{remark}
+\newcommand{\remarkautorefname}{注意}
+
+\newaliascnt{lemma}{theorem}
+\newtheorem{lemma}[lemma]{補題}
+\aliascntresetthe{lemma}
+\newcommand{\lemmaautorefname}{補題}
+
+\newaliascnt{proposition}{theorem}
+\newtheorem{proposition}[proposition]{命題}
+\aliascntresetthe{proposition}
+\newcommand{\propositionautorefname}{命題}
+
+\newaliascnt{corollary}{theorem}
+\newtheorem{corollary}[corollary]{系}
+\aliascntresetthe{corollary}
+\newcommand{\corollaryautorefname}{系}
+
+\newcommand{\stirlingI}{\genfrac[]{0pt}{}} % 第1種スターリング数
+\newcommand{\stirlingII}{\genfrac\{\}{0pt}{}} % 第2種スターリング数
+\newcommand{\risingFactorial}[2]{{#1}^{\overline{#2}}}
+\newcommand{\fallingFactorial}[2]{{#1}^{\underline{#2}}}
+
+\renewcommand{\proofname}{証明}
+
+\Chapter{ベルヌーイ数小噺(荒田)}
+
+前半は高校生程度の知識で読める。後半は複素関数の知識が必要となる。
+
+\section{自然数のべき乗の和}
+自然数のべき乗の和は、次のように $n$ の多項式で書ける。
+高校では次の3つを学ぶはずだ：
+\begin{align*}
+  1+2+\dotsb+n&=\sum_{k=1}^n k=\frac{n(n+1)}{2}, \\
+  1^2+2^2+\dotsb+n^2&=\sum_{k=1}^n k^2=\frac{n(n+1)(2n+1)}{6}, \\
+  1^3+2^3+\dotsb+n^3&=\sum_{k=1}^n k^3=\frac{n^2(n+1)^2}{4}.
+\end{align*}
+では、4乗の和や5乗の和を表す公式はどうなるか？
+もっと言うと、自然数 $p$ について $k^p$ の和を表す一般的な式はあるか？
+
+先に答えを述べると、自然数の $p$ 乗の和（以後これを、ここだけの記号で $s_p(n)$ とおく）は $n$ についての $p+1$ 次の多項式であり、有理数の数列 $B_k$ ($k=0,1,2,\dotsc$) を使って次のように書ける：
+\[
+  s_p(n)=\sum_{k=1}^n k^p=\frac{1}{p+1}\sum_{k=1}^{p+1} \binom{p+1}{k} (-1)^k B_k n^{p+1-k}
+\]
+この $B_k$ はベルヌーイ数(Bernoulli numbers)と呼ばれる数列で、最初の数項は次のようになる：
+\[
+  B_0=1,\
+  B_1=-\frac12,\
+  B_2=\frac16,\
+  B_3=0,\
+  B_4=-\frac{1}{30},\
+  B_5=0,\dotsc
+\]
+ベルヌーイ数は次の初項と漸化式によって計算できる：
+\begin{align*}
+  B_0&=1, \\
+  B_n&=-\frac{1}{n+1}\sum_{k=0}^{n-1} \binom{n+1}{k} B_k
+\end{align*}
+ベルヌーイ数は文献によって符号が若干違っていたり、奇数番目を飛ばしていたりするので、文献ごとに定義を確認するようにしたい。
+
+\subsection{自然数のべき乗の和の公式の導出}
+まず、 $p$ が自然数のとき、 $s_p(n)$ は $n$ についての $p+1$ 次の多項式である\footnote{%
+証明のやり方はいくつかあるが、詳細は割愛する。
+一つのやり方としては、
+\[(k+1)^{p+1}-k^{p+1}=(p+1)k^p+\dotsb+(p+1)k+1\]
+を $k=1,\dotsc,n$ について辺ごとに足すというものがある。
+別のやり方を\ref{sec:stirling-numbers} で与える。
+}。
+そこで、 $n^{p+1-k}$ の係数を $a_k$ とおき、
+\[
+  s_p(n)
+  =a_0 n^{p+1}+a_1 n^p+\dotsb+a_{p} n+a_{p+1}
+  =\sum_{k=0}^{p+1} a_k n^{p+1-k}
+\]
+と書く。
+
+さて、 $s_p(n)$ は次の2つの式を満たす：
+\begin{align}
+  s_p(0)&=0, \label{eq:s_p-at-zero} \\
+  \forall n\in\Natural.\ s_p(n)-s_p(n-1)&=n^p. \label{eq:s_p-inductive-definition}
+\end{align}
+逆に、これらの式を満たす多項式があれば、その多項式は $s_p(n)$ と一致する。
+
+ちなみに、$s_p(n)$ が多項式であることに留意すれば、2番目の式を多項式としての等式
+\begin{equation*}
+  s_p(x)-s_p(x-1)=x^p
+\end{equation*}
+としても同じことになる。
+
+\autoref{eq:s_p-at-zero} と\autoref{eq:s_p-inductive-definition} から、係数 $a_k$ に対する何らかの条件が得られるはずである。
+まず、\autoref{eq:s_p-at-zero} からは $a_{p+1}=0$ がわかる。
+
+\autoref{eq:s_p-inductive-definition} については、左辺を $a_i$ によって表すと
+\begin{align*}
+  s_p(n)-s_p(n-1)
+  =&\sum_{i=0}^{p+1} a_i n^{p+1-i}-\sum_{i=0}^{p+1} a_i (n-1)^{p+1-i} \\
+  =&\sum_{i=0}^{p+1} a_i n^{p+1-i}-\sum_{i=0}^{p+1} a_i \sum_{j=0}^{p+1-i} \binom{p+1-i}{j} (-1)^j n^{p+1-i-j} \\
+  %& (\text{途中計算は各自で}) \\
+  % m = i+j, k=i, j=m-l
+  =&\sum_{i=0}^{p+1} a_i n^{p+1-i}-\sum_{m=0}^{p+1} \sum_{k=0}^{m} \binom{p+1-k}{m-k} (-1)^{m-k} a_l n^{p+1-m} \\
+  %=&\sum_{i=0}^{p+1} \left(a_i-\sum_{k=0}^{i} \binom{p+1-k}{i-k} (-1)^{i-k} a_k\right) n^{p+1-i} \\
+  =&\sum_{i=1}^{p+1} \left(\sum_{k=0}^{i-1} \binom{p+1-k}{i-k} (-1)^{i-k-1} a_k\right) n^{p+1-i}
+\end{align*}
+となる。ただし、 $\binom{n}{k}:=\frac{n!}{(n-k)!k!}$ は二項係数である\footnote{高校では ${}_n C_k$ というような記号で書くかもしれない。}。
+
+つまり、\autoref{eq:s_p-inductive-definition} を $a_i$ の言葉で書けば、
+\[
+  n^p=\sum_{i=1}^{p+1} \left(\sum_{k=0}^{i-1} \binom{p+1-k}{i-k} (-1)^{i-k-1} a_k\right) n^{p+1-i}
+\]
+となる。この両辺の $n^{p+1-i}$ の係数を比較することにより、
+\begin{align}
+  1&=(p+1)a_0 & (i&=1) \notag \\
+  0&=\sum_{k=0}^{i-1} \binom{p+1-k}{i-k} (-1)^{i-k-1} a_k & (1&<i\le p+1) \label{eq:a_k-inductive-formula}
+\end{align}
+を得る。\autoref{eq:a_k-inductive-formula} を変形すると
+\begin{align*}
+  0&=\sum_{k=0}^{i-1} \binom{p+1-k}{i-k} (-1)^{i-k-1} a_k \\
+   %&=(-1)^{i-1}\sum_{k=0}^{i-1} \frac{(p+1-k)!}{(i-k)!(p+1-i)!} (-1)^{k} a_k \\
+   &=(-1)^{i-1}\frac{(p+1)!}{i!(p+1-k)!}\sum_{k=0}^{i-1} \frac{i!}{k!(i-k)!}\frac{k!(p+1-k)!}{(p+1)!} (-1)^{k} a_k \\
+   %&=(-1)^{i-1}\sum_{k=0}^{i-1} \binom{i}{k}\binom{p+1}{i}\left.(-1)^{k} a_k \middle/\binom{p+1}{k}\right. \\
+   &=(-1)^{i-1}\binom{p+1}{i} \sum_{k=0}^{i-1} \binom{i}{k}\left.(-1)^{k} a_k \middle/\binom{p+1}{k}\right.
+\end{align*}
+となり、結局 $1<i\le p+1$ について
+\[
+  0=\sum_{k=0}^{i-1} \binom{i}{k}\left.(-1)^{k} a_k \middle/\binom{p+1}{k}\right.
+\]
+を得る。
+ここで、やや天下り的\footnote{%「天下り的」の意味を説明する
+理由や出どころを隠して式や定義をどこからともなく持ってくることを「天下り的」である、という。
+例えば、$\alpha$ が方程式の解だと知っている人が「方程式に $\alpha$ を代入したら成立するから解の1つは $\alpha$ だ！」という議論をした場合、これは天下り的である。
+本文中の用例では、筆者の心の中には「このように $B_k$ を定義すれば漸化式が綺麗になるし、世間でいうベルヌーイ数の定義と一致する」という気持ちがあるわけだが、それを本文に書いていないので「天下り的」である。
+}だが、新たに記号 $B_k$ を導入して $a_k$ を
+\begin{equation} \label{eq:bernoulli-number-and-coefficient}
+  a_k=\frac{(-1)^{k}}{p+1}\binom{p+1}{k}B_{k} \qquad (0\le k\le p)
+\end{equation}
+と置くことにする。すると、$B_k$ は
+\begin{align}
+  B_0&=1, \notag \\
+  0&=\sum_{k=0}^m \binom{m+1}{k} B_k \qquad (1\le m) \label{eq:bern-inductive-formula}
+\end{align}
+を満たす。\autoref{eq:bern-inductive-formula} を $B_m$ に関して解くと
+\[
+  B_m=-\frac{1}{m+1}\sum_{k=0}^{m-1} \binom{m+1}{k} B_k\qquad (1\le m)
+\]
+という漸化式が得られる。
+この初項と漸化式は $p$ に依存しないので、 $B_k$ は $p$ によらない数列である。
+この $B_k$ こそが、冒頭に書いたベルヌーイ数である。
+
+結局、$s_p(n)$ は、ベルヌーイ数によって
+\begin{equation} \label{eq:s_p-with-bernoulli-numbers}
+  s_p(n)=\frac{1}{p+1}\sum_{k=0}^{p} \binom{p+1}{k} (-1)^{k} B_{k} n^{p+1-k}
+\end{equation}
+と書ける。
+
+\subsection{べき乗和の公式の性質}
+以下、 $s_p(x)$ の多項式としての性質をいくつか見ていく。
+
+\begin{theorem} \label{thm:s_p-reflection}
+  $p\ge 1$ のとき、
+  $s_p(-x)=(-1)^{p+1}s_p(x-1)$.
+\end{theorem}
+\begin{proof}
+  自然数 $n$ を任意に取ったとき、
+  \begin{align*}
+    s_p(0)-s_p(-n)
+    &=\sum_{k=-n+1}^{0} (s_p(k)-s_p(k-1)) \\
+    &=\sum_{k=-n+1}^{0} k^p
+     =0^p+(-1)^p+(-2)^p+\dotsb+(-n+1)^p \\
+    &=(-1)^p s_p(n-1)
+  \end{align*}
+  より、
+  \[s_p(-n)=(-1)^{p+1} s_p(n-1)\]
+  が成り立つ。
+  この等式は全ての自然数 $n$ について成り立つので、 $s_p(-x)$ と $(-1)^{p+1} s_p(x-1)$ は多項式として等しい。
+  （この証明は $0^p=0$ となることに依存しているので、 $p=0$ の時は成り立たない）
+\end{proof}
+
+\begin{corollary} \label{thm:s_p-minus1/2}
+  $p$ が $2$ 以上の偶数のとき、
+  $s_p\bigl(-\frac12\bigr)=0$.
+  特に、$s_p(x)$ は $p$ が $2$ 以上の偶数のとき $2x+1$ で割り切れる。
+\end{corollary}
+
+\begin{theorem}[Faulhaber] \label{thm:Faulhaber}
+  $p$ が奇数のとき、 $s_p(x)$ は $s_1(x)=\frac{x(x+1)}{2}$ の多項式として書ける。
+
+  $p$ が $2$ 以上の偶数のとき、 $\frac{s_p(x)}{x+1/2}$ は $s_1(x)$ の多項式として書ける。
+\end{theorem}
+\begin{proof}
+  $p$ が奇数の場合は、\autoref{thm:s_p-reflection} および、後に述べる\autoref{lem:skew-symmetric-polynomial} より従う。
+
+  $p$ が2以上の偶数のときは、 $s_p(x)$ は $2x+1$ で割り切れる（\autoref{thm:s_p-minus1/2}）ので、 $\frac{s_p(x)}{x+1/2}$ は多項式である。
+  $f(x)=\frac{s_p(x)}{x+1/2}$ と置いたときに $f(-x)=f(x-1)$ が成り立つことを示して、\autoref{lem:skew-symmetric-polynomial} を使えば良い。
+\end{proof}
+
+\begin{lemma} \label{lem:skew-symmetric-polynomial}
+  多項式 $f(x)$ が $f(-x)=f(x-1)$ を満たすならば、 $f(x)$ は $s_1(x)=\frac{x(x+1)}{2}$ の多項式として書ける。
+\end{lemma}
+\begin{proof}
+  $\Rational[x]$ の部分集合 $V$ を $V=\{f\in\Rational[x]\mid f(-x)=f(x-1)\}$ により定める。
+  \autoref{thm:s_p-reflection} より、 $s_p$ は $V$ の元である。
+  $V$ の元は全て $s_1(x)$ の多項式として書けることを、 $V$ の元 $f$ の次数に関する帰納法で示す。
+
+  $\deg f=0$ の場合はOK。
+  $\deg f=1$ の場合は $f(-x)=f(x-1)$ とはなり得ないので考える必要はない。
+
+  $\deg f\ge 2$ の場合。
+  写像 $F\colon V\to V$ を
+  \[Ff(x):=\frac{f(x)-f(0)}{x(x+1)/2}\]
+  により定める。
+  多項式 $f(x)-f(0)$ は $x(x+1)$ で割り切れるので、 $Ff$ は多項式である。
+  $Ff\in V$ は
+  \[Ff(-x)=\frac{f(-x)-f(0)}{(-x)(-x+1)/2}=\frac{f(x-1)-f(0)}{x(x-1)/2}=Ff(x-1)\]
+  とわかる。
+  定義より、 $\deg Ff<\deg f$ なので、帰納法の仮定より、 $Ff$ は $s_1$ の多項式として書ける。
+  \[f(x)=f(0)+\frac{x(x+1)}{2}Ff(x)\]
+  より、$f$ も $s_1$ の多項式である。
+\end{proof}
+
+\begin{example*}
+  $S=x(x+1)/2$ とおくと、
+  \begin{align*}
+    s_3(x)&=S^2, \\
+    s_4(x)&=\frac{(2x+1)(6S^2-S)}{15}, \\
+    s_5(x)&=\frac{S^2(4S-1)}{3}.
+  \end{align*}
+\end{example*}
+
+\begin{theorem} \label{thm:s_p-minus-half}
+  $p\ge 1$ のとき、 $s_p(x)-x^p/2$ は、 $p$ に応じて偶関数または奇関数となる。
+  具体的には、
+  \[s_p(-x)-\frac{(-x)^p}{2}=(-1)^{p+1}\left(s_p(x)-\frac{x^p}{2}\right).\]
+\end{theorem}
+\begin{proof}
+  \autoref{thm:s_p-reflection} および $s_p(x)=s_p(x-1)+x^p$ を使う。
+  %\begin{align*}
+  %  s_p(-x)-\frac{(-x)^p}{2}
+  %  &=(-1)^{p+1}s_p(x-1)+(-1)^{p+1}\frac{x^p}{2} \\
+  %  &=(-1)^{p+1}\left(s_p(x)-x^p+\frac{x^p}{2}\right) \\
+  %  &=(-1)^{p+1}\left(s_p(x)-\frac{x^p}{2}\right).
+  %\end{align*}
+\end{proof}
+
+
+\subsection{ベルヌーイ数の性質}
+
+\begin{theorem} \label{thm:bern-odd}
+  $k\ge 1$ のとき, $B_{2k+1}=0$.
+  つまり、奇数番目のベルヌーイ数は、 $B_1$ を除くと $0$ である。
+\end{theorem}
+\begin{proof}
+  \autoref{thm:s_p-minus-half} と \autoref{eq:s_p-with-bernoulli-numbers} を見比べるとわかる。
+\end{proof}
+
+
+\begin{theorem} \label{thm:bern-even-inductive-formula}
+  $n\ge 2$ のとき、
+  \[
+    B_{2n}=-\frac{1}{2n+1}\sum_{k=1}^{n-1}\binom{2n}{2k}B_{2(n-k)}B_{2k}.
+  \]
+\end{theorem}
+証明は後回しにする。
+
+\begin{corollary}
+  $n\ge 1$ のとき、 $(-1)^{n-1}B_{2n}>0$.
+\end{corollary}
+\begin{proof}
+  帰納法で示す。
+  $n=1$ のときは $B_2=1/6$ より成り立つ。
+
+  $n$ 未満で成り立つとする。\autoref{thm:bern-even-inductive-formula} より、
+  \begin{align*}
+    (-1)^{n-1} B_{2n}
+    &=-\frac{(-1)^{n-1}}{2n+1}\sum_{k=1}^{n-1}\binom{2n}{2k}B_{2(n-k)}B_{2k} \\
+    &=\frac{1}{2n+1}\sum_{k=1}^{n-1}\binom{2n}{2k}
+      \underbrace{(-1)^{n-k-1}B_{2(n-k)}}_{>0}
+      \underbrace{(-1)^{k-1}B_{2k}}_{>0} \\
+    &>0.
+  \end{align*}
+\end{proof}
+
+\section{ベルヌーイ数の母関数}
+数列を係数に持つ（形式的）べき級数を、その数列の母関数と呼ぶ。
+母関数は、数列の性質を調べるのに便利である。
+ベルヌーイ数の場合は、数列の各項を $n!$ で割ったものの母関数（指数型母関数）を考える：
+\begin{equation} \label{eq:exponential-generating-function}
+  \frac{z}{e^z-1}=\sum_{n=0}^\infty B_n\frac{z^n}{n!}.
+\end{equation}
+この母関数によってベルヌーイ数を定義することも多い。
+もちろん、この定義と先に示した漸化式による定義は等価である。
+
+\autoref{eq:exponential-generating-function} を複素関数のテイラー展開として見た場合、左辺の関数の原点に最も近い特異点は $z=\pm 2\pi i$ であるため、右辺の級数の収束半径は $2\pi$ である。
+
+母関数を使ってベルヌーイ数の性質を一つ二つ示してみよう：
+\begin{proof}[\autoref{thm:bern-odd} の別証明（方針）]
+  $\frac{z}{e^z-1}+\frac{z}{2}$ が偶関数であることを確かめる。
+\end{proof}
+
+\begin{proof}[\autoref{thm:bern-even-inductive-formula} の証明]
+  $g(z):=\frac{z}{e^z-1}+\frac{z}{2}$ とおくと、
+  \[g(z)-zg'(z)=g(z)^2-\frac{z^2}{4}\]
+  が成り立つ。
+  この等式に $g(z)=\sum_{n=0}^\infty B_{2n}\frac{z^{2n}}{(2n)!}$ を当てはめて両辺を比較すると、 $n\ge 2$ のとき
+  \[(1-2n)B_{2n}=\sum_{k=0}^n\binom{2n}{2k}B_{2(n-k)}B_{2k}\]
+  を得る。
+\end{proof}
+
+%\subsection{ベルヌーイ多項式}
+
+%\subsection{\texorpdfstring{\ruby{余接関数}{コタンジェント}}{余接関数}のローラン展開と\texorpdfstring{\ruby{正接関数}{タンジェント}}{正接関数}のテイラー展開}
+\subsection{余接関数のローラン展開と正接関数のテイラー展開}
+
+ベルヌーイ数の\ruby{母関数}{ぼかんすう}を使うと、余接関数 $\cot z=\frac{\cos z}{\sin z}$ のローラン展開を書き下せる。
+$\cot$ を指数関数で書いた時に分母に $e^{\text{ほにゃらら}}-1$ の形が現れるのがポイントである。
+\begin{align*}
+  \cot z=\frac{\cos z}{\sin z}
+  &=\frac{i(e^{iz}+e^{-iz})}{e^{iz}-e^{-iz}}
+    =\frac{i(e^{2iz}+1)}{e^{2iz}-1} \\
+  &=i\left(1+\frac{1}{iz}\frac{2iz}{e^{2iz}-1}\right) \\
+  &=i+\frac{1}{z}\sum_{n=0}^\infty B_n\frac{(2iz)^n}{n!} \\
+  %&=i+\frac{1}{z}\left(1-\frac{2iz}{2}+\sum_{k=1}^\infty B_{2k}\frac{(-4)^kz^{2k}}{(2k)!}\right) \\
+  % &=\frac{1}{z}+\sum_{k=1}^\infty B_{2k}\frac{(-4)^kz^{2k-1}}{(2k)!} \\
+  &=\frac{1}{z}+\sum_{k=1}^\infty (-1)^k 2^{2k} B_{2k}\frac{z^{2k-1}}{(2k)!}.
+\end{align*}
+
+さらに、正接関数 $\tan z$ のテイラー展開もベルヌーイ数を使って書き下すことができる。
+三角関数の倍角の公式より、$\tan z$ は $\cot$ を使って次のように書ける：
+\[\tan z=\cot z-2\cot 2z.\]
+これを使うと、
+\begin{align*}
+  \tan z&=\left(\frac{1}{z}+\sum_{k=1}^\infty (-1)^k 2^{2k} B_{2k}\frac{z^{2k-1}}{(2k)!}\right)
+          -2\left(\frac{1}{2z}+\sum_{k=1}^\infty (-1)^k 2^{2k} B_{2k}\frac{(2z)^{2k-1}}{(2k)!}\right) \\
+        %&=\sum_{k=1}^\infty (-1)^k 2^{2k} B_{2k}\frac{z^{2k-1}}{(2k)!}
+        %  -2\sum_{k=1}^\infty (-1)^k 2^{2k} B_{2k}\frac{(2z)^{2k-1}}{(2k)!} \\
+        &=\sum_{k=1}^\infty (-1)^{k-1} 2^{2k} (2^{2k}-1)  B_{2k}\frac{z^{2k-1}}{(2k)!}
+\end{align*}
+となる。簡単だね。
+
+\subsection{リーマンのゼータ関数の特殊値}
+1より大きい実数 $s$ について、ゼータ関数 $\zeta(s)$ を次のように定める。
+\begin{equation} \label{eq:zeta-series}
+  \zeta(s)=1+\frac{1}{2^s}+\frac{1}{3^s}+\dotsb+\frac{1}{n^s}+\dotsb
+\end{equation}
+
+平方数の逆数の和、すなわち $\zeta(2)$ が $\pi$ を使って次のように書けることは有名だろう：
+\[\frac{\pi^2}{6}=\zeta(2)=1+\frac{1}{2^2}+\frac{1}{3^2}+\dotsb+\frac{1}{n^2}+\dotsb\]
+
+一般に、ゼータ関数の正の偶数における値は次のようにベルヌーイ数を使って表される：
+\[\zeta(2k)=\frac{(-1)^{k-1}B_{2k}}{2\cdot(2k)!}(2\pi)^{2k} \quad (k\ge 2)\]
+
+% 負の整数の値
+実部が1より大きい複素数 $s$ については、\autoref{eq:zeta-series} の級数によって $\zeta(s)$ が定まる。
+しかし、うまいこと解析接続してやると、 $\zeta(s)$ を複素平面から1を除いた領域 $\Complex\setminus\{1\}$ で定義することができる。
+このとき、負の整数の値はベルヌーイ数を使って表すことができる。
+\[\zeta(-k)=-\frac{B_{k+1}}{k+1}\quad (k\ge 1)\]
+特に、 $k$ が偶数の場合は $\zeta(-k)=0$ となる。
+つまり、負の偶数は $\zeta$ の零点である。
+
+$\zeta$ の零点は便宜上「自明な零点」と「非自明な零点」に分類され、負の偶数は前者、皆さんの大好きなリーマン予想で問題になっているのは後者である。
+
+%\appendix
+% TODO: \appendix の挙動が謎。
+\section{おまけ：スターリング数} \label{sec:stirling-numbers}
+次のような記号を導入する\footnote{%
+言うまでもないが階乗の一般化となっている。
+超幾何関数の係数を書くのに使われたりする。
+$(x)_n$ という記号が使われる場合もある。
+}：
+\begin{align*}
+  \risingFactorial{x}{n}&:=x(x+1)\dotsb(x+n-1), \\
+  \fallingFactorial{x}{n}&:=x(x-1)\dotsb(x-n+1).
+\end{align*}
+
+自然数 $n$ と $k$ について、第1種スターリング数 $\stirlingI{n}{k}$ と第2種スターリング数 $\stirlingII{n}{k}$ を次の関係式により定める。
+\begin{align*}
+  \risingFactorial{x}{n}&=\sum_{k=0}^n \stirlingI{n}{k} x^k, \qquad
+  \fallingFactorial{x}{n}=\sum_{k=0}^n \stirlingI{n}{k} (-1)^{n-k} x^k, \\
+  x^n&=\sum_{k=0}^n \stirlingII{n}{k} \fallingFactorial{x}{k}
+       =\sum_{k=0}^n \stirlingII{n}{k} (-1)^{n-k} \risingFactorial{x}{k}
+\end{align*}
+
+スターリング数は次の漸化式によって計算できる：
+\begin{align*}
+  \stirlingI{0}{k}&=\begin{cases}
+    1 & (k=0) \\
+    0 & (k\ne 0)
+  \end{cases} &
+  \stirlingII{0}{k}&=\begin{cases}
+    1 & (k=0) \\
+    0 & (k\ne 0)
+  \end{cases} \\
+  \stirlingI{n+1}{k}&=\stirlingI{n}{k-1}+n\stirlingI{n}{k}, &
+  \stirlingII{n+1}{k}&=\stirlingII{n}{k-1}+k\stirlingII{n}{k}.
+\end{align*}
+
+$\risingFactorial{x}{n}$ や $\fallingFactorial{x}{n}$ には次のような関係式があり、階差や総和に関して形を保つ\footnote{$x^n$ が微分や積分に関して形を保つのと似ている。}：
+\begin{equation*}
+  \risingFactorial{x}{n}-\risingFactorial{(x-1)}{n}=n\cdot\risingFactorial{x}{n-1}, \qquad
+  \fallingFactorial{(x+1)}{n}-\fallingFactorial{x}{n}=n\cdot\fallingFactorial{x}{n-1}
+\end{equation*}
+特に、
+\begin{equation*}
+  \sum_{k=1}^{n} \risingFactorial{k}{m}
+  %=\sum_{k=1}^{n} \frac{\risingFactorial{k}{m+1}-\risingFactorial{(k-1)}{m+1}}{m+1}
+  %=\frac{\risingFactorial{n}{m+1}-\risingFactorial{0}{m+1}}{m+1}
+  =\frac{\risingFactorial{n}{m+1}}{m+1}, \qquad
+  \sum_{k=0}^{n-1} \fallingFactorial{k}{m}
+  %=\sum_{k=0}^{n-1} \frac{\fallingFactorial{k+1}{m+1}-\fallingFactorial{k}{m+1}}{m+1}
+  %=\frac{\fallingFactorial{n}{m+1}-\fallingFactorial{0}{m+1}}{m+1}
+  =\frac{\fallingFactorial{n}{m+1}}{m+1}
+\end{equation*}
+が成り立つ。
+
+そこで、$k^p$ を一旦 $\risingFactorial{k}{m}$ の和として書いてやれば、総和の公式を直接的に与えることができそうである。
+\begin{align*}
+  s_p(n)=\sum_{k=1}^n k^p
+  &=\sum_{k=1}^n \sum_{m=0}^p \stirlingII{p}{m}(-1)^{p-m} \risingFactorial{k}{m} \\
+  &=\sum_{m=0}^p \stirlingII{p}{m}(-1)^{p-m} \frac{\risingFactorial{n}{m+1}}{m+1} \\
+  &=\sum_{m=0}^p \stirlingII{p}{m}\frac{(-1)^{p-m}}{m+1} \sum_{k=1}^{m+1} \stirlingI{m+1}{k} n^k \\
+  &=\sum_{k=1}^{p+1} \left(\sum_{m=k-1}^p \frac{(-1)^{p-m}}{m+1} \stirlingII{p}{m} \stirlingI{m+1}{k}\right) n^k.
+  &=\sum_{k=0}^{p} \left(\right) n^{p+1-k}
+\end{align*}
+この方法を使えば、 $s_p(n)$ が $n$ についての $p+1$ 次の多項式であることが直接わかる。
+
+$s_p(n)$ をベルヌーイ数を使って表した式（\autoref{eq:s_p-with-bernoulli-numbers}）と、スターリング数を使って表した式を比較すると、
+\[
+  \frac{1}{p+1} \binom{p+1}{k} (-1)^{k} B_{k}
+  =\sum_{m=p-k}^p \frac{(-1)^{p-m}}{m+1} \stirlingII{p}{m} \stirlingI{m+1}{p+1-k}
+  \quad (0\le k\le p)
+\]
+を得る。
+特に $k=p$ とおけば、スターリング数とベルヌーイ数の関係として
+\begin{equation*}
+  B_k
+  =\sum_{m=0}^k \frac{(-1)^{m}}{m+1} \stirlingII{k}{m} \stirlingI{m+1}{1}
+  =\sum_{m=0}^k \frac{(-1)^{m}m!}{m+1} \stirlingII{k}{m}
+\end{equation*}
+を得る。ただし、$\stirlingI{m+1}{1}=m!$ を使った。
+
+
+\section{おまけ：数表}
+\begin{align*}
+  B_0&=1, &
+  B_1&=-\frac12, \\
+  B_2&=\frac16, &
+  B_4&=-\frac{1}{30}, &
+  B_6&=\frac{1}{42}, &
+  B_8&=-\frac{1}{30}, \\
+  B_{10}&=\frac{5}{66}, &
+  B_{12}&=-\frac{691}{2730}, &
+  B_{14}&=\frac{7}{6}, &
+  B_{16}&=-\frac{3617}{510}, \\
+  B_{18}&=\frac{43867}{798}, &
+  B_{20}&=-\frac{174611}{330}, &
+  B_{22}&=\frac{854513}{138}, &
+  B_{24}&=-\frac{236364091}{2730}, \\
+  B_{26}&=\frac{8553103}{6}, &
+  B_{28}&=-\frac{23749461029}{870}, &
+  B_{30}&=\frac{8615841276005}{14322}, &
+  B_{32}&=-\frac{7709321041217}{510},
+\end{align*}
+以下については、$S=n(n+1)/2$ とおく。
+\begin{align*}
+  s_0(n)&=n, \\
+  s_1(n)&=\frac12 n^2+\frac12 n &
+       &=S, \\
+  s_2(n)&=\frac13 n^3+\frac12 n^2+\frac16 n &
+        &=\frac{(2n+1)S}{3}, \\
+  s_3(n)&=\frac14 n^4+\frac12 n^3+\frac14 n^2 &
+        &=S^2, \\
+  s_4(n)&=\frac15 n^5+\frac12 n^4+\frac13 n^3-\frac{1}{30} n &
+                                &=\frac{(2n+1)S(6S-1)}{15}, \\
+  s_5(n)&=\frac16 n^6+\frac12 n^5+\frac{5}{12} n^4-\frac{1}{12} n^2 &
+                                &=\frac{S^2(4S-1)}{3}, \\
+  s_6(n)&=\frac17 n^7+\frac12 n^6+\frac12 n^5-\frac16 n^3+\frac{1}{42}n &
+                                &=\frac{(2n+1)S(12S^2-6S+1)}{21}.
+\end{align*}
+
+\begin{thebibliography}{9}
+\bibitem{Arakawa,etc}
+  荒川恒男、伊吹山知義、金子昌信『ベルヌーイ数とゼータ関数』牧野書店, 2001年
+\end{thebibliography}
+}
