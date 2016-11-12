@@ -70,6 +70,7 @@
 %これは他とぶつかったら変える予定です.
 \usepackage{ascmac}
 
+\newcommand\itomacro{
 \newtheorem*{Thm}{定理}
 \newtheorem*{Lemma}{補題}
 \newtheorem*{Def}{定義}
@@ -117,6 +118,7 @@
 
 \def\TO{\Rightarrow}
 \def\OT{\Leftarrow}
+}
 
 % arata.tex
 \newcommand{\Complex}{\mathbf{C}}
@@ -140,7 +142,7 @@
 \mainmatter
 %\input{example}
 
-\input{ito}
+{\itomacro\input{ito}}
 \input{warizan}
 \cftaddtitleline{toc}{chapter}{圏論が分かる4コマ漫画(小林)}{章間}
 
