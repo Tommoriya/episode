@@ -6,9 +6,22 @@
 \usepackage{standalone}
 \usepackage{tocloft}
 \usepackage{aliascnt}
+\usepackage{ascmac}
+
+% standard.sty から移動：
+\usepackage{bm}
+\usepackage[top=25truemm,bottom=20truemm,left=20truemm,right=20truemm]{geometry}
+\usepackage{setspace} % setspaceパッケージのインクルード
+\usepackage{wrapfig}
+\usepackage{multicol}
+\usepackage{ulem}
+\usepackage{url}
+\usepackage{array,arydshln}
+
 \usepackage{hyperref}
 \usepackage{pxjahyper}
 %\usepackage{natbib} 
+\usepackage{standard}
 
 %プリアンブル
 \topmargin -0.5in
@@ -59,16 +72,12 @@
 \DeclareMathOperator{\inter}{int}
 
 %Warizan
-\usepackage{standard}
-\usepackage{url}
-\usepackage{array,arydshln}
 \def\hsymb#1{\mbox{\strut\rlap{\smash{\Huge$#1$}}\quad}}
 
 
 
 %ito.tex
 %これは他とぶつかったら変える予定です.
-\usepackage{ascmac}
 
 \newcommand\itomacro{
 \newtheorem*{Thm}{定理}
