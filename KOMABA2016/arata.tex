@@ -284,7 +284,7 @@
   帰納法で示す。
   $n=1$ のときは $B_2=1/6$ より成り立つ。
 
-  $n$ 未満で成り立つとする。\autoref{thm:bern-even-inductive-formula} より、
+  $n\ge 2$ の場合。$n$ 未満で成り立つと仮定すると、\autoref{thm:bern-even-inductive-formula} より、
   \begin{align*}
     (-1)^{n-1} B_{2n}
     &=-\frac{(-1)^{n-1}}{2n+1}\sum_{k=1}^{n-1}\binom{2n}{2k}B_{2(n-k)}B_{2k} \\
@@ -323,10 +323,9 @@
 
 %\subsection{ベルヌーイ多項式}
 
-%\subsection{\texorpdfstring{\ruby{余接関数}{コタンジェント}}{余接関数}のローラン展開と\texorpdfstring{\ruby{正接関数}{タンジェント}}{正接関数}のテイラー展開}
-\subsection{余接関数のローラン展開と正接関数のテイラー展開}
+\subsection[余接関数のローラン展開と正接関数のテイラー展開]{\ruby{余接関数}{コタンジェント}のローラン展開と\ruby{正接関数}{タンジェント}のテイラー展開}
 
-ベルヌーイ数の\ruby{母関数}{ぼかんすう}を使うと、余接関数 $\cot z=\frac{\cos z}{\sin z}$ のローラン展開を書き下せる。
+ベルヌーイ数の母関数を使うと、余接関数 $\cot z=\frac{\cos z}{\sin z}$ のローラン展開を書き下せる。
 $\cot$ を指数関数で書いた時に分母に $e^{\text{ほにゃらら}}-1$ の形が現れるのがポイントである。
 \begin{align*}
   \cot z=\frac{\cos z}{\sin z}
