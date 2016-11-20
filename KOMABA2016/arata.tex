@@ -433,7 +433,6 @@ $\risingFactorial{x}{n}$ や $\fallingFactorial{x}{n}$ には次のような関�
   &=\sum_{m=0}^p \stirlingII{p}{m}(-1)^{p-m} \frac{\risingFactorial{n}{m+1}}{m+1} \\
   &=\sum_{m=0}^p \stirlingII{p}{m}\frac{(-1)^{p-m}}{m+1} \sum_{k=1}^{m+1} \stirlingI{m+1}{k} n^k \\
   &=\sum_{k=1}^{p+1} \left(\sum_{m=k-1}^p \frac{(-1)^{p-m}}{m+1} \stirlingII{p}{m} \stirlingI{m+1}{k}\right) n^k.
-  &=\sum_{k=0}^{p} \left(\right) n^{p+1-k}
 \end{align*}
 この方法を使えば、 $s_p(n)$ が $n$ についての $p+1$ 次の多項式であることが直接わかる。
 
