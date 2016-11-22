@@ -390,7 +390,7 @@ $\mathcal{C}$を有理数のCauchy列全体からなる集合とし，$\mathcal{
 例えば，球面$S^n$,上半平面$H$には，
 \begin{eqnarray*}
 SO(n+1)&\rightarrow & {\rm Diff}(S^{n})\hspace{1cm}A\mapsto (p\mapsto Ap)  \\
-SL(2,\mathbb{R})&\rightarrow & {\rm Diff}(H)\hspace{1cm}\left(\begin{matrix}a&b\\c&d\end{matrix}\right)\mapsto\left(z\mapsto\frac{az+b}{cz+d} \right) 
+SL(2,\mathbb{R})&\rightarrow & {\rm Diff}(H)\hspace{1cm}\begin{pmatrix}a&b\\c&d\end{pmatrix}\mapsto\left(z\mapsto\frac{az+b}{cz+d} \right) 
  \end{eqnarray*}
 のように，Lie群が推移的に作用しています．
 この時，ある一点$p$の群作用による行き先（軌道）は，推移的であるという仮定から全体を覆うわけですが，作用させても動かない$G$の元があるかもしれません．これを集めたもの，
@@ -432,9 +432,9 @@ $SL(2)$の作用による上半平面$H$上のある1点 $i$ ($=\sqrt{-1}$) の�
  \]
 より，
  \[
-  \left\{\left(\begin{matrix}
+  \left\{\begin{pmatrix}
    a&b\\c&d
-  \end{matrix}\right)\in SL(2,\mathbb{R})\ \middle|\  a=d,b=-c\right\}\simeq SO(2)
+  \end{pmatrix}\in SL(2,\mathbb{R})\ \middle|\  a=d,b=-c\right\}\simeq SO(2)
  \]
 よって，$H\simeq SL(2,\mathbb{R})/SO(2)$となります．$H$は複素多様体ですが，実Lie群の商でかけます．
 \end{Ex}
