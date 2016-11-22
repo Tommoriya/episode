@@ -12,9 +12,9 @@ $$
 
 $n$変数の$C^1$級\footnote{各成分の偏導関数$\delxkf$が連続であること．}実数値関数$f:\realnum^n\rightarrow\realnum$と$\avec\in\realnum^n$が与えられているとする．多変数のTaylorの定理から
 $$
-f\xvec=f\avec+\sum_{k=1}^{n}\delxkf\avec(x_k-a_k)+o(\sqrt{(x_1-a_1)^2+\cdots+(x_n-a_n)^2})
+f\xvec=f\avec+\sum_{k=1}^{n}\delxkf\avec(x_k-a_k)+o\bigl(\sqrt{(x_1-a_1)^2+\cdots+(x_n-a_n)^2}\bigr)
 $$
-と$f$は表せる．1変数のときと同様に右辺の第2項に注目してみる．この部分は，$x={}^t\!(x_1,\dots,x_n), a={}^t\!(a_1,\dots,a_n), J=(\delxof(a_1,\dots,a_n) \dots \delxnf(a_1,\dots,a_n))$とおくと\footnote{紙面の節約のため縦ベクトル$\vecb x_1 \\ \vdots \\ x_n\vece$を${}^t\!(x_1,\dots,x_n)$と書く．}行列とベクトルの積$J(x-a)$と書けるから，上の式は
+と$f$は表せる．1変数のときと同様に右辺の第2項に注目してみる．この部分は，$x={}^t\!(x_1,\dots,x_n), a={}^t\!(a_1,\dots,a_n), J=\left(\delxof(a_1,\dots,a_n) \dots \delxnf(a_1,\dots,a_n)\right)$とおくと\footnote{紙面の節約のため縦ベクトル$\vecb x_1 \\ \vdots \\ x_n\vece$を${}^t\!(x_1,\dots,x_n)$と書く．}行列とベクトルの積$J(x-a)$と書けるから，上の式は
 $$
 f(x)=f(a)+J(x-a)+o(|x-a|)
 $$
@@ -30,10 +30,11 @@ $$
 
 
 $J$倍写像$\realnum^n\rightarrow\realnum^m$を「$n$次元方向」を「$m$次元方向」へ移す写像と考えたとき，$J$は次の性質をもつ．
-\begin{description}
-\item{(1)} 任意の$\lambda\in\realnum, x\in\realnum^n$に対して，$J(\lambda x)=\lambda J(x)$
-\item{(2)} 任意の$x,y\in\realnum^n$に対して，$J(x+y)=J(x)+J(y)$
-\end{description}
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 任意の$\lambda\in\realnum, x\in\realnum^n$に対して，$J(\lambda x)=\lambda J(x)$
+\item 任意の$x,y\in\realnum^n$に対して，$J(x+y)=J(x)+J(y)$
+\end{enumerate}
 この性質によって，任意の$b=\tenchi(b_1,\dots,b_n)$に対して，$Jb=J(b_1e_1+\dots+ b_ne_n)=b_1J(e_1)+\dots+b_nJ(e_n)$となるが，$J$を成分によって明示的に表すと，
 $$
 J=\vecb \delxofo && \dots && \delxnfo \\ \vdots && && \vdots \\ \delxofm && \dots&&\delxnfm \\ \vece
@@ -80,7 +81,7 @@ $$
 前節においてヤコビ行列というものを導入したわけだが，ヤコビ行列は単なる1次近似の情報だけでなく，実は色々な情報を持っている．その例として逆関数定理と重積分の変数変換公式を紹介しよう．
 \Subsubsection{逆関数定理}
 まず,ヤコビ行列の行列式が$0$でないことはどういう情報であるかを表す\textbf{逆関数定理}について紹介する.
-そのために，「開集合」という概念について説明しておく．「$\realnum^n$の部分集合$U$が$\realnum^n$の開集合である」とは，$U$の各点$x$に対して，十分小さい$\varepsilon>0$を取れば$x$から距離$\varepsilon$以内の点がすべて$U$に入るような集合のことを言う．直観的に言えば，開集合とは外部と接しているような点がないような集合のことで，例えば$\{(x,y)\in\realnum^2|x^2+y^2<1\}$は$\realnum^2$の開集合だが，$\{(x,y)\in\realnum^2|x^2+y^2\le1\}$はそうでない．$x\in\realnum^2$が入っているような$\realnum^n$の開集合のことを「$x$の$\realnum^n$における開近傍」という．ここで，$a\in\realnum^n$で微分するという操作は，$a$の十分近くで$f$が定義されていれば行えることに注意しよう(簡単な例として，$f(x)=\frac{1}{x}$は0以外のどこでも微分できるのであった)．すると微分しようとする写像$f$は必ずしも$\realnum^n$全体で定義されている必要はなく，$a$の開近傍上で定義されていれば十分ということがわかる．準備が出来たところで逆関数定理のステートメントを述べよう．
+そのために，「開集合」という概念について説明しておく．「$\realnum^n$の部分集合$U$が$\realnum^n$の開集合である」とは，$U$の各点$x$に対して，十分小さい$\varepsilon>0$を取れば$x$から距離$\varepsilon$以内の点がすべて$U$に入るような集合のことを言う．直観的に言えば，開集合とは外部と接しているような点がないような集合のことで，例えば$\{(x,y)\in\realnum^2\mid x^2+y^2<1\}$は$\realnum^2$の開集合だが，$\{(x,y)\in\realnum^2\mid x^2+y^2\le1\}$はそうでない．$x\in\realnum^2$が入っているような$\realnum^n$の開集合のことを「$x$の$\realnum^n$における開近傍」という．ここで，$a\in\realnum^n$で微分するという操作は，$a$の十分近くで$f$が定義されていれば行えることに注意しよう(簡単な例として，$f(x)=\frac{1}{x}$は0以外のどこでも微分できるのであった)．すると微分しようとする写像$f$は必ずしも$\realnum^n$全体で定義されている必要はなく，$a$の開近傍上で定義されていれば十分ということがわかる．準備が出来たところで逆関数定理のステートメントを述べよう．
 \begin{s_theo}[逆関数定理]
 $W$を$a\in\realnum^n$の$\realnum^n$における開近傍，$f:W\rightarrow\realnum^n$を$C^1$級写像とする．$a$における$f$のヤコビ行列$J_f$について，$J_f$の行列式$\det(J_f)$が0でないとき，$W$に含まれる$a$の$\realnum^n$におけるある開近傍$U$，$f(U)\subset V$をみたす$f(a)$の$\realnum^n$におけるある開近傍$V$，および$C^1$級写像$g:V\rightarrow U$が存在して，$f$の$U,V$への制限$\tilde{f}:U\rightarrow V$と$g$は互いに逆写像
 \footnote{写像$p:A\rightarrow B$と$q:B\rightarrow A$が互いに逆写像とは，任意の$a\in A$に対して，$q(p(a))=a$および任意の$b\in B$に対して$p(q(b))=b$が成り立つことを言うのであった．}になっている．
@@ -97,9 +98,9 @@ $f:\realnum^2\rightarrow\realnum^2;(x,y)\mapsto(x+y,xy)$という写像を考え
 $$
 \det(J_f)=\detb 1 && 1 \\ 1&& 2 \dete = 1\neq 0
 $$
-より，逆関数定理から，$(2,1)$の開近傍で逆写像をもつ．実際，$U=\{(x,y)\in\realnum^2|x>y\},V=\{(s,t)\in\realnum^2|s^2-4t>0\}$とおくと，$U$は$(2,1)$の$\realnum^2$における開近傍，$V$は$(3,2)$の$\realnum^2$における開近傍で$f(U)\subset V$であり，$C^1$級写像$g:V\rightarrow U$を$(s,t)\mapsto(\frac{s+\sqrt{s^2-4t}}{2},\frac{s-\sqrt{s^2-4t}}{2})$と定めると，$f$の制限$\tilde{f}:U\rightarrow V$と$g$は互いに逆写像となっている．
+より，逆関数定理から，$(2,1)$の開近傍で逆写像をもつ．実際，$U=\{(x,y)\in\realnum^2\mid x>y\},V=\{(s,t)\in\realnum^2\mid s^2-4t>0\}$とおくと，$U$は$(2,1)$の$\realnum^2$における開近傍，$V$は$(3,2)$の$\realnum^2$における開近傍で$f(U)\subset V$であり，$C^1$級写像$g:V\rightarrow U$を$(s,t)\mapsto\left(\frac{s+\sqrt{s^2-4t}}{2},\frac{s-\sqrt{s^2-4t}}{2}\right)$と定めると，$f$の制限$\tilde{f}:U\rightarrow V$と$g$は互いに逆写像となっている．
 \end{s_ex}
-この定理では$\det(J_f)\neq 0$という条件が一番本質的である．行列式の定義を思い出してみよう．$n$個の$\realnum^n$のベクトル$p_1,\dots,p_n$が与えられたとき，$P=(p_1\: p_2\dots p_n)$の行列式が0という条件は，$p_1,\dots,p_n$が一次従属であることと同値だった．直観的に言えば，$p_1,\dots,p_n$で張られる$n$次元平行四辺形の体積が潰れていなければ，$\det(P)\neq 0$となる．これを使って定理の直観的な説明を与えよう．$f$が仮定を満たすとする．$J_f$は$a$における線形近似を表していたので，$\lambda>0$が十分0に近ければ，$A=\{a+(x_1e_1+\dots+x_ne_n)\in\realnum^n|各kについて|x_k|<\lambda\}$という$a$を含む微小長方形内では，$f$は$J_f$が表す線形写像で近似でき，その像は$B=\{f(a)+(x_1J_f(e_1)+\dots +x_nJ_f(e_n))|各kについて|x_k|<\lambda\}$という，$J_f$の列ベクトルが張る微小平行四辺形に（だいたい）移ると考えられる．今$J_f$の列ベクトルは1次独立だから，$B$は$\realnum^n$内の開集合であり，$\det(J_f)\neq 0$より$J_f$には逆行列が存在するから，$J_f$の逆行列が表す線形写像$g:B\rightarrow A$を考えれば，$f:A\rightarrow B$と$g:B\rightarrow A$は(だいたい)逆写像になっている．ここでいちいち(だいたい)と付けたのは，実際に証明する段階ではこの説明どおりに話は進まないからだが，実際に使用する際のイメージとしてはこれくらいの認識でも十分だと思う．
+この定理では$\det(J_f)\neq 0$という条件が一番本質的である．行列式の定義を思い出してみよう．$n$個の$\realnum^n$のベクトル$p_1,\dots,p_n$が与えられたとき，$P=(p_1\: p_2\dots p_n)$の行列式が0という条件は，$p_1,\dots,p_n$が一次従属であることと同値だった．直観的に言えば，$p_1,\dots,p_n$で張られる$n$次元平行四辺形の体積が潰れていなければ，$\det(P)\neq 0$となる．これを使って定理の直観的な説明を与えよう．$f$が仮定を満たすとする．$J_f$は$a$における線形近似を表していたので，$\lambda>0$が十分0に近ければ，$A=\{a+(x_1e_1+\dots+x_ne_n)\in\realnum^n\mid 各kについて|x_k|<\lambda\}$という$a$を含む微小長方形内では，$f$は$J_f$が表す線形写像で近似でき，その像は$B=\{f(a)+(x_1J_f(e_1)+\dots +x_nJ_f(e_n))\mid 各kについて|x_k|<\lambda\}$という，$J_f$の列ベクトルが張る微小平行四辺形に（だいたい）移ると考えられる．今$J_f$の列ベクトルは1次独立だから，$B$は$\realnum^n$内の開集合であり，$\det(J_f)\neq 0$より$J_f$には逆行列が存在するから，$J_f$の逆行列が表す線形写像$g:B\rightarrow A$を考えれば，$f:A\rightarrow B$と$g:B\rightarrow A$は(だいたい)逆写像になっている．ここでいちいち(だいたい)と付けたのは，実際に証明する段階ではこの説明どおりに話は進まないからだが，実際に使用する際のイメージとしてはこれくらいの認識でも十分だと思う．
 
 \Subsubsection{重積分の変数変換公式}
 ヤコビ行列の行列式をヤコビアンという．ところで，上の定理ではヤコビアンが0かどうかという情報しか使われていなかったが，ヤコビアンの値そのものが使われるような場面はあるのだろうか．それが次の重積分の変数変換公式である．
@@ -110,28 +111,28 @@ $$
 $$
 が成り立つ．
 \end{s_theo}
-細かい条件はさておき，これも大体上で説明したようなイメージで説明できる．任意の$x\in D$の周りにおいて，$A=\{x+(x_1e_1+\dots+x_ne_n)\in\realnum^n|各kについて|x_k|<\lambda\}$という微小長方形は，$g$によって$B=\{g(x)+(x_1J_g(e_1)+\dots +x_nJ_g(e_n))|各kについて|x_k|<\lambda\}$という，$J_g$の列ベクトルが張る微小平行四辺形に（だいたい）移る．このとき，$B$の体積は$A$の体積の$|\det(J_g)|$倍になっているので，微小体積を比べると$dy=|\det(J_g)|dx$になっているため，上のような積分の式が成り立つ．ここで，わざわざ行列式に絶対値がついているのは，$\realnum^n$を「ひっくり返す」ような線形写像(例えば$\realnum^2$なら$(x,y)\mapsto (y,x)$など)に対しては，行列式の値が負になってしまい，積分の符号が反転するのを防ぐためである．
+細かい条件はさておき，これも大体上で説明したようなイメージで説明できる．任意の$x\in D$の周りにおいて，$A=\{x+(x_1e_1+\dots+x_ne_n)\in\realnum^n\mid 各kについて|x_k|<\lambda\}$という微小長方形は，$g$によって$B=\{g(x)+(x_1J_g(e_1)+\dots +x_nJ_g(e_n))\mid 各kについて|x_k|<\lambda\}$という，$J_g$の列ベクトルが張る微小平行四辺形に（だいたい）移る．このとき，$B$の体積は$A$の体積の$\lvert\det(J_g)\rvert$倍になっているので，微小体積を比べると$dy=\lvert\det(J_g)\rvert dx$になっているため，上のような積分の式が成り立つ．ここで，わざわざ行列式に絶対値がついているのは，$\realnum^n$を「ひっくり返す」ような線形写像(例えば$\realnum^2$なら$(x,y)\mapsto (y,x)$など)に対しては，行列式の値が負になってしまい，積分の符号が反転するのを防ぐためである．
 
 
-さて，上の定理は若干強い形で書いたが，実は$D$において$\det(J_g)$が0になるようなところが多少あっても，上の式は成り立つ．詳しく言えば，ある体積0の部分集合$N\subset D$があって，ヤコビアンが0になる点がすべて入っており，$g$は$D-N$から$D'$への全単射になっていれば上の式が成り立つ．最後に具体例として，$\realnum^3$における直交座標から極座標への変数変換を考えてみよう．今，$D=\{(r,\theta,\varphi)\in\realnum^3|0\le r\le1,0\le \theta \le \pi,0\le \varphi \le 2\pi\},D'=\{(x,y,z)\in\realnum^3|x^2+y^2+z^2\le 1\},$とおき，$g:D\rightarrow D'$を$(r,\theta,\varphi)\mapsto (r\sin\theta\cos\varphi,r\sin\theta\sin\varphi,r\cos\theta)$とすると，$g$は仮定の条件を満たしていることがわかる．$\det(J_g)$は(やや煩雑な計算をすると)$r^2\sin\theta$となる．よって，例えば$f=1$(恒等写像)とすると，
+さて，上の定理は若干強い形で書いたが，実は$D$において$\det(J_g)$が0になるようなところが多少あっても，上の式は成り立つ．詳しく言えば，ある体積0の部分集合$N\subset D$があって，ヤコビアンが0になる点がすべて入っており，$g$は$D-N$から$D'$への全単射になっていれば上の式が成り立つ．最後に具体例として，$\realnum^3$における直交座標から極座標への変数変換を考えてみよう．今，$D=\{(r,\theta,\varphi)\in\realnum^3\mid 0\le r\le1,0\le \theta \le \pi,0\le \varphi \le 2\pi\},D'=\{(x,y,z)\in\realnum^3\mid x^2+y^2+z^2\le 1\},$とおき，$g:D\rightarrow D'$を$(r,\theta,\varphi)\mapsto (r\sin\theta\cos\varphi,r\sin\theta\sin\varphi,r\cos\theta)$とすると，$g$は仮定の条件を満たしていることがわかる．$\det(J_g)$は(やや煩雑な計算をすると)$r^2\sin\theta$となる．よって，例えば$f=1$(恒等写像)とすると，
 $$
-\int_{D'}dxdydz=\int_{D}r^2\sin\theta drd\theta d\varphi=\frac{4}{3}\pi
+\int_{D'}dxdydz=\int_{D}r^2\sin\theta\,dr d\theta d\varphi=\frac{4}{3}\pi
 $$
 となって，単位球の体積がわかる．同様の方法で$n$次元単位球の体積が$\sin^m\theta\quad(1\le m\le n-2)$達の積分と$\frac{1}{n}$の積に帰着され，$\Gamma$関数を使って$\dfrac{\pi^{\frac{n}{2}}}{\Gamma(\frac{n}{2}+1)}$とあらわせる．(興味がある人は計算してみよう．)
 
 
 \Section{幾何学へ}
 \Subsection{線形空間と接ベクトル空間}
-前の章では写像$f:\realnum^n\rightarrow\realnum^m$の微分を考えたが，もっと一般の写像について微分の概念を考えてみたい．そこで，「球面$S^2=\{(x,y,z)\in\realnum^3|x^2+y^2+z^2=1\}$に対して，$S^2$上の関数$f:S^2\rightarrow\realnum$の微分とは何だろうか」という問題を考えてみる．球面上の関数とは何ぞや？と思われるかもしれないが，例えば地球上の温度やら人口密度やらを考えてもらえば十分である．
+前の章では写像$f:\realnum^n\rightarrow\realnum^m$の微分を考えたが，もっと一般の写像について微分の概念を考えてみたい．そこで，「球面$S^2=\{(x,y,z)\in\realnum^3\mid x^2+y^2+z^2=1\}$に対して，$S^2$上の関数$f:S^2\rightarrow\realnum$の微分とは何だろうか」という問題を考えてみる．球面上の関数とは何ぞや？と思われるかもしれないが，例えば地球上の温度やら人口密度やらを考えてもらえば十分である．
 
 
-$S^2$が存在する空間は3次元であるが，$S^2$そのものは2次元と捉えたい．それは，世界地図が2次元の紙に印刷されていることからも推察できる．しかし，$S^2$から$\realnum^2$の開集合への同相写像\footnote{連続写像であって，逆写像も連続な写像のこと．まだ一般の$\realnum^3$の部分集合$A$上の連続写像というものを定義していないが，今は次のように定義しておこう．$A,B$をそれぞれ$\realnum^n,\realnum^m$の部分集合とする．$f:A\rightarrow B$が連続とは，$A$を含むような$\realnum^n$のある開集合$U$と連続写像$F:U\rightarrow \realnum^m$が存在して，任意の$x\in A$に対して$f(x)=F(x)$を満たすこととする．}は実は存在しない．しかし，$S^2$の開集合$U$に対しては\footnote{$\realnum^n$の部分集合$A$について，$U$が$A$の開集合であるとは，ある$\realnum^n$の開集合$U'$が存在して，$U=A\cap U'$となることとする．}，$\realnum^2$の部分集合との同相写像は存在する．たとえば，$V_{x+}=\{(y,z)\in \realnum^2|y^2+z^2<1\}$という$\realnum^2$の開集合から，$U_{x+}=\{(x,y,z)\in S^2|x>0\}$という$S^2$の開集合への連続写像$\varphi_{x+}:V_{x+}\rightarrow U_{x+}$を$(y,z)\mapsto (\sqrt{1-y^2-z^2},y,z)$で定めると，$\varphi_{x+}$は$\varphi_{x+}^{-1}:U_{x+}\rightarrow V_{x+};(x,y,z)\mapsto (y,z)$という逆写像を持ち，逆写像も連続であるので，同相写像となっている．他に，$U_{y+}=\{(x,y,z)\in S^2|y>0\},V_{y+}=\{(x,z)\in\realnum^2|x^2+z^2<1\}$に対しては，$\varphi_{y+}:V_{y+}\rightarrow U_{y+};(x,z)\mapsto (x,\sqrt{1-x^2-z^2},z)$，あるいは，$U_{z-}=\{(x,y,z)\in S^2|z<0\},V_{z-}=\{(x,y)\in\realnum^2|x^2+y^2<1\}$に対しては，$\varphi_{z-}:V_{z-}\rightarrow U_{z-};(x,y)\mapsto (x,y,-\sqrt{1-x^2-y^2})$などなど，他も同様に定めれば合計$6$つの開集合$U_{x\pm},U_{y\pm},U_{z\pm}$によって，$S^2$は覆われる．このような$U$と$\varphi$の組$(\varphi;U)$を$S^2$の「局所座標」と呼ぶことにしよう．
+$S^2$が存在する空間は3次元であるが，$S^2$そのものは2次元と捉えたい．それは，世界地図が2次元の紙に印刷されていることからも推察できる．しかし，$S^2$から$\realnum^2$の開集合への同相写像\footnote{連続写像であって，逆写像も連続な写像のこと．まだ一般の$\realnum^3$の部分集合$A$上の連続写像というものを定義していないが，今は次のように定義しておこう．$A,B$をそれぞれ$\realnum^n,\realnum^m$の部分集合とする．$f:A\rightarrow B$が連続とは，$A$を含むような$\realnum^n$のある開集合$U$と連続写像$F:U\rightarrow \realnum^m$が存在して，任意の$x\in A$に対して$f(x)=F(x)$を満たすこととする．}は実は存在しない．しかし，$S^2$の開集合$U$に対しては\footnote{$\realnum^n$の部分集合$A$について，$U$が$A$の開集合であるとは，ある$\realnum^n$の開集合$U'$が存在して，$U=A\cap U'$となることとする．}，$\realnum^2$の部分集合との同相写像は存在する．たとえば，$V_{x+}=\{(y,z)\in \realnum^2\mid y^2+z^2<1\}$という$\realnum^2$の開集合から，$U_{x+}=\{(x,y,z)\in S^2\mid x>0\}$という$S^2$の開集合への連続写像$\varphi_{x+}:V_{x+}\rightarrow U_{x+}$を$(y,z)\mapsto (\sqrt{1-y^2-z^2},y,z)$で定めると，$\varphi_{x+}$は$\varphi_{x+}^{-1}:U_{x+}\rightarrow V_{x+};(x,y,z)\mapsto (y,z)$という逆写像を持ち，逆写像も連続であるので，同相写像となっている．他に，$U_{y+}=\{(x,y,z)\in S^2\mid y>0\},V_{y+}=\{(x,z)\in\realnum^2\mid x^2+z^2<1\}$に対しては，$\varphi_{y+}:V_{y+}\rightarrow U_{y+};(x,z)\mapsto (x,\sqrt{1-x^2-z^2},z)$，あるいは，$U_{z-}=\{(x,y,z)\in S^2\mid z<0\},V_{z-}=\{(x,y)\in\realnum^2\mid x^2+y^2<1\}$に対しては，$\varphi_{z-}:V_{z-}\rightarrow U_{z-};(x,y)\mapsto (x,y,-\sqrt{1-x^2-y^2})$などなど，他も同様に定めれば合計$6$つの開集合$U_{x\pm},U_{y\pm},U_{z\pm}$によって，$S^2$は覆われる．このような$U$と$\varphi$の組$(\varphi;U)$を$S^2$の「局所座標」と呼ぶことにしよう．
 
 
-さて，前章で微分は写像に対して線形写像を対応させる操作であることを見たのだが，そもそもこの場合，どこからどこへの線形写像を考えればいいのだろうか．「方向」を「方向」に移すというおおもとの考えに戻ってみると，球面上の「方向」を$\realnum$の「方向」に移す線形写像を考えればいいことがわかる．$\realnum$の方向は前章と同じく$\realnum$とすると，問題なのは$S^2$上の「方向」である．具体的に$p=(\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}})$における$f$の微分を考えてみよう．今例えば$S^2$を，$(0,0,1)$を北極とする地球だとみなして，$p$における$f$の東の経線方向の微分を考えよう．$p$を通るような東向きの経線は$\gamma:\realnum\rightarrow S^2;t\mapsto(\sqrt{\frac{2}{3}}\cos(t+\frac{\pi}{4}),\sqrt{\frac{2}{3}}\sin(t+\frac{\pi}{4}),\frac{1}{\sqrt{3}})$という曲線で与えられる．$\gamma$と$f$の合成によって，$f\circ \gamma:\realnum\rightarrow\realnum$が得られ，$t=0$で$\gamma$は$p$を通るので，$f\circ\gamma$が$t=0$で微分可能なら$\dfrac{d(f\circ\gamma(t))}{dt}\Big|_{t=0}$が$p$での$f$の東向きの経線方向の微分であることが分かる．
+さて，前章で微分は写像に対して線形写像を対応させる操作であることを見たのだが，そもそもこの場合，どこからどこへの線形写像を考えればいいのだろうか．「方向」を「方向」に移すというおおもとの考えに戻ってみると，球面上の「方向」を$\realnum$の「方向」に移す線形写像を考えればいいことがわかる．$\realnum$の方向は前章と同じく$\realnum$とすると，問題なのは$S^2$上の「方向」である．具体的に$p=\left(\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}}\right)$における$f$の微分を考えてみよう．今例えば$S^2$を，$(0,0,1)$を北極とする地球だとみなして，$p$における$f$の東の経線方向の微分を考えよう．$p$を通るような東向きの経線は$\gamma:\realnum\rightarrow S^2;t\mapsto\left(\sqrt{\frac{2}{3}}\cos(t+\frac{\pi}{4}),\sqrt{\frac{2}{3}}\sin(t+\frac{\pi}{4}),\frac{1}{\sqrt{3}}\right)$という曲線で与えられる．$\gamma$と$f$の合成によって，$f\circ \gamma:\realnum\rightarrow\realnum$が得られ，$t=0$で$\gamma$は$p$を通るので，$f\circ\gamma$が$t=0$で微分可能なら$\dfrac{d(f\circ\gamma(t))}{dt}\Big|_{t=0}$が$p$での$f$の東向きの経線方向の微分であることが分かる．
 
 
-このことをもとに，球面上の「方向微分」の概念を考えてみる．$t=0$で$p$を通るような全ての$S^2$上の曲線$\gamma$に\footnote{以後，「曲線」と言った場合，十分なめらか，すなわち何回でも微分できるようなもののみを指す．}ついて$\gamma$方向の$f$の微分を$\dfrac{d(f\circ\gamma(t))}{dt}\Big|_{t=0}$によって定める．これは偏微分の概念の一般化になっていることに注意しよう．というのも，$f$の定義域が$\realnum^n$の開集合の場合は$\delxkf(p)=\lim_{h\rightarrow 0}\dfrac{f(p+he_k)-f(p)}{h}=\dfrac{d(f(p+te_k))}{dt}\Big|_{t=0}$と書けるから，$\gamma(t)=p+te_k$とすれば，偏微分は特別な$\gamma$に対する方向微分の値に過ぎない．しかし同時に，$f$の定義域が$\realnum^n$の開集合である場合は，従来考えていた$\realnum^n$のベクトル方向の微分を考えれば十分であるというのもわかる．というのも，曲線$\gamma:(c,d)\rightarrow \realnum^n$(ただし，$(c,d)\subset\realnum$は0が入るような開区間を表す．)に対して$\dfrac{d\gamma}{dt}\Big|_{t=0}=(b_1,b_2,\dots,b_n)$とおくと，連鎖律から$\dfrac{d(f\circ\gamma(t))}{dt}\Big|_{t=0}=\delxof(p) b_1+\dots+\delxnf(p) b_n$と書けるから．結局これは元の意味での$(b_1,\dots,b_n)$方向の微分に他ならない．
+このことをもとに，球面上の「方向微分」の概念を考えてみる．$t=0$で$p$を通るような全ての$S^2$上の曲線$\gamma$に\footnote{以後，「曲線」と言った場合，十分なめらか，すなわち何回でも微分できるようなもののみを指す．}ついて$\gamma$方向の$f$の微分を$\dfrac{d(f\circ\gamma(t))}{dt}\Big|_{t=0}$によって定める．これは偏微分の概念の一般化になっていることに注意しよう．というのも，$f$の定義域が$\realnum^n$の開集合の場合は$\delxkf(p)=\lim_{h\rightarrow 0}\dfrac{f(p+he_k)-f(p)}{h}=\dfrac{d(f(p+te_k))}{dt}\Big|_{t=0}$と書けるから，$\gamma(t)=p+te_k$とすれば，偏微分は特別な$\gamma$に対する方向微分の値に過ぎない．しかし同時に，$f$の定義域が$\realnum^n$の開集合である場合は，従来考えていた$\realnum^n$のベクトル方向の微分を考えれば十分であるというのもわかる．というのも，曲線$\gamma:(c,d)\rightarrow \realnum^n$ (ただし，$(c,d)\subset\realnum$は0が入るような開区間を表す．)に対して$\dfrac{d\gamma}{dt}\Big|_{t=0}=(b_1,b_2,\dots,b_n)$とおくと，連鎖律から$\dfrac{d(f\circ\gamma(t))}{dt}\Big|_{t=0}=\delxof(p) b_1+\dots+\delxnf(p) b_n$と書けるから．結局これは元の意味での$(b_1,\dots,b_n)$方向の微分に他ならない．
 \begin{figure}[h]
   \begin{center} 
     \includegraphics[width=7.0cm]{dev_tangentvec}
@@ -198,9 +199,9 @@ $(b_1,b_2)\mapsto b_1\delyp+b_2\delzp$が全単射線形写像となり，$T_pS^
 $$
 PAQ=\vecb E_r && 0 \\ 0 && 0 \vece
 $$
-と一意的にあらわされるのだった．ここで$r$は$0\le r \le \min\{m,n\}$を満たす整数であり，$E_r$は$r$次の正方行列を表す．この$r$を行列$A$のrankという．左右から掛けられている$P,Q$は$\realnum^m,\realnum^n$における基底の取り換えを表していたのだったから，そもそもrankという概念は基底の取り換えによって不変，すなわち線形写像に固有の値である．線形写像のrankは，線形写像による像\footnote{一般に，線形空間$W,W'$および，線形写像$g:W\rightarrow W'$が与えられたとき，$g$による$W$の像$g(W)$は$W'$の部分空間となっている．}が値域の中で何次元\footnote{線形空間について，1次独立な元の最大個数を次元という．}の部分空間になっているかを示すものである．具体例を見てみよう．$f:S^2\rightarrow\realnum;(x,y,z)\mapsto c$(定値写像)および$g:S^2\rightarrow\realnum;(x,y,z)\mapsto x$という2つの写像の$p=(\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}})$における微分写像$(df)_p,(dg)_p$を考える．計算する前にそれぞれの微分写像のrankを予想してみよう．前者は$\realnum$において像が1点につぶれているから，$S^2$の任意の方向は0に潰れてしまう．よって微分写像の像の次元は0次元で$\rank(df)_p=0$となるだろう．一方，後者は像が$\realnum$において広がりを持っているから，$S^2$の方向は潰れずにのこり，微分写像のrankは$\rank(dg)_p=1$となるだろう．実際，
+と一意的にあらわされるのだった．ここで$r$は$0\le r \le \min\{m,n\}$を満たす整数であり，$E_r$は$r$次の正方行列を表す．この$r$を行列$A$のrankという．左右から掛けられている$P,Q$は$\realnum^m,\realnum^n$における基底の取り換えを表していたのだったから，そもそもrankという概念は基底の取り換えによって不変，すなわち線形写像に固有の値である．線形写像のrankは，線形写像による像\footnote{一般に，線形空間$W,W'$および，線形写像$g:W\rightarrow W'$が与えられたとき，$g$による$W$の像$g(W)$は$W'$の部分空間となっている．}が値域の中で何次元\footnote{線形空間について，1次独立な元の最大個数を次元という．}の部分空間になっているかを示すものである．具体例を見てみよう．$f:S^2\rightarrow\realnum;(x,y,z)\mapsto c$ (定値写像)および$g:S^2\rightarrow\realnum;(x,y,z)\mapsto x$という2つの写像の$p=\left(\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}}\right)$における微分写像$(df)_p,(dg)_p$を考える．計算する前にそれぞれの微分写像のrankを予想してみよう．前者は$\realnum$において像が1点につぶれているから，$S^2$の任意の方向は0に潰れてしまう．よって微分写像の像の次元は0次元で$\rank(df)_p=0$となるだろう．一方，後者は像が$\realnum$において広がりを持っているから，$S^2$の方向は潰れずにのこり，微分写像のrankは$\rank(dg)_p=1$となるだろう．実際，
 $$
-\rank(df)_p=\rank J_{f\circ\varphi_{x+}}=\rank(0\:\:0)=0,\quad\rank(dg)_p=\rank J_{g\circ\varphi_{x+}}=\rank(-1\:\:-1)=1
+\rank(df)_p=\rank J_{f\circ\varphi_{x+}}=\rank(0\:\:0)=0,\quad\rank(dg)_p=\rank J_{g\circ\varphi_{x+}}=\rank(-1\:\:{-1})=1
 $$
 となる．
 
@@ -227,14 +228,14 @@ $\varphi_i^{-1}\circ\varphi_j:\varphi_j^{-1}(U_i\cap U_j)\rightarrow\varphi_i^{-
 このとき，前節と同様にして，$M$上の$C^{\infty}$級関数の集合$C^{\infty}(M)$は，各点において座標近傍$\varphi_i$との合成が$C^{\infty}$級であるような関数の集合とし，$C^{\infty}(M)$から$\realnum$への写像全体がなす線形空間を${\mathcal F}(M)$とおく．$p\in M$が入るような座標近傍$(\varphi_i;U_i)$について，$V_i$における座標を$x_1,\dots,x_n$とすると$\delxop,\dots,\delxnp$というような$n$個の方向微分が考えられ，これらの1次結合によってあらわされるような${\mathcal F}(M)$の部分空間を$T_pM$とあらわし，$M$の$p$における接ベクトル空間という．この節のはじめに示したのと(だいたい)同じような方法で$\delxop,\dots,\delxnp$が1次独立であることが示せ，$T_pM$は$n$次元線形空間となる．\par
 
 
-多様体の例としては，$\realnum^n$や$S^{n-1}=\{(x_1,\dots,x_n)\in\realnum^n|x_1^2+\dots+x_n^2=1\}$(これは$n-1$次元の多様体である)といった代表的なものを考えればこの記事の中では十分である．さて，$f:M\rightarrow N$を多様体の間の写像とする．$f$が$C^{\infty}$級とは，$M$の各点$p$において，$p$の座標近傍$(\varphi;U)$および$f(p)$の座標近傍$(\psi;U')$が存在して，$\psi^{-1}\circ f\circ\varphi$が$C^{\infty}$級であることを言う．さて，$f$が$C^{\infty}$級のとき，$M$の各点$p$において微分写像$(df)_p:T_pM\rightarrow T_{f(p)}N$が次のように定義される．まず，前章と同じようにして，$T_pM$の任意の元は$\gamma(0)=p$を満たす$M$上の曲線$\gamma$を用いて$D_\gamma(\gamma の方向微分)$と書けることが示せる．ただし，$D_\gamma$は$h\in C^\infty(M)$に対して，$\dfrac{d(h\circ\gamma(t))}{dt}\Big|_{t=0}$を返す写像である．$f\circ\gamma$は$f\circ\gamma(0)=f(p)$を満たす$N$上の曲線となる．$f\circ\gamma$方向の微分$D_{f\circ\gamma}\in T_{f(p)}N$を考え，$D_{\gamma}\mapsto D_{f\circ\gamma}$によって$(df)_p$を定める．\footnote{本来なら，これが$\gamma$の取り方によらないで定まることをしめす必要があるが，座標近傍を取ってみればわかることなので，ここでは省略した}なお，$p$の座標近傍$(\varphi;U)$および$f(p)$の座標近傍$(\psi;U')$を1つとり，$U$での$T_pM$の基底を$\delxop,\dots,\delxnp$，$U'$での$T_{f(p)}N$の基底を$\delyofp,\dots,\delymfp$とすると，これらの基底に関する$(df)_p$の行列表示は$J_{\psi^{-1}\circ f\circ\varphi}$で与えられる．
+多様体の例としては，$\realnum^n$や$S^{n-1}=\{(x_1,\dots,x_n)\in\realnum^n\mid x_1^2+\dots+x_n^2=1\}$(これは$n-1$次元の多様体である)といった代表的なものを考えればこの記事の中では十分である．さて，$f:M\rightarrow N$を多様体の間の写像とする．$f$が$C^{\infty}$級とは，$M$の各点$p$において，$p$の座標近傍$(\varphi;U)$および$f(p)$の座標近傍$(\psi;U')$が存在して，$\psi^{-1}\circ f\circ\varphi$が$C^{\infty}$級であることを言う．さて，$f$が$C^{\infty}$級のとき，$M$の各点$p$において微分写像$(df)_p:T_pM\rightarrow T_{f(p)}N$が次のように定義される．まず，前章と同じようにして，$T_pM$の任意の元は$\gamma(0)=p$を満たす$M$上の曲線$\gamma$を用いて$D_\gamma(\gamma の方向微分)$と書けることが示せる．ただし，$D_\gamma$は$h\in C^\infty(M)$に対して，$\dfrac{d(h\circ\gamma(t))}{dt}\Big|_{t=0}$を返す写像である．$f\circ\gamma$は$f\circ\gamma(0)=f(p)$を満たす$N$上の曲線となる．$f\circ\gamma$方向の微分$D_{f\circ\gamma}\in T_{f(p)}N$を考え，$D_{\gamma}\mapsto D_{f\circ\gamma}$によって$(df)_p$を定める．\footnote{本来なら，これが$\gamma$の取り方によらないで定まることをしめす必要があるが，座標近傍を取ってみればわかることなので，ここでは省略した}なお，$p$の座標近傍$(\varphi;U)$および$f(p)$の座標近傍$(\psi;U')$を1つとり，$U$での$T_pM$の基底を$\delxop,\dots,\delxnp$，$U'$での$T_{f(p)}N$の基底を$\delyofp,\dots,\delymfp$とすると，これらの基底に関する$(df)_p$の行列表示は$J_{\psi^{-1}\circ f\circ\varphi}$で与えられる．
 
 
 さて，一般の多様体を導入したのは，次の定理の説明をしたかったらである．
 \begin{s_theo}
 $f:M\rightarrow N$を多様体の間の$C^\infty$級写像で，$M$の次元$m$と$N$の次元$n$が$m\ge n$を満たしているとする．$q\in N$が正則値，すなわち，任意の$p\in f^{-1}(q)$について，微分写像$(df)_p$のrankが$n$であるとする．このとき，$f^{-1}(q)$は$m-n$次元の$C^{\infty}$級多様体となる．
 \end{s_theo}
-まず，この定理を応用すれば様々な多様体の例が得られることに注目してみよう．例えば，$f:\realnum^4 \rightarrow \realnum;(x,y,z,w)\mapsto x^2+y^2+z^2+w^2$という写像と，$1\in \realnum$について上の定理を適用してみると，$\rank(df)_p=\rank J_{f}=\rank(2x\:2y\:2z\:2w)\neq 0 (なぜなら(x,y,z,w)\in f^{-1}(1)よりx,y,z,wのいずれかは0でない)$より$x^2+y^2+z^2+w^2=1$で表される$\realnum^4$の部分集合（3次元球面）が，3次元多様体となることの証明が得られる．他にも，例えば$f:\realnum^3\rightarrow \realnum;(x,y,z)=x^2+y^2-z^2$と$-1\in\realnum$に適用して，2葉双曲面が2次元多様体になることもわかる．
+まず，この定理を応用すれば様々な多様体の例が得られることに注目してみよう．例えば，$f:\realnum^4 \rightarrow \realnum;(x,y,z,w)\mapsto x^2+y^2+z^2+w^2$という写像と，$1\in \realnum$について上の定理を適用してみると，$\rank(df)_p=\rank J_{f}=\rank(2x\:2y\:2z\:2w)\neq 0$ (なぜなら $(x,y,z,w)\in f^{-1}(1)$ より $x$, $y$, $z$, $w$ のいずれかは0でない)より$x^2+y^2+z^2+w^2=1$で表される$\realnum^4$の部分集合（3次元球面）が，3次元多様体となることの証明が得られる．他にも，例えば$f:\realnum^3\rightarrow \realnum;(x,y,z)=x^2+y^2-z^2$と$-1\in\realnum$に適用して，2葉双曲面が2次元多様体になることもわかる．
 この定理のイメージを述べよう．線形写像のrankは上で見たように，像が値域の中で何次元になっているかを表している．$(df)_p$のrankが$n$，すなわち$T_pN$の次元に等しいということは，それぞれの基底をうまく選ぶことによって，$(df)_p$は$(E_n\:\:0)$と行列表示できるということだから，このうまく選んだ$T_pM$の基底$D_1,\dots,D_m$について，$D_1,\dots D_n$という方向は$ｆ$によって保たれ，残りの$D_{n+1},\dots,D_m$という方向は$f$によってつぶれるということがわかる．この$m-n$個の元がなす$T_pM$の部分空間は，$M$における$f$の等位面$f^{-1}(q)$の接空間とみなせる．接空間が$m-n$次元になっているため，$p\in f^{-1}(q)$の十分近くでは$\realnum^{m-n}$の開集合と同相と見なせて，結局$m-n$次元の多様体とみなせる．なお，この定理においてrankの条件は本質的であり，例えば$f:\realnum^2\rightarrow\realnum;(x,y)\mapsto y^2-x^2(x+1)$という写像を考えると，点$(0,0)\in\realnum^2$でヤコビ行列が0になるため，上の定理からは$f^{-1}(0)$は1次元多様体になるかわからない．実際，$f^{-1}(0)$は$(0,0)$の近傍においては2つの曲線が交わる形になっていて，$\realnum$のどんな開集合(すなわち開区間)と同相ではないので1次元多様体とはならない．
 
 
@@ -323,10 +324,11 @@ $$
 
 
 さて，コンパクト多様体$M$上の完備なベクトル場が与えられたとき，$p\in M$に対して$t=0$で$p$を通るような$X$の積分曲線を$\gamma_p$とおく．$t\in\realnum$に対し，写像$F_t:M\rightarrow M$を$p\mapsto \gamma_p(t)$で定めよう．この写像は次の性質を満たす．
-\begin{description}
-\item{(1)} 任意の$p\in M$に対して，$F_0(p)=p$．
-\item{(2)} 任意の$s,t\in\realnum$に対して，$F_s\circ F_t=F_{s+t}$
-\end{description}
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\theenumi)}
+\item 任意の$p\in M$に対して，$F_0(p)=p$．
+\item 任意の$s,t\in\realnum$に対して，$F_s\circ F_t=F_{s+t}$
+\end{enumerate}
 この$\{F_t\}_{t\in\realnum}$を\footnote{このように，あるパラメーターによって添え字づけられた集まりを$\{A_i\}_{i\in \Lambda}$のように書いたりする．たとえば，数列を$(a_n)_{n\in {\mathbb N}}$と書くのと気持ちは同じである．}ベクトル場$X$のフローという．性質(2)についてだが，これは任意の$p$において$\gamma_{\gamma_p(t)}(s)=\gamma_p(t+s)$を示せばよい．$\gamma':\realnum\rightarrow M;s\mapsto\gamma_p(s+t)$という曲線を考えよう．この曲線は$s=0$で$\gamma(t)$を通り，かつ元の積分曲線$\gamma_p$のパラメーターを平行移動させただけなので，積分曲線になっている．よって積分曲線の一意性から$\gamma_{\gamma_p(t)}$と一致する．なお，性質(2)から$F_t^{-1}=F_{-t}$となって，$F_t$は全単射であることがわかる．また，$F_t$が$C^\infty$級であることは次のようにわかる．まず，ある$T>0$が存在して，任意の$-T\le t\le T$に$F_t$が$C^\infty$級であることを示せばよい．なぜなら，任意の$t\in\realnum$に対して，$|t| \le nT$となる自然数$n$を選べば，性質(2)から$F_t$は$F_{\frac{t}{n}}$の$n$回合成として得られるので，$C^\infty$級である．今$T>0$は十分小さくできるので，$-T\le t \le T$のとき各点$p$に対して，$p$と$\gamma_p(t)$は同じ座標近傍に入るとしてよい．すると，$\realnum^n$の開集合のケースに帰着する．このときは常微分方程式の解は初期値に対して$C^\infty$級に依存するということが常微分方程式の理論からわかっているので，結局$F_t$は$C^\infty$級で，かつ逆写像も$C^\infty$級であることがわかる．ベクトル場のフローは，多様体上に「流れ」が与えられたときの時間経過と見なすことが出来る．たとえば，球面上のフローが海流を表しているとすると，時刻が$t$だけ経過したときに元の位置$p$からどれくらい流されているかの情報が$F_t$によって与えられる．
 
 
@@ -334,7 +336,7 @@ $$
 \begin{s_theo}[ポアンカレ・ホップの定理の特別な場合]
 $S^2$上の$C^\infty$級ベクトル場$X$は必ず零点，すなわち$X(p)=0$となる点を持つ
 \end{s_theo}
-この事実は，球面上生えている髪の毛をどのようにとかしてもつむじができてしまうという意味で"Hairly Ball Theorem"とも呼ばれる．今までの道具だけではこの定理の証明には立ち入ることが出来ないが，「オイラーの多面体公式」として知られている，(頂点の数)-(辺の数)+(面の数)=2の右辺が0でないことに起因するとだけ述べておこう．ところで，$S^2$はコンパクトなので，上の話からベクトル場とフローには1対1対応があったことを思い出そう．ベクトル場の零点となっているような点では，積分曲線がその点にとどまり続けるので，対応するフローの不動点となっている．今零点が必ず存在するということから，対応するフローには必ず不動点が存在する．逆に言えば不動点が存在しないような$C^\infty$級微分同相（逆写像が存在して$C^\infty$級ということ）$S^2\rightarrow S^2$は，フローのある時刻における写像$F_t:S^2\rightarrow S^2$として表されない．たとえば，$(x,y,z)\mapsto (-x,-y,-z)$という対蹠点に移す写像を考えると，不動点が存在しないので，どのような球面上のフロー$\{F_t\}_{t\in\realnum},t\in\realnum$についても$F_t$と一致しない．
+この事実は，球面上生えている髪の毛をどのようにとかしてもつむじができてしまうという意味で``Hairly Ball Theorem"とも呼ばれる．今までの道具だけではこの定理の証明には立ち入ることが出来ないが，「オイラーの多面体公式」として知られている，$(頂点の数)-(辺の数)+(面の数)=2$ の右辺が0でないことに起因するとだけ述べておこう．ところで，$S^2$はコンパクトなので，上の話からベクトル場とフローには1対1対応があったことを思い出そう．ベクトル場の零点となっているような点では，積分曲線がその点にとどまり続けるので，対応するフローの不動点となっている．今零点が必ず存在するということから，対応するフローには必ず不動点が存在する．逆に言えば不動点が存在しないような$C^\infty$級微分同相（逆写像が存在して$C^\infty$級ということ）$S^2\rightarrow S^2$は，フローのある時刻における写像$F_t:S^2\rightarrow S^2$として表されない．たとえば，$(x,y,z)\mapsto (-x,-y,-z)$という対蹠点に移す写像を考えると，不動点が存在しないので，どのような球面上のフロー$\{F_t\}_{t\in\realnum},t\in\realnum$についても$F_t$と一致しない．
 \begin{figure}[h]
   \begin{center} 
     \includegraphics[width=9.0cm]{dev_phthm}
@@ -344,7 +346,7 @@ $S^2$上の$C^\infty$級ベクトル場$X$は必ず零点，すなわち$X(p)=0$
 \Section{あとがき}
 「線形代数の広がり」といいつつ幾何的な話題に終始してしまったのはいささか申し訳ないという気持ちもあるが，自分が数学科に進学した後一番線形代数を使ったという印象を受けるのは多様体の講義だったのでこのテーマを選ばせていただいた．多様体の話は特に解析力学などを進んで学ぶ上では避けては通れないわりに，位相空間論を多少なりともやっていないと敷居が高いように感じてしまうので，この記事ではなるべく予備知識を仮定しないように努力したつもりである．特に以下の文献を参考にしたので，進んで学習する際には参考にすることをお勧めする．
 \begin{thebibliography}{9}
-\bibitem 　杉浦光夫，『基礎数学3 解析入門　II』，東京大学出版会，1985
+\bibitem 　杉浦光夫，『基礎数学3 解析入門II』，東京大学出版会，1985
 \bibitem 　M. スピヴァック，『多変数解析学 古典理論への現代的アプローチ』，東京図書，1972
 \bibitem 　松本幸夫，『基礎数学5 多様体の基礎』，東京大学出版会，1988
 \bibitem 　J. W. ミルナー，『微分トポロジー講義』，丸善出版，2012
