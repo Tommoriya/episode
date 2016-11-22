@@ -132,6 +132,53 @@
 % arata.tex
 \DeclareMathOperator{\RealPart}{Re}
 
+% sato.tex
+\newcommand\satomacro{
+\def\vecb{\begin{pmatrix}}
+\def\vece{\end{pmatrix}}
+\def\detb{\left|\begin{matrix}}
+\def\dete{\end{matrix}\right|}
+\def\realnum{{\mathbb R}}
+\def\dfrac{\displaystyle\frac}
+\def\dsum{\displaystyle\sum}
+\def\tenchi{{}^t\!}
+\def\det{{\mathrm{det}}}
+\def\rank{{\mathrm{rank}}}
+\def\delxkf{\dfrac{\partial f}{\partial x_k}}
+\def\delxp{\left(\dfrac{\partial}{\partial x}\right)_p}
+\def\delyp{\left(\dfrac{\partial}{\partial y}\right)_p}
+\def\delzp{\left(\dfrac{\partial}{\partial z}\right)_p}
+\def\delxdp{\left(\dfrac{\partial}{\partial x'}\right)_p}
+\def\delydp{\left(\dfrac{\partial}{\partial y'}\right)_p}
+\def\delzdp{\left(\dfrac{\partial}{\partial z'}\right)_p}
+\def\delxop{\left(\dfrac{\partial}{\partial x_1}\right)_p}
+\def\delxkp{\left(\dfrac{\partial}{\partial x_k}\right)_p}
+\def\delxnp{\left(\dfrac{\partial}{\partial x_n}\right)_p}
+\def\delyofp{\left(\dfrac{\partial}{\partial y_1}\right)_{f(p)}}
+\def\delykfp{\left(\dfrac{\partial}{\partial y_k}\right)_{f(p)}}
+\def\delymfp{\left(\dfrac{\partial}{\partial y_m}\right)_{f(p)}}
+\def\delxof{\dfrac{\partial f}{\partial x_1}}
+\def\delxnf{\dfrac{\partial f}{\partial x_n}}
+\def\delxkfo{\dfrac{\partial f_1}{\partial x_k}}
+\def\delxkfm{\dfrac{\partial f_m}{\partial x_k}}
+\def\delxofo{\dfrac{\partial f_1}{\partial x_1}}
+\def\delxofm{\dfrac{\partial f_m}{\partial x_1}}
+\def\delxnfo{\dfrac{\partial f_1}{\partial x_n}}
+\def\delxnfm{\dfrac{\partial f_m}{\partial x_n}}
+\def\xvec{(x_1,\dots,x_n)}
+\def\avec{(a_1,\dots,a_n)}
+\newtheorem{s_theo}{定理}
+\newtheorem{s_defi}{定理}
+\newtheorem{s_ex}{定理}
+
+\def\qedsymbol{$\square$}
+\def\proofname{\gt{証明}\;}
+\newenvironment{Proof}{\par\noindent{\it\proofname}}{{\unskip\nobreak\hfill{\it\qedsymbol}}\par\vskip 9pt}
+\newenvironment{Proof*}{\par\noindent}{{\unskip\nobreak\hfill{\it\qedsymbol}}\par\vskip 9pt}
+\ifx\undefined\bysame \newcommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\,}\fi
+}
+%
+
 
 %本文
 \begin{document}
@@ -144,13 +191,20 @@
 %\input{example}
 
 {\itomacro\input{ito}}
+\input{sp1}
 \input{yamamoto}
+\input{sp12}
 \input{osawaenquete}
 \input{osawaalg}
 \input{osawageo}
 \input{osawaanalysis}
+\input{kobaken1}
 \input{warizan}
+\input{kobaken2}
 \input{arata}
+\input{kobaken3}
+
+{\satomacro\input{sato}}
 \cftaddtitleline{toc}{chapter}{圏論が分かる4コマ漫画(小林)}{章間}
 
 \backmatter
