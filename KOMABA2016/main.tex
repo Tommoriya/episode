@@ -51,7 +51,8 @@
 %Section等先頭を大文字にすると番号付けしない．
 \newcommand{\Chapter}[1]{\chapter*{{\Huge #1}}
 \markboth{#1}{#1}
-\addcontentsline{toc}{chapter}{#1}}
+\addcontentsline{toc}{chapter}{#1}
+\stepcounter{chapter}}
 \newcommand{\Section}[1]{\section*{{\huge #1}}
 \addcontentsline{toc}{section}{#1}}
 \newcommand{\Subsection}[1]{\subsection*{\underline{#1}}}
