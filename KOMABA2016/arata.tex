@@ -373,9 +373,10 @@ $\cot$ を指数関数で書いた時に分母に $e^{\text{ほにゃらら}}-1$
 
 $\zeta$ の零点は便宜上「自明な零点」と「非自明な零点」に分類され、負の偶数は前者、皆さんの大好きなリーマン予想で問題になっているのは後者である。
 
-%\appendix
-% TODO: \appendix の挙動が謎。
-\section{おまけ：スターリング数} \label{sec:stirling-numbers}
+\addtocounter{chapter}{1} % section のハイパーリンクを機能させるには chapter を変更しなければならない（この文書では chapter の値は使われていないので問題ない）が、 footnote 番号は増やしたくないので、 \stepcounter を使うわけには行かない
+\setcounter{section}{0}
+\renewcommand{\thesection}{おまけ\arabic{section}}
+\section{スターリング数} \label{sec:stirling-numbers}
 次のような記号を導入する\footnote{%
 言うまでもないが階乗の一般化となっている。
 超幾何関数の係数を書くのに使われたりする。
@@ -452,7 +453,7 @@ $s_p(n)$ をベルヌーイ数を使って表した式（\autoref{eq:s_p-with-be
 を得る。ただし、$\stirlingI{m+1}{1}=m!$ を使った。
 
 
-\section{おまけ：数表}
+\section{数表}
 \begin{align*}
   B_0&=1, &
   B_1&=-\frac12, \\
