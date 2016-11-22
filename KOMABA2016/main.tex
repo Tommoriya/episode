@@ -58,7 +58,11 @@
 \newcommand{\Subsection}[1]{\subsection*{\underline{#1}}}
 \newcommand{\Subsubsection}[1]{\subsubsection*{#1}}
 \setcounter{tocdepth}{0} %Chapterのみ表示する
-
+\renewcommand*{\sectionmark}[1]{}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\theequation}{\arabic{equation}}
+\renewcommand*{\KBsectionfont}[1]{\normalfont\bfs\huge #1}
 
 \usetikzlibrary{%
   arrows.meta,%
