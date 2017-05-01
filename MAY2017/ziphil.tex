@@ -1,0 +1,632 @@
+\documentclass[./main]{subfiles}
+
+% \usepackage{prftree}
+%
+% 証明図を書くのに上記のパッケージを使っています。
+% お手数ですが以下のページからstyファイルをダウンロードしていただけると助かります。
+% ・https://www.ctan.org/pkg/prftree
+
+\newcommand{\lam}{\lambda}
+\newcommand{\lamG}{\mathrm{G}}
+\newcommand{\lamI}{\mathrm{I}}
+\newcommand{\lamP}{\mathrm{P}}
+\newcommand{\bto}{\mathbin{\to}}
+\newcommand{\cl}{\mathpunct{:}}
+\newcommand{\ocl}{\mathord{:}}
+\newcommand{\op}[1]{\mathop{\mathrm{#1}}\nolimits}
+\newcommand{\comb}[1]{\mathbf{#1}}
+\newcommand{\combop}[1]{\mathop{\mathbf{#1}}\nolimits}
+\newcommand{\typstar}{\mathord{\star}}
+\newcommand{\typsq}{\mathord{\square}}
+\newcommand{\textem}[1]{\textbf{\textgt{#1}}}
+\newcommand{\mathscr}[1]{\mathcal{#1}}
+\newcommand{\fl}[1]{}
+\newcommand{\fcdots}{\mathord{\cdots}}
+\newcommand{\ats}{\,}
+\newcommand{\coloneqq}{\mathrel{:=}}
+\newcommand{\fwland}{\,\mathbin{\text{\textsc{and}}}\,}
+\newcommand{\fwlor}{\,\mathbin{\text{\textsc{or}}}\,}
+\newcommand{\fLongleftrightarrow}{\,\Longleftrightarrow\,}
+\newcommand{\fLongrightarrow}{\,\Longrightarrow\,}
+\newcommand{\llbracket}{[\![}
+\newcommand{\rrbracket}{]\!]}
+\theoremstyle{definition}
+\newtheorem{theo}{定理}
+\newtheorem{defi}[theo]{定義}
+\newtheorem{prop}[theo]{命題}
+
+\begin{document}
+
+
+\Chapter{ラムダ計算と述語論理 (後藤)} 
+
+\Section{初めに}
+
+何らかの論理体系においてある命題 $ \varPhi $ が真であるする．
+するとしばしば，適当なラムダ計算の型付け体系が存在して，その型付け体系で $ \varPhi $ を何らかの型だと解釈でき，$ \varPhi $ を型にもつ項 $ M $ が存在することが示せる．
+このとき，その $ M $ は命題としての $ \varPhi $ の証明と対応する．
+このような論理とラムダ計算との対応はCurry-Howard対応と言われ，論理学と計算機科学を結びつけるものとして非常に重要である．
+このノートでは述語論理を取り上げ，型付きラムダ計算との対応を証明する．
+
+\Section{型付きラムダ計算}
+
+ここでは，型付きラムダ計算の体系として $ \lam \mathrm{P2} $ と呼ばれるものを扱う．
+通常の単純型付きラムダ計算 $ \lam \mathord{\to} $ では初めから項と型を区別するが，ここで扱う $ \lam \mathrm{P2} $ では項と型を区別せず扱い，型付け規則によって何が項で何が型であるかを決めるという方針をとる．
+
+\begin{defi}
+可算集合 $ \op{Var} $ を固定し，その元を\index{へんこう@変項}\textem{変項\fl{variable}}という．
+\end{defi}
+
+\begin{defi}
+変項以外に記号 $ \typstar,\ats \typsq $ を用意し，これを\index{そーと@ソート}\textem{ソート\fl{sort}}という．
+\end{defi}
+
+\begin{defi}
+集合 $ \op{Term} $ を以下によって再帰的に定義する．
+\begin{align*}
+x \in \op{Var} & \fLongrightarrow x \in \op{Term} \\
+s \in \{ \typstar,\ats \typsq \} & \fLongrightarrow s \in \op{Term} \\
+M, N \in \op{Term} & \fLongrightarrow (MN) \in \op{Term} \\
+A, M \in \op{Term} \fwland x \in \op{Var} & \fLongrightarrow (\lam x \ocl\, A.\, M) \in \op{Term} \\
+A, B \in \op{Term} \fwland x \in \op{Var} & \fLongrightarrow (\Pi x \ocl\, A.\, B) \in \op{Term}
+\end{align*}
+このとき，$ \op{Term} $ の元を\index{ぎこう@擬項}\textem{擬項\fl{pseudoterm}}という．
+\end{defi}
+
+以降，$ \alpha $-変換(束縛変数の変換)で移り合う擬項は同一視する．
+
+\begin{defi}
+変項 $ x $ と擬項 $ A $ に対し，記号 $ x \ocl\, A $ を\index{かたせんげん@型宣言}\textem{型宣言\fl{type declaration}}という．
+\end{defi}
+
+\begin{defi}
+型宣言の列 $ \varGamma = \langle x _1 \ocl\, A _1,\ats \cdots,\ats x _n \ocl\, A _n \rangle $ を\textem{型環境\fl{type context}}という．
+\end{defi}
+
+型環境は型宣言の列であって集合ではない．
+したがって，重複した要素をもっている場合，それを1つにまとめたものとは異なる型環境であるとする．
+さらに，要素の順番を入れ替えたものも異なる型環境であるとする．
+例えば，$ \langle x \ocl\, A,\ats x \ocl\, A \rangle \ne \langle x \ocl\, A \rangle $ および $ \langle x \ocl\, A,\ats y \ocl\, B \rangle \ne \langle y \ocl\, B,\ats x \ocl\, A \rangle $ である．
+ただし，便宜上しばしば集合と同じように扱うことがある．
+例えば，2つの型環境 $ \varGamma,\ats \varGamma' $ に対して，$ \varGamma \cup \varGamma' $ と書いて $ \varGamma $ の後に $ \varGamma' $ の要素を順番をそのままに付け加えた型環境を表す．
+
+\begin{defi}
+型環境 $ \varGamma $ と擬項 $ M,\ats A $ に対し，記号 $ \varGamma \vdash _{\lam \mathrm{P2}} M \ocl\, A $ を以下の7個の推論規則に従って定める．
+\begin{gather*}
+\prftree[r]{\scriptsize{}Axiom}
+{\vdash \typstar \ocl\, \typsq} \\
+\prftree[r]{\scriptsize{}Start}
+{\varGamma \vdash A \ocl\, s}
+{\varGamma \cup \langle x \ocl\, A \rangle \vdash x \ocl\, A} \\
+\prftree[r]{\scriptsize{}Weak}
+{\varGamma \vdash M \ocl\, A}
+{\varGamma \vdash B \ocl\, s}
+{\varGamma \cup \langle x \ocl\, B \rangle \vdash M \ocl\, A} \\
+\prftree[r]{\scriptsize{}App}
+{\varGamma \vdash M \ocl\, (\Pi x \ocl\, A.\, B)}
+{\varGamma \vdash N \ocl\, A}
+{\varGamma \vdash MN \ocl\, B [x \coloneqq N]} \\
+\prftree[r]{\scriptsize{}Abs}
+{\varGamma \cup \langle x \ocl\, A \rangle \vdash M \ocl\, B}
+{\varGamma \vdash (\Pi x \ocl\, A.\, B) \ocl\, s}
+{\varGamma \vdash (\lam x \ocl\, A.\, M) \ocl\, (\Pi x \ocl\, A.\, B)} \\
+\prftree[r]{\scriptsize{}Prod}
+{\varGamma \vdash A \ocl\, s}
+{\varGamma \cup \langle x \ocl\, A \rangle \vdash B \ocl\, s'}
+{\varGamma \vdash (\Pi x \ocl\, A.\, B) \ocl\, s'} \\
+\prftree[r]{\scriptsize{}Conv}
+{\varGamma \vdash M \ocl\, A}
+{\varGamma \vdash A' \ocl\, s}
+{A = _\beta A'}
+{\varGamma \vdash M \ocl\, A'}
+\end{gather*}
+なお，$ \varGamma \cup \langle x \ocl\, A \rangle $ などと書かれている箇所において，$ x $ は $ \varGamma $ の要素に含まれていないものとする．
+また，$ s $ は任意のソートを表すが，規則 $ \op{Prod} $ においては，
+\begin{gather*}
+(s,\ats s') \in \{ (\typstar,\ats \typstar),\ats (\typsq,\ats \typstar),\ats (\typstar,\ats \typsq) \}
+\end{gather*}
+とする\footnotemark{}．
+\end{defi}
+\footnotetext{規則 $ \op{Prod} $ において $ (s,\ats s') = (\typstar,\ats \typsq) $ の場合を除いたものは $ \lam 2 $ もしくはSystem Fと呼ばれ，Haskellに代表される多くの関数型プログラミング言語の基盤となっている．
+また，規則 $ \op{Prod} $ に $ (s,\ats s') = (\typsq,\ats \typsq) $ の場合をさらに加えたものは $ \lam \mathrm{C} $ もしくはcalculus of constructionsと呼ばれ，これをさらに拡張したものはCoqの型システムとして用いられている．
+このように，規則 $ \op{Prod} $ でどのような $ (s,\ats s') $ のパターンを許すかによって様々な型付け規則が定まる．}
+
+\begin{defi}
+擬項 $ M,\ats A $ に対し，ある型環境 $ \varGamma $ が存在して $ \varGamma \vdash _{\lam \mathrm{P2}} M \ocl\, A $ が成り立つとする．
+このとき，$ M $ を\index{こう@項}\textem{項\fl{term}}といい，$ A $ を\index{かた@型}\textem{型\fl{type}}という．
+\end{defi}
+
+この型付け規則は以下に述べるように単純型の規則の拡張になっている．
+
+\begin{defi}
+擬項 $ A,\ats B $ に対し，
+\begin{gather*}
+A \bto B \equiv \Pi t \ocl\, A.\, B
+\end{gather*}
+と書く．
+ただし，$ t $ は $ t \notin \op{FV} (B) $ を満たす変項とする．
+\end{defi}
+
+このように定義すると，規則 $ \op{App} $ によって，
+\begin{gather*}
+\prftree[r]{\scriptsize{}App}
+{\varGamma \vdash M \ocl\, (A \bto B)}
+{\varGamma \vdash N \ocl\, A}
+{\varGamma \vdash MN \ocl\, B}
+\end{gather*}
+が成立し，規則 $ \op{Abs} $ によって，
+\begin{gather*}
+\prftree[r]{\scriptsize{}Abs}
+{\varGamma \cup \langle x \ocl\, A \rangle \vdash M \ocl\, (A \bto B)}
+{\varGamma \vdash (A \bto B) \ocl\, \typstar}
+{\varGamma \vdash (\lam x \ocl\, A.\, M) \ocl\, (A \bto B)}
+\end{gather*}
+が成立する．
+さらに，$ x \notin \op{FV} (B) $ なる適当な変項 $ x $ を選び，規則 $ \op{Prod} $ の $ (s,\ats s') = (\typstar,\ats \typstar) $ の場合を用いれば，
+\begin{gather*}
+\prftree[r]{\scriptsize{}Prod}
+{\varGamma \vdash A \ocl\, \typstar}
+{
+  \prftree[r]{\scriptsize{}Weak}
+  {\varGamma \vdash B \ocl\, \typstar}
+  {\varGamma \vdash A \ocl\, \typstar}
+  {\varGamma \cup \langle x \ocl\, A \rangle \vdash B \ocl\, \typstar}
+}
+{\varGamma \vdash (A \bto B) \ocl\, \typstar}
+\end{gather*}
+が成立する．
+以上により，$ \varGamma \vdash A \ocl\, \typstar $ が成り立つとき $ A $ を(単純型付きラムダ計算における)型だと考えれば，単純型には全て $ \star $ の型をつけることができ，単純型の型付け規則をそのまま行うことができる．
+
+さて，規則 $ \op{Prod} $ について少し補足をしておく．
+まず，$ (s,\ats s') = (\typstar,\ats \typstar) $ の場合は，すでに述べたように単純型を構成するのに用いられる．
+例えば，
+\begin{align}
+\alpha \ocl\, \typstar & \vdash _{\lam \mathrm{P2}} (\alpha \bto \alpha) \ocl\, \typstar \label{lamto1} \\
+\alpha \ocl\, \typstar & \vdash _{\lam \mathrm{P2}} (\lam x \ocl\, \alpha.\, x) \ocl\, (\alpha \bto \alpha) \label{lamto2} \\
+\alpha \ocl\, \typstar,\ats \beta \ocl\, \typstar,\ats y \ocl\, \beta,\ats z \ocl\, \alpha & \vdash _{\lam \mathrm{P2}} ((\lam x \ocl\, \alpha.\, y) z) \ocl\, \beta \notag \\
+\alpha \ocl\, \typstar,\ats \beta \ocl\, \typstar & \vdash _{\lam \mathrm{P2}} (\lam x \ocl\, \alpha.\, \lam y \ocl\, (\alpha \bto \beta).\, yx) \ocl\, (\alpha \bto (\alpha \bto \beta) \bto \beta) \notag
+\end{align}
+などが成り立つ．
+
+$ (s,\ats s') = (\typsq,\ats \typstar) $ の場合は，型に関する量化をするために用いられる．
+例えば，式\ref{lamto1}と規則 $ \op{Prod} $ を用いることで，
+\begin{gather*}
+\vdash _{\lam \mathrm{P2}} (\Pi \alpha \ocl\, \typstar.\, \alpha \bto \alpha) \ocl\, \typstar \label{quanttype}
+\end{gather*}
+が得られる．
+これと式\ref{lamto2}を合わせれば，規則 $ \op{Abs} $ によって，
+\begin{gather*}
+\vdash _{\lam \mathrm{P2}} (\lam \alpha \ocl\, \typstar.\, \lam x \ocl\, \alpha.\, x) \ocl\, (\Pi \alpha \ocl\, \typstar.\, \alpha \bto \alpha) 
+\end{gather*}
+が導出できる．
+ここで出てくる $ \lam \alpha \ocl\, \typstar.\, \lam x \ocl\, \alpha.\, x $ は，型 $ \alpha $ を引数にとって $ \alpha $ 上の恒等関数を返す項である．
+これは単純型付き計算の範囲では成立し得ない項である．
+
+$ (s,\ats s') = (\typstar,\ats \typsq) $ の場合は，いわゆる依存型を構成するために用いられる． 
+これにより，例えば，
+\begin{gather*}
+\alpha \ocl\, \typstar \vdash _{\lam \mathrm{P2}} (\alpha \bto \typstar) \ocl\, \typsq
+\end{gather*}
+が成り立つので，
+\begin{gather*}
+\alpha \ocl\, \typstar,\ats p \ocl\, (\alpha \bto \typstar),\ats x \ocl\, \alpha \vdash _{\lam \mathrm{P2}} px \ocl\, \typstar
+\end{gather*}
+が得られる．
+依存型の解釈は様々あるが，ここではこのノートのテーマである型と命題の関係に注目する．
+まず，$ \typstar $ は命題と集合を同時に表す型であると考える．
+すると，$ \alpha \olc\, \typstar $ は $ \alpha $ が何らかの集合であることを宣言していると見なせる．
+さらに，$ \alpha \bto \typstar $ は $ \alpha $ の元を受け取り命題を返す型であると考えられる．
+すなわち，それは $ \alpha $ 上の述語である．
+したがって，$ p \ocl\, (\alpha \bto \typstar) $ によって $ p  $ は $ \alpha $ 上の述語だと宣言されている．
+最後に，$ x \ocl\, \alpha $ によって $ x $ は $ \alpha $ の元だと宣言されている．
+上に示した式は，これらの宣言のもとで $ px $ は1つの命題だということを述べている．
+
+別の例として，
+\begin{gather*}
+\alpha \ocl\, \typstar,\ats p \ocl\, (\alpha \bto \typstar),\ats x \ocl\, \alpha \vdash _{\lam \mathrm{P2}} (\Pi x \ocl\, \alpha.\, px \bto px) \ocl\, \typstar
+\end{gather*}
+を挙げておく．
+$ \Pi x \ocl\, \alpha $ を $ x $ に関する全称量化だと考えることにする．
+すると，上の式は，集合 $ \alpha $ とその上の述語 $ p $ について，任意の $ \alpha $ の元 $ x $ に対し $ px $ ならば $ px $ が成り立つという主張は1つの命題であることを述べている．
+この命題は真であるが，実は，
+\begin{gather*}
+\alpha \ocl\, \typstar,\ats p \ocl\, (\alpha \bto \typstar),\ats x \ocl\, \alpha \vdash _{\lam \mathrm{P2}} (\lam x \ocl\, \alpha.\, \lam y \ocl\, pa.\, x) \ocl\, (\Pi x \ocl\, \alpha.\, px \bto px)
+\end{gather*}
+が成り立つので，$ \Pi x \ocl\, \alpha.\, px \bto px $ を型とする項が存在する．
+このノートの目標は，上の例のように，型を命題だと解釈したとき，その命題が真ならばその型をもつ項が実際に存在することを示すことである．
+
+$ \lam \mathrm{P2} $ の詳しい性質についてはここでは省略する．
+適宜，Barendregt\cite{blct}の5章もしくはHindley\cite{jrh}の13章を参照してほしい．
+
+\Section{多類述語論理}
+
+ここでは，述語論理に型 (ここでは類と呼ばれる) の概念を加えた多類述語論理について考える．
+これは，以下のように定式化される．
+
+\begin{defi}
+空でない有限集合 $ \op{Sort} $ を用意し，その元を\index{るい@類}\textem{類\fl{sort}}という．
+\end{defi}
+
+\begin{defi}
+有限集合 $ \op{Pred} $ を用意し，その元を\index{じゅつご@述語}\textem{述語\fl{predicate}}という．
+それぞれの述語 $ P $ に対し，記号 $ A _1 \times \fcdots \times A _n $ を結び付け，この記号を $ P $ の\index{ありてぃ@アリティ}\textem{アリティ\fl{arity}}という．
+\end{defi}
+
+\begin{defi}
+有限集合 $ \op{Fun} $ を用意し，その元を\index{かんすう@関数}\textem{関数\fl{function}}という．
+それぞれの関数 $ f $ に対し，記号 $ A _1 \times \fcdots \times A _n \to A $ を結びつけ，この記号を $ f $ の\index{ありてぃ@アリティ}\textem{アリティ\fl{arity}}という．
+\end{defi}
+
+\begin{defi}
+有限集合 $ \op{Con} $ を用意し，その元を\index{ていすう@定数}\textem{定数\fl{constant}}という．
+それぞれの定数 $ c $ に対し，類 $ A $ を1つ結びつける．
+\end{defi}
+
+\begin{defi}
+可算集合 $ \op{Var} $ を用意し，その元を\index{へんすう@変数}\textem{変数\fl{variable}}という．
+それぞれの変数 $ x $ に対し，類 $ A $ を1つ結びつける．
+なお，各類 $ A $ に対し，$ A $ と結び付けられた変数が可算個存在するようにしておく．
+\end{defi}
+
+\begin{defi}
+類,\ats{}述語,\ats{}関数,\ats{}定数,\ats{}変数から成る集合の組 $ \mathscr{S} = (\op{Sort},\ats \op{Pred},\ats \op{Fun},\ats \op{Con},\ats \op{Var}) $ を\index{たるいこうぞう@多類構造}\textem{多類構造\fl{many sorted structure}}という．
+\end{defi}
+
+なお，$ \op{Pred},\ats \op{Fun},\ats \op{Con},\ats \op{Var} $ の右下にアリティや類を明記することで，そのアリティや類をもつもの全体の集合を表すことにする．
+例えば，$ \op{Fun} _{ A _1 \times \fcdots \times A _n \to A} $ はアリティ $  A _1 \times \fcdots \times A _n \to A $ をもつ関数全体の集合を表し，$ \op{Con} _A $ は類 $ A $ をもつ定数全体の集合を表す．
+
+さらに，述語,\ats{}関数,\ats{}定数,\ats{}変数の右上にアリティや類を書くことで，それがそのアリティや類と結び付けられていることを示すことがある．
+例えば，述語 $ p $ に対して $ p ^{A _1 \times \fcdots \times A _n} $ と書くことで，$ p $ のアリティが $ A _1 \times \fcdots \times A _n $ であることを明示する．
+
+\begin{defi}
+多類構造 $ \mathscr{S} $ をとる．
+各類 $ A $ に対し，集合 $ \op{Term} _A $ を以下によって再帰的に定義する．
+\begin{align*}
+x \in \op{Var} _A & \fLongrightarrow x \in \op{Term} _A \\
+c \in \op{Con} _A & \fLongrightarrow c \in \op{Term} _A \\
+f \in \op{Fun} _{A _1 \times \cdots \times A _n \to A} \fwland T _i \in \op{Term} _{A _i} & \fLongrightarrow (f T _1 \cdots T _n) \in \op{Term} _A
+\end{align*}
+このとき，$ \op{Term} _A $ の元を $ A $ の\index{ろんりこう@論理項}\textem{論理項\fl{term}}という．
+\end{defi}
+
+\begin{defi}
+多類構造 $ \mathscr{S} $ をとる．
+集合 $ \op{Form} $ を以下によって再帰的に定義する．
+\begin{align*}
+& \hphantom{{} \fLongrightarrow {}} \bot \in \op{Form} \\
+p \in \op{Pred} _{A _1 \times \cdots \times A _n} \fwland T _i \in \op{Term} _{A _i} & \fLongrightarrow (p T _1 \cdots T _n) \in \op{Form} \\
+\varPhi \in \op{Form} & \fLongrightarrow (\lnot \varPhi) \in \op{Form} \\
+\varPhi, \varPsi \in \op{Form} & \fLongrightarrow (\varPhi \bto \varPsi) \in \op{Form} \\
+\varPhi, \varPsi \in \op{Form} & \fLongrightarrow (\varPhi \land \varPsi) \in \op{Form} \\
+\varPhi, \varPsi \in \op{Form} & \fLongrightarrow (\varPhi \lor \varPsi) \in \op{Form} \\
+\varPhi \in \op{Form} \fwland x \in \op{Var} _A & \fLongrightarrow (\forall x \ocl\, A.\, \varPhi) \in \op{Form} \\
+\varPhi \in \op{Form} \fwland x \in \op{Var} _A & \fLongrightarrow (\exists x \ocl\, A.\, \varPhi) \in \op{Form}
+\end{align*}
+このとき，$ \op{Form} $ の元を\index{ろんりしき@論理式}\textem{論理式\fl{formula}}という．
+\end{defi}
+
+以降，$ \alpha $-変換(束縛変数の変換)で移り合う論理式は同一視する．
+
+多類構造 $ \mathscr{H} $ を，
+\begin{align*}
+\op{Sort} & = \{ \comb{N} \} \\
+\op{Pred} & = \{ \combop{eq} ^{\comb{N} \times \comb{N}} \} \\
+\op{Fun} & = \{ \comb{s} ^{\comb{N} \to \comb{N}},\ats \combop{plus} ^{\comb{N} \times \comb{N} \to \comb{N}} \} \\
+\op{Con} & = \{ \comb{0} ^{\comb{N}} \}
+\end{align*}
+によって定義すると，これによってHeyting算術を行うことができる．
+この設定のもとでは，例えば，
+\begin{gather*}
+\forall x \ocl\, \comb{N}.\, \forall y \ocl\, \comb{N}.\, (\combop{eq} (\comb{s} x) (\comb{s} y)) \bto (\combop{eq} xy) \\
+\forall x \ocl\, \comb{N}.\, {\combop{eq} (\combop{plus} x \comb{0}) x} \\
+\forall x \ocl\, \comb{N}.\, \forall y \ocl\, \comb{N}.\, \combop{eq} (\combop{plus} x (\comb{s} y)) (\comb{s} (\combop{plus} x y))
+\end{gather*}
+は正しい論理式である．
+これはHeyting算術の公理の一部を表している．
+
+\begin{defi} \label{mspl}
+多類構造 $ \mathscr{S} $ をとる．
+論理式の集合 $ \varDelta $ と論理式 $ \varPhi $ に対し，$ \varDelta $ から $ \varPhi $ が導出できることを $ \varDelta \vdash _{\mathscr{S}} \varPhi $ と書く．
+これは，後の定義\ref{all}で定められる記号 $ M \cl\ats \varDelta \vdash _{\mathscr{S}} \varPhi $ から $ M $ を無視したものと全く同じであるため，ここでは省略する．
+この論理体系を，$ \mathscr{S} $ が定める\textem{多類述語論理\fl{many sorted predicate logic}}という．
+\end{defi}
+
+上の定義には二重否定除去則が含まれないことに注意すること．
+ラムダ計算と対応するのは直観主義論理であり，古典論理とは綺麗に対応しない．
+
+\Section{述語論理とラムダ計算の関係}
+
+\Subsection{論理と型の対応}
+
+初めに，多類述語論理の論理式をラムダ計算の擬項として解釈する枠組みを定める．
+
+\begin{defi}
+ラムダ計算の擬項 $ \varPhi,\ats \varPsi $ に対し，
+\begin{align*}
+\bot & \equiv \Pi \theta \ocl\, \typstar.\, \theta \\
+\lnot \varPhi & \equiv \varPhi \bto \bot \\
+\varPhi \bto \varPsi & \equiv \Pi t \ocl\, \varPhi.\, \varPsi \\
+\varPhi \land \varPsi & \equiv \Pi \theta \ocl\, \typstar.\, (\varPhi \bto \varPsi \bto \theta) \bto \theta \\
+\varPhi \lor \varPsi & \equiv \Pi \theta \ocl\, \typstar.\, (\varPhi \bto \theta) \bto (\varPsi \bto \theta) \bto \theta \\
+\forall x \ocl\, A.\, \varPhi & \equiv \Pi x \ocl\, A.\, \varPhi \\
+\exists x \ocl\, A.\, \varPhi & \equiv \Pi \theta \ocl\, \typstar.\, (\Pi x \ocl\, A.\, \varPhi \bto \theta) \bto \theta
+\end{align*}
+と定める．
+なお，$ t $ は $ t \notin \op{FV} (\varPsi) $ を満たす変項とする．
+\end{defi}
+
+この定義により，多類構造の $ \op{Sort},\ats \op{Pred},\ats \op{Fun},\ats \op{Con},\ats \op{Var} $ をラムダ計算の $ \op{Var} $ の部分集合としてとっておけば，多種述語論理の項や式は全てラムダ計算の擬項で表現される．
+以降，多類述語論理の論理項や論理式とラムダ計算の擬項は特に区別しない．
+
+\Subsection{標準環境}
+
+多類述語論理では，初めから使える定数が多類構造として定まっている．
+例えば，Heyting算術を定める多類構造 $ \mathscr{H} $ では，述語として $ \comb{eq} $ が使え，関数として $ \comb{s} $ や $ \comb{plus} $ が使える．
+しかし，ラムダ計算ではそのような初めから使える定数はないので，型を導く前提条件すなわち型環境として，多類構造をラムダ計算に落とし込む必要がある．
+
+\begin{defi}
+多類構造 $ \mathscr{S} $ に対し，
+\begin{align*}
+\llbracket \mathscr{S} \rrbracket _{\op{Sort}} & = \langle A \ocl\, \typstar \mid A \in \op{Sort} \rangle \\
+\llbracket \mathscr{S} \rrbracket _{\op{Pred}} & = \langle p \ocl\, (A _1 \bto \cdots \bto A _n \bto \typstar) \mid p ^{A _1 \times \cdots \times A _n} \in \op{Pred} \rangle \\
+\llbracket \mathscr{S} \rrbracket _{\op{Fun}} & = \langle f \ocl\, (A _1 \bto \cdots \bto A _n \bto A) \mid f ^{A _1 \times \cdots \times A _n \bto A} \in \op{Fun} \rangle \\
+\llbracket \mathscr{S} \rrbracket _{\op{Con}} & = \langle c \ocl\, A \mid c ^A \in \op{Con} \rangle
+\end{align*}
+とおき，
+\begin{gather*}
+\llbracket \mathscr{S} \rrbracket = \llbracket \mathscr{S} \rrbracket _{\op{Sort}} \cup \llbracket \mathscr{S} \rrbracket _{\op{Pred}} \cup \llbracket \mathscr{S} \rrbracket _{\op{Fun}} \cup \llbracket \mathscr{S} \rrbracket _{\op{Con}}
+\end{gather*}
+と定義する．
+$ \llbracket \mathscr{S} \rrbracket $ を $ \mathscr{S} $ の\index{ひょうじゅんかんきょう@標準環境}\textem{標準環境\fl{canonical context}}という．
+\end{defi}
+
+なお，$ \llbracket \mathscr{S} \rrbracket _{\op{Sort}},\ats \llbracket \mathscr{S} \rrbracket _{\op{Pred}},\ats \llbracket \mathscr{S} \rrbracket _{\op{Fun}},\ats \llbracket \mathscr{S} \rrbracket _{\op{Con}} $ それぞれにおいて，その元の順序は任意にとって良い．
+実際，例えば $ \llbracket \mathscr{S} \rrbracket _{\op{Sort}} $ と $ \llbracket \mathscr{S} \rrbracket' _{\op{Sort}} $ を異なる順序を入れた型環境とすると，
+\begin{gather*}
+\llbracket \mathscr{S} \rrbracket _{\op{Sort}} \vdash _{\lam \mathrm{P2}} M \ocl\, A \fLongleftrightarrow \llbracket \mathscr{S} \rrbracket' _{\op{Sort}} \vdash _{\lam \mathrm{P2}} M \ocl\, A
+\end{gather*}
+が成り立つから，順序を気にする必要はない．
+
+例として，Heyting代数に対応する多類構造 $ \mathscr{H} $ については，
+\begin{gather*}
+\llbracket \mathscr{H} \rrbracket = \langle \comb{N} \ocl\, \typstar,\ats \comb{eq} \ocl\, (\comb{N} \bto \comb{N} \bto \typstar),\ats \comb{s} \ocl\, (\comb{N} \bto \comb{N}),\ats \comb{plus} \ocl\, (\comb{N} \bto \comb{N} \bto \comb{N}),\ats \comb{0} \ocl\, \comb{N} \rangle
+\end{gather*}
+となる．
+$ \typstar $ が命題を表す型と考えれば，この定義は妥当であろう．
+
+次に，多類述語論理での論理式の導出の前提を型環境として解釈する．
+そのために，論理式 $ \varPhi $ それぞれに対して記号 $ k _\varPhi $ を1つ新しくとって固定し，ラムダ計算の変項に加える．
+型環境として $ k _\varPhi \ocl\, \varPhi $ を与えることで，$ \varPhi $ を型にもつ項を強制的に作ることができるので，$ \varPhi $ が真だと仮定したことになる．
+なお，$ k _\varPhi $ たちはラムダ項に含めることができるが，議論を簡単にするため，以降単にラムダ計算の変項と言った場合は，ここで固定した $ k _\varPhi $ たちとは異なるものであるとする．
+
+\begin{defi}
+多類構造 $ \mathscr{S} $ における式の集合 $ \varDelta = \{ \varPhi _1,\ats \fcdots,\ats \varPhi _n \} $ に対し，
+\begin{gather*}
+\llbracket \varDelta \rrbracket = \langle k _{\varPhi _1} \ocl\, \varPhi _1,\ats \fcdots,\ats k _{\varPhi _n} \ocl\, \varPhi _n \rangle
+\end{gather*}
+と定義する．
+$ \llbracket \varDelta \rrbracket $ を $ \varDelta $ の\index{ひょうじゅんかんきょう@標準環境}\textem{標準環境\fl{canonical context}}という．
+\end{defi}
+
+$ \llbracket \varDelta \rrbracket $ の元の順序は問題にならないので，任意にとって良い．
+
+さて，多類構造 $ \mathscr{S} $ が定める多類述語論理において
+\begin{gather}
+\varDelta \vdash _{\mathscr{S}} \varPhi \label{deltaphi}
+\end{gather}
+が証明できるならば，あるラムダ項 $ M $ によって
+\begin{gather*}
+\llbracket \mathscr{S} \rrbracket \cup \llbracket \varDelta \rrbracket \vdash _{\lam \mathrm{P2}} M \ocl\, \varPhi
+\end{gather*}
+が成り立つことを主張したいのであるが，$ \varPhi $ には $ \forall $ や $ \exists $ で束縛されていない変数が含まれている場合があるので，これは一般には正しくない．
+例えば，Heyting代数を表す多類構造 $ \mathscr{H} $ において，
+\begin{gather*}
+\vdash _{\mathscr{H}} (\forall x \ocl\, \comb{N}.\, \forall y \ocl\, \comb{N}.\, \combop{eq} x ^{\comb{N}} y ^{\comb{N}}) \bto \combop{eq} z ^{\comb{N}} z ^{\comb{N}}
+\end{gather*}
+が成り立つが，ここには自由変数として $ z ^{\comb{N}} $ が含まれている．
+一方ラムダ計算では，型付けられた擬項に含まれる自由変項は必ず型環境に含まれていなければならないので，
+\begin{gather*}
+\llbracket \mathscr{H} \rrbracket \vdash _{\lam \mathrm{P2}} M \ocl\, ((\forall x \ocl\, \comb{N}.\, \forall y \ocl\, \comb{N}.\, \combop{eq} x ^{\comb{N}} y ^{\comb{N}}) \bto \combop{eq} z ^{\comb{N}} z ^{\comb{N}})
+\end{gather*}
+が成り立つなら $ z \ocl\, \comb{N} $ が $ \llbracket \mathscr{H} \rrbracket $ に属しているはずだが，これは正しくない．
+
+以上により，主張を弱めて，式\ref{deltaphi}が成り立つときに，ある型環境 $ \varGamma $ とラムダ項 $ M $ が存在して，
+\begin{gather}
+\llbracket \mathscr{S} \rrbracket \cup \varGamma \cup \llbracket \varDelta \rrbracket \vdash _{\lam \mathrm{P2}} M \ocl\, \varPhi \label{gammaphi}
+\end{gather}
+が成り立つということを主張するのだが，$ \varGamma $ に何の制約も課さないとこれは自明である．
+実際，適当な変項 $ k $ をとって $ k \ocl\, \varPhi $ を $ \varGamma $ に加えてしまえば，$ M \equiv k $ として上の主張が成り立つ．
+$ \varGamma $ が必要になるのは $ \varPhi $ に含まれる変数が原因なのだから，$ \varGamma $ には多類構造の変数に関する型宣言のみを許すことにする．
+
+\begin{defi}
+多類構造 $ \mathscr{S} $ と型環境 $ \varGamma $ をとる．
+$ \varGamma $ に属する任意の型宣言 $ x \ocl\, A $ に対して $ A $ が類であるとき，$ \varGamma $ を\index{へんすうかんきょう@変数環境}\textem{変数環境\fl{variable context}}という．
+\end{defi}
+
+我々の主張は，式\ref{deltaphi}が成り立つときに，ある変数環境 $ \varGamma $ とラムダ項 $ M $ が存在して式\ref{gammaphi}が成り立つことである．
+
+\Subsection{Curry-Howard対応}
+
+まずは，多類構造の論理項と論理式が正しく型付けられることを示す．
+
+\begin{prop}
+多類構造 $ \mathscr{S} $ をとる．
+類 $ A $ をもつ論理項 $ T $ に対し，変数環境 $ \varGamma $ が存在して，
+\begin{gather*}
+\llbracket \mathscr{S} \rrbracket \cup \varGamma \vdash _{\lam \mathrm{P2}} T \ocl\, A \\
+\op{FV} (\varGamma) \subseteq \op{FV} (T)
+\end{gather*}
+が成り立つ．
+\end{prop}
+
+\begin{prop} 
+多類構造 $ \mathscr{S} $ をとる．
+論理式 $ \varPhi $ に対し，変数環境 $ \varGamma $ が存在して，
+\begin{gather*}
+\llbracket \mathscr{S} \rrbracket \cup \varGamma \vdash _{\lam \mathrm{P2}} \varPhi \ocl\, \typstar \\
+\op{FV} (\varGamma) \subseteq \op{FV} (\varPhi)
+\end{gather*}
+が成り立つ．
+\end{prop}
+
+$ T $ および $ \varPhi $ の構造に関する帰納法により，どちらも容易に証明ができる．
+
+さて，多類述語論理における証明とラムダ計算における項が対応するわけだが，その対応する項を決定するために，論理式の導出過程を表現している擬項を注釈として付随させる．
+
+\begin{defi} \label{all}
+多類構造 $ \mathscr{S} $ をとる．
+式の集合 $ \varDelta $ と式 $ \varPhi $ と擬項 $ M $ に対し，記号 $ M \cl\ats \varDelta \vdash _{\mathscr{S}} \varPhi $ を以下の推論規則に従って定める．
+\begin{gather*}
+\prftree[r]{\scriptsize{}Start}
+{\varPhi \in \varDelta}
+{k _\varPhi \cl\ats \varDelta \vdash \varPhi} \\
+\prftree[r]{\scriptsize{}Weak}
+{M \cl\, \varDelta \vdash \varPhi}
+{M \cl\, \varDelta \cup \{ \varPsi \} \vdash \varPhi} \\
+\prftree[r]{\scriptsize$ \bot \mathrm{E} $}
+{M \cl\ats \varDelta \vdash \bot}
+{M \varPhi \cl\ats \varDelta \vdash \varPhi} \\
+\prftree[r]{\scriptsize$ \mathord{\lnot} \mathrm{I} $}
+{M \cl\ats \varDelta \cup \{ \varPhi\} \vdash \bot}
+{(\lam k _\varPhi \ocl\, \varPhi.\, M) \cl\ats \varDelta \vdash \lnot \varPhi} \\
+\prftree[r]{\scriptsize$ \mathord{\lnot} \mathrm{E} $}
+{M \cl\ats \varDelta \vdash \varPhi}
+{N \cl\ats \varDelta \vdash \lnot \varPhi}
+{NM \cl\ats \varDelta \vdash \bot} \\
+\prftree[r]{\scriptsize$ \mathord{\to} \mathrm{I} $}
+{M \cl\ats \varDelta \cup \{ \varPhi \} \vdash \varPsi}
+{(\lam k _\varPhi \cl \varPhi.\, M) \cl\ats \varDelta \vdash \varPhi \bto \varPsi} \\
+\prftree[r]{\scriptsize$ \mathord{\to} \mathrm{E} $}
+{M \cl\ats \varDelta \vdash \varPhi \bto \varPsi}
+{N \cl\ats \varDelta \vdash \varPhi}
+{MN \cl\ats \varDelta \vdash \varPsi} \\
+\prftree[r]{\scriptsize$ \mathord{\land} \mathrm{I} $}
+{M \cl\ats \varDelta \vdash \varPhi}
+{N \cl\ats \varDelta \vdash \varPsi}
+{(\lam \theta \ocl\, \typstar.\, \lam u \ocl\, (\varPhi \bto \varPsi \bto \theta).\, uMN) \cl\ats \varDelta \vdash \varPhi \land \varPsi} \\
+\prftree[r]{\scriptsize$ \mathord{\land} \mathrm{E} _1 $}
+{M \cl\ats \varDelta \vdash \varPhi \land \varPsi}
+{(M \varPhi (\lam u \ocl\, \varPhi.\, \lam v \ocl\, \varPsi.\, u)) \cl\ats \varDelta \vdash \varPhi} \\
+\prftree[r]{\scriptsize$ \mathord{\land} \mathrm{E} _2 $}
+{M \cl\ats \varDelta \vdash \varPhi \land \varPsi}
+{(M \varPsi (\lam u \ocl\, \varPhi.\, \lam v \ocl\, \varPsi.\, v)) \cl\ats \varDelta \vdash \varPsi} \\
+\prftree[r]{\scriptsize$ \mathord{\lor} \mathrm{I} _1 $}
+{M \cl\ats \varDelta \vdash \varPhi}
+{(\lam \theta \ocl\, \typstar.\, \lam u \ocl\, (\varPhi \bto \theta).\, \lam v \ocl\, (\varPsi \bto \theta).\, uM) \cl\ats \varDelta \vdash \varPhi \lor \varPsi} \\
+\prftree[r]{\scriptsize$ \mathord{\lor} \mathrm{I} _2 $}
+{M \cl\ats \varDelta \vdash \varPsi}
+{(\lam \theta \ocl\, \typstar.\, \lam u \ocl\, (\varPhi \bto \theta).\, \lam v \ocl\, (\varPsi \bto \theta).\, vM) \cl\ats \varDelta \vdash \varPhi \lor \varPsi} \\
+\prftree[r]{\scriptsize$ \mathord{\lor} \mathrm{E} $}
+{M \cl\ats \varDelta \vdash \varPhi \lor \varPsi}
+{N \cl\ats \varDelta \cup \{ \varPhi \} \vdash X}
+{P \cl\ats \varDelta \cup \{ \varPsi \} \vdash X}
+{(MX (\lam k _\varPhi \ocl\, \varPhi.\, N) (\lam k _\varPsi \ocl\, \varPsi.\, P)) \cl\ats \varDelta \vdash X} \\
+\prftree[r]{\scriptsize$ \mathord{\forall} \mathrm{I} $}
+{M \cl\ats \varDelta \vdash \varPhi}
+{(\lam x \ocl\, A.\, M) \cl\ats \varDelta \vdash \forall x \ocl\, A.\, \varPhi} \\
+\prftree[r]{\scriptsize$ \mathord{\forall} \mathrm{E} $}
+{M \cl\ats \varDelta \vdash \forall x \ocl\, A.\, \varPhi}
+{MT \cl\ats \varDelta \vdash \varPhi [x \coloneqq T]} \\
+\prftree[r]{\scriptsize$ \mathord{\exists} \mathrm{I} $}
+{M \cl\ats \varDelta \vdash \varPhi [x \coloneqq T]}
+{(\lam \theta \ocl\, \typstar.\, \lam u \ocl\, (\Pi x \ocl\, A.\, \varPhi \bto \theta).\, uTM) \cl\ats \varDelta \vdash \exists x \ocl\, A.\, \varPhi} \\
+\prftree[r]{\scriptsize$ \mathord{\exists} \mathrm{E} $}
+{M \cl\ats \varDelta \vdash \exists x \ocl\, A.\, \varPhi}
+{N \cl\ats \varDelta \cup \{ \varPhi [x \coloneqq y] \} \vdash \varPsi}
+{(M \varPsi (\lam y \ocl\, A.\, \lam k _\varPhi \ocl\, \varPhi.\, N)) \cl\ats \varDelta \vdash \varPsi}
+\end{gather*}
+なお，規則 $ \forall \mathrm{I} $ では $ x \notin \op{FV} (\varDelta) $ とし，規則 $ \exists \mathrm{E} $ では $ y \notin \op{FV} (\varDelta) \cup \op{FV} (\varPhi) \cup \op{FV} (\varPsi) $ とする．
+また，$ T $ は任意の項を表し，$ \varPhi [x \coloneqq T] $ において $ x $ と $ T $ に結びついた類は同じであるとする．
+\end{defi}
+
+ここで定義した $ M $ が，まさに多類述語論理の証明に対応するラムダ項なのである．
+
+\begin{theo} \label{curryhoward}
+多類構造 $ \mathscr{S} $ をとる．
+論理式の集合 $ \varDelta $ と論理式 $ \varPhi $ と擬項 $ M $ が
+\begin{gather*}
+M \cl\ats \varDelta \vdash _{\mathscr{S}} \varPhi 
+\end{gather*}
+を満たすならば，ある変数環境 $ \varGamma $ が存在して，
+\begin{gather*}
+\llbracket \mathscr{S} \rrbracket \cup \varGamma \cup \llbracket \varDelta \rrbracket \vdash _{\lam \mathrm{P2}} M \ocl\, \varPhi
+\end{gather*}
+が成り立つ．
+\end{theo}
+
+証明は概略のみを述べる．
+$ M \cl\ats \varDelta \vdash _{\mathscr{S}} \varPhi $ の導出に関する帰納法による．
+以下では1つの場合だけを取り扱うが，他の場合も同様にして示せる．
+
+$ M \cl\ats \varDelta \vdash _{\mathscr{S}} \varPhi $ が規則 $ \mathord{\lor} \mathrm{E} $ の帰結である場合．
+証明の最後のステップは，
+\begin{gather*}
+\prftree[r]{\scriptsize$ \mathord{\lor} \mathrm{E} $}
+{M \cl\ats \varDelta \vdash \varPhi \lor \varPsi}
+{N \cl\ats \varDelta \cup \{ \varPhi \} \vdash X}
+{P \cl\ats \varDelta \cup \{ \varPsi \} \vdash X}
+{(MX (\lam k _\varPhi \ocl\, \varPhi.\, N) (\lam k _\varPsi \ocl\, \varPsi.\, P)) \cl\ats \varDelta \vdash X}
+\end{gather*}
+となっている．
+帰納法の仮定は，
+\begin{align}
+\llbracket \mathscr{S} \rrbracket \cup \varGamma _1 \cup \llbracket \varDelta \rrbracket & \vdash _{\lam \mathrm{P2}} M \ocl\, (\varPhi \lor \varPsi) \label{orE1} \\
+\llbracket \mathscr{S} \rrbracket \cup \varGamma _2 \cup \llbracket \varDelta \rrbracket \cup \langle k _\varPhi \ocl\, \varPhi \rangle & \vdash _{\lam \mathrm{P2}} N \ocl\, X \label{orE2} \\
+\llbracket \mathscr{S} \rrbracket \cup \varGamma _3 \cup \llbracket \varDelta \rrbracket \cup \langle k _\varPsi \ocl\, \varPsi \rangle & \vdash _{\lam \mathrm{P2}} P \ocl\, X \label{orE3}
+\end{align}
+の3つであり，$ \varGamma _1,\ats \varGamma _2,\ats \varGamma _3 $ は全て変数環境である．
+
+まず，$ X $ は論理式なので，適当な変数環境 $ \varGamma _4 $ によって，
+\begin{gather*}
+\llbracket \mathscr{S} \rrbracket \cup \varGamma _4 \vdash _{\lam \mathrm{P2}} X \ocl\, \typstar
+\end{gather*}
+が成り立つ．
+これと式\ref{orE1}に規則 $ \op{App} $ を適用して，
+\begin{gather}
+\llbracket \mathscr{S} \rrbracket \cup \varGamma _1 \cup \varGamma _4 \cup \llbracket \varDelta \rrbracket \vdash _{\lam \mathrm{P2}} MX \ocl\, ((\varPhi \bto X) \bto (\varPsi \bto X) \bto X) \label{orE4}
+\end{gather}
+を得る．
+一方，$ \varPhi \bto X $ も論理式だから，ある変数環境 $ \varGamma _5 $ が存在して
+\begin{gather*}
+\llbracket \mathscr{S} \rrbracket \cup \varGamma _5 \vdash _{\lam \mathrm{P2}} (\varPhi \bto X) \ocl\, \typstar
+\end{gather*}
+が成り立つから，これと式\ref{orE2}に規則 $ \op{Abs} $ を適用すれば，
+\begin{gather}
+\llbracket \mathscr{S} \rrbracket \cup \varGamma _2 \cup \varGamma _5 \cup \llbracket \varDelta \rrbracket \vdash _{\lam \mathrm{P2}} (\lam k _\varPhi \ocl\, \varPhi.\, N) \ocl\, (\varPhi \bto X) \label{orE5}
+\end{gather}
+を得る．
+同様にして，式\ref{orE3}から，ある変数環境 $ \varGamma _6 $ が存在して
+\begin{gather}
+\llbracket \mathscr{S} \rrbracket \cup \varGamma _3 \cup \varGamma _6 \cup \llbracket \varDelta \rrbracket \vdash _{\lam \mathrm{P2}} (\lam k _\varPhi \ocl\, \varPsi.\, P) \ocl\, (\varPsi \bto X) \label{orE6}
+\end{gather}
+が分かる．
+したがって，式\ref{orE4},\ats\ref{orE5},\ats\ref{orE6}に規則 $ \op{App} $ を用いて，
+\begin{gather*}
+\llbracket \mathscr{S} \rrbracket \cup \varGamma _7 \cup \llbracket \varDelta \rrbracket \vdash _{\lam \mathrm{P2}} (MX (\lam k _\varPhi \ocl\, \varPhi.\, N) (\lam k _\varPsi \ocl\, \varPsi.\, P)) \ocl\, X
+\end{gather*}
+を得る．
+ここで，
+\begin{gather*}
+\varGamma _7 = \varGamma _1 \cup \varGamma _2 \cup \varGamma _3 \cup \varGamma _4 \cup \varGamma _5 \cup \varGamma _6
+\end{gather*}
+とおいたが，これは変数環境であるから，定理の主張が示された．
+
+\Subsection{二階論理との対応}
+
+初めに定義した多類述語論理は，述語に関する量化を許さない一階論理である．
+しかし，型付け規則 $ \lam \mathrm{P2} $ では，式\ref{quanttype}が示すように型 $ \typstar $ をもつ変項を量化することができる．
+さらに，
+\begin{gather*}
+\vdash _{\lam \mathrm{P2}} (\Pi p \ocl\, (\alpha \bto \typstar).\, \Pi x \ocl\, \alpha.\, px) \ocl\, \typstar
+\end{gather*}
+のように型 $ \alpha \bto \typstar $ の変項を量化することもできる．
+$ \typstar $ は論理式に対応し，$ \alpha \bto \typstar $ は $ \alpha $ 上の述語に対応するのだったから，$ \lam \mathrm{P2} $ では論理式や述語に関する量化に相当することが可能なのである．
+実際，初めに定義した他類述語論理を二階論理に拡張しても，定理\ref{curryhoward}と同様の主張が成立することが知られている．
+
+
+\end{document}
+
+% \begin{thebibliography}{9}
+% \bibitem{blct} H. P. Barendregt (1992)「Lambda calculi with types」『Handbook of Logic in Computer Science』2:117--309
+% \bibitem{jrh} J. R. Hindley, J. P. Seldin (2008)『Lambda-Calculus and Combinators: an Introduction』Cambridge University Press
+% \end{thebibliography}
