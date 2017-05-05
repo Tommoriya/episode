@@ -1,0 +1,272 @@
+\documentclass[./main]{subfiles} 
+%\documentclass[11pt]{jsarticle}
+
+%\usepackage{amsmath, amssymb, amsthm}
+
+\theoremstyle{definition} 
+\newtheorem{theo}{Thm}[section]
+\newtheorem{defi}[theo]{Def}
+\newtheorem{prop}[theo]{Prop}
+\newcommand{\N}{\mathbb{N}}%自然数
+\newcommand{\Z}{\mathbb{Z}}%整数
+\newcommand{\Q}{\mathbb{Q}}%有理数
+\newcommand{\Qp}{\mathbb{Q}_p}%p進数
+\newcommand{\R}{\mathbb{R}}%実数
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}%絶対値
+
+\begin{document} 
+
+\Chapter{$p$進数の世界(白井)} 
+
+1,2章は高校生程度の知識で読めるよう書いてあります．
+3,4章は大学2年程度の内容まで入ります(距離空間という言葉を知っていれば分からない用語は無いと思います)．
+また，ここで$p$は素数とします．
+
+\section{$p$進における近さとは}
+
+$p$進数体$\Qp$は1900年ごろHenselによって導入された$\Q$の拡大体です．
+$\Qp$は$\R$とは違った「距離感」を持っています．
+その「ある素数$p$に着目した距離感」は数論ととても相性が良く，$\Qp$は今や数論にとって欠かせない概念になっています．
+
+では$\Qp$はどのような「距離感」を持っているのか，馴染み深い$\R$と比較しながら説明していきます．
+
+$\R$の世界では，整数$a,b$について非常に小さい正の数$\varepsilon$を用いて，
+\[
+\abs{a-b}<\varepsilon
+\]
+となるとき，$a$と$b$は非常に近いと思えます．
+一方$\Qp$の世界では，整数$a,b$について非常に\textgt{大きい}整数$n$を用いて，
+\[
+a-b \equiv 0 \mod{p^n}
+\]
+となるとき非常に近いと感じよう，というのがルールです．差が$p$でたくさん割り切れるほど，二つの数は近いということです．ですので例えば，
+\[
+1,p,p^2,p^3,p^4,\cdots
+\]
+という数列は0にだんだん近づいていきます．また例えば$p=3$としたとき，4は2よりも1に近いですが，10はもっと1に近くなります．差を計算してみれば分かりますね．
+
+このように$p$進における近さは，数直線で見る$\R$における近さとは大きく異なるのですが，この「距離感」を突き詰めると$\Qp$が現れてきます．
+
+
+%2
+\section{$p$進展開で$\Qp$を定めよう}
+
+実数は普段行われているように，(有限とは限らない)少数表示を用いて書き表せますが，なぜ表せると言えるのでしょうか．それは例えば円周率$\pi$は10進法で書き表すと$3.1415\cdots$となりますが，これを桁の概念を自明なものとせずちゃんと書くと，
+\[
+3 \times 10^0 + 1 \times 10^{-1} + 4 \times 10^{-2} + 1\times 10^{-3} + 5 \times 10^{-4}+ \cdots
+\]
+と書くことが出来ます．この数の極限，つまり行き着く先が$\R$の中に入っているからです．これについては4章で詳しく述べることにしましょう．
+
+ここで先ほどの$\R$の世界での近さが効いています．上の表示では，
+\[
+\abs{\pi-3.1415}<10^{-4}
+\]
+が成り立っているので，$\pi$と3.1415は($\R$の世界で)とても近いと言えます．右辺の$10^{-4}$がもっと小さくなっても，``$\cdots$''のところをもっと具体的に書いていけば$\pi$との差の絶対値がそれより小さくなるので，$3.1415\cdots$は$\pi$に限りなく近づいていると言えます．
+
+これを$\Qp$の世界で考えるとどうなるでしょうか．ここで$\Qp$を次のように定義してしまいましょう．
+\[
+\Qp=\bigl\{ \sum^\infty_{n=m} a_n p^n ; m\in \Z , a_n \in \{ 0,1,\cdots ,p-1\} \bigr\}
+\]
+
+$\Qp$の元をひとつ書いてみると ($p$=3とします) ，
+\[
+\cdots2 \times 3^2 + 1 \times 3^1 + 0 \times 3^0 + 0\times 3^{-1} + 2 \times 3^{-2}
+\]
+
+このように$\Qp$の元を$\sum^\infty_{n=m} a_n p^n$の形で書き表すことを，$\Qp$の\textgt{$p$進展開}といいます．\footnote{$\Qp$がちゃんと体になること，$\Qp$の元で形は違うが値はおなじものがないことを証明しなければ$\Qp$を定義したことにはなりませんが，ここでは割愛します．}
+
+先ほどとの違いは何でしょうか．10と3の違いはありますが，何よりも大きいのは``$\cdots$''の位置ですね，$\Qp$では数の左についています．これは$\Qp$の世界では非常に大きい整数$n$について$p^n$という数が0にとても近いからです．というわけで上の元は$\Qp$の世界で「ある数」にちゃんと収束していることがわかります．さらにその「ある数」は$\Qp$の中に入っています．
+
+例として，$\Q_3$で$-1\in\R$に対応する数を考えてみましょう．$3^n$たちを足し合わせて作らなければいけないので，簡単な形にはならなそうですね．そこで$-1\in\R$を
+\[
+xについての方程式 x+1=0 を満たす唯一の数
+\]
+と考え直してみましょう．筆算の形を作って右から考えていくと$\cdots$
+
+\begin{center}
+\begin{tabular}{ccccccr}
+	 &$\cdots$&2&2&2&2& \\ 
+	+& & & & &1& \\ \cline{1-6} 
+	 &$\cdots$&0&0&0&0& = 0\\
+\end{tabular}
+\end{center}
+
+となり，$\cdots 2222\in \Q_3$が$-1\in\R$に対応していることがわかります．同様に任意の有理数が$p$進展開でき，$\Q \subset \Qp$であることがわかります．
+
+ところで，ある集合の点列がその集合の中に極限を持つとき，その集合は完備であるといいます．今考えている$\R$と$\Qp$は「$\Q$を含み，かつ完備な体である」という共通の性質を持っています．今度はこの完備性を用いて$\Qp$を定義する方法を考えてみましょう．
+
+%3
+\section{$p$進距離を定める}
+
+完備性について議論するにはまず$\Qp$に距離を定めないといけません．最初に述べた「$p$進における近さ」を定式化しましょう．
+
+\begin{defi}
+$a$を0でない有理数とする．各$p$に対し$a$は，
+\[
+a=p^n \frac{s}{t} \quad (n\in \Z, s,t \in \Z \setminus p\Z )
+\]
+と一通りに表すことが出来る．このとき$v_p(a)=n$と定義し，$v_p$を$a$の\textgt{$p$進付値}という．
+\end{defi}
+
+ざっくりいうと，$v_p$は$a$が$p$で何回割り切れるかを表した関数です．また$v_p(0)=\infty$としておきましょう．このとき次が成り立ちます．
+
+\begin{prop}
+$p$進付値について，次が成り立つ．($\infty$に関しての演算は直観の通り)
+\begin{description}
+	\item[(1)] $v_p(ab)=v_p(a)+v_p(b)$
+	\item[(2)] $v_p(a+b) \geqq \min(v_p(a),v_p(b))$
+	\item[(3)] $v_p(a) \neq v_p(b)$ならば，$v_p(a+b)=\min(v_p(a),v_p(b))$
+\end{description}
+\end{prop}
+
+\begin{proof}
+	(1) 定義にならって，
+	\[
+	a=p^n \frac{s}{t},b=p^{n'} \frac{s'}{t'}
+	\]
+	と書き表すと，
+	\[
+	ab=p^{n+n'}\frac{ss'}{tt'}
+	\]
+	となる．$ss',tt' \in \Z \setminus p\Z$だから，$v_p(ab)=n+n'=v_p(a)+v_p(b)$． \\
+	(2) $v_p(a) \leqq v_p(b)$ として一般性を失わない．このとき$n'-n \geqq 0$．
+　\[
+　a+b=p^n \frac{s}{t} + p^{n'} \frac{s'}{t'} = p^n\frac{st'+p^{n'-n}s't}{t't}
+　\]
+	よって(1)より，$v_p(a+b) = v_p(p^n) - v_p(tt') + v_p(st'+p^{n'-n}s't)$．$st'+p^{n'-n}s't \in \Z$ なので，付値は0以上．よって$v_p(a+b) \geqq n-0+0 =n= v_p(a)$．\\
+　(3) $v_p(a) < v_p(b)$ として一般性を失わない．このとき(2)より，$v_p(a+b) \geqq v_p(a)$．また再び(2)より，
+　\[
+　v_p(a)=v((a+b)-b) \geqq \min(v_p(a+b),v_p(-b))
+　\]
+　いま，$v_p(a) < v_p(b)=v_p(-b)$としているので，$v_p(a) \geqq v_p(a+b)$がわかり，以上より$v_p(a+b)=v_p(a)$
+\end{proof}
+
+次に，$p$進付値を用いて$p$進絶対値を定義します．
+
+\begin{defi}
+$a \in \Q$に対し，
+\begin{equation*}
+\abs{a}_p= \begin{cases}
+	p^{-v_p(a)} &(a \neq 0)\\
+	0 &(a=0)
+	\end{cases}
+\end{equation*}
+を$a$の\textgt{$p$進絶対値}という．
+\end{defi}
+
+このとき次が成り立ちます．\footnote{$p$進距離が距離になるには，実は(2)は必要なく，(2)より弱い条件$\abs{a+b}_p \leqq \abs{a}_p+\abs{b}_p$で十分なのですが，$\abs{a+b}_p \leqq \max(\abs{a}_p,\abs{b}_p)$から$\Qp$は「数列の和が収束することと数列が0に収束することが同値」という，$\R$よりも強い収束に関しての法則を持つことがわかります．
+このような乗法付値には名前がついていて，\textgt{非アルキメデス付値}といいます．}
+\begin{prop}
+$p$進絶対値について，次が成り立つ．
+\begin{description}
+	\item[(1)] $\abs{ab}_p=\abs{a}_p \abs{b}_p$
+	\item[(2)] $\abs{a+b}_p \leqq \max(\abs{a}_p,\abs{b}_p)$
+\end{description}
+\end{prop}
+
+\begin{proof}
+	(1) Prop 3.2. (1) と指数法則よりわかる．\\
+	(2) Prop 3.2. (2) と指数法則よりわかる(大小関係に注意)．
+\end{proof}
+
+
+$p$進絶対値は乗法に関して付値っぽい性質を満たしています．(ちゃんというと，$p$進絶対値は乗法付値です．)
+
+最後に$p$進絶対値を使って$p$進距離を定義します．
+
+\begin{defi}
+$a,b \in \Q$に対し，
+\begin{equation*}
+d_p(a,b)=\abs{a-b}_p
+\end{equation*}
+を$a$と$b$の\textgt{$p$進距離}という．
+\end{defi}
+
+このとき次が成り立ちます．
+\begin{theo}
+$p$進距離について，距離の公理が成り立つ．
+\begin{description}
+	\item[(1)] $d_p(a,b) \geqq	0$であり，$d_p(a,b)=0 \Longleftrightarrow a=b$ 
+	\item[(2)] $d_p(a,b)=d_p(b,a)$ 
+	\item[(3)] $d_p(a,c) \leqq d_p(a,b) +d_p(b,c)$
+\end{description}
+\end{theo}
+
+\begin{proof}
+	(1) $a=b$の時は明らか．$a \neq b$ならば，$d_p(a,b)=p^{-v_p(a-b)} \neq 0$．\\
+	(2) $d_p(a,b)=p^{-v_p(a-b)}=p^{-v_p(b-a)}=d_p(b,a)$．\\
+	(3) Prop 3.4. (2) から$x,y \in \Q$について，$\abs{x+y}_p \leqq \abs{x}_p+\abs{y}_p$がわかる．$x=a-b,y=b-c$とすると，$x+y=a-c$となるので$d_p(a,c) \leqq d_p(a,b) +d_p(b,c)$がわかる．
+\end{proof}
+
+Thm 3.6.により，位相空間$(\Q,d_p)$は距離空間であることがわかります．これで最初に述べた「$p$進における近さ」を$d_p$によって定式化することができました．
+
+
+%4
+\section{完備化で$\Qp$を定めよう}
+
+\begin{defi}
+	ある集合の数列$\{x_n\}$が\textgt{コーシー列}であるとは，「	任意の $\varepsilon > 0$ に対し, $m,n \geqq N$ ならば，	$\abs{x_m - x_n}<\varepsilon$ を満たすような$N \in \N$ が存在する」	という条件を満たす数列のことである．
+	また，ある集合の任意のコーシー列が収束するとき，その集合は\textgt{完備}であるという．
+\end{defi}
+
+「収束しないなんてことあるのか？」と思うかもしれませんが，例えば$\Q$上の数列
+\[
+3, 3.1, 3.14, 3.141, 3.1415, \cdots
+\]
+はCauchy列で$\pi$に収束しますが，$\pi$は有理数ではありません．ですので$\Q$は完備ではありません．
+
+ここで，$\R$の定義を「有限値に収束する有理数のコーシー列全体」と考え直してみましょう．正確には，
+\[
+S=有理数のコーシー列全体の集合
+\]
+とし，$S$上での同値関係を，
+\begin{equation*}
+	\begin{split}
+	\{x_n\} \sim \{y_n\} \Longleftrightarrow & 任意の \varepsilon > 0 に対し,  n \geqq N ならば \\
+	&\abs{x_n - y_n}<\varepsilon を満たすようなN \in \N が存在する
+	\end{split}
+\end{equation*}
+と定義します．そして，$S$を今の同値関係で割った商集合$S/{\sim}$を$\R$と定義します．\footnote{$\R$の構成にはコーシー列を用いる方法の他に，デデキント切断による方法などがあります．詳しくは解析学にお任せします．} この方法で構成した$\R$はいつもの意味での$\R$とちゃんと一致します．
+この操作のことを$\Q$の通常の距離についての\textgt{完備化}といいます．同じことを$\Qp$でも考えてみるのです．
+
+\begin{defi}
+	有理数の数列$\{x_n\}$が\textgt{$p$進コーシー列}であるとは，「任意の $\varepsilon > 0$ に対し, $m,n \geqq N$ ならば，$d_p(x_m,x_n)<\varepsilon$ を満たすような$N \in \N$ が存在する」という条件を満たす数列のことである．
+\end{defi}
+
+さらに，
+\[
+S_p=有理数のp進コーシー列全体の集合
+\]
+とし，$S_p$上での同値関係を，
+\begin{equation*}
+	\begin{split}
+	\{x_n\} \sim_p \{y_n\} \Longleftrightarrow &任意の \varepsilon > 0 に対し,  n \geqq N ならば \\
+	&d_p(x_n, y_n)<\varepsilon を満たすようなN \in \N が存在する
+	\end{split}
+\end{equation*}
+と定義します．そして，$S_p$を今の同値関係で割った商集合$S_p/{\sim_p}$を$\Qp$と定義します．この$\Qp$は$p$進展開により定義したものと同じになります．
+
+以上で$\Qp$を2種類の方法で定義することができました．\footnote{$\Qp$のメジャーな定義はあともう一つ，逆極限$\varprojlim_n \Z / p^n\Z$を用いたものがあります．}
+
+
+%5
+\section{$\Qp$で何ができるか}
+
+ここまで$\Qp$を$\R$との比較で構成してきたのですが，実は$\Qp$の視点と$\R$の視点を組み合わせることで，$\Q$についての情報が得られることがあるということが分かっています．例えば，
+
+\begin{equation*}
+0でないa,b \in \Q に対し，ax^2+by^2=1となるx,y \in \Q が存在するのはa,bがどんなときか？
+\end{equation*}
+という問題は$x,y \in \R$および$x,y \in \Qp$について同じ問題を考えることで解を導くことができます．気になった方は，下の参考文献をもとに調べてみてください．数論の鮮やかさと強力さがわかっていただけると思います．
+
+\begin{thebibliography}{9}
+
+\item 加藤和也，黒川信重，斎藤毅『数論I---Fermatの夢と類体論』 岩波書店，2016年
+\item 雪江明彦『整数論１　初等整数論から$p$進数へ』　日本評論社，2013年
+\item 雪江明彦『整数論２　代数的整数論の基礎』　日本評論社，2013年
+\item J.W.S Cassels, A.Fr\"ohlich. \textit{Algebraic Number Theory}. London Mathematical Society, 2010.
+
+\end{thebibliography}
+
+
+\end{document}
