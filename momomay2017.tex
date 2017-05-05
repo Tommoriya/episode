@@ -1,0 +1,225 @@
+\documentclass[. /main]{subfiles}
+%\documentclass{jsarticle}
+
+\usepackage{amsmath,  amssymb}
+\usepackage{amsthm}
+\usepackage[all]{xy}
+
+\theoremstyle{definition}
+\newtheorem{theo}{Theorem}
+\newtheorem{defi}[theo]{Definition}
+\newtheorem{prop}[theo]{Proposition}
+\newtheorem{lemm}[theo]{Lemma}
+
+\begin{document}
+
+\Chapter{$\mathcal{S}et$にはちょうど9つしかモデル構造が入らない話(小林)}
+
+%\section{はじめに}
+\Section{はじめに}
+
+%圏」とは, 大雑把に言えば頂点がたくさんあるかもしれないある条件を満たす有向グラフ的なものである. これは例えばなんらかの数学的対象をまとまりとして捉え, それら全体の成す集まりの挙動を記述する言語になり, そういう数学的対象である（という見方が出来ると僕は認識している）. もしくは数学のいたるところで出てくる似た（もしくは同じ）概念を統一的に理解できるという点でも便利である. 「モデル圏」とは, 圏が同型しか扱えないのに対して, ホモトピー論などを展開する際に例えば「ホモトピー同値」などの概念を組み込まれたもので, 
+
+「圏」というのは大雑把にいうと頂点がたくさんあるかもしれない, ある条件を満たす有向グラフのようなものです. これは典型的には例えば, ある定義を満たす数学的対象たち一つ一つを頂点として, その構造を保つ写像を矢として構成します. 実はこの簡素な構成からは考えられないほど圏は作る元となった数学的対象らの性質を反映していて, 数学のいたるところで使われています(研究の現場にいないので本当のところは知らないですが, おそらくそういう感じだと伝え聞いています). または圏論によって記述すると, 数学の別々のところに出てくる似た(もしくは同じ)概念や構成を統一的に理解できることがあるという利点もあります. 詳しくは[Maclane]を読んでください. 
+
+「モデル圏」というのはその圏に多少の付加構造を加えたもので, 例えば代数的トポロジーなどに出てくるホモトピー同値性などといった関係性などを汲み取ることが出来ます. 詳しくは[Hovey]などを見てください. 
+
+さて本題に入ると, まずMathOverflowでのThomas Goodwillie氏の投稿でこのようなものがありました. (https://mathoverflow. net/a/29653) \cite{Goodwillie}
+\begin{quote}
+
+Among the nine model structures on the category of sets,  there are:
+
+Two in which cofibrant=empty and every set is fibrant. 
+
+Two in which cofibrant=empty and fibrant=\{empty or singleton\}. 
+
+One in which every set is cofibrant and fibrant=nonempty. 
+
+One in which every set is cofibrant and fibrant=singleton. 
+
+One in which every set is cofibrant and fibrant=\{empty or singleton\}. 
+
+Two in which every set is both cofibrant and fibrant. 
+
+\begin{flushright} answered Jun 27 '10 at 0:32
+Tom Goodwillie \end{flushright}
+\end{quote}
+
+これを受けてOmar Antolín Camarena氏が自身のブログにて, この事実と実際の9つのmodel structureの分類の証明を書いていらっしゃいました. (http://www. math. ubc. ca/\textasciitilde oantolin/notes/modelcatsets. html) \cite{Camarena}この記事ではその証明の紹介をしたいと思います. これがモデル圏の例として最初に見るべきものとして適切かは分からないので, 適切な勉強は各々やってもらうとして, モデル圏の定義を覚えるためのExcerciseとして見てみると良いと思います(この例自体はcofibrant objectとfibrant objectだけではモデル構造が定まらないという例だと思います). 
+
+\Section{本題}
+
+以下圏論の諸定義は仮定します(あんまり関係ないですが). 
+
+\Subsection{lifting propertyとWFSとモデル圏}
+以下の定義はすべて[Riehl]におよそ準拠しています(言葉を少なくするために多少の同値な言いかえを含みます). 
+\begin{defi}[Lifting Property]
+圏を固定して, その中の射 $\pi \colon A \to B$, $\rho \colon X \to Y$ の間のlifting problemとは以下の図の実線部分からなるような可換図式のことで, このとき点線で記されたような射が可換になるように伸びるとき, この射をこのlifting problemの解と言う. $\pi$ と$\rho$ の間のすべてのlifting problemに対して解が存在するとき, $\pi$ は$\rho$ に関して{\it left lifting property}(以下LLP)を持つと言い, また$\rho$ は$\pi$ に関して{\it right lifting property}(以下RLP)を持つと言う. 後半のような状況の時, 記号で$\pi \perp \rho$とここでは表すことにする. (注意:そもそも$\pi$ と$\rho$ の間にlifting problemが存在しないような場合も例外なく$\pi \perp \rho$ と書く. )
+\begin{center}
+$\xymatrix{
+A \ar[d]_{\pi} \ar[r] \ar@{}[dr] & X \ar[d]^{\rho} \\
+B \ar@{-->}[ru] \ar[r] & Y \\
+}$
+\end{center}
+\end{defi}
+
+\begin{defi}[Weak Factorization System]
+射のクラスの組$(\mathcal{L},  \mathcal{R})$が以下の3つの条件を満たすとき, {\it weak factorization system} であると言う. 
+\begin{itemize}
+\item[(a)] すべての射は$\mathcal{L}$ に属す射と$\mathcal{R}$ に属す射で分解できる. すなわち, 
+\begin{center}
+$\forall f,  \exists g \in \mathcal{L},  \exists h \in \mathcal{R},  f = h \circ g$
+\end{center}
+\item[(b)] すべての$f \in \mathcal{L},  g \in \mathcal{R}$に対して, $f \perp g$. 
+\item[(c)] さらにもっと強く$\mathcal{L} = {}^{\perp}\mathcal{R}$ かつ$\mathcal{R
+} = {\mathcal{L}}^{\perp}$ を満たす. ただし, 射のクラス$\mathcal{A}$ に対して, ${}^{\perp}\mathcal{A}$ とは$\mathcal{A}$ のすべての要素に対してLLPを持つ射全体のクラスで, ${\mathcal{A}}^{\perp}$ とは$\mathcal{A}$ のすべての要素に対してRLPを持つ射全体のクラスのことである. 
+\end{itemize}
+\end{defi}
+
+\begin{defi}[モデル圏]
+圏$\mathcal{M}$ の{\it model structure} とは, wideな(すべての対象を含む)部分圏$\mathcal{W}$ と射のクラス$\mathcal{C}$ と$\mathcal{F}$ であって, 以下の条件をみたすもののことを言う. 
+\begin{itemize}
+\item[(1)] $\mathcal{W}$ は2-of-3 propertyを満たす. すなわち, $f,  g,  gf \in \mathcal{M}$ のうち2つが$\mathcal{W}$ に含まれているとき, もう一つも$\mathcal{W}$ に含まれる. 
+\item[(2)] $(\mathcal{C} \cap \mathcal{W},  \mathcal{F})$ と$(\mathcal{C},  \mathcal{F} \cap \mathcal{W})$ はWFSである. 
+\end{itemize}
+
+model structureが備わった完備かつ余完備な圏をモデル圏という. 
+
+$\mathcal{W}$ に含まれる射をweak equivalenceと言う. 
+
+$\mathcal{C}$ に含まれる射をcofibrationと言う. 
+
+$\mathcal{F}$ に含まれる射をfibrationと言う. 
+
+(注:モデル圏の定義にはいろいろなvariantがある. )
+\end{defi}
+
+\Subsection{$\mathcal{S}et$にはモデル構造がちょうど9つしか入らないことの証明}
+以下実際に証明していくので, せっかく圏論的なセッティングをしましたが, これからは対象とは集合であり, 射とは写像です. なので, 基本的な素朴な集合と写像の概念が分かっていれば, 読めると思います. 
+\begin{lemm}
+下図のようなlifting problemに解が存在する
+
+$\Leftrightarrow$
+\begin{itemize}
+\item すべての$b \in B$に対して, ${\pi}^{-1}(b)$ の$g$ での像は一点である. 
+\item すべての$b \in B$に対して, ${\rho}^{-1}(f(b)) \neq \emptyset$ . 
+\end{itemize}
+
+\begin{center}
+$\xymatrix{
+A \ar[d]_{\pi} \ar[r]^g \ar@{}[dr] & X \ar[d]^{\rho} \\
+B \ar[r]^f & Y \\
+}$
+\end{center}
+\end{lemm}
+\begin{proof}
+よく見るとそうなっていることが確かめられる. 
+\end{proof}
+
+\begin{lemm}
+$\pi \perp \rho \Leftrightarrow$
+\begin{itemize}
+\item $A \neq \emptyset$かつ$X=\emptyset$ もしくは
+\item $\pi$ と$\rho$ のどちらか一方が単射(mono射)かつ, $\pi$ と$\rho$ のどちらか一方が全射(epi射). 
+\end{itemize}
+\end{lemm}
+\begin{proof}
+$A \neq \emptyset = X$ のとき, そもそも$\pi$ と$\rho$ の間にlifting problemが存在しないので, $\pi \perp \rho$. \\
+$\pi$ と$\rho$ のどちらか一方が単射かつ, $\pi$ と$\rho$ のどちらか一方が全射のとき, これらの間の任意のlifting problemがLemma 4. の条件を満たすことを見れば良い. \\
+逆も少し考えれば分かり, 例えば雰囲気を言うと${\pi}^{-1}(b)$ が2点以上になる$b \in B$, ${\rho}^{-1}(y)$ が2点以上になる$y \in Y$ があったとすると, $b$ を$y$ に移すような写像を$f$ にとって, $g$ ではそのファイバーの点が分かれるような写像を取れば解が存在しないlifting problemが作れる. しっかりした証明をするにはこのような感じで注意深く場合分けしていけばよい. 
+\end{proof}
+
+\begin{prop}
+$\mathcal{S}et$にはWFSが6つしか存在しない. \\
+具体的には, $\mathcal{A}:$ すべての射の成すクラス, $\mathcal{E}:$ すべての全射の成すクラス, $\mathcal{I}:$ すべての全単射の成すクラス$\mathcal{M}:$ すべての単射の成すクラス, $\mathcal{N}:$ すべての始域が$\emptyset$ で終域が非空な写像全体の成すクラスとして, 
+\begin{center} $(\mathcal{A},  \mathcal{I}),  (\mathcal{A} \setminus \mathcal{N},  \mathcal{I} \cup \mathcal{N}),  (\mathcal{M},  \mathcal{E}),  (\mathcal{E},  \mathcal{M}),  (\mathcal{M} \setminus \mathcal{N},  \mathcal{E} \cup \mathcal{N}),  (\mathcal{I},  \mathcal{A})$
+\end{center}
+\end{prop}
+\begin{proof}
+まず$\pi \colon A \to B$ に対して, $({{}^{\perp}(\{\pi\}}^{\perp}),  {\{\pi\}}^{\perp})$を考える. これは構成から明らかにWFSの条件のうち(b)(c)を満たしている. ここで${\{\pi\}}^{\perp}$に現れうる場合をすべて数える. 
+\begin{itemize}
+\item $\pi$ が全単射である場合, ${\{\pi\}}^{\perp}=\mathcal{A}$
+\item $A=\emptyset$ であって, $B$が空でない(すると$\pi$は単射であって, 全射でない)場合, ${\{\pi\}}^{\perp}=\mathcal{E}$. 
+\item $A \neq \emptyset$で$\pi$が単射であって, 全射でない場合, ${\{\pi\}}^{\perp}=\mathcal{E} \cup \mathcal{N}$ . 
+\item $\pi$ が全射であって, 単射でない場合${\{\pi\}}^{\perp}=\mathcal{M}$ . 
+\item $\pi$ が全射でも単射でもない場合(単射でないことから$A \neq \emptyset$が従う), ${\{\pi\}}^{\perp}=\mathcal{I} \cup \mathcal{N}$ . 
+\end{itemize}
+上のような対応はLemma 5. を$\pi$ が各条件を満たすとして適用すればよい. ところで, WFS$(\mathcal{L},  \mathcal{R})$が与えられたとすると, $\mathcal{R}={\bigcup}_{\pi \in \mathcal{L}} {\{\pi\}}^{\perp}$なので, 候補としては上に挙がった5つとその共通部分のものしか$\mathcal{R}$には許されておらず, $\mathcal{R}$が決まれば自動的に$\mathcal{L}$も決まる. 
+
+上の5つの射のクラスの共通部分を取っても新しくできるのは$\mathcal{I}$だけなので, $\mathcal{S}et$に取れるWFSは高々6つであることが分かる. これらについて考えてみると, 
+\begin{description}
+\item [${}^{\perp}\mathcal{A}=\mathcal{I}$] \mbox{}\\
+        ($\because$ Lemma 5. を見ながら考えると, $\rho$が任意に取れるので, $\pi$は全単射で取らないとすべての$\rho$に対してLLPを持てない. )
+\item [${}^{\perp}\mathcal{E}=\mathcal{M}$]\mbox{}\\
+        ($\because$ 同様にLemma 5. と見比べる)
+\item [${}^{\perp}(\mathcal{E} \cup \mathcal{N})=\mathcal{M} \setminus \mathcal{N}$]\mbox{}\\
+        ($\because$ $\mathcal{E}$の元に対してLLPを持つのは$\mathcal{M}$の元であることが必要で, $\mathcal{N}$の元に対してLLPを持つためには始域が$\emptyset$でないか, 始域も終域も$\emptyset$である必要があり, 逆に$\mathcal{M} \setminus \mathcal{N}$の元であればLLPを持つことも見れば分かる. )
+\item [${}^{\perp}\mathcal{M}=\mathcal{E}$]\mbox{}\\
+        ($\because$ これは2番目のやつと同様)
+\item [${}^{\perp}(\mathcal{I} \cup \mathcal{N})=\mathcal{A} \setminus \mathcal{N}$]\mbox{}\\
+        ($\because$ これも3番目のやつと同様)
+\item [${}^{\perp}\mathcal{I}=\mathcal{A}$]\mbox{}\\
+        ($\because$ １番目と同様)
+\end{description}
+以上の議論より6つの候補$(\mathcal{I},  \mathcal{A}),  (\mathcal{M},  \mathcal{E}),  (\mathcal{M} \setminus \mathcal{N},  \mathcal{E} \cup \mathcal{N}),  (\mathcal{E},  \mathcal{M}),  (\mathcal{A} \setminus \mathcal{N},  \mathcal{I} \cup \mathcal{N}),  (\mathcal{A},  \mathcal{I})$が出てきたが, これらはいずれもWFSの条件の(a)を満たすことが確認できる. 
+\end{proof}
+
+\begin{theo}
+集合の成す圏$\mathcal{S}et$に入るmodel structureはちょうど9つである. 
+\end{theo}
+\begin{proof}
+モデル圏は$(\mathcal{C} \cap \mathcal{W},  \mathcal{F})$ と$(\mathcal{C},  \mathcal{F} \cap \mathcal{W})$の2つのWFSを持つわけであるが, $\mathcal{F}$と$\mathcal{F} \cap \mathcal{W}$の包含関係で場合分けして考える. 
+
+まず$\mathcal{F}=\mathcal{F} \cap \mathcal{W}$の場合, 同時に$\mathcal{C} \cap \mathcal{W}=\mathcal{C}$も成り立つことになる. すなわち, $\mathcal{W} \supseteq \mathcal{C} \cup \mathcal{F}$ ということになるが, $\mathcal{S}et$内のどのWFSに関してもこれを満たし, かつ2-of-3 propertyを満たすような部分圏$\mathcal{W}$は$\mathcal{A}$だけしかない. 逆に6つのWFS各々に対して, WFSを$(\mathcal{L},  \mathcal{R})$とすると, $\mathcal{W}=\mathcal{A},  \mathcal{C}=\mathcal{L},  \mathcal{F}=\mathcal{R}$はmodel structureを定めることが分かる($(\mathcal{C} \cap \mathcal{W},  \mathcal{F})$ と$(\mathcal{C},  \mathcal{F} \cap \mathcal{W})$がWFSになるのは作り方から明らかで, $\mathcal{A}$はすべての射からなるので自明に2-of-3 propertyを満たす). これで6つ出来た. 
+
+そして$\mathcal{F} \supsetneq \mathcal{F} \cap \mathcal{W}$の場合を考える. 何度も注意するようにWFSは前に挙げた6つしかないので, 組み合わせは有限通りしかなく, 総当たりすることであり得る$(\mathcal{C} \cap \mathcal{W},  \mathcal{F})$ と$(\mathcal{C},  \mathcal{F} \cap \mathcal{W})$の組で$\mathcal{F} \supsetneq \mathcal{F} \cap \mathcal{W}$を満たす組が分かる. ところで以下の主張が成り立つ. 
+\begin{lemm}
+$\mathcal{W},  \mathcal{C},  \mathcal{F}$がmodel structureを与えるとき, $\mathcal{W}$は$\mathcal{W}=(\mathcal{F} \cap \mathcal{W}) \circ (\mathcal{C} \cap \mathcal{W})$で求められる. 
+\end{lemm}
+($\because$ $\mathcal{W}$の2-of-3 propertyより, $\mathcal{W}$に含まれる射の合成はまた$\mathcal{W}$に含まれる. よって, 右辺が左辺に含まれることは分かる. 逆に任意の$\mathcal{W}$の射を取ってくると, それは$(\mathcal{C} \cap \mathcal{W},  \mathcal{F})$がWFSである仮定より, $\mathcal{C} \cap \mathcal{W}$の射$f$と$\mathcal{F}$の射$g$の合成$g \circ f$で表せる. $f,  g \circ f \in \mathcal{W}$より, $\mathcal{W}$の2-of-3 propertyを使うと$g \in \mathcal{W}$が言える. よって, $g \in \mathcal{F} \cap \mathcal{W}$. )\\ \\
+このLemmaより, $(\mathcal{C} \cap \mathcal{W},  \mathcal{F})$ と$(\mathcal{C},  \mathcal{F} \cap \mathcal{W})$の候補となる組に対して, $\mathcal{W}$の候補を$(\mathcal{F} \cap \mathcal{W}) \circ (\mathcal{C} \cap \mathcal{W})$として計算して, それらがちゃんとmodel structureを与えるかどうかを確かめればよい. 
+\begin{itemize}
+\item $(\mathcal{C} \cap \mathcal{W},  \mathcal{F})=(\mathcal{I},  \mathcal{A})$の場合, $\mathcal{W}=(\mathcal{F} \cap \mathcal{W}) \circ (\mathcal{C} \cap \mathcal{W})=\mathcal{F} \cap \mathcal{W}$となるが, $\mathcal{F} \cap \mathcal{W}$が2-of-3 propertyを満たすような組は$(\mathcal{A},  \mathcal{I})$しかなく, この場合は$\mathcal{C}=\mathcal{A},  \mathcal{F}=\mathcal{A},  \mathcal{W}=\mathcal{I}$がmodel structureを与えているのでこれが7つめ. 
+\item $(\mathcal{C} \cap \mathcal{W},  \mathcal{F})=(\mathcal{M} \setminus \mathcal{N},  \mathcal{E} \cup \mathcal{N})$の場合, $(\mathcal{C},  \mathcal{F} \cap \mathcal{W})$の候補は$(\mathcal{M},  \mathcal{E}),  (\mathcal{A} \setminus \mathcal{N},  \mathcal{I} \cup \mathcal{N}),  (\mathcal{A},  \mathcal{I})$の3つだが, $(\mathcal{F} \cap \mathcal{W}) \circ (\mathcal{C} \cap \mathcal{W})$で2-of-3 propertyを満たすのは$(\mathcal{M},  \mathcal{E})$だけで$\mathcal{W}=(\mathcal{F} \cap \mathcal{W}) \circ (\mathcal{C} \cap \mathcal{W})=\mathcal{E} \circ (\mathcal{M} \setminus \mathcal{N})=\mathcal{A} \setminus \mathcal{N}$. $\mathcal{C}=\mathcal{M},  \mathcal{F}=\mathcal{E} \cup \mathcal{N}$と定めると, $\mathcal{C} \cap \mathcal{W}=\mathcal{M} \setminus \mathcal{N},  \mathcal{F} \cap \mathcal{W}=\mathcal{E}$となるので, これはmodel structureを定めることが分かる. これが8つめ. 
+\item $(\mathcal{C} \cap \mathcal{W},  \mathcal{F})=(\mathcal{E},  \mathcal{M})$の場合, $(\mathcal{C},  \mathcal{F} \cap \mathcal{W})$の候補は$(\mathcal{A} \setminus \mathcal{N},  \mathcal{I} \cup \mathcal{N}),  (\mathcal{A},  \mathcal{I})$の2つ. これらも一つ一つ見れば駄目なことが分かる. 
+\item $(\mathcal{C} \cap \mathcal{W},  \mathcal{F})=(\mathcal{M},  \mathcal{E})$の場合, $(\mathcal{C},  \mathcal{F} \cap \mathcal{W})$の候補は$(\mathcal{A},  \mathcal{I})$のみ. $(\mathcal{F} \cap \mathcal{W}) \circ (\mathcal{C} \cap \mathcal{W})=\mathcal{I} \circ \mathcal{M}=\mathcal{M}$とするとこれは2-of-3 propertyを満たさないので駄目. 
+\item $(\mathcal{C} \cap \mathcal{W},  \mathcal{F})=(\mathcal{A} \setminus \mathcal{N},  \mathcal{I} \cup \mathcal{N})$の場合, $(\mathcal{C},  \mathcal{F} \cap \mathcal{W})$の候補は$(\mathcal{A},  \mathcal{I})$のみで, $(\mathcal{F} \cap \mathcal{W}) \circ (\mathcal{C} \cap \mathcal{W})=\mathcal{I} \circ (\mathcal{A} \setminus \mathcal{N})=\mathcal{A} \setminus \mathcal{N}$であり, これは2-of-3 propertyを満たし, $\mathcal{A} \cap (\mathcal{A} \setminus \mathcal{N})=\mathcal{A} \setminus \mathcal{N},  (\mathcal{I} \cup \mathcal{N}) \cap (\mathcal{A} \setminus \mathcal{N})=\mathcal{I}$となるので, $\mathcal{C}=\mathcal{A},  \mathcal{F}=(\mathcal{I} \cup \mathcal{N}),  \mathcal{W}=\mathcal{A} \setminus \mathcal{N}$とするとこれはmodel structureを定めていることが分かる. これで9つ. 
+\item $(\mathcal{C} \cap \mathcal{W},  \mathcal{F})=(\mathcal{A},  \mathcal{I})$の場合, そもそも$\mathcal{R} \subsetneq \mathcal{I}$となるWFS$(\mathcal{L},  \mathcal{R})$は存在しないので, こうなるようなmodel structureも存在ない. 
+\end{itemize}
+9つのmodel structureが見つかり, これ以外にはないことが以上の注意深い場合分けによって分かる. 
+\end{proof}
+9つのmodel structureを表にまとめるとこうなる. 
+\begin{table}[hbtp]
+\caption{$\mathcal{S}et$に入るmodel structure一覧}
+\centering
+\begin{tabular}{rrr}
+\hline
+$\mathcal{C}$ & $\mathcal{F}$ & $\mathcal{W}$ \\
+\hline \hline
+$\mathcal{I}$ & $\mathcal{A}$ & $\mathcal{A}$\\
+$\mathcal{M} \setminus \mathcal{N}$ & $\mathcal{E} \cup \mathcal{N}$ & $\mathcal{A}$\\
+$\mathcal{E}$ & $\mathcal{M}$ & $\mathcal{A}$\\
+$\mathcal{M}$ & $\mathcal{E}$ & $\mathcal{A}$\\
+$\mathcal{A} \setminus \mathcal{N}$ & $\mathcal{I} \cup \mathcal{N}$ & $\mathcal{A}$\\
+$\mathcal{A}$ & $\mathcal{I}$ & $\mathcal{A}$\\
+$\mathcal{M}$ & $\mathcal{E} \cup \mathcal{N}$ & $\mathcal{A} \setminus \mathcal{N}$\\
+$\mathcal{A}$ & $\mathcal{I} \cup \mathcal{N}$ & $\mathcal{A} \setminus \mathcal{N}$\\
+$\mathcal{A}$ & $\mathcal{A}$ & $\mathcal{I}$\\
+\hline
+\end{tabular}
+\end{table}
+\Section{出典, 参考文献}
+\begin{thebibliography}{9}
+\bibitem[MacLane]{MacLane} Saunders Mac Lane.  
+{\it Categories for the working mathmatician,  volume 5 of Graduate Texts in Mathmatics.}  Springer-Verlag,  New York,  1998. 
+\bibitem[Hovey]{Hovey} Mark Hovey. 
+{\it Model categories,  volume 63 of Mathmatical Surveys and Monographs.}  American Mathmatical Society,  Providence,  RI,  1999. 
+\bibitem[Goodwillie]{Goodwillie} Thomas GoogwillieのMathoverflowへの投稿.  
+https://mathoverflow. net/a/29653
+\bibitem[Camarena]{Camarena} Omar Antolín Camarena. 
+{\it The nine model category structures on the category of sets. } Omar Antolín Camarena氏のホームページより
+\bibitem[Riehl]{Riehl} Emily Riehl. 
+{\it Categorical Homotopy Theory,  volume 24 of New Mathmatical Monographs.}  Cambridge University Press,  2014. 
+
+\end{thebibliography}
+\end{document}
